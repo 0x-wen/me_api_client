@@ -1,0 +1,48 @@
+name: Publish Python Package
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools wheel
+
+    - name: Build package
+      run: python setup.py sdist bdist_wheel
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.event.release.tag_name }}
+        release_name: Release ${{ github.event.release.tag_name }}
+        draft: false
+        prerelease: false
+
+    - name: Upload asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist/*.whl
+        asset_name: swagger_client_py.whl
+        asset_content_type: application/octet-stream
