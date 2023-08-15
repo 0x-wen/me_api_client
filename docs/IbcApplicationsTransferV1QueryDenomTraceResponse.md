@@ -1,0 +1,9 @@
+# IbcApplicationsTransferV1QueryDenomTraceResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**denom_trace** | [**IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace**](IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
