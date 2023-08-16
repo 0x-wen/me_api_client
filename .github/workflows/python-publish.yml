@@ -2,11 +2,12 @@ name: Publish Python Package
 
 on:
   push:
-    branches:
-    - main
+    tags:
+      - 'v*'
 
 jobs:
-  deploy:
+  release:
+    name: Release
     runs-on: ubuntu-latest
 
     steps:
@@ -18,31 +19,35 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Install dependencies
+    - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools wheel
+        pip install -r requirements.txt  
 
-    - name: Build package
-      run: python setup.py sdist bdist_wheel
+    - name: Get Tag Version
+      id: get_tag_version
+      run: echo "::set-output name=version::${GITHUB_REF/refs\/tags\//}"
 
-    - name: Create release
+    - name: Get Tag Description
+      id: get_tag_description
+      run: |
+        TAG_NAME=${{ steps.get_tag_version.outputs.version }}
+        DESCRIPTION=$(git log --format=%s -1 "$TAG_NAME")  
+        echo "::set-output name=description::$DESCRIPTION"
+
+    - name: Print Tag Information
+      run: |
+        echo "Tag Version:  ${{ steps.get_tag_version.outputs.version }}"
+        echo "Tag Description: ${{ steps.get_tag_description.outputs.description }}"
+
+    - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.event.release.tag_name }}
-        release_name: Release ${{ github.event.release.tag_name }}
-        draft: false
-        prerelease: false
-
-    - name: Upload asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/*.whl
-        asset_name: swagger_client_py.whl
-        asset_content_type: application/octet-stream
+       tag_name: ${{ steps.get_tag_version.outputs.version }}
+       release_name: Release ${{ steps.get_tag_version.outputs.version }}
+       body: ${{ steps.get_tag_description.outputs.description }}
+       draft: false
+       prerelease: false
