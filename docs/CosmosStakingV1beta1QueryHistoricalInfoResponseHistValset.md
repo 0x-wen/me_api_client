@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **unbonding_time** | **datetime** | unbonding_time defines, if unbonding, the min time for the validator to complete unbonding. | [optional] 
 **commission** | [**CosmosStakingV1beta1HistoricalInfoCommission**](CosmosStakingV1beta1HistoricalInfoCommission.md) |  | [optional] 
 **min_self_stake** | **str** | min_self_stake is the validator&#x27;s self declared minimum self stake.  Since: cosmos-sdk 0.46 | [optional] 
+**unbonding_on_hold_ref_count** | **str** |  | [optional] 
+**unbonding_ids** | **list[str]** |  | [optional] 
 **delegation_amount** | **str** |  | [optional] 
 **kyc_amount** | **str** |  | [optional] 
 **owner_address** | **str** |  | [optional] 

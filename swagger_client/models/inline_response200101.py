@@ -28,52 +28,47 @@ class InlineResponse200101(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'connections': 'list[IbcCoreConnectionV1QueryConnectionsResponseConnections]',
-        'pagination': 'PaginationResponse',
-        'height': 'QueryBlockHeight'
+        'client_states': 'list[IbcCoreClientV1QueryClientStatesResponseClientStates]',
+        'pagination': 'PaginationResponse'
     }
 
     attribute_map = {
-        'connections': 'connections',
-        'pagination': 'pagination',
-        'height': 'height'
+        'client_states': 'client_states',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, connections=None, pagination=None, height=None):  # noqa: E501
+    def __init__(self, client_states=None, pagination=None):  # noqa: E501
         """InlineResponse200101 - a model defined in Swagger"""  # noqa: E501
-        self._connections = None
+        self._client_states = None
         self._pagination = None
-        self._height = None
         self.discriminator = None
-        if connections is not None:
-            self.connections = connections
+        if client_states is not None:
+            self.client_states = client_states
         if pagination is not None:
             self.pagination = pagination
-        if height is not None:
-            self.height = height
 
     @property
-    def connections(self):
-        """Gets the connections of this InlineResponse200101.  # noqa: E501
+    def client_states(self):
+        """Gets the client_states of this InlineResponse200101.  # noqa: E501
 
-        list of stored connections of the chain.  # noqa: E501
+        list of stored ClientStates of the chain.  # noqa: E501
 
-        :return: The connections of this InlineResponse200101.  # noqa: E501
-        :rtype: list[IbcCoreConnectionV1QueryConnectionsResponseConnections]
+        :return: The client_states of this InlineResponse200101.  # noqa: E501
+        :rtype: list[IbcCoreClientV1QueryClientStatesResponseClientStates]
         """
-        return self._connections
+        return self._client_states
 
-    @connections.setter
-    def connections(self, connections):
-        """Sets the connections of this InlineResponse200101.
+    @client_states.setter
+    def client_states(self, client_states):
+        """Sets the client_states of this InlineResponse200101.
 
-        list of stored connections of the chain.  # noqa: E501
+        list of stored ClientStates of the chain.  # noqa: E501
 
-        :param connections: The connections of this InlineResponse200101.  # noqa: E501
-        :type: list[IbcCoreConnectionV1QueryConnectionsResponseConnections]
+        :param client_states: The client_states of this InlineResponse200101.  # noqa: E501
+        :type: list[IbcCoreClientV1QueryClientStatesResponseClientStates]
         """
 
-        self._connections = connections
+        self._client_states = client_states
 
     @property
     def pagination(self):
@@ -95,27 +90,6 @@ class InlineResponse200101(object):
         """
 
         self._pagination = pagination
-
-    @property
-    def height(self):
-        """Gets the height of this InlineResponse200101.  # noqa: E501
-
-
-        :return: The height of this InlineResponse200101.  # noqa: E501
-        :rtype: QueryBlockHeight
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this InlineResponse200101.
-
-
-        :param height: The height of this InlineResponse200101.  # noqa: E501
-        :type: QueryBlockHeight
-        """
-
-        self._height = height
 
     def to_dict(self):
         """Returns the model properties as a dict"""

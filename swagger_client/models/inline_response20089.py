@@ -28,42 +28,66 @@ class InlineResponse20089(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hash': 'str'
+        'contract_addresses': 'list[str]',
+        'pagination': 'CosmwasmWasmV1QueryContractsByCreatorResponsePagination'
     }
 
     attribute_map = {
-        'hash': 'hash'
+        'contract_addresses': 'contract_addresses',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, hash=None):  # noqa: E501
+    def __init__(self, contract_addresses=None, pagination=None):  # noqa: E501
         """InlineResponse20089 - a model defined in Swagger"""  # noqa: E501
-        self._hash = None
+        self._contract_addresses = None
+        self._pagination = None
         self.discriminator = None
-        if hash is not None:
-            self.hash = hash
+        if contract_addresses is not None:
+            self.contract_addresses = contract_addresses
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def hash(self):
-        """Gets the hash of this InlineResponse20089.  # noqa: E501
+    def contract_addresses(self):
+        """Gets the contract_addresses of this InlineResponse20089.  # noqa: E501
 
-        hash (in hex format) of the denomination trace information.  # noqa: E501
 
-        :return: The hash of this InlineResponse20089.  # noqa: E501
-        :rtype: str
+        :return: The contract_addresses of this InlineResponse20089.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._hash
+        return self._contract_addresses
 
-    @hash.setter
-    def hash(self, hash):
-        """Sets the hash of this InlineResponse20089.
+    @contract_addresses.setter
+    def contract_addresses(self, contract_addresses):
+        """Sets the contract_addresses of this InlineResponse20089.
 
-        hash (in hex format) of the denomination trace information.  # noqa: E501
 
-        :param hash: The hash of this InlineResponse20089.  # noqa: E501
-        :type: str
+        :param contract_addresses: The contract_addresses of this InlineResponse20089.  # noqa: E501
+        :type: list[str]
         """
 
-        self._hash = hash
+        self._contract_addresses = contract_addresses
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20089.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20089.  # noqa: E501
+        :rtype: CosmwasmWasmV1QueryContractsByCreatorResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20089.
+
+
+        :param pagination: The pagination of this InlineResponse20089.  # noqa: E501
+        :type: CosmwasmWasmV1QueryContractsByCreatorResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

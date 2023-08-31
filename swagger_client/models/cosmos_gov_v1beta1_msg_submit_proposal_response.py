@@ -46,6 +46,7 @@ class CosmosGovV1beta1MsgSubmitProposalResponse(object):
     def proposal_id(self):
         """Gets the proposal_id of this CosmosGovV1beta1MsgSubmitProposalResponse.  # noqa: E501
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :return: The proposal_id of this CosmosGovV1beta1MsgSubmitProposalResponse.  # noqa: E501
         :rtype: str
@@ -56,6 +57,7 @@ class CosmosGovV1beta1MsgSubmitProposalResponse(object):
     def proposal_id(self, proposal_id):
         """Sets the proposal_id of this CosmosGovV1beta1MsgSubmitProposalResponse.
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :param proposal_id: The proposal_id of this CosmosGovV1beta1MsgSubmitProposalResponse.  # noqa: E501
         :type: str

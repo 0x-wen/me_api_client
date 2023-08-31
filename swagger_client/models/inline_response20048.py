@@ -28,40 +28,68 @@ class InlineResponse20048(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'info': 'CosmosGroupV1QueryGroupInfoResponseInfo'
+        'proposals': 'list[CosmosGovV1beta1QueryProposalResponseProposal]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'info': 'info'
+        'proposals': 'proposals',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, info=None):  # noqa: E501
+    def __init__(self, proposals=None, pagination=None):  # noqa: E501
         """InlineResponse20048 - a model defined in Swagger"""  # noqa: E501
-        self._info = None
+        self._proposals = None
+        self._pagination = None
         self.discriminator = None
-        if info is not None:
-            self.info = info
+        if proposals is not None:
+            self.proposals = proposals
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def info(self):
-        """Gets the info of this InlineResponse20048.  # noqa: E501
+    def proposals(self):
+        """Gets the proposals of this InlineResponse20048.  # noqa: E501
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
-        :return: The info of this InlineResponse20048.  # noqa: E501
-        :rtype: CosmosGroupV1QueryGroupInfoResponseInfo
+        :return: The proposals of this InlineResponse20048.  # noqa: E501
+        :rtype: list[CosmosGovV1beta1QueryProposalResponseProposal]
         """
-        return self._info
+        return self._proposals
 
-    @info.setter
-    def info(self, info):
-        """Sets the info of this InlineResponse20048.
+    @proposals.setter
+    def proposals(self, proposals):
+        """Sets the proposals of this InlineResponse20048.
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
-        :param info: The info of this InlineResponse20048.  # noqa: E501
-        :type: CosmosGroupV1QueryGroupInfoResponseInfo
+        :param proposals: The proposals of this InlineResponse20048.  # noqa: E501
+        :type: list[CosmosGovV1beta1QueryProposalResponseProposal]
         """
 
-        self._info = info
+        self._proposals = proposals
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20048.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20048.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20048.
+
+
+        :param pagination: The pagination of this InlineResponse20048.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

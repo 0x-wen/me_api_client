@@ -28,40 +28,66 @@ class InlineResponse20065(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'subspaces': 'list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]'
+        'fixed_deposit': 'list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]',
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
-        'subspaces': 'subspaces'
+        'fixed_deposit': 'FixedDeposit',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, subspaces=None):  # noqa: E501
+    def __init__(self, fixed_deposit=None, pagination=None):  # noqa: E501
         """InlineResponse20065 - a model defined in Swagger"""  # noqa: E501
-        self._subspaces = None
+        self._fixed_deposit = None
+        self._pagination = None
         self.discriminator = None
-        if subspaces is not None:
-            self.subspaces = subspaces
+        if fixed_deposit is not None:
+            self.fixed_deposit = fixed_deposit
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def subspaces(self):
-        """Gets the subspaces of this InlineResponse20065.  # noqa: E501
+    def fixed_deposit(self):
+        """Gets the fixed_deposit of this InlineResponse20065.  # noqa: E501
 
 
-        :return: The subspaces of this InlineResponse20065.  # noqa: E501
-        :rtype: list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]
+        :return: The fixed_deposit of this InlineResponse20065.  # noqa: E501
+        :rtype: list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]
         """
-        return self._subspaces
+        return self._fixed_deposit
 
-    @subspaces.setter
-    def subspaces(self, subspaces):
-        """Sets the subspaces of this InlineResponse20065.
+    @fixed_deposit.setter
+    def fixed_deposit(self, fixed_deposit):
+        """Sets the fixed_deposit of this InlineResponse20065.
 
 
-        :param subspaces: The subspaces of this InlineResponse20065.  # noqa: E501
-        :type: list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]
+        :param fixed_deposit: The fixed_deposit of this InlineResponse20065.  # noqa: E501
+        :type: list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]
         """
 
-        self._subspaces = subspaces
+        self._fixed_deposit = fixed_deposit
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20065.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20065.  # noqa: E501
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20065.
+
+
+        :param pagination: The pagination of this InlineResponse20065.  # noqa: E501
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

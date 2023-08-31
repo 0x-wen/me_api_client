@@ -28,40 +28,40 @@ class InlineResponse2005(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accounts': 'list[dict(str, object)]'
+        'address_bytes': 'str'
     }
 
     attribute_map = {
-        'accounts': 'accounts'
+        'address_bytes': 'address_bytes'
     }
 
-    def __init__(self, accounts=None):  # noqa: E501
+    def __init__(self, address_bytes=None):  # noqa: E501
         """InlineResponse2005 - a model defined in Swagger"""  # noqa: E501
-        self._accounts = None
+        self._address_bytes = None
         self.discriminator = None
-        if accounts is not None:
-            self.accounts = accounts
+        if address_bytes is not None:
+            self.address_bytes = address_bytes
 
     @property
-    def accounts(self):
-        """Gets the accounts of this InlineResponse2005.  # noqa: E501
+    def address_bytes(self):
+        """Gets the address_bytes of this InlineResponse2005.  # noqa: E501
 
 
-        :return: The accounts of this InlineResponse2005.  # noqa: E501
-        :rtype: list[dict(str, object)]
+        :return: The address_bytes of this InlineResponse2005.  # noqa: E501
+        :rtype: str
         """
-        return self._accounts
+        return self._address_bytes
 
-    @accounts.setter
-    def accounts(self, accounts):
-        """Sets the accounts of this InlineResponse2005.
+    @address_bytes.setter
+    def address_bytes(self, address_bytes):
+        """Sets the address_bytes of this InlineResponse2005.
 
 
-        :param accounts: The accounts of this InlineResponse2005.  # noqa: E501
-        :type: list[dict(str, object)]
+        :param address_bytes: The address_bytes of this InlineResponse2005.  # noqa: E501
+        :type: str
         """
 
-        self._accounts = accounts
+        self._address_bytes = address_bytes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

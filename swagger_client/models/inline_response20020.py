@@ -28,248 +28,40 @@ class InlineResponse20020(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'code': 'int',
-        'log': 'str',
-        'info': 'str',
-        'index': 'str',
-        'key': 'str',
-        'value': 'str',
-        'proof_ops': 'CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps',
-        'height': 'str',
-        'codespace': 'str'
+        'balance': 'CosmosBankV1beta1QueryBalanceResponseBalance'
     }
 
     attribute_map = {
-        'code': 'code',
-        'log': 'log',
-        'info': 'info',
-        'index': 'index',
-        'key': 'key',
-        'value': 'value',
-        'proof_ops': 'proof_ops',
-        'height': 'height',
-        'codespace': 'codespace'
+        'balance': 'balance'
     }
 
-    def __init__(self, code=None, log=None, info=None, index=None, key=None, value=None, proof_ops=None, height=None, codespace=None):  # noqa: E501
+    def __init__(self, balance=None):  # noqa: E501
         """InlineResponse20020 - a model defined in Swagger"""  # noqa: E501
-        self._code = None
-        self._log = None
-        self._info = None
-        self._index = None
-        self._key = None
-        self._value = None
-        self._proof_ops = None
-        self._height = None
-        self._codespace = None
+        self._balance = None
         self.discriminator = None
-        if code is not None:
-            self.code = code
-        if log is not None:
-            self.log = log
-        if info is not None:
-            self.info = info
-        if index is not None:
-            self.index = index
-        if key is not None:
-            self.key = key
-        if value is not None:
-            self.value = value
-        if proof_ops is not None:
-            self.proof_ops = proof_ops
-        if height is not None:
-            self.height = height
-        if codespace is not None:
-            self.codespace = codespace
+        if balance is not None:
+            self.balance = balance
 
     @property
-    def code(self):
-        """Gets the code of this InlineResponse20020.  # noqa: E501
+    def balance(self):
+        """Gets the balance of this InlineResponse20020.  # noqa: E501
 
 
-        :return: The code of this InlineResponse20020.  # noqa: E501
-        :rtype: int
+        :return: The balance of this InlineResponse20020.  # noqa: E501
+        :rtype: CosmosBankV1beta1QueryBalanceResponseBalance
         """
-        return self._code
+        return self._balance
 
-    @code.setter
-    def code(self, code):
-        """Sets the code of this InlineResponse20020.
-
-
-        :param code: The code of this InlineResponse20020.  # noqa: E501
-        :type: int
-        """
-
-        self._code = code
-
-    @property
-    def log(self):
-        """Gets the log of this InlineResponse20020.  # noqa: E501
+    @balance.setter
+    def balance(self, balance):
+        """Sets the balance of this InlineResponse20020.
 
 
-        :return: The log of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._log
-
-    @log.setter
-    def log(self, log):
-        """Sets the log of this InlineResponse20020.
-
-
-        :param log: The log of this InlineResponse20020.  # noqa: E501
-        :type: str
+        :param balance: The balance of this InlineResponse20020.  # noqa: E501
+        :type: CosmosBankV1beta1QueryBalanceResponseBalance
         """
 
-        self._log = log
-
-    @property
-    def info(self):
-        """Gets the info of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The info of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._info
-
-    @info.setter
-    def info(self, info):
-        """Sets the info of this InlineResponse20020.
-
-
-        :param info: The info of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._info = info
-
-    @property
-    def index(self):
-        """Gets the index of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The index of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._index
-
-    @index.setter
-    def index(self, index):
-        """Sets the index of this InlineResponse20020.
-
-
-        :param index: The index of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._index = index
-
-    @property
-    def key(self):
-        """Gets the key of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The key of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._key
-
-    @key.setter
-    def key(self, key):
-        """Sets the key of this InlineResponse20020.
-
-
-        :param key: The key of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._key = key
-
-    @property
-    def value(self):
-        """Gets the value of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The value of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._value
-
-    @value.setter
-    def value(self, value):
-        """Sets the value of this InlineResponse20020.
-
-
-        :param value: The value of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._value = value
-
-    @property
-    def proof_ops(self):
-        """Gets the proof_ops of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The proof_ops of this InlineResponse20020.  # noqa: E501
-        :rtype: CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps
-        """
-        return self._proof_ops
-
-    @proof_ops.setter
-    def proof_ops(self, proof_ops):
-        """Sets the proof_ops of this InlineResponse20020.
-
-
-        :param proof_ops: The proof_ops of this InlineResponse20020.  # noqa: E501
-        :type: CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps
-        """
-
-        self._proof_ops = proof_ops
-
-    @property
-    def height(self):
-        """Gets the height of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The height of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this InlineResponse20020.
-
-
-        :param height: The height of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._height = height
-
-    @property
-    def codespace(self):
-        """Gets the codespace of this InlineResponse20020.  # noqa: E501
-
-
-        :return: The codespace of this InlineResponse20020.  # noqa: E501
-        :rtype: str
-        """
-        return self._codespace
-
-    @codespace.setter
-    def codespace(self, codespace):
-        """Sets the codespace of this InlineResponse20020.
-
-
-        :param codespace: The codespace of this InlineResponse20020.  # noqa: E501
-        :type: str
-        """
-
-        self._codespace = codespace
+        self._balance = balance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

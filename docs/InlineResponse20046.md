@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**votes** | [**list[CosmosGovV1beta1QueryVotesResponseVotes]**](CosmosGovV1beta1QueryVotesResponseVotes.md) | votes defined the queried votes. | [optional] 
-**pagination** | [**CosmosAuthV1beta1QueryAccountsResponsePagination**](CosmosAuthV1beta1QueryAccountsResponsePagination.md) |  | [optional] 
+**vote** | [**CosmosGovV1QueryVoteResponseVote**](CosmosGovV1QueryVoteResponseVote.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

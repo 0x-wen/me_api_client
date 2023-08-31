@@ -28,40 +28,42 @@ class InlineResponse20086(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams'
+        'module_versions': 'list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]'
     }
 
     attribute_map = {
-        'params': 'params'
+        'module_versions': 'module_versions'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, module_versions=None):  # noqa: E501
         """InlineResponse20086 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._module_versions = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if module_versions is not None:
+            self.module_versions = module_versions
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20086.  # noqa: E501
+    def module_versions(self):
+        """Gets the module_versions of this InlineResponse20086.  # noqa: E501
 
+        module_versions is a list of module names with their consensus versions.  # noqa: E501
 
-        :return: The params of this InlineResponse20086.  # noqa: E501
-        :rtype: IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams
+        :return: The module_versions of this InlineResponse20086.  # noqa: E501
+        :rtype: list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]
         """
-        return self._params
+        return self._module_versions
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20086.
+    @module_versions.setter
+    def module_versions(self, module_versions):
+        """Sets the module_versions of this InlineResponse20086.
 
+        module_versions is a list of module names with their consensus versions.  # noqa: E501
 
-        :param params: The params of this InlineResponse20086.  # noqa: E501
-        :type: IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams
+        :param module_versions: The module_versions of this InlineResponse20086.  # noqa: E501
+        :type: list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]
         """
 
-        self._params = params
+        self._module_versions = module_versions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

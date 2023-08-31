@@ -42,7 +42,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address: address defines the address to query for. (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -63,7 +63,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address: address defines the address to query for. (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -117,7 +117,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -135,7 +135,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. (required)
+        :param str id: Deprecated, use account_id instead  id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. (required)
+        :param str account_id: account_id is the account number of the address to be queried.  Since: cosmos-sdk 0.47
         :return: QueryAccountAddressByIDResponseIsTheResponseTypeForAccountAddressByIDRpcMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -157,13 +158,14 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str id: id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. (required)
+        :param str id: Deprecated, use account_id instead  id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. (required)
+        :param str account_id: account_id is the account number of the address to be queried.  Since: cosmos-sdk 0.47
         :return: QueryAccountAddressByIDResponseIsTheResponseTypeForAccountAddressByIDRpcMethod
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']  # noqa: E501
+        all_params = ['id', 'account_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -190,6 +192,8 @@ class QueryApi(object):
             path_params['id'] = params['id']  # noqa: E501
 
         query_params = []
+        if 'account_id' in params:
+            query_params.append(('account_id', params['account_id']))  # noqa: E501
 
         header_params = {}
 
@@ -220,10 +224,105 @@ class QueryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cosmos_auth_v1_beta1_accounts(self, **kwargs):  # noqa: E501
-        """Accounts returns all the existing accounts  # noqa: E501
+    def cosmos_auth_v1_beta1_account_info(self, address, **kwargs):  # noqa: E501
+        """AccountInfo queries account info which is common to all account types.  # noqa: E501
 
-        Since: cosmos-sdk 0.43  # noqa: E501
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_auth_v1_beta1_account_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the account address string. (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_auth_v1_beta1_account_info_with_http_info(address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_auth_v1_beta1_account_info_with_http_info(address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_auth_v1_beta1_account_info_with_http_info(self, address, **kwargs):  # noqa: E501
+        """AccountInfo queries account info which is common to all account types.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_auth_v1_beta1_account_info_with_http_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the account address string. (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_auth_v1_beta1_account_info" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmos_auth_v1_beta1_account_info`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/auth/v1beta1/account_info/{address}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse200',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_auth_v1_beta1_accounts(self, **kwargs):  # noqa: E501
+        """Accounts returns all the existing accounts.  # noqa: E501
+
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.43  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_auth_v1_beta1_accounts(async_req=True)
@@ -235,7 +334,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -247,9 +346,9 @@ class QueryApi(object):
             return data
 
     def cosmos_auth_v1_beta1_accounts_with_http_info(self, **kwargs):  # noqa: E501
-        """Accounts returns all the existing accounts  # noqa: E501
+        """Accounts returns all the existing accounts.  # noqa: E501
 
-        Since: cosmos-sdk 0.43  # noqa: E501
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.43  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_auth_v1_beta1_accounts_with_http_info(async_req=True)
@@ -261,7 +360,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -319,7 +418,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -338,7 +437,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address_bytes: (required)
-        :return: InlineResponse2003
+        :return: InlineResponse2004
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -360,7 +459,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address_bytes: (required)
-        :return: InlineResponse2003
+        :return: InlineResponse2004
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -414,7 +513,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='InlineResponse2004',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -433,7 +532,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address_string: (required)
-        :return: InlineResponse2004
+        :return: InlineResponse2005
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -455,7 +554,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str address_string: (required)
-        :return: InlineResponse2004
+        :return: InlineResponse2005
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -509,7 +608,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
+            response_type='InlineResponse2005',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -527,7 +626,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2002
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -548,7 +647,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2002
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -596,7 +695,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -614,7 +713,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str name: (required)
-        :return: InlineResponse2006
+        :return: InlineResponse2007
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -635,7 +734,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str name: (required)
-        :return: InlineResponse2006
+        :return: InlineResponse2007
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -689,7 +788,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2006',  # noqa: E501
+            response_type='InlineResponse2007',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -707,7 +806,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2005
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -728,7 +827,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2005
+        :return: InlineResponse2006
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -776,7 +875,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2005',  # noqa: E501
+            response_type='InlineResponse2006',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -793,7 +892,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2007
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -813,7 +912,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse2007
+        :return: InlineResponse2008
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -861,7 +960,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2007',  # noqa: E501
+            response_type='InlineResponse2008',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -885,7 +984,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -912,7 +1011,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse2009
+        :return: InlineResponse20010
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -976,7 +1075,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2009',  # noqa: E501
+            response_type='InlineResponse20010',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1000,7 +1099,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20010
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1027,7 +1126,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20010
+        :return: InlineResponse20011
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1091,7 +1190,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20010',  # noqa: E501
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1116,7 +1215,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1144,7 +1243,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse2008
+        :return: InlineResponse2009
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1208,7 +1307,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2008',  # noqa: E501
+            response_type='InlineResponse2009',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1219,6 +1318,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_all_balances(self, address, **kwargs):  # noqa: E501
         """AllBalances queries the balance of all coins for a single account.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_all_balances(address, async_req=True)
@@ -1231,7 +1331,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20011
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1245,6 +1345,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_all_balances_with_http_info(self, address, **kwargs):  # noqa: E501
         """AllBalances queries the balance of all coins for a single account.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_all_balances_with_http_info(address, async_req=True)
@@ -1257,7 +1358,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20011
+        :return: InlineResponse20012
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1321,7 +1422,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20011',  # noqa: E501
+            response_type='InlineResponse20012',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1340,7 +1441,7 @@ class QueryApi(object):
         :param async_req bool
         :param str address: address is the address to query balances for. (required)
         :param str denom: denom is the coin denom to query balances for.
-        :return: InlineResponse20012
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1362,7 +1463,7 @@ class QueryApi(object):
         :param async_req bool
         :param str address: address is the address to query balances for. (required)
         :param str denom: denom is the coin denom to query balances for.
-        :return: InlineResponse20012
+        :return: InlineResponse20013
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1418,7 +1519,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20012',  # noqa: E501
+            response_type='InlineResponse20013',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1436,7 +1537,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str denom: denom is the coin denom to query the metadata for. (required)
-        :return: InlineResponse20015
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1457,7 +1558,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str denom: denom is the coin denom to query the metadata for. (required)
-        :return: InlineResponse20015
+        :return: InlineResponse20016
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1511,7 +1612,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20015',  # noqa: E501
+            response_type='InlineResponse20016',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1522,7 +1623,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_denom_owners(self, denom, **kwargs):  # noqa: E501
         """DenomOwners queries for all account addresses that own a particular token denomination.  # noqa: E501
 
-        Since: cosmos-sdk 0.46  # noqa: E501
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_denom_owners(denom, async_req=True)
@@ -1535,7 +1636,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20013
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1549,7 +1650,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_denom_owners_with_http_info(self, denom, **kwargs):  # noqa: E501
         """DenomOwners queries for all account addresses that own a particular token denomination.  # noqa: E501
 
-        Since: cosmos-sdk 0.46  # noqa: E501
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_denom_owners_with_http_info(denom, async_req=True)
@@ -1562,7 +1663,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20013
+        :return: InlineResponse20014
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1626,7 +1727,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20013',  # noqa: E501
+            response_type='InlineResponse20014',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1648,7 +1749,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20014
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1673,7 +1774,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20014
+        :return: InlineResponse20015
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1731,7 +1832,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20014',  # noqa: E501
+            response_type='InlineResponse20015',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1748,7 +1849,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20016
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1768,7 +1869,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20016
+        :return: InlineResponse20017
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1816,7 +1917,218 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20016',  # noqa: E501
+            response_type='InlineResponse20017',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_bank_v1_beta1_send_enabled(self, **kwargs):  # noqa: E501
+        """SendEnabled queries for SendEnabled entries.  # noqa: E501
+
+        This query only returns denominations that have specific SendEnabled settings. Any denomination that does not have a specific setting will use the default params.default_send_enabled, and will not be returned by this query.  Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_bank_v1_beta1_send_enabled(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[str] denoms: denoms is the specific denoms you want look up. Leave empty to get all entries.
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20018
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_bank_v1_beta1_send_enabled_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_bank_v1_beta1_send_enabled_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def cosmos_bank_v1_beta1_send_enabled_with_http_info(self, **kwargs):  # noqa: E501
+        """SendEnabled queries for SendEnabled entries.  # noqa: E501
+
+        This query only returns denominations that have specific SendEnabled settings. Any denomination that does not have a specific setting will use the default params.default_send_enabled, and will not be returned by this query.  Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_bank_v1_beta1_send_enabled_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param list[str] denoms: denoms is the specific denoms you want look up. Leave empty to get all entries.
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20018
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['denoms', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_bank_v1_beta1_send_enabled" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'denoms' in params:
+            query_params.append(('denoms', params['denoms']))  # noqa: E501
+            collection_formats['denoms'] = 'multi'  # noqa: E501
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/bank/v1beta1/send_enabled', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20018',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_bank_v1_beta1_spendable_balance_by_denom(self, address, **kwargs):  # noqa: E501
+        """SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.  # noqa: E501
+
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_bank_v1_beta1_spendable_balance_by_denom(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address to query balances for. (required)
+        :param str denom: denom is the coin denom to query balances for.
+        :return: InlineResponse20020
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_bank_v1_beta1_spendable_balance_by_denom_with_http_info(address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_bank_v1_beta1_spendable_balance_by_denom_with_http_info(address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_bank_v1_beta1_spendable_balance_by_denom_with_http_info(self, address, **kwargs):  # noqa: E501
+        """SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.  # noqa: E501
+
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_bank_v1_beta1_spendable_balance_by_denom_with_http_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address to query balances for. (required)
+        :param str denom: denom is the coin denom to query balances for.
+        :return: InlineResponse20020
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address', 'denom']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_bank_v1_beta1_spendable_balance_by_denom" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmos_bank_v1_beta1_spendable_balance_by_denom`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+
+        query_params = []
+        if 'denom' in params:
+            query_params.append(('denom', params['denom']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/bank/v1beta1/spendable_balances/{address}/by_denom', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20020',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1825,9 +2137,9 @@ class QueryApi(object):
             collection_formats=collection_formats)
 
     def cosmos_bank_v1_beta1_spendable_balances(self, address, **kwargs):  # noqa: E501
-        """SpendableBalances queries the spenable balance of all coins for a single account.  # noqa: E501
+        """SpendableBalances queries the spendable balance of all coins for a single account.  # noqa: E501
 
-        Since: cosmos-sdk 0.46  # noqa: E501
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_spendable_balances(address, async_req=True)
@@ -1840,7 +2152,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20017
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1852,9 +2164,9 @@ class QueryApi(object):
             return data
 
     def cosmos_bank_v1_beta1_spendable_balances_with_http_info(self, address, **kwargs):  # noqa: E501
-        """SpendableBalances queries the spenable balance of all coins for a single account.  # noqa: E501
+        """SpendableBalances queries the spendable balance of all coins for a single account.  # noqa: E501
 
-        Since: cosmos-sdk 0.46  # noqa: E501
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_spendable_balances_with_http_info(address, async_req=True)
@@ -1867,7 +2179,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20017
+        :return: InlineResponse20019
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1931,7 +2243,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20017',  # noqa: E501
+            response_type='InlineResponse20019',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1942,6 +2254,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_supply_of(self, **kwargs):  # noqa: E501
         """SupplyOf queries the supply of a single coin.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_supply_of(async_req=True)
@@ -1949,7 +2262,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str denom: denom is the coin denom to query balances for.
-        :return: InlineResponse20018
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1963,6 +2276,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_supply_of_with_http_info(self, **kwargs):  # noqa: E501
         """SupplyOf queries the supply of a single coin.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_supply_of_with_http_info(async_req=True)
@@ -1970,7 +2284,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str denom: denom is the coin denom to query balances for.
-        :return: InlineResponse20018
+        :return: InlineResponse20021
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2020,7 +2334,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20018',  # noqa: E501
+            response_type='InlineResponse20021',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2031,6 +2345,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_total_supply(self, **kwargs):  # noqa: E501
         """TotalSupply queries the total supply of all coins.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_total_supply(async_req=True)
@@ -2056,6 +2371,7 @@ class QueryApi(object):
     def cosmos_bank_v1_beta1_total_supply_with_http_info(self, **kwargs):  # noqa: E501
         """TotalSupply queries the total supply of all coins.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_bank_v1_beta1_total_supply_with_http_info(async_req=True)
@@ -2133,43 +2449,130 @@ class QueryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cosmos_distribution_v1_beta1_delegation_rewards(self, delegator_address, **kwargs):  # noqa: E501
-        """DelegationRewards queries the total rewards accrued by a delegation.  # noqa: E501
+    def cosmos_consensus_v1_params(self, **kwargs):  # noqa: E501
+        """Params queries the parameters of x/consensus_param module.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_distribution_v1_beta1_delegation_rewards(delegator_address, async_req=True)
+        >>> thread = api.cosmos_consensus_v1_params(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str delegator_address: delegator_address defines the delegator address to query for.  validator_address defines the validator address to query for.   string validator_address = 2 [(cosmos_proto.scalar) = \"cosmos.AddressString\"]; (required)
-        :return: InlineResponse20028
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, **kwargs)  # noqa: E501
+            return self.cosmos_consensus_v1_params_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, **kwargs)  # noqa: E501
+            (data) = self.cosmos_consensus_v1_params_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(self, delegator_address, **kwargs):  # noqa: E501
-        """DelegationRewards queries the total rewards accrued by a delegation.  # noqa: E501
+    def cosmos_consensus_v1_params_with_http_info(self, **kwargs):  # noqa: E501
+        """Params queries the parameters of x/consensus_param module.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, async_req=True)
+        >>> thread = api.cosmos_consensus_v1_params_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str delegator_address: delegator_address defines the delegator address to query for.  validator_address defines the validator address to query for.   string validator_address = 2 [(cosmos_proto.scalar) = \"cosmos.AddressString\"]; (required)
-        :return: InlineResponse20028
+        :return: InlineResponse20030
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['delegator_address']  # noqa: E501
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_consensus_v1_params" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/consensus/v1/params', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20030',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_distribution_v1_beta1_delegation_rewards(self, delegator_address, validator_address, **kwargs):  # noqa: E501
+        """DelegationRewards queries the total rewards accrued by a delegation.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_distribution_v1_beta1_delegation_rewards(delegator_address, validator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str delegator_address: delegator_address defines the delegator address to query for. (required)
+        :param str validator_address: validator_address defines the validator address to query for. (required)
+        :return: InlineResponse20031
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, validator_address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, validator_address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(self, delegator_address, validator_address, **kwargs):  # noqa: E501
+        """DelegationRewards queries the total rewards accrued by a delegation.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_distribution_v1_beta1_delegation_rewards_with_http_info(delegator_address, validator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str delegator_address: delegator_address defines the delegator address to query for. (required)
+        :param str validator_address: validator_address defines the validator address to query for. (required)
+        :return: InlineResponse20031
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['delegator_address', 'validator_address']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2188,12 +2591,18 @@ class QueryApi(object):
         if ('delegator_address' not in params or
                 params['delegator_address'] is None):
             raise ValueError("Missing the required parameter `delegator_address` when calling `cosmos_distribution_v1_beta1_delegation_rewards`")  # noqa: E501
+        # verify the required parameter 'validator_address' is set
+        if ('validator_address' not in params or
+                params['validator_address'] is None):
+            raise ValueError("Missing the required parameter `validator_address` when calling `cosmos_distribution_v1_beta1_delegation_rewards`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'delegator_address' in params:
             path_params['delegator_address'] = params['delegator_address']  # noqa: E501
+        if 'validator_address' in params:
+            path_params['validator_address'] = params['validator_address']  # noqa: E501
 
         query_params = []
 
@@ -2211,14 +2620,14 @@ class QueryApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/cosmos/distribution/v1beta1/rewards/{delegator_address}', 'GET',
+            '/cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards/{validator_address}', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20028',  # noqa: E501
+            response_type='InlineResponse20031',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2235,7 +2644,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20027
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2255,7 +2664,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20027
+        :return: InlineResponse20032
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2303,7 +2712,100 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20027',  # noqa: E501
+            response_type='InlineResponse20032',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_distribution_v1_beta1_validator_distribution_info(self, validator_address, **kwargs):  # noqa: E501
+        """ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_distribution_v1_beta1_validator_distribution_info(validator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str validator_address: validator_address defines the validator address to query for. (required)
+        :return: InlineResponse20033
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_distribution_v1_beta1_validator_distribution_info_with_http_info(validator_address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_distribution_v1_beta1_validator_distribution_info_with_http_info(validator_address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_distribution_v1_beta1_validator_distribution_info_with_http_info(self, validator_address, **kwargs):  # noqa: E501
+        """ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_distribution_v1_beta1_validator_distribution_info_with_http_info(validator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str validator_address: validator_address defines the validator address to query for. (required)
+        :return: InlineResponse20033
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['validator_address']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_distribution_v1_beta1_validator_distribution_info" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'validator_address' is set
+        if ('validator_address' not in params or
+                params['validator_address'] is None):
+            raise ValueError("Missing the required parameter `validator_address` when calling `cosmos_distribution_v1_beta1_validator_distribution_info`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'validator_address' in params:
+            path_params['validator_address'] = params['validator_address']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/distribution/v1beta1/validators/{validator_address}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20033',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2325,7 +2827,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20029
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2350,7 +2852,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20029
+        :return: InlineResponse20034
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2408,7 +2910,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20029',  # noqa: E501
+            response_type='InlineResponse20034',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2416,43 +2918,45 @@ class QueryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cosmos_evidence_v1_beta1_evidence(self, evidence_hash, **kwargs):  # noqa: E501
+    def cosmos_evidence_v1_beta1_evidence(self, hash, **kwargs):  # noqa: E501
         """Evidence queries evidence based on evidence hash.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_evidence_v1_beta1_evidence(evidence_hash, async_req=True)
+        >>> thread = api.cosmos_evidence_v1_beta1_evidence(hash, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str evidence_hash: evidence_hash defines the hash of the requested evidence. (required)
-        :return: InlineResponse20030
+        :param str hash: hash defines the evidence hash of the requested evidence.  Since: cosmos-sdk 0.47 (required)
+        :param str evidence_hash: evidence_hash defines the hash of the requested evidence. Deprecated: Use hash, a HEX encoded string, instead.
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.cosmos_evidence_v1_beta1_evidence_with_http_info(evidence_hash, **kwargs)  # noqa: E501
+            return self.cosmos_evidence_v1_beta1_evidence_with_http_info(hash, **kwargs)  # noqa: E501
         else:
-            (data) = self.cosmos_evidence_v1_beta1_evidence_with_http_info(evidence_hash, **kwargs)  # noqa: E501
+            (data) = self.cosmos_evidence_v1_beta1_evidence_with_http_info(hash, **kwargs)  # noqa: E501
             return data
 
-    def cosmos_evidence_v1_beta1_evidence_with_http_info(self, evidence_hash, **kwargs):  # noqa: E501
+    def cosmos_evidence_v1_beta1_evidence_with_http_info(self, hash, **kwargs):  # noqa: E501
         """Evidence queries evidence based on evidence hash.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_evidence_v1_beta1_evidence_with_http_info(evidence_hash, async_req=True)
+        >>> thread = api.cosmos_evidence_v1_beta1_evidence_with_http_info(hash, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str evidence_hash: evidence_hash defines the hash of the requested evidence. (required)
-        :return: InlineResponse20030
+        :param str hash: hash defines the evidence hash of the requested evidence.  Since: cosmos-sdk 0.47 (required)
+        :param str evidence_hash: evidence_hash defines the hash of the requested evidence. Deprecated: Use hash, a HEX encoded string, instead.
+        :return: InlineResponse20035
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['evidence_hash']  # noqa: E501
+        all_params = ['hash', 'evidence_hash']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2467,18 +2971,20 @@ class QueryApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'evidence_hash' is set
-        if ('evidence_hash' not in params or
-                params['evidence_hash'] is None):
-            raise ValueError("Missing the required parameter `evidence_hash` when calling `cosmos_evidence_v1_beta1_evidence`")  # noqa: E501
+        # verify the required parameter 'hash' is set
+        if ('hash' not in params or
+                params['hash'] is None):
+            raise ValueError("Missing the required parameter `hash` when calling `cosmos_evidence_v1_beta1_evidence`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'evidence_hash' in params:
-            path_params['evidence_hash'] = params['evidence_hash']  # noqa: E501
+        if 'hash' in params:
+            path_params['hash'] = params['hash']  # noqa: E501
 
         query_params = []
+        if 'evidence_hash' in params:
+            query_params.append(('evidence_hash', params['evidence_hash']))  # noqa: E501
 
         header_params = {}
 
@@ -2494,14 +3000,14 @@ class QueryApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/cosmos/evidence/v1beta1/evidence/{evidence_hash}', 'GET',
+            '/cosmos/evidence/v1beta1/evidence/{hash}', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20030',  # noqa: E501
+            response_type='InlineResponse20035',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2520,7 +3026,7 @@ class QueryApi(object):
         :param async_req bool
         :param str granter: granter is the address of the user granting an allowance of their funds. (required)
         :param str grantee: grantee is the address of the user being granted an allowance of another user's funds. (required)
-        :return: InlineResponse20031
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2542,7 +3048,7 @@ class QueryApi(object):
         :param async_req bool
         :param str granter: granter is the address of the user granting an allowance of their funds. (required)
         :param str grantee: grantee is the address of the user being granted an allowance of another user's funds. (required)
-        :return: InlineResponse20031
+        :return: InlineResponse20036
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2602,7 +3108,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20031',  # noqa: E501
+            response_type='InlineResponse20036',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2625,7 +3131,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20032
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2651,7 +3157,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20032
+        :return: InlineResponse20037
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2715,7 +3221,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20032',  # noqa: E501
+            response_type='InlineResponse20037',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2739,7 +3245,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20033
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2766,7 +3272,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20033
+        :return: InlineResponse20038
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2830,7 +3336,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20033',  # noqa: E501
+            response_type='InlineResponse20038',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2849,7 +3355,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str depositor: depositor defines the deposit addresses from the proposals. (required)
-        :return: InlineResponse20038
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2871,7 +3377,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str depositor: depositor defines the deposit addresses from the proposals. (required)
-        :return: InlineResponse20038
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2931,7 +3437,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2954,7 +3460,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20037
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2980,7 +3486,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20037
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3044,7 +3550,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3062,7 +3568,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str params_type: params_type defines which parameters to query for, can be one of \"voting\", \"tallying\" or \"deposit\". (required)
-        :return: InlineResponse20042
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3083,7 +3589,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str params_type: params_type defines which parameters to query for, can be one of \"voting\", \"tallying\" or \"deposit\". (required)
-        :return: InlineResponse20042
+        :return: InlineResponse20047
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3137,7 +3643,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20042',  # noqa: E501
+            response_type='InlineResponse20047',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3155,7 +3661,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20044
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3176,7 +3682,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20044
+        :return: InlineResponse20049
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3230,7 +3736,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20044',  # noqa: E501
+            response_type='InlineResponse20049',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3255,7 +3761,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20043
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3283,7 +3789,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20043
+        :return: InlineResponse20048
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3347,7 +3853,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20043',  # noqa: E501
+            response_type='InlineResponse20048',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3365,7 +3871,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20045
+        :return: InlineResponse20050
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3386,7 +3892,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20045
+        :return: InlineResponse20050
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3440,7 +3946,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20045',  # noqa: E501
+            response_type='InlineResponse20050',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3459,7 +3965,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str voter: voter defines the voter address for the proposals. (required)
-        :return: InlineResponse20047
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3481,7 +3987,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str voter: voter defines the voter address for the proposals. (required)
-        :return: InlineResponse20047
+        :return: InlineResponse20052
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3541,7 +4047,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20047',  # noqa: E501
+            response_type='InlineResponse20052',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3564,7 +4070,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20046
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3590,7 +4096,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20046
+        :return: InlineResponse20051
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3654,7 +4160,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20046',  # noqa: E501
+            response_type='InlineResponse20051',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3673,7 +4179,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str depositor: depositor defines the deposit addresses from the proposals. (required)
-        :return: InlineResponse20038
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3695,7 +4201,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str depositor: depositor defines the deposit addresses from the proposals. (required)
-        :return: InlineResponse20038
+        :return: InlineResponse20043
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3755,7 +4261,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20038',  # noqa: E501
+            response_type='InlineResponse20043',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3778,7 +4284,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20037
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3804,7 +4310,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20037
+        :return: InlineResponse20042
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3868,7 +4374,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20037',  # noqa: E501
+            response_type='InlineResponse20042',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3886,7 +4392,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str params_type: params_type defines which parameters to query for, can be one of \"voting\", \"tallying\" or \"deposit\". (required)
-        :return: InlineResponse20034
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3907,7 +4413,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str params_type: params_type defines which parameters to query for, can be one of \"voting\", \"tallying\" or \"deposit\". (required)
-        :return: InlineResponse20034
+        :return: InlineResponse20039
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -3961,7 +4467,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20034',  # noqa: E501
+            response_type='InlineResponse20039',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -3979,7 +4485,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20036
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4000,7 +4506,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20036
+        :return: InlineResponse20041
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4054,7 +4560,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20036',  # noqa: E501
+            response_type='InlineResponse20041',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4079,7 +4585,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20035
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4107,7 +4613,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20035
+        :return: InlineResponse20040
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4171,7 +4677,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20035',  # noqa: E501
+            response_type='InlineResponse20040',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4189,7 +4695,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20039
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4210,7 +4716,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
-        :return: InlineResponse20039
+        :return: InlineResponse20044
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4264,7 +4770,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20039',  # noqa: E501
+            response_type='InlineResponse20044',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4283,7 +4789,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str voter: voter defines the voter address for the proposals. (required)
-        :return: InlineResponse20041
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4305,7 +4811,7 @@ class QueryApi(object):
         :param async_req bool
         :param str proposal_id: proposal_id defines the unique id of the proposal. (required)
         :param str voter: voter defines the voter address for the proposals. (required)
-        :return: InlineResponse20041
+        :return: InlineResponse20046
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4365,7 +4871,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20041',  # noqa: E501
+            response_type='InlineResponse20046',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4388,7 +4894,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20040
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4414,7 +4920,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20040
+        :return: InlineResponse20045
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4478,7 +4984,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20040',  # noqa: E501
+            response_type='InlineResponse20045',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4496,7 +5002,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str group_id: group_id is the unique ID of the group. (required)
-        :return: InlineResponse20048
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4517,7 +5023,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str group_id: group_id is the unique ID of the group. (required)
-        :return: InlineResponse20048
+        :return: InlineResponse20054
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4571,7 +5077,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20048',  # noqa: E501
+            response_type='InlineResponse20054',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4580,7 +5086,7 @@ class QueryApi(object):
             collection_formats=collection_formats)
 
     def cosmos_group_v1_group_members(self, group_id, **kwargs):  # noqa: E501
-        """GroupMembers queries members of a group  # noqa: E501
+        """GroupMembers queries members of a group by group id.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4594,7 +5100,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20049
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4606,7 +5112,7 @@ class QueryApi(object):
             return data
 
     def cosmos_group_v1_group_members_with_http_info(self, group_id, **kwargs):  # noqa: E501
-        """GroupMembers queries members of a group  # noqa: E501
+        """GroupMembers queries members of a group by group id.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -4620,7 +5126,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20049
+        :return: InlineResponse20055
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -4684,7 +5190,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20049',  # noqa: E501
+            response_type='InlineResponse20055',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -4692,53 +5198,53 @@ class QueryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cosmos_group_v1_group_policies_by_admin(self, admin, **kwargs):  # noqa: E501
-        """GroupsByAdmin queries group policies by admin address.  # noqa: E501
+    def cosmos_group_v1_groups(self, **kwargs):  # noqa: E501
+        """Groups queries all groups in state.  # noqa: E501
 
+        Since: cosmos-sdk 0.47.1  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policies_by_admin(admin, async_req=True)
+        >>> thread = api.cosmos_group_v1_groups(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str admin: admin is the admin address of the group policy. (required)
         :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
         :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20050
+        :return: InlineResponse20056
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.cosmos_group_v1_group_policies_by_admin_with_http_info(admin, **kwargs)  # noqa: E501
+            return self.cosmos_group_v1_groups_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.cosmos_group_v1_group_policies_by_admin_with_http_info(admin, **kwargs)  # noqa: E501
+            (data) = self.cosmos_group_v1_groups_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def cosmos_group_v1_group_policies_by_admin_with_http_info(self, admin, **kwargs):  # noqa: E501
-        """GroupsByAdmin queries group policies by admin address.  # noqa: E501
+    def cosmos_group_v1_groups_with_http_info(self, **kwargs):  # noqa: E501
+        """Groups queries all groups in state.  # noqa: E501
 
+        Since: cosmos-sdk 0.47.1  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policies_by_admin_with_http_info(admin, async_req=True)
+        >>> thread = api.cosmos_group_v1_groups_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str admin: admin is the admin address of the group policy. (required)
         :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
         :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20050
+        :return: InlineResponse20056
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['admin', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4749,20 +5255,14 @@ class QueryApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_group_policies_by_admin" % key
+                    " to method cosmos_group_v1_groups" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'admin' is set
-        if ('admin' not in params or
-                params['admin'] is None):
-            raise ValueError("Missing the required parameter `admin` when calling `cosmos_group_v1_group_policies_by_admin`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'admin' in params:
-            path_params['admin'] = params['admin']  # noqa: E501
 
         query_params = []
         if 'pagination_key' in params:
@@ -4790,220 +5290,14 @@ class QueryApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/cosmos/group/v1/group_policies_by_admin/{admin}', 'GET',
+            '/cosmos/group/v1/groups', 'GET',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20050',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_group_policies_by_group(self, group_id, **kwargs):  # noqa: E501
-        """GroupPoliciesByGroup queries group policies by group id.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policies_by_group(group_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str group_id: group_id is the unique ID of the group policy's group. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20051
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_group_policies_by_group_with_http_info(group_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_group_policies_by_group_with_http_info(group_id, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_group_policies_by_group_with_http_info(self, group_id, **kwargs):  # noqa: E501
-        """GroupPoliciesByGroup queries group policies by group id.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policies_by_group_with_http_info(group_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str group_id: group_id is the unique ID of the group policy's group. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20051
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['group_id', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_group_policies_by_group" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'group_id' is set
-        if ('group_id' not in params or
-                params['group_id'] is None):
-            raise ValueError("Missing the required parameter `group_id` when calling `cosmos_group_v1_group_policies_by_group`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'group_id' in params:
-            path_params['group_id'] = params['group_id']  # noqa: E501
-
-        query_params = []
-        if 'pagination_key' in params:
-            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
-        if 'pagination_offset' in params:
-            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
-        if 'pagination_limit' in params:
-            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
-        if 'pagination_count_total' in params:
-            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
-        if 'pagination_reverse' in params:
-            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/group_policies_by_group/{group_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20051',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_group_policy_info(self, address, **kwargs):  # noqa: E501
-        """GroupPolicyInfo queries group policy info based on account address of group policy.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policy_info(address, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str address: address is the account address of the group policy. (required)
-        :return: InlineResponse20052
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_group_policy_info_with_http_info(address, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_group_policy_info_with_http_info(address, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_group_policy_info_with_http_info(self, address, **kwargs):  # noqa: E501
-        """GroupPolicyInfo queries group policy info based on account address of group policy.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_group_policy_info_with_http_info(address, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str address: address is the account address of the group policy. (required)
-        :return: InlineResponse20052
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['address']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_group_policy_info" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'address' is set
-        if ('address' not in params or
-                params['address'] is None):
-            raise ValueError("Missing the required parameter `address` when calling `cosmos_group_v1_group_policy_info`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'address' in params:
-            path_params['address'] = params['address']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/group_policy_info/{address}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20052',  # noqa: E501
+            response_type='InlineResponse20056',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5026,7 +5320,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20053
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5052,7 +5346,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20053
+        :return: InlineResponse20057
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5116,7 +5410,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20053',  # noqa: E501
+            response_type='InlineResponse20057',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5139,7 +5433,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20054
+        :return: InlineResponse20058
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5165,7 +5459,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20054
+        :return: InlineResponse20058
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5229,633 +5523,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20054',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_proposal(self, proposal_id, **kwargs):  # noqa: E501
-        """Proposal queries a proposal based on proposal id.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_proposal(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :return: InlineResponse20055
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_proposal_with_http_info(proposal_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_proposal_with_http_info(proposal_id, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_proposal_with_http_info(self, proposal_id, **kwargs):  # noqa: E501
-        """Proposal queries a proposal based on proposal id.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_proposal_with_http_info(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :return: InlineResponse20055
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['proposal_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_proposal" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'proposal_id' is set
-        if ('proposal_id' not in params or
-                params['proposal_id'] is None):
-            raise ValueError("Missing the required parameter `proposal_id` when calling `cosmos_group_v1_proposal`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'proposal_id' in params:
-            path_params['proposal_id'] = params['proposal_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/proposal/{proposal_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20055',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_proposals_by_group_policy(self, address, **kwargs):  # noqa: E501
-        """ProposalsByGroupPolicy queries proposals based on account address of group policy.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_proposals_by_group_policy(address, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str address: address is the account address of the group policy related to proposals. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20057
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_proposals_by_group_policy_with_http_info(address, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_proposals_by_group_policy_with_http_info(address, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_proposals_by_group_policy_with_http_info(self, address, **kwargs):  # noqa: E501
-        """ProposalsByGroupPolicy queries proposals based on account address of group policy.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_proposals_by_group_policy_with_http_info(address, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str address: address is the account address of the group policy related to proposals. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20057
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['address', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_proposals_by_group_policy" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'address' is set
-        if ('address' not in params or
-                params['address'] is None):
-            raise ValueError("Missing the required parameter `address` when calling `cosmos_group_v1_proposals_by_group_policy`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'address' in params:
-            path_params['address'] = params['address']  # noqa: E501
-
-        query_params = []
-        if 'pagination_key' in params:
-            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
-        if 'pagination_offset' in params:
-            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
-        if 'pagination_limit' in params:
-            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
-        if 'pagination_count_total' in params:
-            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
-        if 'pagination_reverse' in params:
-            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/proposals_by_group_policy/{address}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20057',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_tally_result(self, proposal_id, **kwargs):  # noqa: E501
-        """TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the `final_tally_result` state stored in the proposal itself.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_tally_result(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique id of a proposal. (required)
-        :return: InlineResponse20056
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_tally_result_with_http_info(proposal_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_tally_result_with_http_info(proposal_id, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_tally_result_with_http_info(self, proposal_id, **kwargs):  # noqa: E501
-        """TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the `final_tally_result` state stored in the proposal itself.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_tally_result_with_http_info(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique id of a proposal. (required)
-        :return: InlineResponse20056
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['proposal_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_tally_result" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'proposal_id' is set
-        if ('proposal_id' not in params or
-                params['proposal_id'] is None):
-            raise ValueError("Missing the required parameter `proposal_id` when calling `cosmos_group_v1_tally_result`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'proposal_id' in params:
-            path_params['proposal_id'] = params['proposal_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/proposals/{proposal_id}/tally', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20056',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_vote_by_proposal_voter(self, proposal_id, voter, **kwargs):  # noqa: E501
-        """VoteByProposalVoter queries a vote by proposal id and voter.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_vote_by_proposal_voter(proposal_id, voter, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :param str voter: voter is a proposal voter account address. (required)
-        :return: InlineResponse20058
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_vote_by_proposal_voter_with_http_info(proposal_id, voter, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_vote_by_proposal_voter_with_http_info(proposal_id, voter, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_vote_by_proposal_voter_with_http_info(self, proposal_id, voter, **kwargs):  # noqa: E501
-        """VoteByProposalVoter queries a vote by proposal id and voter.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_vote_by_proposal_voter_with_http_info(proposal_id, voter, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :param str voter: voter is a proposal voter account address. (required)
-        :return: InlineResponse20058
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['proposal_id', 'voter']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_vote_by_proposal_voter" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'proposal_id' is set
-        if ('proposal_id' not in params or
-                params['proposal_id'] is None):
-            raise ValueError("Missing the required parameter `proposal_id` when calling `cosmos_group_v1_vote_by_proposal_voter`")  # noqa: E501
-        # verify the required parameter 'voter' is set
-        if ('voter' not in params or
-                params['voter'] is None):
-            raise ValueError("Missing the required parameter `voter` when calling `cosmos_group_v1_vote_by_proposal_voter`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'proposal_id' in params:
-            path_params['proposal_id'] = params['proposal_id']  # noqa: E501
-        if 'voter' in params:
-            path_params['voter'] = params['voter']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/vote_by_proposal_voter/{proposal_id}/{voter}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
             response_type='InlineResponse20058',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_votes_by_proposal(self, proposal_id, **kwargs):  # noqa: E501
-        """VotesByProposal queries a vote by proposal.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_votes_by_proposal(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20059
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_votes_by_proposal_with_http_info(proposal_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_votes_by_proposal_with_http_info(proposal_id, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_votes_by_proposal_with_http_info(self, proposal_id, **kwargs):  # noqa: E501
-        """VotesByProposal queries a vote by proposal.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_votes_by_proposal_with_http_info(proposal_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str proposal_id: proposal_id is the unique ID of a proposal. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20059
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['proposal_id', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_votes_by_proposal" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'proposal_id' is set
-        if ('proposal_id' not in params or
-                params['proposal_id'] is None):
-            raise ValueError("Missing the required parameter `proposal_id` when calling `cosmos_group_v1_votes_by_proposal`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'proposal_id' in params:
-            path_params['proposal_id'] = params['proposal_id']  # noqa: E501
-
-        query_params = []
-        if 'pagination_key' in params:
-            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
-        if 'pagination_offset' in params:
-            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
-        if 'pagination_limit' in params:
-            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
-        if 'pagination_count_total' in params:
-            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
-        if 'pagination_reverse' in params:
-            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/votes_by_proposal/{proposal_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20059',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def cosmos_group_v1_votes_by_voter(self, voter, **kwargs):  # noqa: E501
-        """VotesByVoter queries a vote by voter.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_votes_by_voter(voter, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str voter: voter is a proposal voter account address. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20060
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cosmos_group_v1_votes_by_voter_with_http_info(voter, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cosmos_group_v1_votes_by_voter_with_http_info(voter, **kwargs)  # noqa: E501
-            return data
-
-    def cosmos_group_v1_votes_by_voter_with_http_info(self, voter, **kwargs):  # noqa: E501
-        """VotesByVoter queries a vote by voter.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cosmos_group_v1_votes_by_voter_with_http_info(voter, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str voter: voter is a proposal voter account address. (required)
-        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
-        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
-        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
-        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
-        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20060
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['voter', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cosmos_group_v1_votes_by_voter" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'voter' is set
-        if ('voter' not in params or
-                params['voter'] is None):
-            raise ValueError("Missing the required parameter `voter` when calling `cosmos_group_v1_votes_by_voter`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'voter' in params:
-            path_params['voter'] = params['voter']  # noqa: E501
-
-        query_params = []
-        if 'pagination_key' in params:
-            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
-        if 'pagination_offset' in params:
-            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
-        if 'pagination_limit' in params:
-            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
-        if 'pagination_count_total' in params:
-            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
-        if 'pagination_reverse' in params:
-            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = []  # noqa: E501
-
-        return self.api_client.call_api(
-            '/cosmos/group/v1/votes_by_voter/{voter}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse20060',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5872,7 +5540,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20061
+        :return: InlineResponse20059
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5892,7 +5560,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20061
+        :return: InlineResponse20059
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5940,7 +5608,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20061',  # noqa: E501
+            response_type='InlineResponse20059',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -5957,7 +5625,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20062
+        :return: InlineResponse20060
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -5977,7 +5645,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20062
+        :return: InlineResponse20060
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6025,7 +5693,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20062',  # noqa: E501
+            response_type='InlineResponse20060',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6042,7 +5710,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20063
+        :return: InlineResponse20061
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6062,7 +5730,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20063
+        :return: InlineResponse20061
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6110,7 +5778,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20063',  # noqa: E501
+            response_type='InlineResponse20061',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6127,8 +5795,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner: (required)
-        :param str class_id: (required)
+        :param str owner: owner is the owner address of the nft (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QueryBalanceResponseIsTheResponseTypeForTheQueryBalanceRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6149,8 +5817,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str owner: (required)
-        :param str class_id: (required)
+        :param str owner: owner is the owner address of the nft (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QueryBalanceResponseIsTheResponseTypeForTheQueryBalanceRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6228,7 +5896,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QueryClassResponseIsTheResponseTypeForTheQueryClassRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6249,7 +5917,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QueryClassResponseIsTheResponseTypeForTheQueryClassRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6426,8 +6094,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
-        :param str id: (required)
+        :param str class_id: class_id associated with the nft (required)
+        :param str id: id is a unique identifier of the NFT (required)
         :return: QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6448,8 +6116,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
-        :param str id: (required)
+        :param str class_id: class_id associated with the nft (required)
+        :param str id: id is a unique identifier of the NFT (required)
         :return: QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6527,8 +6195,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id:
-        :param str owner:
+        :param str class_id: class_id associated with the nft
+        :param str owner: owner is the owner address of the nft
         :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
         :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
@@ -6554,8 +6222,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id:
-        :param str owner:
+        :param str class_id: class_id associated with the nft
+        :param str owner: owner is the owner address of the nft
         :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
         :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
@@ -6640,8 +6308,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
-        :param str id: (required)
+        :param str class_id: class_id associated with the nft (required)
+        :param str id: id is a unique identifier of the NFT (required)
         :return: QueryOwnerResponseIsTheResponseTypeForTheQueryOwnerRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6662,8 +6330,8 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
-        :param str id: (required)
+        :param str class_id: class_id associated with the nft (required)
+        :param str id: id is a unique identifier of the NFT (required)
         :return: QueryOwnerResponseIsTheResponseTypeForTheQueryOwnerRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6741,7 +6409,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QuerySupplyResponseIsTheResponseTypeForTheQuerySupplyRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6762,7 +6430,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str class_id: (required)
+        :param str class_id: class_id associated with the nft (required)
         :return: QuerySupplyResponseIsTheResponseTypeForTheQuerySupplyRPCMethod
                  If the method is called asynchronously,
                  returns the request thread.
@@ -6836,7 +6504,7 @@ class QueryApi(object):
         :param async_req bool
         :param str subspace: subspace defines the module to query the parameter for.
         :param str key: key defines the key of the parameter in the subspace.
-        :return: InlineResponse20064
+        :return: InlineResponse20062
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6858,7 +6526,7 @@ class QueryApi(object):
         :param async_req bool
         :param str subspace: subspace defines the module to query the parameter for.
         :param str key: key defines the key of the parameter in the subspace.
-        :return: InlineResponse20064
+        :return: InlineResponse20062
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6910,7 +6578,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20064',  # noqa: E501
+            response_type='InlineResponse20062',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -6928,7 +6596,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20065
+        :return: InlineResponse20063
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6949,7 +6617,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20065
+        :return: InlineResponse20063
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -6997,7 +6665,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20065',  # noqa: E501
+            response_type='InlineResponse20063',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7298,7 +6966,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str delegator_addr: delegator_addr defines the delegator address to query for. (required)
-        :return: InlineResponse20066
+        :return: InlineResponse20064
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7319,7 +6987,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str delegator_addr: delegator_addr defines the delegator address to query for. (required)
-        :return: InlineResponse20066
+        :return: InlineResponse20064
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7373,7 +7041,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20066',  # noqa: E501
+            response_type='InlineResponse20064',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7392,7 +7060,7 @@ class QueryApi(object):
         :param async_req bool
         :param str id: (required)
         :param str address:
-        :return: InlineResponse20068
+        :return: InlineResponse20066
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7414,7 +7082,7 @@ class QueryApi(object):
         :param async_req bool
         :param str id: (required)
         :param str address:
-        :return: InlineResponse20068
+        :return: InlineResponse20066
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7470,7 +7138,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20068',  # noqa: E501
+            response_type='InlineResponse20066',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7492,7 +7160,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20067
+        :return: InlineResponse20065
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7517,7 +7185,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20067
+        :return: InlineResponse20065
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7575,7 +7243,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20067',  # noqa: E501
+            response_type='InlineResponse20065',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7594,7 +7262,7 @@ class QueryApi(object):
         :param async_req bool
         :param str account: cosmos.base.query.v1beta1.PageRequest pagination = 1; (required)
         :param str query_type: (required)
-        :return: InlineResponse20069
+        :return: InlineResponse20067
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7616,7 +7284,7 @@ class QueryApi(object):
         :param async_req bool
         :param str account: cosmos.base.query.v1beta1.PageRequest pagination = 1; (required)
         :param str query_type: (required)
-        :return: InlineResponse20069
+        :return: InlineResponse20067
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7676,7 +7344,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20069',  # noqa: E501
+            response_type='InlineResponse20067',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7695,7 +7363,7 @@ class QueryApi(object):
         :param async_req bool
         :param str regionid: (required)
         :param str query_type: cosmos.base.query.v1beta1.PageRequest pagination = 2;
-        :return: InlineResponse20069
+        :return: InlineResponse20067
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7717,7 +7385,7 @@ class QueryApi(object):
         :param async_req bool
         :param str regionid: (required)
         :param str query_type: cosmos.base.query.v1beta1.PageRequest pagination = 2;
-        :return: InlineResponse20069
+        :return: InlineResponse20067
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7773,7 +7441,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20069',  # noqa: E501
+            response_type='InlineResponse20067',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7795,7 +7463,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20070
+        :return: InlineResponse20068
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7820,7 +7488,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20070
+        :return: InlineResponse20068
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7878,7 +7546,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20070',  # noqa: E501
+            response_type='InlineResponse20068',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7896,7 +7564,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str height: height defines at which height to query the historical info. (required)
-        :return: InlineResponse20071
+        :return: InlineResponse20069
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7917,7 +7585,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str height: height defines at which height to query the historical info. (required)
-        :return: InlineResponse20071
+        :return: InlineResponse20069
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -7971,7 +7639,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20071',  # noqa: E501
+            response_type='InlineResponse20069',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -7989,7 +7657,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str account: (required)
-        :return: InlineResponse20073
+        :return: InlineResponse20071
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8010,7 +7678,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str account: (required)
-        :return: InlineResponse20073
+        :return: InlineResponse20071
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8064,7 +7732,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20073',  # noqa: E501
+            response_type='InlineResponse20071',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8086,7 +7754,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20072
+        :return: InlineResponse20070
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8111,7 +7779,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20072
+        :return: InlineResponse20070
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8169,7 +7837,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20072',  # noqa: E501
+            response_type='InlineResponse20070',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8192,7 +7860,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20072
+        :return: InlineResponse20070
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8218,7 +7886,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20072
+        :return: InlineResponse20070
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8282,7 +7950,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20072',  # noqa: E501
+            response_type='InlineResponse20070',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8299,7 +7967,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20074
+        :return: InlineResponse20072
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8319,7 +7987,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20074
+        :return: InlineResponse20072
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8367,7 +8035,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20074',  # noqa: E501
+            response_type='InlineResponse20072',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8384,7 +8052,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20075
+        :return: InlineResponse20073
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8404,7 +8072,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20075
+        :return: InlineResponse20073
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8452,7 +8120,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20075',  # noqa: E501
+            response_type='InlineResponse20073',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8470,7 +8138,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str region_id: (required)
-        :return: InlineResponse20077
+        :return: InlineResponse20075
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8491,7 +8159,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str region_id: (required)
-        :return: InlineResponse20077
+        :return: InlineResponse20075
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8545,7 +8213,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20077',  # noqa: E501
+            response_type='InlineResponse20075',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8567,7 +8235,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20076
+        :return: InlineResponse20074
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8592,7 +8260,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20076
+        :return: InlineResponse20074
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -8650,7 +8318,298 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
+            response_type='InlineResponse20074',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_staking_v1_beta1_siid(self, siid, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid(siid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str siid: (required)
+        :return: InlineResponse20077
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_staking_v1_beta1_siid_with_http_info(siid, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_staking_v1_beta1_siid_with_http_info(siid, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_staking_v1_beta1_siid_with_http_info(self, siid, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid_with_http_info(siid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str siid: (required)
+        :return: InlineResponse20077
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['siid']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_staking_v1_beta1_siid" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'siid' is set
+        if ('siid' not in params or
+                params['siid'] is None):
+            raise ValueError("Missing the required parameter `siid` when calling `cosmos_staking_v1_beta1_siid`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'siid' in params:
+            path_params['siid'] = params['siid']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/staking/v1beta1/siid/{siid}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20077',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_staking_v1_beta1_siid_all(self, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid_all  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid_all(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20076
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_staking_v1_beta1_siid_all_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_staking_v1_beta1_siid_all_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def cosmos_staking_v1_beta1_siid_all_with_http_info(self, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid_all  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid_all_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20076
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_staking_v1_beta1_siid_all" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/staking/v1beta1/siid', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
             response_type='InlineResponse20076',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_staking_v1_beta1_siid_by_account(self, account, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid_by_account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid_by_account(account, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str account: (required)
+        :return: InlineResponse20077
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_staking_v1_beta1_siid_by_account_with_http_info(account, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_staking_v1_beta1_siid_by_account_with_http_info(account, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_staking_v1_beta1_siid_by_account_with_http_info(self, account, **kwargs):  # noqa: E501
+        """cosmos_staking_v1_beta1_siid_by_account  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_staking_v1_beta1_siid_by_account_with_http_info(account, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str account: (required)
+        :return: InlineResponse20077
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['account']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_staking_v1_beta1_siid_by_account" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'account' is set
+        if ('account' not in params or
+                params['account'] is None):
+            raise ValueError("Missing the required parameter `account` when calling `cosmos_staking_v1_beta1_siid_by_account`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'account' in params:
+            path_params['account'] = params['account']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/staking/v1beta1/siid_by_account/{account}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20077',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -8847,6 +8806,7 @@ class QueryApi(object):
     def cosmos_staking_v1_beta1_validator_delegations(self, validator_addr, **kwargs):  # noqa: E501
         """ValidatorDelegations queries delegate info for given validator.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_staking_v1_beta1_validator_delegations(validator_addr, async_req=True)
@@ -8873,6 +8833,7 @@ class QueryApi(object):
     def cosmos_staking_v1_beta1_validator_delegations_with_http_info(self, validator_addr, **kwargs):  # noqa: E501
         """ValidatorDelegations queries delegate info for given validator.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_staking_v1_beta1_validator_delegations_with_http_info(validator_addr, async_req=True)
@@ -8942,7 +8903,7 @@ class QueryApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/cosmos/staking/v1beta1/delegations-to/{validator_addr}', 'GET',
+            '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations', 'GET',
             path_params,
             query_params,
             header_params,
@@ -8960,6 +8921,7 @@ class QueryApi(object):
     def cosmos_staking_v1_beta1_validators(self, **kwargs):  # noqa: E501
         """Validators queries all validators that match the given status.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_staking_v1_beta1_validators(async_req=True)
@@ -8986,6 +8948,7 @@ class QueryApi(object):
     def cosmos_staking_v1_beta1_validators_with_http_info(self, **kwargs):  # noqa: E501
         """Validators queries all validators that match the given status.  # noqa: E501
 
+        When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.cosmos_staking_v1_beta1_validators_with_http_info(async_req=True)
@@ -9076,7 +9039,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str name: name is the name of the applied plan to query for. (required)
-        :return: InlineResponse20081
+        :return: InlineResponse20084
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9097,7 +9060,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str name: name is the name of the applied plan to query for. (required)
-        :return: InlineResponse20081
+        :return: InlineResponse20084
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9151,7 +9114,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20081',  # noqa: E501
+            response_type='InlineResponse20084',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9255,7 +9218,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20082
+        :return: InlineResponse20085
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9275,7 +9238,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20082
+        :return: InlineResponse20085
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9323,7 +9286,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20082',  # noqa: E501
+            response_type='InlineResponse20085',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9342,7 +9305,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str module_name: module_name is a field to query a specific module consensus version from state. Leaving this empty will fetch the full list of module versions from state
-        :return: InlineResponse20083
+        :return: InlineResponse20086
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9364,7 +9327,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str module_name: module_name is a field to query a specific module consensus version from state. Leaving this empty will fetch the full list of module versions from state
-        :return: InlineResponse20083
+        :return: InlineResponse20086
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9414,7 +9377,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20083',  # noqa: E501
+            response_type='InlineResponse20086',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9432,7 +9395,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str last_height: last height of the current chain must be sent in request as this is the height under which next consensus state is stored (required)
-        :return: InlineResponse20084
+        :return: InlineResponse20087
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9453,7 +9416,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str last_height: last height of the current chain must be sent in request as this is the height under which next consensus state is stored (required)
-        :return: InlineResponse20084
+        :return: InlineResponse20087
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9507,7 +9470,2228 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20084',  # noqa: E501
+            response_type='InlineResponse20087',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_all_contract_state(self, address, **kwargs):  # noqa: E501
+        """AllContractState gets all raw store data for a single contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_all_contract_state(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_all_contract_state_with_http_info(address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_all_contract_state_with_http_info(address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_all_contract_state_with_http_info(self, address, **kwargs):  # noqa: E501
+        """AllContractState gets all raw store data for a single contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_all_contract_state_with_http_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_all_contract_state" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmwasm_wasm_v1_all_contract_state`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contract/{address}/state', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_code(self, code_id, **kwargs):  # noqa: E501
+        """Code gets the binary code and metadata for a singe wasm code  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_code(code_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str code_id: grpc-gateway_out does not support Go style CodID (required)
+        :return: QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_code_with_http_info(code_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_code_with_http_info(code_id, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_code_with_http_info(self, code_id, **kwargs):  # noqa: E501
+        """Code gets the binary code and metadata for a singe wasm code  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_code_with_http_info(code_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str code_id: grpc-gateway_out does not support Go style CodID (required)
+        :return: QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['code_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'code_id' is set
+        if ('code_id' not in params or
+                params['code_id'] is None):
+            raise ValueError("Missing the required parameter `code_id` when calling `cosmwasm_wasm_v1_code`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'code_id' in params:
+            path_params['code_id'] = params['code_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/code/{code_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_codes(self, **kwargs):  # noqa: E501
+        """Codes gets the metadata for all stored wasm codes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_codes(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_codes_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_codes_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_codes_with_http_info(self, **kwargs):  # noqa: E501
+        """Codes gets the metadata for all stored wasm codes  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_codes_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_codes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/code', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_contract_history(self, address, **kwargs):  # noqa: E501
+        """ContractHistory gets the contract code history  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contract_history(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract to query (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_contract_history_with_http_info(address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_contract_history_with_http_info(address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_contract_history_with_http_info(self, address, **kwargs):  # noqa: E501
+        """ContractHistory gets the contract code history  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contract_history_with_http_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract to query (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_contract_history" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmwasm_wasm_v1_contract_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contract/{address}/history', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_contract_info(self, address, **kwargs):  # noqa: E501
+        """ContractInfo gets the contract meta data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contract_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract to query (required)
+        :return: QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_contract_info_with_http_info(address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_contract_info_with_http_info(address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_contract_info_with_http_info(self, address, **kwargs):  # noqa: E501
+        """ContractInfo gets the contract meta data  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contract_info_with_http_info(address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract to query (required)
+        :return: QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_contract_info" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmwasm_wasm_v1_contract_info`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contract/{address}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_contracts_by_code(self, code_id, **kwargs):  # noqa: E501
+        """ContractsByCode lists all smart contracts for a code id  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contracts_by_code(code_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str code_id: grpc-gateway_out does not support Go style CodID (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_contracts_by_code_with_http_info(code_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_contracts_by_code_with_http_info(code_id, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_contracts_by_code_with_http_info(self, code_id, **kwargs):  # noqa: E501
+        """ContractsByCode lists all smart contracts for a code id  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contracts_by_code_with_http_info(code_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str code_id: grpc-gateway_out does not support Go style CodID (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['code_id', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_contracts_by_code" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'code_id' is set
+        if ('code_id' not in params or
+                params['code_id'] is None):
+            raise ValueError("Missing the required parameter `code_id` when calling `cosmwasm_wasm_v1_contracts_by_code`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'code_id' in params:
+            path_params['code_id'] = params['code_id']  # noqa: E501
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/code/{code_id}/contracts', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_contracts_by_creator(self, creator_address, **kwargs):  # noqa: E501
+        """ContractsByCreator gets the contracts by creator  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contracts_by_creator(creator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str creator_address: CreatorAddress is the address of contract creator (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20089
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_contracts_by_creator_with_http_info(creator_address, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_contracts_by_creator_with_http_info(creator_address, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_contracts_by_creator_with_http_info(self, creator_address, **kwargs):  # noqa: E501
+        """ContractsByCreator gets the contracts by creator  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_contracts_by_creator_with_http_info(creator_address, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str creator_address: CreatorAddress is the address of contract creator (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: InlineResponse20089
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['creator_address', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_contracts_by_creator" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'creator_address' is set
+        if ('creator_address' not in params or
+                params['creator_address'] is None):
+            raise ValueError("Missing the required parameter `creator_address` when calling `cosmwasm_wasm_v1_contracts_by_creator`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'creator_address' in params:
+            path_params['creator_address'] = params['creator_address']  # noqa: E501
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contracts/creator/{creator_address}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20089',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_params(self, **kwargs):  # noqa: E501
+        """Params gets the module params  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_params(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: InlineResponse20088
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_params_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_params_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_params_with_http_info(self, **kwargs):  # noqa: E501
+        """Params gets the module params  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_params_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: InlineResponse20088
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_params" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/codes/params', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20088',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_pinned_codes(self, **kwargs):  # noqa: E501
+        """PinnedCodes gets the pinned code ids  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_pinned_codes(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_pinned_codes_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_pinned_codes_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_pinned_codes_with_http_info(self, **kwargs):  # noqa: E501
+        """PinnedCodes gets the pinned code ids  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_pinned_codes_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :return: QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_pinned_codes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/codes/pinned', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_raw_contract_state(self, address, query_data, **kwargs):  # noqa: E501
+        """RawContractState gets single key from the raw store data of a contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_raw_contract_state(address, query_data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str query_data: (required)
+        :return: QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_raw_contract_state_with_http_info(address, query_data, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_raw_contract_state_with_http_info(address, query_data, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_raw_contract_state_with_http_info(self, address, query_data, **kwargs):  # noqa: E501
+        """RawContractState gets single key from the raw store data of a contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_raw_contract_state_with_http_info(address, query_data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str query_data: (required)
+        :return: QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address', 'query_data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_raw_contract_state" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmwasm_wasm_v1_raw_contract_state`")  # noqa: E501
+        # verify the required parameter 'query_data' is set
+        if ('query_data' not in params or
+                params['query_data'] is None):
+            raise ValueError("Missing the required parameter `query_data` when calling `cosmwasm_wasm_v1_raw_contract_state`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+        if 'query_data' in params:
+            path_params['query_data'] = params['query_data']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contract/{address}/raw/{query_data}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmwasm_wasm_v1_smart_contract_state(self, address, query_data, **kwargs):  # noqa: E501
+        """SmartContractState get smart query result from the contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_smart_contract_state(address, query_data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str query_data: QueryData contains the query data passed to the contract (required)
+        :return: QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmwasm_wasm_v1_smart_contract_state_with_http_info(address, query_data, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmwasm_wasm_v1_smart_contract_state_with_http_info(address, query_data, **kwargs)  # noqa: E501
+            return data
+
+    def cosmwasm_wasm_v1_smart_contract_state_with_http_info(self, address, query_data, **kwargs):  # noqa: E501
+        """SmartContractState get smart query result from the contract  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmwasm_wasm_v1_smart_contract_state_with_http_info(address, query_data, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str address: address is the address of the contract (required)
+        :param str query_data: QueryData contains the query data passed to the contract (required)
+        :return: QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['address', 'query_data']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmwasm_wasm_v1_smart_contract_state" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'address' is set
+        if ('address' not in params or
+                params['address'] is None):
+            raise ValueError("Missing the required parameter `address` when calling `cosmwasm_wasm_v1_smart_contract_state`")  # noqa: E501
+        # verify the required parameter 'query_data' is set
+        if ('query_data' not in params or
+                params['query_data'] is None):
+            raise ValueError("Missing the required parameter `query_data` when calling `cosmwasm_wasm_v1_smart_contract_state`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'address' in params:
+            path_params['address'] = params['address']  # noqa: E501
+        if 'query_data' in params:
+            path_params['query_data'] = params['query_data']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmwasm/wasm/v1/contract/{address}/smart/{query_data}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_counterparty_payee(self, channel_id, relayer, **kwargs):  # noqa: E501
+        """CounterpartyPayee returns the registered counterparty payee for forward relaying  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_counterparty_payee(channel_id, relayer, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str relayer: the relayer address to which the counterparty is registered (required)
+        :return: QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_counterparty_payee_with_http_info(channel_id, relayer, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_counterparty_payee_with_http_info(channel_id, relayer, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_counterparty_payee_with_http_info(self, channel_id, relayer, **kwargs):  # noqa: E501
+        """CounterpartyPayee returns the registered counterparty payee for forward relaying  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_counterparty_payee_with_http_info(channel_id, relayer, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str relayer: the relayer address to which the counterparty is registered (required)
+        :return: QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel_id', 'relayer']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_counterparty_payee" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'channel_id' is set
+        if ('channel_id' not in params or
+                params['channel_id'] is None):
+            raise ValueError("Missing the required parameter `channel_id` when calling `ibc_applications_fee_v1_counterparty_payee`")  # noqa: E501
+        # verify the required parameter 'relayer' is set
+        if ('relayer' not in params or
+                params['relayer'] is None):
+            raise ValueError("Missing the required parameter `relayer` when calling `ibc_applications_fee_v1_counterparty_payee`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'channel_id' in params:
+            path_params['channel_id'] = params['channel_id']  # noqa: E501
+        if 'relayer' in params:
+            path_params['relayer'] = params['relayer']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/counterparty_payee', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_fee_enabled_channel(self, channel_id, port_id, **kwargs):  # noqa: E501
+        """FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_fee_enabled_channel(channel_id, port_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str port_id: unique port identifier (required)
+        :return: QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_fee_enabled_channel_with_http_info(channel_id, port_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_fee_enabled_channel_with_http_info(channel_id, port_id, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_fee_enabled_channel_with_http_info(self, channel_id, port_id, **kwargs):  # noqa: E501
+        """FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_fee_enabled_channel_with_http_info(channel_id, port_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str port_id: unique port identifier (required)
+        :return: QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel_id', 'port_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_fee_enabled_channel" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'channel_id' is set
+        if ('channel_id' not in params or
+                params['channel_id'] is None):
+            raise ValueError("Missing the required parameter `channel_id` when calling `ibc_applications_fee_v1_fee_enabled_channel`")  # noqa: E501
+        # verify the required parameter 'port_id' is set
+        if ('port_id' not in params or
+                params['port_id'] is None):
+            raise ValueError("Missing the required parameter `port_id` when calling `ibc_applications_fee_v1_fee_enabled_channel`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'channel_id' in params:
+            path_params['channel_id'] = params['channel_id']  # noqa: E501
+        if 'port_id' in params:
+            path_params['port_id'] = params['port_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/fee_enabled', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_fee_enabled_channels(self, **kwargs):  # noqa: E501
+        """FeeEnabledChannels returns a list of all fee enabled channels  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_fee_enabled_channels(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: block height at which to query
+        :return: QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_fee_enabled_channels_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_fee_enabled_channels_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_fee_enabled_channels_with_http_info(self, **kwargs):  # noqa: E501
+        """FeeEnabledChannels returns a list of all fee enabled channels  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_fee_enabled_channels_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: block height at which to query
+        :return: QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse', 'query_height']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_fee_enabled_channels" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+        if 'query_height' in params:
+            query_params.append(('query_height', params['query_height']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/fee_enabled', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_incentivized_packet(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """IncentivizedPacket returns all packet fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packet(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :param str query_height: block height at which to query
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_incentivized_packet_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_incentivized_packet_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_incentivized_packet_with_http_info(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """IncentivizedPacket returns all packet fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packet_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :param str query_height: block height at which to query
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['packet_id_channel_id', 'packet_id_port_id', 'packet_id_sequence', 'query_height']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_incentivized_packet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'packet_id_channel_id' is set
+        if ('packet_id_channel_id' not in params or
+                params['packet_id_channel_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_channel_id` when calling `ibc_applications_fee_v1_incentivized_packet`")  # noqa: E501
+        # verify the required parameter 'packet_id_port_id' is set
+        if ('packet_id_port_id' not in params or
+                params['packet_id_port_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_port_id` when calling `ibc_applications_fee_v1_incentivized_packet`")  # noqa: E501
+        # verify the required parameter 'packet_id_sequence' is set
+        if ('packet_id_sequence' not in params or
+                params['packet_id_sequence'] is None):
+            raise ValueError("Missing the required parameter `packet_id_sequence` when calling `ibc_applications_fee_v1_incentivized_packet`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'packet_id_channel_id' in params:
+            path_params['packet_id.channel_id'] = params['packet_id_channel_id']  # noqa: E501
+        if 'packet_id_port_id' in params:
+            path_params['packet_id.port_id'] = params['packet_id_port_id']  # noqa: E501
+        if 'packet_id_sequence' in params:
+            path_params['packet_id.sequence'] = params['packet_id_sequence']  # noqa: E501
+
+        query_params = []
+        if 'query_height' in params:
+            query_params.append(('query_height', params['query_height']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/incentivized_packet', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_incentivized_packets(self, **kwargs):  # noqa: E501
+        """IncentivizedPackets returns all incentivized packets and their associated fees  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packets(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: block height at which to query
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_incentivized_packets_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_incentivized_packets_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_incentivized_packets_with_http_info(self, **kwargs):  # noqa: E501
+        """IncentivizedPackets returns all incentivized packets and their associated fees  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packets_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: block height at which to query
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse', 'query_height']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_incentivized_packets" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+        if 'query_height' in params:
+            query_params.append(('query_height', params['query_height']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/incentivized_packets', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_incentivized_packets_for_channel(self, channel_id, port_id, **kwargs):  # noqa: E501
+        """Gets all incentivized packets for a specific channel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packets_for_channel(channel_id, port_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: (required)
+        :param str port_id: (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: Height to query at
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_incentivized_packets_for_channel_with_http_info(channel_id, port_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_incentivized_packets_for_channel_with_http_info(channel_id, port_id, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_incentivized_packets_for_channel_with_http_info(self, channel_id, port_id, **kwargs):  # noqa: E501
+        """Gets all incentivized packets for a specific channel  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_incentivized_packets_for_channel_with_http_info(channel_id, port_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: (required)
+        :param str port_id: (required)
+        :param str pagination_key: key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set.
+        :param str pagination_offset: offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set.
+        :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
+        :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
+        :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
+        :param str query_height: Height to query at
+        :return: QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel_id', 'port_id', 'pagination_key', 'pagination_offset', 'pagination_limit', 'pagination_count_total', 'pagination_reverse', 'query_height']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_incentivized_packets_for_channel" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'channel_id' is set
+        if ('channel_id' not in params or
+                params['channel_id'] is None):
+            raise ValueError("Missing the required parameter `channel_id` when calling `ibc_applications_fee_v1_incentivized_packets_for_channel`")  # noqa: E501
+        # verify the required parameter 'port_id' is set
+        if ('port_id' not in params or
+                params['port_id'] is None):
+            raise ValueError("Missing the required parameter `port_id` when calling `ibc_applications_fee_v1_incentivized_packets_for_channel`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'channel_id' in params:
+            path_params['channel_id'] = params['channel_id']  # noqa: E501
+        if 'port_id' in params:
+            path_params['port_id'] = params['port_id']  # noqa: E501
+
+        query_params = []
+        if 'pagination_key' in params:
+            query_params.append(('pagination.key', params['pagination_key']))  # noqa: E501
+        if 'pagination_offset' in params:
+            query_params.append(('pagination.offset', params['pagination_offset']))  # noqa: E501
+        if 'pagination_limit' in params:
+            query_params.append(('pagination.limit', params['pagination_limit']))  # noqa: E501
+        if 'pagination_count_total' in params:
+            query_params.append(('pagination.count_total', params['pagination_count_total']))  # noqa: E501
+        if 'pagination_reverse' in params:
+            query_params.append(('pagination.reverse', params['pagination_reverse']))  # noqa: E501
+        if 'query_height' in params:
+            query_params.append(('query_height', params['query_height']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/incentivized_packets', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_payee(self, channel_id, relayer, **kwargs):  # noqa: E501
+        """Payee returns the registered payee address for a specific channel given the relayer address  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_payee(channel_id, relayer, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str relayer: the relayer address to which the distribution address is registered (required)
+        :return: QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_payee_with_http_info(channel_id, relayer, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_payee_with_http_info(channel_id, relayer, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_payee_with_http_info(self, channel_id, relayer, **kwargs):  # noqa: E501
+        """Payee returns the registered payee address for a specific channel given the relayer address  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_payee_with_http_info(channel_id, relayer, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str channel_id: unique channel identifier (required)
+        :param str relayer: the relayer address to which the distribution address is registered (required)
+        :return: QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['channel_id', 'relayer']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_payee" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'channel_id' is set
+        if ('channel_id' not in params or
+                params['channel_id'] is None):
+            raise ValueError("Missing the required parameter `channel_id` when calling `ibc_applications_fee_v1_payee`")  # noqa: E501
+        # verify the required parameter 'relayer' is set
+        if ('relayer' not in params or
+                params['relayer'] is None):
+            raise ValueError("Missing the required parameter `relayer` when calling `ibc_applications_fee_v1_payee`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'channel_id' in params:
+            path_params['channel_id'] = params['channel_id']  # noqa: E501
+        if 'relayer' in params:
+            path_params['relayer'] = params['relayer']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/payee', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_total_ack_fees(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalAckFees returns the total acknowledgement fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_ack_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_total_ack_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_total_ack_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_total_ack_fees_with_http_info(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalAckFees returns the total acknowledgement fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_ack_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['packet_id_channel_id', 'packet_id_port_id', 'packet_id_sequence']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_total_ack_fees" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'packet_id_channel_id' is set
+        if ('packet_id_channel_id' not in params or
+                params['packet_id_channel_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_channel_id` when calling `ibc_applications_fee_v1_total_ack_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_port_id' is set
+        if ('packet_id_port_id' not in params or
+                params['packet_id_port_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_port_id` when calling `ibc_applications_fee_v1_total_ack_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_sequence' is set
+        if ('packet_id_sequence' not in params or
+                params['packet_id_sequence'] is None):
+            raise ValueError("Missing the required parameter `packet_id_sequence` when calling `ibc_applications_fee_v1_total_ack_fees`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'packet_id_channel_id' in params:
+            path_params['packet_id.channel_id'] = params['packet_id_channel_id']  # noqa: E501
+        if 'packet_id_port_id' in params:
+            path_params['packet_id.port_id'] = params['packet_id_port_id']  # noqa: E501
+        if 'packet_id_sequence' in params:
+            path_params['packet_id.sequence'] = params['packet_id_sequence']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_ack_fees', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_total_recv_fees(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalRecvFees returns the total receive fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_recv_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_total_recv_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_total_recv_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_total_recv_fees_with_http_info(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalRecvFees returns the total receive fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_recv_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['packet_id_channel_id', 'packet_id_port_id', 'packet_id_sequence']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_total_recv_fees" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'packet_id_channel_id' is set
+        if ('packet_id_channel_id' not in params or
+                params['packet_id_channel_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_channel_id` when calling `ibc_applications_fee_v1_total_recv_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_port_id' is set
+        if ('packet_id_port_id' not in params or
+                params['packet_id_port_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_port_id` when calling `ibc_applications_fee_v1_total_recv_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_sequence' is set
+        if ('packet_id_sequence' not in params or
+                params['packet_id_sequence'] is None):
+            raise ValueError("Missing the required parameter `packet_id_sequence` when calling `ibc_applications_fee_v1_total_recv_fees`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'packet_id_channel_id' in params:
+            path_params['packet_id.channel_id'] = params['packet_id_channel_id']  # noqa: E501
+        if 'packet_id_port_id' in params:
+            path_params['packet_id.port_id'] = params['packet_id_port_id']  # noqa: E501
+        if 'packet_id_sequence' in params:
+            path_params['packet_id.sequence'] = params['packet_id_sequence']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_recv_fees', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_fee_v1_total_timeout_fees(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalTimeoutFees returns the total timeout fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_timeout_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_fee_v1_total_timeout_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_fee_v1_total_timeout_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_fee_v1_total_timeout_fees_with_http_info(self, packet_id_channel_id, packet_id_port_id, packet_id_sequence, **kwargs):  # noqa: E501
+        """TotalTimeoutFees returns the total timeout fees for a packet given its identifier  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_fee_v1_total_timeout_fees_with_http_info(packet_id_channel_id, packet_id_port_id, packet_id_sequence, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str packet_id_channel_id: channel unique identifier (required)
+        :param str packet_id_port_id: channel port identifier (required)
+        :param str packet_id_sequence: packet sequence (required)
+        :return: QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['packet_id_channel_id', 'packet_id_port_id', 'packet_id_sequence']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_fee_v1_total_timeout_fees" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'packet_id_channel_id' is set
+        if ('packet_id_channel_id' not in params or
+                params['packet_id_channel_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_channel_id` when calling `ibc_applications_fee_v1_total_timeout_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_port_id' is set
+        if ('packet_id_port_id' not in params or
+                params['packet_id_port_id'] is None):
+            raise ValueError("Missing the required parameter `packet_id_port_id` when calling `ibc_applications_fee_v1_total_timeout_fees`")  # noqa: E501
+        # verify the required parameter 'packet_id_sequence' is set
+        if ('packet_id_sequence' not in params or
+                params['packet_id_sequence'] is None):
+            raise ValueError("Missing the required parameter `packet_id_sequence` when calling `ibc_applications_fee_v1_total_timeout_fees`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'packet_id_channel_id' in params:
+            path_params['packet_id.channel_id'] = params['packet_id_channel_id']  # noqa: E501
+        if 'packet_id_port_id' in params:
+            path_params['packet_id.port_id'] = params['packet_id_port_id']  # noqa: E501
+        if 'packet_id_sequence' in params:
+            path_params['packet_id.sequence'] = params['packet_id_sequence']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_timeout_fees', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9526,7 +11710,7 @@ class QueryApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str connection_id: (required)
-        :return: InlineResponse20085
+        :return: InlineResponse20090
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9548,7 +11732,7 @@ class QueryApi(object):
         :param async_req bool
         :param str owner: (required)
         :param str connection_id: (required)
-        :return: InlineResponse20085
+        :return: InlineResponse20090
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9608,7 +11792,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20085',  # noqa: E501
+            response_type='InlineResponse20090',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9625,7 +11809,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20086
+        :return: InlineResponse20091
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9645,7 +11829,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20086
+        :return: InlineResponse20091
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9693,7 +11877,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20086',  # noqa: E501
+            response_type='InlineResponse20091',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9710,7 +11894,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20087
+        :return: InlineResponse20092
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9730,7 +11914,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20087
+        :return: InlineResponse20092
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9778,7 +11962,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20087',  # noqa: E501
+            response_type='InlineResponse20092',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9796,7 +11980,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str trace: The denomination trace ([port_id]/[channel_id])+/[denom] (required)
-        :return: InlineResponse20089
+        :return: InlineResponse20094
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9817,7 +12001,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str trace: The denomination trace ([port_id]/[channel_id])+/[denom] (required)
-        :return: InlineResponse20089
+        :return: InlineResponse20094
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9871,7 +12055,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20089',  # noqa: E501
+            response_type='InlineResponse20094',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9889,7 +12073,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str hash: hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information. (required)
-        :return: InlineResponse20091
+        :return: InlineResponse20096
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9910,7 +12094,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str hash: hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information. (required)
-        :return: InlineResponse20091
+        :return: InlineResponse20096
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -9964,7 +12148,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20091',  # noqa: E501
+            response_type='InlineResponse20096',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -9986,7 +12170,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20090
+        :return: InlineResponse20095
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10011,7 +12195,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20090
+        :return: InlineResponse20095
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10069,7 +12253,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20090',  # noqa: E501
+            response_type='InlineResponse20095',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10088,7 +12272,7 @@ class QueryApi(object):
         :param async_req bool
         :param str channel_id: unique channel identifier (required)
         :param str port_id: unique port identifier (required)
-        :return: InlineResponse20088
+        :return: InlineResponse20093
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10110,7 +12294,7 @@ class QueryApi(object):
         :param async_req bool
         :param str channel_id: unique channel identifier (required)
         :param str port_id: unique port identifier (required)
-        :return: InlineResponse20088
+        :return: InlineResponse20093
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10170,7 +12354,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20088',  # noqa: E501
+            response_type='InlineResponse20093',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10187,7 +12371,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20092
+        :return: InlineResponse20098
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10207,7 +12391,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20092
+        :return: InlineResponse20098
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10255,7 +12439,100 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20092',  # noqa: E501
+            response_type='InlineResponse20098',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def ibc_applications_transfer_v1_total_escrow_for_denom(self, denom, **kwargs):  # noqa: E501
+        """TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_transfer_v1_total_escrow_for_denom(denom, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str denom: (required)
+        :return: InlineResponse20097
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.ibc_applications_transfer_v1_total_escrow_for_denom_with_http_info(denom, **kwargs)  # noqa: E501
+        else:
+            (data) = self.ibc_applications_transfer_v1_total_escrow_for_denom_with_http_info(denom, **kwargs)  # noqa: E501
+            return data
+
+    def ibc_applications_transfer_v1_total_escrow_for_denom_with_http_info(self, denom, **kwargs):  # noqa: E501
+        """TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.ibc_applications_transfer_v1_total_escrow_for_denom_with_http_info(denom, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str denom: (required)
+        :return: InlineResponse20097
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['denom']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method ibc_applications_transfer_v1_total_escrow_for_denom" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'denom' is set
+        if ('denom' not in params or
+                params['denom'] is None):
+            raise ValueError("Missing the required parameter `denom` when calling `ibc_applications_transfer_v1_total_escrow_for_denom`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'denom' in params:
+            path_params['denom'] = params['denom']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/ibc/apps/transfer/v1/denoms/{denom}/total_escrow', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20097',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10274,7 +12551,7 @@ class QueryApi(object):
         :param async_req bool
         :param str channel_id: channel unique identifier (required)
         :param str port_id: port unique identifier (required)
-        :return: InlineResponse20094
+        :return: InlineResponse200100
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10296,7 +12573,7 @@ class QueryApi(object):
         :param async_req bool
         :param str channel_id: channel unique identifier (required)
         :param str port_id: port unique identifier (required)
-        :return: InlineResponse20094
+        :return: InlineResponse200100
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10356,7 +12633,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20094',  # noqa: E501
+            response_type='InlineResponse200100',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -10596,7 +12873,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20093
+        :return: InlineResponse20099
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10621,7 +12898,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20093
+        :return: InlineResponse20099
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -10679,7 +12956,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20093',  # noqa: E501
+            response_type='InlineResponse20099',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -11704,7 +13981,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20098
+        :return: InlineResponse200104
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11724,7 +14001,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20098
+        :return: InlineResponse200104
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11772,7 +14049,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20098',  # noqa: E501
+            response_type='InlineResponse200104',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -11790,7 +14067,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str client_id: client state unique identifier (required)
-        :return: InlineResponse20096
+        :return: InlineResponse200102
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11811,7 +14088,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str client_id: client state unique identifier (required)
-        :return: InlineResponse20096
+        :return: InlineResponse200102
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11865,7 +14142,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20096',  # noqa: E501
+            response_type='InlineResponse200102',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -11887,7 +14164,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20095
+        :return: InlineResponse200101
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11912,7 +14189,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20095
+        :return: InlineResponse200101
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -11970,7 +14247,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20095',  # noqa: E501
+            response_type='InlineResponse200101',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -11988,7 +14265,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str client_id: client unique identifier (required)
-        :return: InlineResponse20097
+        :return: InlineResponse200103
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12009,7 +14286,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str client_id: client unique identifier (required)
-        :return: InlineResponse20097
+        :return: InlineResponse200103
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12063,7 +14340,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20097',  # noqa: E501
+            response_type='InlineResponse200103',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12419,7 +14696,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20099
+        :return: InlineResponse200105
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12439,7 +14716,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20099
+        :return: InlineResponse200105
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12487,7 +14764,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20099',  # noqa: E501
+            response_type='InlineResponse200105',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12504,7 +14781,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse200100
+        :return: InlineResponse200106
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12524,7 +14801,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse200100
+        :return: InlineResponse200106
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12572,7 +14849,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200100',  # noqa: E501
+            response_type='InlineResponse200106',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12683,7 +14960,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str connection_id: connection unique identifier (required)
-        :return: InlineResponse200102
+        :return: InlineResponse200108
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12704,7 +14981,7 @@ class QueryApi(object):
 
         :param async_req bool
         :param str connection_id: connection unique identifier (required)
-        :return: InlineResponse200102
+        :return: InlineResponse200108
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12758,7 +15035,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200102',  # noqa: E501
+            response_type='InlineResponse200108',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -12977,7 +15254,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse200103
+        :return: InlineResponse200109
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -12997,7 +15274,7 @@ class QueryApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse200103
+        :return: InlineResponse200109
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13045,7 +15322,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200103',  # noqa: E501
+            response_type='InlineResponse200109',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -13067,7 +15344,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse200101
+        :return: InlineResponse200107
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13092,7 +15369,7 @@ class QueryApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse200101
+        :return: InlineResponse200107
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -13150,7 +15427,7 @@ class QueryApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200101',  # noqa: E501
+            response_type='InlineResponse200107',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

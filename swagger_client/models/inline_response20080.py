@@ -28,40 +28,42 @@ class InlineResponse20080(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tx_response': 'CosmosTxV1beta1BroadcastTxResponseTxResponse'
+        'tx_bytes': 'str'
     }
 
     attribute_map = {
-        'tx_response': 'tx_response'
+        'tx_bytes': 'tx_bytes'
     }
 
-    def __init__(self, tx_response=None):  # noqa: E501
+    def __init__(self, tx_bytes=None):  # noqa: E501
         """InlineResponse20080 - a model defined in Swagger"""  # noqa: E501
-        self._tx_response = None
+        self._tx_bytes = None
         self.discriminator = None
-        if tx_response is not None:
-            self.tx_response = tx_response
+        if tx_bytes is not None:
+            self.tx_bytes = tx_bytes
 
     @property
-    def tx_response(self):
-        """Gets the tx_response of this InlineResponse20080.  # noqa: E501
+    def tx_bytes(self):
+        """Gets the tx_bytes of this InlineResponse20080.  # noqa: E501
 
+        tx_bytes is the encoded transaction bytes.  # noqa: E501
 
-        :return: The tx_response of this InlineResponse20080.  # noqa: E501
-        :rtype: CosmosTxV1beta1BroadcastTxResponseTxResponse
+        :return: The tx_bytes of this InlineResponse20080.  # noqa: E501
+        :rtype: str
         """
-        return self._tx_response
+        return self._tx_bytes
 
-    @tx_response.setter
-    def tx_response(self, tx_response):
-        """Sets the tx_response of this InlineResponse20080.
+    @tx_bytes.setter
+    def tx_bytes(self, tx_bytes):
+        """Sets the tx_bytes of this InlineResponse20080.
 
+        tx_bytes is the encoded transaction bytes.  # noqa: E501
 
-        :param tx_response: The tx_response of this InlineResponse20080.  # noqa: E501
-        :type: CosmosTxV1beta1BroadcastTxResponseTxResponse
+        :param tx_bytes: The tx_bytes of this InlineResponse20080.  # noqa: E501
+        :type: str
         """
 
-        self._tx_response = tx_response
+        self._tx_bytes = tx_bytes
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -28,40 +28,40 @@ class InlineResponse20069(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'fixed_deposit': 'list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]'
+        'hist': 'CosmosStakingV1beta1QueryHistoricalInfoResponseHist'
     }
 
     attribute_map = {
-        'fixed_deposit': 'FixedDeposit'
+        'hist': 'hist'
     }
 
-    def __init__(self, fixed_deposit=None):  # noqa: E501
+    def __init__(self, hist=None):  # noqa: E501
         """InlineResponse20069 - a model defined in Swagger"""  # noqa: E501
-        self._fixed_deposit = None
+        self._hist = None
         self.discriminator = None
-        if fixed_deposit is not None:
-            self.fixed_deposit = fixed_deposit
+        if hist is not None:
+            self.hist = hist
 
     @property
-    def fixed_deposit(self):
-        """Gets the fixed_deposit of this InlineResponse20069.  # noqa: E501
+    def hist(self):
+        """Gets the hist of this InlineResponse20069.  # noqa: E501
 
 
-        :return: The fixed_deposit of this InlineResponse20069.  # noqa: E501
-        :rtype: list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]
+        :return: The hist of this InlineResponse20069.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryHistoricalInfoResponseHist
         """
-        return self._fixed_deposit
+        return self._hist
 
-    @fixed_deposit.setter
-    def fixed_deposit(self, fixed_deposit):
-        """Sets the fixed_deposit of this InlineResponse20069.
+    @hist.setter
+    def hist(self, hist):
+        """Sets the hist of this InlineResponse20069.
 
 
-        :param fixed_deposit: The fixed_deposit of this InlineResponse20069.  # noqa: E501
-        :type: list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]
+        :param hist: The hist of this InlineResponse20069.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryHistoricalInfoResponseHist
         """
 
-        self._fixed_deposit = fixed_deposit
+        self._hist = hist
 
     def to_dict(self):
         """Returns the model properties as a dict"""

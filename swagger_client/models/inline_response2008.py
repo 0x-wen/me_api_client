@@ -28,68 +28,40 @@ class InlineResponse2008(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'grants': 'list[CosmosAuthzV1beta1QueryGrantsResponseGrants]',
-        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
+        'params': 'CosmosAuthV1beta1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'grants': 'grants',
-        'pagination': 'pagination'
+        'params': 'params'
     }
 
-    def __init__(self, grants=None, pagination=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse2008 - a model defined in Swagger"""  # noqa: E501
-        self._grants = None
-        self._pagination = None
+        self._params = None
         self.discriminator = None
-        if grants is not None:
-            self.grants = grants
-        if pagination is not None:
-            self.pagination = pagination
+        if params is not None:
+            self.params = params
 
     @property
-    def grants(self):
-        """Gets the grants of this InlineResponse2008.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse2008.  # noqa: E501
 
-        authorizations is a list of grants granted for grantee by granter.  # noqa: E501
 
-        :return: The grants of this InlineResponse2008.  # noqa: E501
-        :rtype: list[CosmosAuthzV1beta1QueryGrantsResponseGrants]
+        :return: The params of this InlineResponse2008.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryParamsResponseParams
         """
-        return self._grants
+        return self._params
 
-    @grants.setter
-    def grants(self, grants):
-        """Sets the grants of this InlineResponse2008.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse2008.
 
-        authorizations is a list of grants granted for grantee by granter.  # noqa: E501
 
-        :param grants: The grants of this InlineResponse2008.  # noqa: E501
-        :type: list[CosmosAuthzV1beta1QueryGrantsResponseGrants]
+        :param params: The params of this InlineResponse2008.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryParamsResponseParams
         """
 
-        self._grants = grants
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse2008.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse2008.  # noqa: E501
-        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse2008.
-
-
-        :param pagination: The pagination of this InlineResponse2008.  # noqa: E501
-        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

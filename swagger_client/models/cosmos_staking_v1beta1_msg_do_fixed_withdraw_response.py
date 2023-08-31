@@ -28,40 +28,124 @@ class CosmosStakingV1beta1MsgDoFixedWithdrawResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'retcode': 'str'
+        'principal': 'CosmosBankV1beta1InputCoins',
+        'interest': 'CosmosBankV1beta1InputCoins',
+        'term': 'str',
+        'rate': 'str'
     }
 
     attribute_map = {
-        'retcode': 'retcode'
+        'principal': 'principal',
+        'interest': 'interest',
+        'term': 'term',
+        'rate': 'rate'
     }
 
-    def __init__(self, retcode=None):  # noqa: E501
+    def __init__(self, principal=None, interest=None, term='TERM_1_MONTHS', rate=None):  # noqa: E501
         """CosmosStakingV1beta1MsgDoFixedWithdrawResponse - a model defined in Swagger"""  # noqa: E501
-        self._retcode = None
+        self._principal = None
+        self._interest = None
+        self._term = None
+        self._rate = None
         self.discriminator = None
-        if retcode is not None:
-            self.retcode = retcode
+        if principal is not None:
+            self.principal = principal
+        if interest is not None:
+            self.interest = interest
+        if term is not None:
+            self.term = term
+        if rate is not None:
+            self.rate = rate
 
     @property
-    def retcode(self):
-        """Gets the retcode of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+    def principal(self):
+        """Gets the principal of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
 
 
-        :return: The retcode of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :return: The principal of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :rtype: CosmosBankV1beta1InputCoins
+        """
+        return self._principal
+
+    @principal.setter
+    def principal(self, principal):
+        """Sets the principal of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.
+
+
+        :param principal: The principal of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :type: CosmosBankV1beta1InputCoins
+        """
+
+        self._principal = principal
+
+    @property
+    def interest(self):
+        """Gets the interest of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+
+
+        :return: The interest of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :rtype: CosmosBankV1beta1InputCoins
+        """
+        return self._interest
+
+    @interest.setter
+    def interest(self, interest):
+        """Sets the interest of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.
+
+
+        :param interest: The interest of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :type: CosmosBankV1beta1InputCoins
+        """
+
+        self._interest = interest
+
+    @property
+    def term(self):
+        """Gets the term of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+
+
+        :return: The term of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
         :rtype: str
         """
-        return self._retcode
+        return self._term
 
-    @retcode.setter
-    def retcode(self, retcode):
-        """Sets the retcode of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.
+    @term.setter
+    def term(self, term):
+        """Sets the term of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.
 
 
-        :param retcode: The retcode of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :param term: The term of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["TERM_1_MONTHS", "TERM_3_MONTHS", "TERM_6_MONTHS", "TERM_12_MONTHS", "TERM_24_MONTHS", "TERM_36_MONTHS", "TERM_48_MONTHS"]  # noqa: E501
+        if term not in allowed_values:
+            raise ValueError(
+                "Invalid value for `term` ({0}), must be one of {1}"  # noqa: E501
+                .format(term, allowed_values)
+            )
+
+        self._term = term
+
+    @property
+    def rate(self):
+        """Gets the rate of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+
+
+        :return: The rate of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate
+
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.
+
+
+        :param rate: The rate of this CosmosStakingV1beta1MsgDoFixedWithdrawResponse.  # noqa: E501
         :type: str
         """
 
-        self._retcode = retcode
+        self._rate = rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

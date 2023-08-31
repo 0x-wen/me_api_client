@@ -28,7 +28,7 @@ class InlineResponse20098(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'IbcCoreClientV1QueryClientParamsResponseParams'
+        'params': 'IbcApplicationsTransferV1QueryParamsResponseParams'
     }
 
     attribute_map = {
@@ -48,7 +48,7 @@ class InlineResponse20098(object):
 
 
         :return: The params of this InlineResponse20098.  # noqa: E501
-        :rtype: IbcCoreClientV1QueryClientParamsResponseParams
+        :rtype: IbcApplicationsTransferV1QueryParamsResponseParams
         """
         return self._params
 
@@ -58,7 +58,7 @@ class InlineResponse20098(object):
 
 
         :param params: The params of this InlineResponse20098.  # noqa: E501
-        :type: IbcCoreClientV1QueryClientParamsResponseParams
+        :type: IbcApplicationsTransferV1QueryParamsResponseParams
         """
 
         self._params = params

@@ -28,8 +28,8 @@ class QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'nfts': 'list[CosmosNftV1beta1QueryNFTResponseNft]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'nfts': 'list[CosmosNftV1beta1QueryNFTsResponseNfts]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
@@ -53,7 +53,7 @@ class QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods(object):
 
 
         :return: The nfts of this QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods.  # noqa: E501
-        :rtype: list[CosmosNftV1beta1QueryNFTResponseNft]
+        :rtype: list[CosmosNftV1beta1QueryNFTsResponseNfts]
         """
         return self._nfts
 
@@ -63,7 +63,7 @@ class QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods(object):
 
 
         :param nfts: The nfts of this QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods.  # noqa: E501
-        :type: list[CosmosNftV1beta1QueryNFTResponseNft]
+        :type: list[CosmosNftV1beta1QueryNFTsResponseNfts]
         """
 
         self._nfts = nfts
@@ -74,7 +74,7 @@ class QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods(object):
 
 
         :return: The pagination of this QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods(object):
 
 
         :param pagination: The pagination of this QueryNFTsResponseIsTheResponseTypeForTheQueryNFTsRPCMethods.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
 
         self._pagination = pagination

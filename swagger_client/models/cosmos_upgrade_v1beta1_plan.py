@@ -112,7 +112,7 @@ class CosmosUpgradeV1beta1Plan(object):
     def height(self):
         """Gets the height of this CosmosUpgradeV1beta1Plan.  # noqa: E501
 
-        The height at which the upgrade must be performed. Only used if Time is not set.  # noqa: E501
+        The height at which the upgrade must be performed.  # noqa: E501
 
         :return: The height of this CosmosUpgradeV1beta1Plan.  # noqa: E501
         :rtype: str
@@ -123,7 +123,7 @@ class CosmosUpgradeV1beta1Plan(object):
     def height(self, height):
         """Sets the height of this CosmosUpgradeV1beta1Plan.
 
-        The height at which the upgrade must be performed. Only used if Time is not set.  # noqa: E501
+        The height at which the upgrade must be performed.  # noqa: E501
 
         :param height: The height of this CosmosUpgradeV1beta1Plan.  # noqa: E501
         :type: str

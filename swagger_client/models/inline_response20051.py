@@ -28,47 +28,47 @@ class InlineResponse20051(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_policies': 'list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]',
+        'votes': 'list[CosmosGovV1beta1QueryVotesResponseVotes]',
         'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'group_policies': 'group_policies',
+        'votes': 'votes',
         'pagination': 'pagination'
     }
 
-    def __init__(self, group_policies=None, pagination=None):  # noqa: E501
+    def __init__(self, votes=None, pagination=None):  # noqa: E501
         """InlineResponse20051 - a model defined in Swagger"""  # noqa: E501
-        self._group_policies = None
+        self._votes = None
         self._pagination = None
         self.discriminator = None
-        if group_policies is not None:
-            self.group_policies = group_policies
+        if votes is not None:
+            self.votes = votes
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def group_policies(self):
-        """Gets the group_policies of this InlineResponse20051.  # noqa: E501
+    def votes(self):
+        """Gets the votes of this InlineResponse20051.  # noqa: E501
 
-        group_policies are the group policies info associated with the provided group.  # noqa: E501
+        votes defines the queried votes.  # noqa: E501
 
-        :return: The group_policies of this InlineResponse20051.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]
+        :return: The votes of this InlineResponse20051.  # noqa: E501
+        :rtype: list[CosmosGovV1beta1QueryVotesResponseVotes]
         """
-        return self._group_policies
+        return self._votes
 
-    @group_policies.setter
-    def group_policies(self, group_policies):
-        """Sets the group_policies of this InlineResponse20051.
+    @votes.setter
+    def votes(self, votes):
+        """Sets the votes of this InlineResponse20051.
 
-        group_policies are the group policies info associated with the provided group.  # noqa: E501
+        votes defines the queried votes.  # noqa: E501
 
-        :param group_policies: The group_policies of this InlineResponse20051.  # noqa: E501
-        :type: list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]
+        :param votes: The votes of this InlineResponse20051.  # noqa: E501
+        :type: list[CosmosGovV1beta1QueryVotesResponseVotes]
         """
 
-        self._group_policies = group_policies
+        self._votes = votes
 
     @property
     def pagination(self):

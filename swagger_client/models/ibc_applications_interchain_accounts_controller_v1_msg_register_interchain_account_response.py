@@ -28,19 +28,24 @@ class IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountR
                             and the value is json key in definition.
     """
     swagger_types = {
-        'channel_id': 'str'
+        'channel_id': 'str',
+        'port_id': 'str'
     }
 
     attribute_map = {
-        'channel_id': 'channel_id'
+        'channel_id': 'channel_id',
+        'port_id': 'port_id'
     }
 
-    def __init__(self, channel_id=None):  # noqa: E501
+    def __init__(self, channel_id=None, port_id=None):  # noqa: E501
         """IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountResponse - a model defined in Swagger"""  # noqa: E501
         self._channel_id = None
+        self._port_id = None
         self.discriminator = None
         if channel_id is not None:
             self.channel_id = channel_id
+        if port_id is not None:
+            self.port_id = port_id
 
     @property
     def channel_id(self):
@@ -62,6 +67,27 @@ class IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountR
         """
 
         self._channel_id = channel_id
+
+    @property
+    def port_id(self):
+        """Gets the port_id of this IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountResponse.  # noqa: E501
+
+
+        :return: The port_id of this IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._port_id
+
+    @port_id.setter
+    def port_id(self, port_id):
+        """Sets the port_id of this IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountResponse.
+
+
+        :param port_id: The port_id of this IbcApplicationsInterchainAccountsControllerV1MsgRegisterInterchainAccountResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._port_id = port_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

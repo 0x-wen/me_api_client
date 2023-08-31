@@ -28,66 +28,40 @@ class InlineResponse20072(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'kyc': 'list[CosmosStakingV1beta1QueryAllKycResponseKyc]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'params': 'CosmosStakingV1beta1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'kyc': 'kyc',
-        'pagination': 'pagination'
+        'params': 'params'
     }
 
-    def __init__(self, kyc=None, pagination=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20072 - a model defined in Swagger"""  # noqa: E501
-        self._kyc = None
-        self._pagination = None
+        self._params = None
         self.discriminator = None
-        if kyc is not None:
-            self.kyc = kyc
-        if pagination is not None:
-            self.pagination = pagination
+        if params is not None:
+            self.params = params
 
     @property
-    def kyc(self):
-        """Gets the kyc of this InlineResponse20072.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20072.  # noqa: E501
 
 
-        :return: The kyc of this InlineResponse20072.  # noqa: E501
-        :rtype: list[CosmosStakingV1beta1QueryAllKycResponseKyc]
+        :return: The params of this InlineResponse20072.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryParamsResponseParams
         """
-        return self._kyc
+        return self._params
 
-    @kyc.setter
-    def kyc(self, kyc):
-        """Sets the kyc of this InlineResponse20072.
-
-
-        :param kyc: The kyc of this InlineResponse20072.  # noqa: E501
-        :type: list[CosmosStakingV1beta1QueryAllKycResponseKyc]
-        """
-
-        self._kyc = kyc
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20072.  # noqa: E501
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20072.
 
 
-        :return: The pagination of this InlineResponse20072.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20072.
-
-
-        :param pagination: The pagination of this InlineResponse20072.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :param params: The params of this InlineResponse20072.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryParamsResponseParams
         """
 
-        self._pagination = pagination
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -56,6 +56,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def proposal_id(self):
         """Gets the proposal_id of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :return: The proposal_id of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :rtype: str
@@ -66,6 +67,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def proposal_id(self, proposal_id):
         """Sets the proposal_id of this CosmosGovV1QueryDepositsResponseDeposits.
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :param proposal_id: The proposal_id of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :type: str
@@ -77,6 +79,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def depositor(self):
         """Gets the depositor of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
 
+        depositor defines the deposit addresses from the proposals.  # noqa: E501
 
         :return: The depositor of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :rtype: str
@@ -87,6 +90,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def depositor(self, depositor):
         """Sets the depositor of this CosmosGovV1QueryDepositsResponseDeposits.
 
+        depositor defines the deposit addresses from the proposals.  # noqa: E501
 
         :param depositor: The depositor of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :type: str
@@ -98,6 +102,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def amount(self):
         """Gets the amount of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
 
+        amount to be deposited by depositor.  # noqa: E501
 
         :return: The amount of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :rtype: list[CosmosBankV1beta1InputCoins]
@@ -108,6 +113,7 @@ class CosmosGovV1QueryDepositsResponseDeposits(object):
     def amount(self, amount):
         """Sets the amount of this CosmosGovV1QueryDepositsResponseDeposits.
 
+        amount to be deposited by depositor.  # noqa: E501
 
         :param amount: The amount of this CosmosGovV1QueryDepositsResponseDeposits.  # noqa: E501
         :type: list[CosmosBankV1beta1InputCoins]

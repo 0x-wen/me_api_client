@@ -28,40 +28,40 @@ class InlineResponse20052(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'info': 'CosmosGroupV1QueryGroupPolicyInfoResponseInfo'
+        'vote': 'CosmosGovV1beta1QueryVoteResponseVote'
     }
 
     attribute_map = {
-        'info': 'info'
+        'vote': 'vote'
     }
 
-    def __init__(self, info=None):  # noqa: E501
+    def __init__(self, vote=None):  # noqa: E501
         """InlineResponse20052 - a model defined in Swagger"""  # noqa: E501
-        self._info = None
+        self._vote = None
         self.discriminator = None
-        if info is not None:
-            self.info = info
+        if vote is not None:
+            self.vote = vote
 
     @property
-    def info(self):
-        """Gets the info of this InlineResponse20052.  # noqa: E501
+    def vote(self):
+        """Gets the vote of this InlineResponse20052.  # noqa: E501
 
 
-        :return: The info of this InlineResponse20052.  # noqa: E501
-        :rtype: CosmosGroupV1QueryGroupPolicyInfoResponseInfo
+        :return: The vote of this InlineResponse20052.  # noqa: E501
+        :rtype: CosmosGovV1beta1QueryVoteResponseVote
         """
-        return self._info
+        return self._vote
 
-    @info.setter
-    def info(self, info):
-        """Sets the info of this InlineResponse20052.
+    @vote.setter
+    def vote(self, vote):
+        """Sets the vote of this InlineResponse20052.
 
 
-        :param info: The info of this InlineResponse20052.  # noqa: E501
-        :type: CosmosGroupV1QueryGroupPolicyInfoResponseInfo
+        :param vote: The vote of this InlineResponse20052.  # noqa: E501
+        :type: CosmosGovV1beta1QueryVoteResponseVote
         """
 
-        self._info = info
+        self._vote = vote
 
     def to_dict(self):
         """Returns the model properties as a dict"""

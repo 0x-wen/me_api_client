@@ -28,45 +28,45 @@ class InlineResponse20076(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'region': 'list[CosmosStakingV1beta1QueryAllRegionResponseRegion]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'siid_nft': 'list[CosmosStakingV1beta1QueryAllSiidResponseSiidNFT]',
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
-        'region': 'region',
+        'siid_nft': 'siidNFT',
         'pagination': 'pagination'
     }
 
-    def __init__(self, region=None, pagination=None):  # noqa: E501
+    def __init__(self, siid_nft=None, pagination=None):  # noqa: E501
         """InlineResponse20076 - a model defined in Swagger"""  # noqa: E501
-        self._region = None
+        self._siid_nft = None
         self._pagination = None
         self.discriminator = None
-        if region is not None:
-            self.region = region
+        if siid_nft is not None:
+            self.siid_nft = siid_nft
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def region(self):
-        """Gets the region of this InlineResponse20076.  # noqa: E501
+    def siid_nft(self):
+        """Gets the siid_nft of this InlineResponse20076.  # noqa: E501
 
 
-        :return: The region of this InlineResponse20076.  # noqa: E501
-        :rtype: list[CosmosStakingV1beta1QueryAllRegionResponseRegion]
+        :return: The siid_nft of this InlineResponse20076.  # noqa: E501
+        :rtype: list[CosmosStakingV1beta1QueryAllSiidResponseSiidNFT]
         """
-        return self._region
+        return self._siid_nft
 
-    @region.setter
-    def region(self, region):
-        """Sets the region of this InlineResponse20076.
+    @siid_nft.setter
+    def siid_nft(self, siid_nft):
+        """Sets the siid_nft of this InlineResponse20076.
 
 
-        :param region: The region of this InlineResponse20076.  # noqa: E501
-        :type: list[CosmosStakingV1beta1QueryAllRegionResponseRegion]
+        :param siid_nft: The siid_nft of this InlineResponse20076.  # noqa: E501
+        :type: list[CosmosStakingV1beta1QueryAllSiidResponseSiidNFT]
         """
 
-        self._region = region
+        self._siid_nft = siid_nft
 
     @property
     def pagination(self):
@@ -74,7 +74,7 @@ class InlineResponse20076(object):
 
 
         :return: The pagination of this InlineResponse20076.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class InlineResponse20076(object):
 
 
         :param pagination: The pagination of this InlineResponse20076.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

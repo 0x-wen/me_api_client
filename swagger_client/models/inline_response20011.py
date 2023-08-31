@@ -28,47 +28,47 @@ class InlineResponse20011(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'balances': 'list[CosmosBankV1beta1InputCoins]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'grants': 'list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]',
+        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
     }
 
     attribute_map = {
-        'balances': 'balances',
+        'grants': 'grants',
         'pagination': 'pagination'
     }
 
-    def __init__(self, balances=None, pagination=None):  # noqa: E501
+    def __init__(self, grants=None, pagination=None):  # noqa: E501
         """InlineResponse20011 - a model defined in Swagger"""  # noqa: E501
-        self._balances = None
+        self._grants = None
         self._pagination = None
         self.discriminator = None
-        if balances is not None:
-            self.balances = balances
+        if grants is not None:
+            self.grants = grants
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def balances(self):
-        """Gets the balances of this InlineResponse20011.  # noqa: E501
+    def grants(self):
+        """Gets the grants of this InlineResponse20011.  # noqa: E501
 
-        balances is the balances of all the coins.  # noqa: E501
+        grants is a list of grants granted by the granter.  # noqa: E501
 
-        :return: The balances of this InlineResponse20011.  # noqa: E501
-        :rtype: list[CosmosBankV1beta1InputCoins]
+        :return: The grants of this InlineResponse20011.  # noqa: E501
+        :rtype: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]
         """
-        return self._balances
+        return self._grants
 
-    @balances.setter
-    def balances(self, balances):
-        """Sets the balances of this InlineResponse20011.
+    @grants.setter
+    def grants(self, grants):
+        """Sets the grants of this InlineResponse20011.
 
-        balances is the balances of all the coins.  # noqa: E501
+        grants is a list of grants granted by the granter.  # noqa: E501
 
-        :param balances: The balances of this InlineResponse20011.  # noqa: E501
-        :type: list[CosmosBankV1beta1InputCoins]
+        :param grants: The grants of this InlineResponse20011.  # noqa: E501
+        :type: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]
         """
 
-        self._balances = balances
+        self._grants = grants
 
     @property
     def pagination(self):
@@ -76,7 +76,7 @@ class InlineResponse20011(object):
 
 
         :return: The pagination of this InlineResponse20011.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
         """
         return self._pagination
 
@@ -86,7 +86,7 @@ class InlineResponse20011(object):
 
 
         :param pagination: The pagination of this InlineResponse20011.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
         """
 
         self._pagination = pagination

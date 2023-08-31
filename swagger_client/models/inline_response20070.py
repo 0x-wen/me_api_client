@@ -28,45 +28,45 @@ class InlineResponse20070(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'fixed_deposit_annual_rate': 'CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'kyc': 'list[CosmosStakingV1beta1QueryAllKycResponseKyc]',
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
-        'fixed_deposit_annual_rate': 'FixedDepositAnnualRate',
+        'kyc': 'kyc',
         'pagination': 'pagination'
     }
 
-    def __init__(self, fixed_deposit_annual_rate=None, pagination=None):  # noqa: E501
+    def __init__(self, kyc=None, pagination=None):  # noqa: E501
         """InlineResponse20070 - a model defined in Swagger"""  # noqa: E501
-        self._fixed_deposit_annual_rate = None
+        self._kyc = None
         self._pagination = None
         self.discriminator = None
-        if fixed_deposit_annual_rate is not None:
-            self.fixed_deposit_annual_rate = fixed_deposit_annual_rate
+        if kyc is not None:
+            self.kyc = kyc
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def fixed_deposit_annual_rate(self):
-        """Gets the fixed_deposit_annual_rate of this InlineResponse20070.  # noqa: E501
+    def kyc(self):
+        """Gets the kyc of this InlineResponse20070.  # noqa: E501
 
 
-        :return: The fixed_deposit_annual_rate of this InlineResponse20070.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate
+        :return: The kyc of this InlineResponse20070.  # noqa: E501
+        :rtype: list[CosmosStakingV1beta1QueryAllKycResponseKyc]
         """
-        return self._fixed_deposit_annual_rate
+        return self._kyc
 
-    @fixed_deposit_annual_rate.setter
-    def fixed_deposit_annual_rate(self, fixed_deposit_annual_rate):
-        """Sets the fixed_deposit_annual_rate of this InlineResponse20070.
+    @kyc.setter
+    def kyc(self, kyc):
+        """Sets the kyc of this InlineResponse20070.
 
 
-        :param fixed_deposit_annual_rate: The fixed_deposit_annual_rate of this InlineResponse20070.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate
+        :param kyc: The kyc of this InlineResponse20070.  # noqa: E501
+        :type: list[CosmosStakingV1beta1QueryAllKycResponseKyc]
         """
 
-        self._fixed_deposit_annual_rate = fixed_deposit_annual_rate
+        self._kyc = kyc
 
     @property
     def pagination(self):
@@ -74,7 +74,7 @@ class InlineResponse20070(object):
 
 
         :return: The pagination of this InlineResponse20070.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class InlineResponse20070(object):
 
 
         :param pagination: The pagination of this InlineResponse20070.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

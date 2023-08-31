@@ -28,8 +28,8 @@ class CosmosGovV1beta1QueryParamsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'voting_params': 'CosmosGovV1QueryParamsResponseVotingParams',
-        'deposit_params': 'CosmosGovV1QueryParamsResponseDepositParams',
+        'voting_params': 'CosmosGovV1beta1QueryParamsResponseVotingParams',
+        'deposit_params': 'CosmosGovV1beta1QueryParamsResponseDepositParams',
         'tally_params': 'CosmosGovV1beta1QueryParamsResponseTallyParams'
     }
 
@@ -58,7 +58,7 @@ class CosmosGovV1beta1QueryParamsResponse(object):
 
 
         :return: The voting_params of this CosmosGovV1beta1QueryParamsResponse.  # noqa: E501
-        :rtype: CosmosGovV1QueryParamsResponseVotingParams
+        :rtype: CosmosGovV1beta1QueryParamsResponseVotingParams
         """
         return self._voting_params
 
@@ -68,7 +68,7 @@ class CosmosGovV1beta1QueryParamsResponse(object):
 
 
         :param voting_params: The voting_params of this CosmosGovV1beta1QueryParamsResponse.  # noqa: E501
-        :type: CosmosGovV1QueryParamsResponseVotingParams
+        :type: CosmosGovV1beta1QueryParamsResponseVotingParams
         """
 
         self._voting_params = voting_params
@@ -79,7 +79,7 @@ class CosmosGovV1beta1QueryParamsResponse(object):
 
 
         :return: The deposit_params of this CosmosGovV1beta1QueryParamsResponse.  # noqa: E501
-        :rtype: CosmosGovV1QueryParamsResponseDepositParams
+        :rtype: CosmosGovV1beta1QueryParamsResponseDepositParams
         """
         return self._deposit_params
 
@@ -89,7 +89,7 @@ class CosmosGovV1beta1QueryParamsResponse(object):
 
 
         :param deposit_params: The deposit_params of this CosmosGovV1beta1QueryParamsResponse.  # noqa: E501
-        :type: CosmosGovV1QueryParamsResponseDepositParams
+        :type: CosmosGovV1beta1QueryParamsResponseDepositParams
         """
 
         self._deposit_params = deposit_params

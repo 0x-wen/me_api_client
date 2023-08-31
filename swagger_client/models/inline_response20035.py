@@ -28,66 +28,42 @@ class InlineResponse20035(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposals': 'list[CosmosGovV1QueryProposalResponseProposal]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'evidence': 'dict(str, object)'
     }
 
     attribute_map = {
-        'proposals': 'proposals',
-        'pagination': 'pagination'
+        'evidence': 'evidence'
     }
 
-    def __init__(self, proposals=None, pagination=None):  # noqa: E501
+    def __init__(self, evidence=None):  # noqa: E501
         """InlineResponse20035 - a model defined in Swagger"""  # noqa: E501
-        self._proposals = None
-        self._pagination = None
+        self._evidence = None
         self.discriminator = None
-        if proposals is not None:
-            self.proposals = proposals
-        if pagination is not None:
-            self.pagination = pagination
+        if evidence is not None:
+            self.evidence = evidence
 
     @property
-    def proposals(self):
-        """Gets the proposals of this InlineResponse20035.  # noqa: E501
+    def evidence(self):
+        """Gets the evidence of this InlineResponse20035.  # noqa: E501
 
+        evidence returns the requested evidence.  # noqa: E501
 
-        :return: The proposals of this InlineResponse20035.  # noqa: E501
-        :rtype: list[CosmosGovV1QueryProposalResponseProposal]
+        :return: The evidence of this InlineResponse20035.  # noqa: E501
+        :rtype: dict(str, object)
         """
-        return self._proposals
+        return self._evidence
 
-    @proposals.setter
-    def proposals(self, proposals):
-        """Sets the proposals of this InlineResponse20035.
+    @evidence.setter
+    def evidence(self, evidence):
+        """Sets the evidence of this InlineResponse20035.
 
+        evidence returns the requested evidence.  # noqa: E501
 
-        :param proposals: The proposals of this InlineResponse20035.  # noqa: E501
-        :type: list[CosmosGovV1QueryProposalResponseProposal]
-        """
-
-        self._proposals = proposals
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20035.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20035.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20035.
-
-
-        :param pagination: The pagination of this InlineResponse20035.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param evidence: The evidence of this InlineResponse20035.  # noqa: E501
+        :type: dict(str, object)
         """
 
-        self._pagination = pagination
+        self._evidence = evidence
 
     def to_dict(self):
         """Returns the model properties as a dict"""

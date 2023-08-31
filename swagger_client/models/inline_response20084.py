@@ -28,40 +28,42 @@ class InlineResponse20084(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'upgraded_consensus_state': 'str'
+        'height': 'str'
     }
 
     attribute_map = {
-        'upgraded_consensus_state': 'upgraded_consensus_state'
+        'height': 'height'
     }
 
-    def __init__(self, upgraded_consensus_state=None):  # noqa: E501
+    def __init__(self, height=None):  # noqa: E501
         """InlineResponse20084 - a model defined in Swagger"""  # noqa: E501
-        self._upgraded_consensus_state = None
+        self._height = None
         self.discriminator = None
-        if upgraded_consensus_state is not None:
-            self.upgraded_consensus_state = upgraded_consensus_state
+        if height is not None:
+            self.height = height
 
     @property
-    def upgraded_consensus_state(self):
-        """Gets the upgraded_consensus_state of this InlineResponse20084.  # noqa: E501
+    def height(self):
+        """Gets the height of this InlineResponse20084.  # noqa: E501
 
+        height is the block height at which the plan was applied.  # noqa: E501
 
-        :return: The upgraded_consensus_state of this InlineResponse20084.  # noqa: E501
+        :return: The height of this InlineResponse20084.  # noqa: E501
         :rtype: str
         """
-        return self._upgraded_consensus_state
+        return self._height
 
-    @upgraded_consensus_state.setter
-    def upgraded_consensus_state(self, upgraded_consensus_state):
-        """Sets the upgraded_consensus_state of this InlineResponse20084.
+    @height.setter
+    def height(self, height):
+        """Sets the height of this InlineResponse20084.
 
+        height is the block height at which the plan was applied.  # noqa: E501
 
-        :param upgraded_consensus_state: The upgraded_consensus_state of this InlineResponse20084.  # noqa: E501
+        :param height: The height of this InlineResponse20084.  # noqa: E501
         :type: str
         """
 
-        self._upgraded_consensus_state = upgraded_consensus_state
+        self._height = height
 
     def to_dict(self):
         """Returns the model properties as a dict"""

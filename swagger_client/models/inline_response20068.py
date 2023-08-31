@@ -28,40 +28,66 @@ class InlineResponse20068(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'fixed_deposit': 'CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit'
+        'fixed_deposit_annual_rate': 'CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate',
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
-        'fixed_deposit': 'FixedDeposit'
+        'fixed_deposit_annual_rate': 'FixedDepositAnnualRate',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, fixed_deposit=None):  # noqa: E501
+    def __init__(self, fixed_deposit_annual_rate=None, pagination=None):  # noqa: E501
         """InlineResponse20068 - a model defined in Swagger"""  # noqa: E501
-        self._fixed_deposit = None
+        self._fixed_deposit_annual_rate = None
+        self._pagination = None
         self.discriminator = None
-        if fixed_deposit is not None:
-            self.fixed_deposit = fixed_deposit
+        if fixed_deposit_annual_rate is not None:
+            self.fixed_deposit_annual_rate = fixed_deposit_annual_rate
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def fixed_deposit(self):
-        """Gets the fixed_deposit of this InlineResponse20068.  # noqa: E501
+    def fixed_deposit_annual_rate(self):
+        """Gets the fixed_deposit_annual_rate of this InlineResponse20068.  # noqa: E501
 
 
-        :return: The fixed_deposit of this InlineResponse20068.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit
+        :return: The fixed_deposit_annual_rate of this InlineResponse20068.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate
         """
-        return self._fixed_deposit
+        return self._fixed_deposit_annual_rate
 
-    @fixed_deposit.setter
-    def fixed_deposit(self, fixed_deposit):
-        """Sets the fixed_deposit of this InlineResponse20068.
+    @fixed_deposit_annual_rate.setter
+    def fixed_deposit_annual_rate(self, fixed_deposit_annual_rate):
+        """Sets the fixed_deposit_annual_rate of this InlineResponse20068.
 
 
-        :param fixed_deposit: The fixed_deposit of this InlineResponse20068.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit
+        :param fixed_deposit_annual_rate: The fixed_deposit_annual_rate of this InlineResponse20068.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryGetFixedDepositInterestRateResponseFixedDepositAnnualRate
         """
 
-        self._fixed_deposit = fixed_deposit
+        self._fixed_deposit_annual_rate = fixed_deposit_annual_rate
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20068.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20068.  # noqa: E501
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20068.
+
+
+        :param pagination: The pagination of this InlineResponse20068.  # noqa: E501
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

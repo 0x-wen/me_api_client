@@ -51,6 +51,7 @@ class CosmosBankV1beta1Params(object):
     def send_enabled(self):
         """Gets the send_enabled of this CosmosBankV1beta1Params.  # noqa: E501
 
+        Deprecated: Use of SendEnabled in params is deprecated. For genesis, use the newly added send_enabled field in the genesis object. Storage, lookup, and manipulation of this information is now in the keeper.  As of cosmos-sdk 0.47, this only exists for backwards compatibility of genesis files.  # noqa: E501
 
         :return: The send_enabled of this CosmosBankV1beta1Params.  # noqa: E501
         :rtype: list[CosmosBankV1beta1ParamsSendEnabled]
@@ -61,6 +62,7 @@ class CosmosBankV1beta1Params(object):
     def send_enabled(self, send_enabled):
         """Sets the send_enabled of this CosmosBankV1beta1Params.
 
+        Deprecated: Use of SendEnabled in params is deprecated. For genesis, use the newly added send_enabled field in the genesis object. Storage, lookup, and manipulation of this information is now in the keeper.  As of cosmos-sdk 0.47, this only exists for backwards compatibility of genesis files.  # noqa: E501
 
         :param send_enabled: The send_enabled of this CosmosBankV1beta1Params.  # noqa: E501
         :type: list[CosmosBankV1beta1ParamsSendEnabled]

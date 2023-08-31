@@ -28,68 +28,98 @@ class InlineResponse20033(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allowances': 'list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]',
-        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
+        'operator_address': 'str',
+        'self_bond_rewards': 'list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]',
+        'commission': 'list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]'
     }
 
     attribute_map = {
-        'allowances': 'allowances',
-        'pagination': 'pagination'
+        'operator_address': 'operator_address',
+        'self_bond_rewards': 'self_bond_rewards',
+        'commission': 'commission'
     }
 
-    def __init__(self, allowances=None, pagination=None):  # noqa: E501
+    def __init__(self, operator_address=None, self_bond_rewards=None, commission=None):  # noqa: E501
         """InlineResponse20033 - a model defined in Swagger"""  # noqa: E501
-        self._allowances = None
-        self._pagination = None
+        self._operator_address = None
+        self._self_bond_rewards = None
+        self._commission = None
         self.discriminator = None
-        if allowances is not None:
-            self.allowances = allowances
-        if pagination is not None:
-            self.pagination = pagination
+        if operator_address is not None:
+            self.operator_address = operator_address
+        if self_bond_rewards is not None:
+            self.self_bond_rewards = self_bond_rewards
+        if commission is not None:
+            self.commission = commission
 
     @property
-    def allowances(self):
-        """Gets the allowances of this InlineResponse20033.  # noqa: E501
+    def operator_address(self):
+        """Gets the operator_address of this InlineResponse20033.  # noqa: E501
 
-        allowances that have been issued by the granter.  # noqa: E501
+        operator_address defines the validator operator address.  # noqa: E501
 
-        :return: The allowances of this InlineResponse20033.  # noqa: E501
-        :rtype: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
+        :return: The operator_address of this InlineResponse20033.  # noqa: E501
+        :rtype: str
         """
-        return self._allowances
+        return self._operator_address
 
-    @allowances.setter
-    def allowances(self, allowances):
-        """Sets the allowances of this InlineResponse20033.
+    @operator_address.setter
+    def operator_address(self, operator_address):
+        """Sets the operator_address of this InlineResponse20033.
 
-        allowances that have been issued by the granter.  # noqa: E501
+        operator_address defines the validator operator address.  # noqa: E501
 
-        :param allowances: The allowances of this InlineResponse20033.  # noqa: E501
-        :type: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
+        :param operator_address: The operator_address of this InlineResponse20033.  # noqa: E501
+        :type: str
         """
 
-        self._allowances = allowances
+        self._operator_address = operator_address
 
     @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20033.  # noqa: E501
+    def self_bond_rewards(self):
+        """Gets the self_bond_rewards of this InlineResponse20033.  # noqa: E501
 
+        self_bond_rewards defines the self delegations rewards.  # noqa: E501
 
-        :return: The pagination of this InlineResponse20033.  # noqa: E501
-        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        :return: The self_bond_rewards of this InlineResponse20033.  # noqa: E501
+        :rtype: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
         """
-        return self._pagination
+        return self._self_bond_rewards
 
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20033.
+    @self_bond_rewards.setter
+    def self_bond_rewards(self, self_bond_rewards):
+        """Sets the self_bond_rewards of this InlineResponse20033.
 
+        self_bond_rewards defines the self delegations rewards.  # noqa: E501
 
-        :param pagination: The pagination of this InlineResponse20033.  # noqa: E501
-        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        :param self_bond_rewards: The self_bond_rewards of this InlineResponse20033.  # noqa: E501
+        :type: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
         """
 
-        self._pagination = pagination
+        self._self_bond_rewards = self_bond_rewards
+
+    @property
+    def commission(self):
+        """Gets the commission of this InlineResponse20033.  # noqa: E501
+
+        commission defines the commission the validator received.  # noqa: E501
+
+        :return: The commission of this InlineResponse20033.  # noqa: E501
+        :rtype: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
+        """
+        return self._commission
+
+    @commission.setter
+    def commission(self, commission):
+        """Sets the commission of this InlineResponse20033.
+
+        commission defines the commission the validator received.  # noqa: E501
+
+        :param commission: The commission of this InlineResponse20033.  # noqa: E501
+        :type: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
+        """
+
+        self._commission = commission
 
     def to_dict(self):
         """Returns the model properties as a dict"""

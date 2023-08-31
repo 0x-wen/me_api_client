@@ -30,20 +30,23 @@ class CosmosGovV1QueryParamsResponse(object):
     swagger_types = {
         'voting_params': 'CosmosGovV1QueryParamsResponseVotingParams',
         'deposit_params': 'CosmosGovV1QueryParamsResponseDepositParams',
-        'tally_params': 'CosmosGovV1QueryParamsResponseTallyParams'
+        'tally_params': 'CosmosGovV1QueryParamsResponseTallyParams',
+        'params': 'CosmosGovV1QueryParamsResponseParams'
     }
 
     attribute_map = {
         'voting_params': 'voting_params',
         'deposit_params': 'deposit_params',
-        'tally_params': 'tally_params'
+        'tally_params': 'tally_params',
+        'params': 'params'
     }
 
-    def __init__(self, voting_params=None, deposit_params=None, tally_params=None):  # noqa: E501
+    def __init__(self, voting_params=None, deposit_params=None, tally_params=None, params=None):  # noqa: E501
         """CosmosGovV1QueryParamsResponse - a model defined in Swagger"""  # noqa: E501
         self._voting_params = None
         self._deposit_params = None
         self._tally_params = None
+        self._params = None
         self.discriminator = None
         if voting_params is not None:
             self.voting_params = voting_params
@@ -51,6 +54,8 @@ class CosmosGovV1QueryParamsResponse(object):
             self.deposit_params = deposit_params
         if tally_params is not None:
             self.tally_params = tally_params
+        if params is not None:
+            self.params = params
 
     @property
     def voting_params(self):
@@ -114,6 +119,27 @@ class CosmosGovV1QueryParamsResponse(object):
         """
 
         self._tally_params = tally_params
+
+    @property
+    def params(self):
+        """Gets the params of this CosmosGovV1QueryParamsResponse.  # noqa: E501
+
+
+        :return: The params of this CosmosGovV1QueryParamsResponse.  # noqa: E501
+        :rtype: CosmosGovV1QueryParamsResponseParams
+        """
+        return self._params
+
+    @params.setter
+    def params(self, params):
+        """Sets the params of this CosmosGovV1QueryParamsResponse.
+
+
+        :param params: The params of this CosmosGovV1QueryParamsResponse.  # noqa: E501
+        :type: CosmosGovV1QueryParamsResponseParams
+        """
+
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

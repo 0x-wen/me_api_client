@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**module_versions** | [**list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]**](CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions.md) | module_versions is a list of module names with their consensus versions. | [optional] 
+**tx_response** | [**CosmosTxV1beta1BroadcastTxResponseTxResponse**](CosmosTxV1beta1BroadcastTxResponseTxResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

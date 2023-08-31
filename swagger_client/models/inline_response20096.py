@@ -28,94 +28,40 @@ class InlineResponse20096(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'client_state': 'dict(str, object)',
-        'proof': 'str',
-        'proof_height': 'HeightAtWhichTheProofWasRetrieved'
+        'denom_trace': 'IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace'
     }
 
     attribute_map = {
-        'client_state': 'client_state',
-        'proof': 'proof',
-        'proof_height': 'proof_height'
+        'denom_trace': 'denom_trace'
     }
 
-    def __init__(self, client_state=None, proof=None, proof_height=None):  # noqa: E501
+    def __init__(self, denom_trace=None):  # noqa: E501
         """InlineResponse20096 - a model defined in Swagger"""  # noqa: E501
-        self._client_state = None
-        self._proof = None
-        self._proof_height = None
+        self._denom_trace = None
         self.discriminator = None
-        if client_state is not None:
-            self.client_state = client_state
-        if proof is not None:
-            self.proof = proof
-        if proof_height is not None:
-            self.proof_height = proof_height
+        if denom_trace is not None:
+            self.denom_trace = denom_trace
 
     @property
-    def client_state(self):
-        """Gets the client_state of this InlineResponse20096.  # noqa: E501
+    def denom_trace(self):
+        """Gets the denom_trace of this InlineResponse20096.  # noqa: E501
 
-        `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := anypb.New(foo)      if err != nil {        ...      }      ...      foo := &pb.Foo{}      if err := any.UnmarshalTo(foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }  # noqa: E501
 
-        :return: The client_state of this InlineResponse20096.  # noqa: E501
-        :rtype: dict(str, object)
+        :return: The denom_trace of this InlineResponse20096.  # noqa: E501
+        :rtype: IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace
         """
-        return self._client_state
+        return self._denom_trace
 
-    @client_state.setter
-    def client_state(self, client_state):
-        """Sets the client_state of this InlineResponse20096.
+    @denom_trace.setter
+    def denom_trace(self, denom_trace):
+        """Sets the denom_trace of this InlineResponse20096.
 
-        `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := anypb.New(foo)      if err != nil {        ...      }      ...      foo := &pb.Foo{}      if err := any.UnmarshalTo(foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }  # noqa: E501
 
-        :param client_state: The client_state of this InlineResponse20096.  # noqa: E501
-        :type: dict(str, object)
+        :param denom_trace: The denom_trace of this InlineResponse20096.  # noqa: E501
+        :type: IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace
         """
 
-        self._client_state = client_state
-
-    @property
-    def proof(self):
-        """Gets the proof of this InlineResponse20096.  # noqa: E501
-
-
-        :return: The proof of this InlineResponse20096.  # noqa: E501
-        :rtype: str
-        """
-        return self._proof
-
-    @proof.setter
-    def proof(self, proof):
-        """Sets the proof of this InlineResponse20096.
-
-
-        :param proof: The proof of this InlineResponse20096.  # noqa: E501
-        :type: str
-        """
-
-        self._proof = proof
-
-    @property
-    def proof_height(self):
-        """Gets the proof_height of this InlineResponse20096.  # noqa: E501
-
-
-        :return: The proof_height of this InlineResponse20096.  # noqa: E501
-        :rtype: HeightAtWhichTheProofWasRetrieved
-        """
-        return self._proof_height
-
-    @proof_height.setter
-    def proof_height(self, proof_height):
-        """Sets the proof_height of this InlineResponse20096.
-
-
-        :param proof_height: The proof_height of this InlineResponse20096.  # noqa: E501
-        :type: HeightAtWhichTheProofWasRetrieved
-        """
-
-        self._proof_height = proof_height
+        self._denom_trace = denom_trace
 
     def to_dict(self):
         """Returns the model properties as a dict"""

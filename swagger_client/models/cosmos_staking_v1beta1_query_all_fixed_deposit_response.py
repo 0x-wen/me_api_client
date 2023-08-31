@@ -29,7 +29,7 @@ class CosmosStakingV1beta1QueryAllFixedDepositResponse(object):
     """
     swagger_types = {
         'fixed_deposit': 'list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class CosmosStakingV1beta1QueryAllFixedDepositResponse(object):
 
 
         :return: The pagination of this CosmosStakingV1beta1QueryAllFixedDepositResponse.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class CosmosStakingV1beta1QueryAllFixedDepositResponse(object):
 
 
         :param pagination: The pagination of this CosmosStakingV1beta1QueryAllFixedDepositResponse.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

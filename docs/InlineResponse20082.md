@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**plan** | [**CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan**](CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan.md) |  | [optional] 
+**gas_info** | [**CosmosTxV1beta1SimulateResponseGasInfo**](CosmosTxV1beta1SimulateResponseGasInfo.md) |  | [optional] 
+**result** | [**CosmosTxV1beta1SimulateResponseResult**](CosmosTxV1beta1SimulateResponseResult.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

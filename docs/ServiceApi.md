@@ -17,9 +17,13 @@ Method | HTTP request | Description
 [**cosmos_tx_v1_beta1_get_tx**](ServiceApi.md#cosmos_tx_v1_beta1_get_tx) | **GET** /cosmos/tx/v1beta1/txs/{hash} | GetTx fetches a tx by hash.
 [**cosmos_tx_v1_beta1_get_txs_event**](ServiceApi.md#cosmos_tx_v1_beta1_get_txs_event) | **GET** /cosmos/tx/v1beta1/txs | GetTxsEvent fetches txs by event.
 [**cosmos_tx_v1_beta1_simulate**](ServiceApi.md#cosmos_tx_v1_beta1_simulate) | **POST** /cosmos/tx/v1beta1/simulate | Simulate simulates executing a transaction for estimating gas usage.
+[**cosmos_tx_v1_beta1_tx_decode**](ServiceApi.md#cosmos_tx_v1_beta1_tx_decode) | **POST** /cosmos/tx/v1beta1/decode | TxDecode decodes the transaction.
+[**cosmos_tx_v1_beta1_tx_decode_amino**](ServiceApi.md#cosmos_tx_v1_beta1_tx_decode_amino) | **POST** /cosmos/tx/v1beta1/decode/amino | TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
+[**cosmos_tx_v1_beta1_tx_encode**](ServiceApi.md#cosmos_tx_v1_beta1_tx_encode) | **POST** /cosmos/tx/v1beta1/encode | TxEncode encodes the transaction.
+[**cosmos_tx_v1_beta1_tx_encode_amino**](ServiceApi.md#cosmos_tx_v1_beta1_tx_encode_amino) | **POST** /cosmos/tx/v1beta1/encode/amino | TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
 
 # **cosmos_base_node_v1_beta1_config**
-> InlineResponse20019 cosmos_base_node_v1_beta1_config()
+> InlineResponse20022 cosmos_base_node_v1_beta1_config()
 
 Config queries for the operator configuration.
 
@@ -47,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -61,7 +65,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_abci_query**
-> InlineResponse20020 cosmos_base_tendermint_v1_beta1_abci_query(data=data, path=path, height=height, prove=prove)
+> InlineResponse20023 cosmos_base_tendermint_v1_beta1_abci_query(data=data, path=path, height=height, prove=prove)
 
 ABCIQuery defines a query handler that supports ABCI queries directly to the application, bypassing Tendermint completely. The ABCI query must contain a valid and supported path, including app, custom, p2p, and store.
 
@@ -101,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -115,7 +119,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_block_by_height**
-> InlineResponse20022 cosmos_base_tendermint_v1_beta1_get_block_by_height(height)
+> InlineResponse20025 cosmos_base_tendermint_v1_beta1_get_block_by_height(height)
 
 GetBlockByHeight queries block for given height.
 
@@ -147,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -161,7 +165,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_latest_block**
-> InlineResponse20021 cosmos_base_tendermint_v1_beta1_get_latest_block()
+> InlineResponse20024 cosmos_base_tendermint_v1_beta1_get_latest_block()
 
 GetLatestBlock returns the latest block.
 
@@ -189,7 +193,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -203,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_latest_validator_set**
-> InlineResponse20025 cosmos_base_tendermint_v1_beta1_get_latest_validator_set(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20028 cosmos_base_tendermint_v1_beta1_get_latest_validator_set(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GetLatestValidatorSet queries latest validator-set.
 
@@ -243,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -257,7 +261,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_node_info**
-> InlineResponse20023 cosmos_base_tendermint_v1_beta1_get_node_info()
+> InlineResponse20026 cosmos_base_tendermint_v1_beta1_get_node_info()
 
 GetNodeInfo queries the current node info.
 
@@ -285,7 +289,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -299,7 +303,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_syncing**
-> InlineResponse20024 cosmos_base_tendermint_v1_beta1_get_syncing()
+> InlineResponse20027 cosmos_base_tendermint_v1_beta1_get_syncing()
 
 GetSyncing queries node syncing.
 
@@ -327,7 +331,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -341,7 +345,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_base_tendermint_v1_beta1_get_validator_set_by_height**
-> InlineResponse20026 cosmos_base_tendermint_v1_beta1_get_validator_set_by_height(height, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20029 cosmos_base_tendermint_v1_beta1_get_validator_set_by_height(height, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GetValidatorSetByHeight queries validator-set at a given height.
 
@@ -383,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -397,7 +401,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_tx_v1_beta1_broadcast_tx**
-> InlineResponse20080 cosmos_tx_v1_beta1_broadcast_tx(body)
+> InlineResponse20083 cosmos_tx_v1_beta1_broadcast_tx(body)
 
 BroadcastTx broadcast transaction.
 
@@ -431,7 +435,7 @@ RPC method. |
 
 ### Return type
 
-[**InlineResponse20080**](InlineResponse20080.md)
+[**InlineResponse20083**](InlineResponse20083.md)
 
 ### Authorization
 
@@ -611,7 +615,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_tx_v1_beta1_simulate**
-> InlineResponse20079 cosmos_tx_v1_beta1_simulate(body)
+> InlineResponse20082 cosmos_tx_v1_beta1_simulate(body)
 
 Simulate simulates executing a transaction for estimating gas usage.
 
@@ -645,7 +649,223 @@ RPC method. |
 
 ### Return type
 
+[**InlineResponse20082**](InlineResponse20082.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_tx_v1_beta1_tx_decode**
+> CosmosTxV1beta1TxDecodeResponse cosmos_tx_v1_beta1_tx_decode(body)
+
+TxDecode decodes the transaction.
+
+Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+body = swagger_client.V1beta1DecodeBody() # V1beta1DecodeBody | TxDecodeRequest is the request type for the Service.TxDecode
+RPC method.
+
+Since: cosmos-sdk 0.47
+
+try:
+    # TxDecode decodes the transaction.
+    api_response = api_instance.cosmos_tx_v1_beta1_tx_decode(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ServiceApi->cosmos_tx_v1_beta1_tx_decode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**V1beta1DecodeBody**](V1beta1DecodeBody.md)| TxDecodeRequest is the request type for the Service.TxDecode
+RPC method.
+
+Since: cosmos-sdk 0.47 | 
+
+### Return type
+
+[**CosmosTxV1beta1TxDecodeResponse**](CosmosTxV1beta1TxDecodeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_tx_v1_beta1_tx_decode_amino**
+> InlineResponse20079 cosmos_tx_v1_beta1_tx_decode_amino(body)
+
+TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
+
+Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+body = swagger_client.DecodeAminoBody() # DecodeAminoBody | TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47
+
+try:
+    # TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.
+    api_response = api_instance.cosmos_tx_v1_beta1_tx_decode_amino(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ServiceApi->cosmos_tx_v1_beta1_tx_decode_amino: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DecodeAminoBody**](DecodeAminoBody.md)| TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 | 
+
+### Return type
+
 [**InlineResponse20079**](InlineResponse20079.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_tx_v1_beta1_tx_encode**
+> InlineResponse20080 cosmos_tx_v1_beta1_tx_encode(body)
+
+TxEncode encodes the transaction.
+
+Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+body = swagger_client.CosmosTxV1beta1TxEncodeRequest() # CosmosTxV1beta1TxEncodeRequest | TxEncodeRequest is the request type for the Service.TxEncode
+RPC method.
+
+Since: cosmos-sdk 0.47
+
+try:
+    # TxEncode encodes the transaction.
+    api_response = api_instance.cosmos_tx_v1_beta1_tx_encode(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ServiceApi->cosmos_tx_v1_beta1_tx_encode: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CosmosTxV1beta1TxEncodeRequest**](CosmosTxV1beta1TxEncodeRequest.md)| TxEncodeRequest is the request type for the Service.TxEncode
+RPC method.
+
+Since: cosmos-sdk 0.47 | 
+
+### Return type
+
+[**InlineResponse20080**](InlineResponse20080.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: */*
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_tx_v1_beta1_tx_encode_amino**
+> InlineResponse20081 cosmos_tx_v1_beta1_tx_encode_amino(body)
+
+TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
+
+Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ServiceApi()
+body = swagger_client.EncodeAminoBody() # EncodeAminoBody | TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47
+
+try:
+    # TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.
+    api_response = api_instance.cosmos_tx_v1_beta1_tx_encode_amino(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ServiceApi->cosmos_tx_v1_beta1_tx_encode_amino: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**EncodeAminoBody**](EncodeAminoBody.md)| TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 | 
+
+### Return type
+
+[**InlineResponse20081**](InlineResponse20081.md)
 
 ### Authorization
 

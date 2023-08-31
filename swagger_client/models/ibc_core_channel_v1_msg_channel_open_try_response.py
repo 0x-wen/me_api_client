@@ -28,19 +28,24 @@ class IbcCoreChannelV1MsgChannelOpenTryResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'version': 'str'
+        'version': 'str',
+        'channel_id': 'str'
     }
 
     attribute_map = {
-        'version': 'version'
+        'version': 'version',
+        'channel_id': 'channel_id'
     }
 
-    def __init__(self, version=None):  # noqa: E501
+    def __init__(self, version=None, channel_id=None):  # noqa: E501
         """IbcCoreChannelV1MsgChannelOpenTryResponse - a model defined in Swagger"""  # noqa: E501
         self._version = None
+        self._channel_id = None
         self.discriminator = None
         if version is not None:
             self.version = version
+        if channel_id is not None:
+            self.channel_id = channel_id
 
     @property
     def version(self):
@@ -62,6 +67,27 @@ class IbcCoreChannelV1MsgChannelOpenTryResponse(object):
         """
 
         self._version = version
+
+    @property
+    def channel_id(self):
+        """Gets the channel_id of this IbcCoreChannelV1MsgChannelOpenTryResponse.  # noqa: E501
+
+
+        :return: The channel_id of this IbcCoreChannelV1MsgChannelOpenTryResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._channel_id
+
+    @channel_id.setter
+    def channel_id(self, channel_id):
+        """Sets the channel_id of this IbcCoreChannelV1MsgChannelOpenTryResponse.
+
+
+        :param channel_id: The channel_id of this IbcCoreChannelV1MsgChannelOpenTryResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._channel_id = channel_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

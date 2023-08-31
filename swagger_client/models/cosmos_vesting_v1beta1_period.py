@@ -51,6 +51,7 @@ class CosmosVestingV1beta1Period(object):
     def length(self):
         """Gets the length of this CosmosVestingV1beta1Period.  # noqa: E501
 
+        Period duration in seconds.  # noqa: E501
 
         :return: The length of this CosmosVestingV1beta1Period.  # noqa: E501
         :rtype: str
@@ -61,6 +62,7 @@ class CosmosVestingV1beta1Period(object):
     def length(self, length):
         """Sets the length of this CosmosVestingV1beta1Period.
 
+        Period duration in seconds.  # noqa: E501
 
         :param length: The length of this CosmosVestingV1beta1Period.  # noqa: E501
         :type: str

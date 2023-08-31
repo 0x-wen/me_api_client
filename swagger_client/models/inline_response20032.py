@@ -28,68 +28,40 @@ class InlineResponse20032(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allowances': 'list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]',
-        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
+        'params': 'CosmosDistributionV1beta1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'allowances': 'allowances',
-        'pagination': 'pagination'
+        'params': 'params'
     }
 
-    def __init__(self, allowances=None, pagination=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20032 - a model defined in Swagger"""  # noqa: E501
-        self._allowances = None
-        self._pagination = None
+        self._params = None
         self.discriminator = None
-        if allowances is not None:
-            self.allowances = allowances
-        if pagination is not None:
-            self.pagination = pagination
+        if params is not None:
+            self.params = params
 
     @property
-    def allowances(self):
-        """Gets the allowances of this InlineResponse20032.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20032.  # noqa: E501
 
-        allowances are allowance's granted for grantee by granter.  # noqa: E501
 
-        :return: The allowances of this InlineResponse20032.  # noqa: E501
-        :rtype: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
+        :return: The params of this InlineResponse20032.  # noqa: E501
+        :rtype: CosmosDistributionV1beta1QueryParamsResponseParams
         """
-        return self._allowances
+        return self._params
 
-    @allowances.setter
-    def allowances(self, allowances):
-        """Sets the allowances of this InlineResponse20032.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20032.
 
-        allowances are allowance's granted for grantee by granter.  # noqa: E501
 
-        :param allowances: The allowances of this InlineResponse20032.  # noqa: E501
-        :type: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
+        :param params: The params of this InlineResponse20032.  # noqa: E501
+        :type: CosmosDistributionV1beta1QueryParamsResponseParams
         """
 
-        self._allowances = allowances
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20032.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20032.  # noqa: E501
-        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20032.
-
-
-        :param pagination: The pagination of this InlineResponse20032.  # noqa: E501
-        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -31,7 +31,7 @@ class TestBlockID(unittest.TestCase):
     def testBlockID(self):
         """Test BlockID"""
         # FIXME: construct object with mandatory attributes with example values
-        model = swagger_client.models.block_id.BlockID()  # noqa: E501
+        # model = swagger_client.models.block_id.BlockID()  # noqa: E501
         pass
 
 

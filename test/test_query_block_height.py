@@ -31,7 +31,7 @@ class TestQueryBlockHeight(unittest.TestCase):
     def testQueryBlockHeight(self):
         """Test QueryBlockHeight"""
         # FIXME: construct object with mandatory attributes with example values
-        model = swagger_client.models.query_block_height.QueryBlockHeight()  # noqa: E501
+        # model = swagger_client.models.query_block_height.QueryBlockHeight()  # noqa: E501
         pass
 
 

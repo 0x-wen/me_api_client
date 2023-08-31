@@ -28,47 +28,47 @@ class InlineResponse20095(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'client_states': 'list[IbcCoreClientV1QueryClientStatesResponseClientStates]',
-        'pagination': 'PaginationResponse'
+        'denom_traces': 'list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'client_states': 'client_states',
+        'denom_traces': 'denom_traces',
         'pagination': 'pagination'
     }
 
-    def __init__(self, client_states=None, pagination=None):  # noqa: E501
+    def __init__(self, denom_traces=None, pagination=None):  # noqa: E501
         """InlineResponse20095 - a model defined in Swagger"""  # noqa: E501
-        self._client_states = None
+        self._denom_traces = None
         self._pagination = None
         self.discriminator = None
-        if client_states is not None:
-            self.client_states = client_states
+        if denom_traces is not None:
+            self.denom_traces = denom_traces
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def client_states(self):
-        """Gets the client_states of this InlineResponse20095.  # noqa: E501
+    def denom_traces(self):
+        """Gets the denom_traces of this InlineResponse20095.  # noqa: E501
 
-        list of stored ClientStates of the chain.  # noqa: E501
+        denom_traces returns all denominations trace information.  # noqa: E501
 
-        :return: The client_states of this InlineResponse20095.  # noqa: E501
-        :rtype: list[IbcCoreClientV1QueryClientStatesResponseClientStates]
+        :return: The denom_traces of this InlineResponse20095.  # noqa: E501
+        :rtype: list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]
         """
-        return self._client_states
+        return self._denom_traces
 
-    @client_states.setter
-    def client_states(self, client_states):
-        """Sets the client_states of this InlineResponse20095.
+    @denom_traces.setter
+    def denom_traces(self, denom_traces):
+        """Sets the denom_traces of this InlineResponse20095.
 
-        list of stored ClientStates of the chain.  # noqa: E501
+        denom_traces returns all denominations trace information.  # noqa: E501
 
-        :param client_states: The client_states of this InlineResponse20095.  # noqa: E501
-        :type: list[IbcCoreClientV1QueryClientStatesResponseClientStates]
+        :param denom_traces: The denom_traces of this InlineResponse20095.  # noqa: E501
+        :type: list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]
         """
 
-        self._client_states = client_states
+        self._denom_traces = denom_traces
 
     @property
     def pagination(self):
@@ -76,7 +76,7 @@ class InlineResponse20095(object):
 
 
         :return: The pagination of this InlineResponse20095.  # noqa: E501
-        :rtype: PaginationResponse
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
         return self._pagination
 
@@ -86,7 +86,7 @@ class InlineResponse20095(object):
 
 
         :param pagination: The pagination of this InlineResponse20095.  # noqa: E501
-        :type: PaginationResponse
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
 
         self._pagination = pagination

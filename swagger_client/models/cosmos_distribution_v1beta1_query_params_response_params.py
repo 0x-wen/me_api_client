@@ -82,6 +82,7 @@ class CosmosDistributionV1beta1QueryParamsResponseParams(object):
     def base_proposer_reward(self):
         """Gets the base_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
 
+        Deprecated: The base_proposer_reward field is deprecated and is no longer used in the x/distribution module's reward mechanism.  # noqa: E501
 
         :return: The base_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
         :rtype: str
@@ -92,6 +93,7 @@ class CosmosDistributionV1beta1QueryParamsResponseParams(object):
     def base_proposer_reward(self, base_proposer_reward):
         """Sets the base_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.
 
+        Deprecated: The base_proposer_reward field is deprecated and is no longer used in the x/distribution module's reward mechanism.  # noqa: E501
 
         :param base_proposer_reward: The base_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
         :type: str
@@ -103,6 +105,7 @@ class CosmosDistributionV1beta1QueryParamsResponseParams(object):
     def bonus_proposer_reward(self):
         """Gets the bonus_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
 
+        Deprecated: The bonus_proposer_reward field is deprecated and is no longer used in the x/distribution module's reward mechanism.  # noqa: E501
 
         :return: The bonus_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
         :rtype: str
@@ -113,6 +116,7 @@ class CosmosDistributionV1beta1QueryParamsResponseParams(object):
     def bonus_proposer_reward(self, bonus_proposer_reward):
         """Sets the bonus_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.
 
+        Deprecated: The bonus_proposer_reward field is deprecated and is no longer used in the x/distribution module's reward mechanism.  # noqa: E501
 
         :param bonus_proposer_reward: The bonus_proposer_reward of this CosmosDistributionV1beta1QueryParamsResponseParams.  # noqa: E501
         :type: str

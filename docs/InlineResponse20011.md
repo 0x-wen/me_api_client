@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**balances** | [**list[CosmosBankV1beta1InputCoins]**](CosmosBankV1beta1InputCoins.md) | balances is the balances of all the coins. | [optional] 
-**pagination** | [**CosmosAuthV1beta1QueryAccountsResponsePagination**](CosmosAuthV1beta1QueryAccountsResponsePagination.md) |  | [optional] 
+**grants** | [**list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]**](GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto.md) | grants is a list of grants granted by the granter. | [optional] 
+**pagination** | [**CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination**](CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

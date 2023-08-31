@@ -28,94 +28,40 @@ class InlineResponse20093(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'channels': 'list[IbcCoreChannelV1QueryChannelsResponseChannels]',
-        'pagination': 'PaginationResponse',
-        'height': 'QueryBlockHeight'
+        'escrow_address': 'str'
     }
 
     attribute_map = {
-        'channels': 'channels',
-        'pagination': 'pagination',
-        'height': 'height'
+        'escrow_address': 'escrow_address'
     }
 
-    def __init__(self, channels=None, pagination=None, height=None):  # noqa: E501
+    def __init__(self, escrow_address=None):  # noqa: E501
         """InlineResponse20093 - a model defined in Swagger"""  # noqa: E501
-        self._channels = None
-        self._pagination = None
-        self._height = None
+        self._escrow_address = None
         self.discriminator = None
-        if channels is not None:
-            self.channels = channels
-        if pagination is not None:
-            self.pagination = pagination
-        if height is not None:
-            self.height = height
+        if escrow_address is not None:
+            self.escrow_address = escrow_address
 
     @property
-    def channels(self):
-        """Gets the channels of this InlineResponse20093.  # noqa: E501
+    def escrow_address(self):
+        """Gets the escrow_address of this InlineResponse20093.  # noqa: E501
 
-        list of stored channels of the chain.  # noqa: E501
 
-        :return: The channels of this InlineResponse20093.  # noqa: E501
-        :rtype: list[IbcCoreChannelV1QueryChannelsResponseChannels]
+        :return: The escrow_address of this InlineResponse20093.  # noqa: E501
+        :rtype: str
         """
-        return self._channels
+        return self._escrow_address
 
-    @channels.setter
-    def channels(self, channels):
-        """Sets the channels of this InlineResponse20093.
+    @escrow_address.setter
+    def escrow_address(self, escrow_address):
+        """Sets the escrow_address of this InlineResponse20093.
 
-        list of stored channels of the chain.  # noqa: E501
 
-        :param channels: The channels of this InlineResponse20093.  # noqa: E501
-        :type: list[IbcCoreChannelV1QueryChannelsResponseChannels]
+        :param escrow_address: The escrow_address of this InlineResponse20093.  # noqa: E501
+        :type: str
         """
 
-        self._channels = channels
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20093.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20093.  # noqa: E501
-        :rtype: PaginationResponse
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20093.
-
-
-        :param pagination: The pagination of this InlineResponse20093.  # noqa: E501
-        :type: PaginationResponse
-        """
-
-        self._pagination = pagination
-
-    @property
-    def height(self):
-        """Gets the height of this InlineResponse20093.  # noqa: E501
-
-
-        :return: The height of this InlineResponse20093.  # noqa: E501
-        :rtype: QueryBlockHeight
-        """
-        return self._height
-
-    @height.setter
-    def height(self, height):
-        """Sets the height of this InlineResponse20093.
-
-
-        :param height: The height of this InlineResponse20093.  # noqa: E501
-        :type: QueryBlockHeight
-        """
-
-        self._height = height
+        self._escrow_address = escrow_address
 
     def to_dict(self):
         """Returns the model properties as a dict"""

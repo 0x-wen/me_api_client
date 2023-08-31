@@ -28,40 +28,66 @@ class InlineResponse20082(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'plan': 'CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan'
+        'gas_info': 'CosmosTxV1beta1SimulateResponseGasInfo',
+        'result': 'CosmosTxV1beta1SimulateResponseResult'
     }
 
     attribute_map = {
-        'plan': 'plan'
+        'gas_info': 'gas_info',
+        'result': 'result'
     }
 
-    def __init__(self, plan=None):  # noqa: E501
+    def __init__(self, gas_info=None, result=None):  # noqa: E501
         """InlineResponse20082 - a model defined in Swagger"""  # noqa: E501
-        self._plan = None
+        self._gas_info = None
+        self._result = None
         self.discriminator = None
-        if plan is not None:
-            self.plan = plan
+        if gas_info is not None:
+            self.gas_info = gas_info
+        if result is not None:
+            self.result = result
 
     @property
-    def plan(self):
-        """Gets the plan of this InlineResponse20082.  # noqa: E501
+    def gas_info(self):
+        """Gets the gas_info of this InlineResponse20082.  # noqa: E501
 
 
-        :return: The plan of this InlineResponse20082.  # noqa: E501
-        :rtype: CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan
+        :return: The gas_info of this InlineResponse20082.  # noqa: E501
+        :rtype: CosmosTxV1beta1SimulateResponseGasInfo
         """
-        return self._plan
+        return self._gas_info
 
-    @plan.setter
-    def plan(self, plan):
-        """Sets the plan of this InlineResponse20082.
+    @gas_info.setter
+    def gas_info(self, gas_info):
+        """Sets the gas_info of this InlineResponse20082.
 
 
-        :param plan: The plan of this InlineResponse20082.  # noqa: E501
-        :type: CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan
+        :param gas_info: The gas_info of this InlineResponse20082.  # noqa: E501
+        :type: CosmosTxV1beta1SimulateResponseGasInfo
         """
 
-        self._plan = plan
+        self._gas_info = gas_info
+
+    @property
+    def result(self):
+        """Gets the result of this InlineResponse20082.  # noqa: E501
+
+
+        :return: The result of this InlineResponse20082.  # noqa: E501
+        :rtype: CosmosTxV1beta1SimulateResponseResult
+        """
+        return self._result
+
+    @result.setter
+    def result(self, result):
+        """Sets the result of this InlineResponse20082.
+
+
+        :param result: The result of this InlineResponse20082.  # noqa: E501
+        :type: CosmosTxV1beta1SimulateResponseResult
+        """
+
+        self._result = result
 
     def to_dict(self):
         """Returns the model properties as a dict"""

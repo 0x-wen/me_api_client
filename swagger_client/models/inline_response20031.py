@@ -28,40 +28,42 @@ class InlineResponse20031(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'allowance': 'GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext'
+        'rewards': 'list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]'
     }
 
     attribute_map = {
-        'allowance': 'allowance'
+        'rewards': 'rewards'
     }
 
-    def __init__(self, allowance=None):  # noqa: E501
+    def __init__(self, rewards=None):  # noqa: E501
         """InlineResponse20031 - a model defined in Swagger"""  # noqa: E501
-        self._allowance = None
+        self._rewards = None
         self.discriminator = None
-        if allowance is not None:
-            self.allowance = allowance
+        if rewards is not None:
+            self.rewards = rewards
 
     @property
-    def allowance(self):
-        """Gets the allowance of this InlineResponse20031.  # noqa: E501
+    def rewards(self):
+        """Gets the rewards of this InlineResponse20031.  # noqa: E501
 
+        rewards defines the rewards accrued by a delegation.  # noqa: E501
 
-        :return: The allowance of this InlineResponse20031.  # noqa: E501
-        :rtype: GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext
+        :return: The rewards of this InlineResponse20031.  # noqa: E501
+        :rtype: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
         """
-        return self._allowance
+        return self._rewards
 
-    @allowance.setter
-    def allowance(self, allowance):
-        """Sets the allowance of this InlineResponse20031.
+    @rewards.setter
+    def rewards(self, rewards):
+        """Sets the rewards of this InlineResponse20031.
 
+        rewards defines the rewards accrued by a delegation.  # noqa: E501
 
-        :param allowance: The allowance of this InlineResponse20031.  # noqa: E501
-        :type: GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext
+        :param rewards: The rewards of this InlineResponse20031.  # noqa: E501
+        :type: list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]
         """
 
-        self._allowance = allowance
+        self._rewards = rewards
 
     def to_dict(self):
         """Returns the model properties as a dict"""

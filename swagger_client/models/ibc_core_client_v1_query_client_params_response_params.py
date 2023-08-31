@@ -46,7 +46,7 @@ class IbcCoreClientV1QueryClientParamsResponseParams(object):
     def allowed_clients(self):
         """Gets the allowed_clients of this IbcCoreClientV1QueryClientParamsResponseParams.  # noqa: E501
 
-        allowed_clients defines the list of allowed client state types.  # noqa: E501
+        allowed_clients defines the list of allowed client state types which can be created and interacted with. If a client type is removed from the allowed clients list, usage of this client will be disabled until it is added again to the list.  # noqa: E501
 
         :return: The allowed_clients of this IbcCoreClientV1QueryClientParamsResponseParams.  # noqa: E501
         :rtype: list[str]
@@ -57,7 +57,7 @@ class IbcCoreClientV1QueryClientParamsResponseParams(object):
     def allowed_clients(self, allowed_clients):
         """Sets the allowed_clients of this IbcCoreClientV1QueryClientParamsResponseParams.
 
-        allowed_clients defines the list of allowed client state types.  # noqa: E501
+        allowed_clients defines the list of allowed client state types which can be created and interacted with. If a client type is removed from the allowed clients list, usage of this client will be disabled until it is added again to the list.  # noqa: E501
 
         :param allowed_clients: The allowed_clients of this IbcCoreClientV1QueryClientParamsResponseParams.  # noqa: E501
         :type: list[str]

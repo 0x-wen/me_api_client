@@ -28,40 +28,40 @@ class InlineResponse20085(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'address': 'str'
+        'plan': 'CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan'
     }
 
     attribute_map = {
-        'address': 'address'
+        'plan': 'plan'
     }
 
-    def __init__(self, address=None):  # noqa: E501
+    def __init__(self, plan=None):  # noqa: E501
         """InlineResponse20085 - a model defined in Swagger"""  # noqa: E501
-        self._address = None
+        self._plan = None
         self.discriminator = None
-        if address is not None:
-            self.address = address
+        if plan is not None:
+            self.plan = plan
 
     @property
-    def address(self):
-        """Gets the address of this InlineResponse20085.  # noqa: E501
+    def plan(self):
+        """Gets the plan of this InlineResponse20085.  # noqa: E501
 
 
-        :return: The address of this InlineResponse20085.  # noqa: E501
-        :rtype: str
+        :return: The plan of this InlineResponse20085.  # noqa: E501
+        :rtype: CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan
         """
-        return self._address
+        return self._plan
 
-    @address.setter
-    def address(self, address):
-        """Sets the address of this InlineResponse20085.
+    @plan.setter
+    def plan(self, plan):
+        """Sets the plan of this InlineResponse20085.
 
 
-        :param address: The address of this InlineResponse20085.  # noqa: E501
-        :type: str
+        :param plan: The plan of this InlineResponse20085.  # noqa: E501
+        :type: CosmosUpgradeV1beta1QueryCurrentPlanResponsePlan
         """
 
-        self._address = address
+        self._plan = plan
 
     def to_dict(self):
         """Returns the model properties as a dict"""

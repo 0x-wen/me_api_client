@@ -28,47 +28,71 @@ class InlineResponse20029(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'evidence': 'list[dict(str, object)]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'block_height': 'str',
+        'validators': 'list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]',
+        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
     }
 
     attribute_map = {
-        'evidence': 'evidence',
+        'block_height': 'block_height',
+        'validators': 'validators',
         'pagination': 'pagination'
     }
 
-    def __init__(self, evidence=None, pagination=None):  # noqa: E501
+    def __init__(self, block_height=None, validators=None, pagination=None):  # noqa: E501
         """InlineResponse20029 - a model defined in Swagger"""  # noqa: E501
-        self._evidence = None
+        self._block_height = None
+        self._validators = None
         self._pagination = None
         self.discriminator = None
-        if evidence is not None:
-            self.evidence = evidence
+        if block_height is not None:
+            self.block_height = block_height
+        if validators is not None:
+            self.validators = validators
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def evidence(self):
-        """Gets the evidence of this InlineResponse20029.  # noqa: E501
+    def block_height(self):
+        """Gets the block_height of this InlineResponse20029.  # noqa: E501
 
-        evidence returns all evidences.  # noqa: E501
 
-        :return: The evidence of this InlineResponse20029.  # noqa: E501
-        :rtype: list[dict(str, object)]
+        :return: The block_height of this InlineResponse20029.  # noqa: E501
+        :rtype: str
         """
-        return self._evidence
+        return self._block_height
 
-    @evidence.setter
-    def evidence(self, evidence):
-        """Sets the evidence of this InlineResponse20029.
+    @block_height.setter
+    def block_height(self, block_height):
+        """Sets the block_height of this InlineResponse20029.
 
-        evidence returns all evidences.  # noqa: E501
 
-        :param evidence: The evidence of this InlineResponse20029.  # noqa: E501
-        :type: list[dict(str, object)]
+        :param block_height: The block_height of this InlineResponse20029.  # noqa: E501
+        :type: str
         """
 
-        self._evidence = evidence
+        self._block_height = block_height
+
+    @property
+    def validators(self):
+        """Gets the validators of this InlineResponse20029.  # noqa: E501
+
+
+        :return: The validators of this InlineResponse20029.  # noqa: E501
+        :rtype: list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]
+        """
+        return self._validators
+
+    @validators.setter
+    def validators(self, validators):
+        """Sets the validators of this InlineResponse20029.
+
+
+        :param validators: The validators of this InlineResponse20029.  # noqa: E501
+        :type: list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]
+        """
+
+        self._validators = validators
 
     @property
     def pagination(self):
@@ -76,7 +100,7 @@ class InlineResponse20029(object):
 
 
         :return: The pagination of this InlineResponse20029.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
         """
         return self._pagination
 
@@ -86,7 +110,7 @@ class InlineResponse20029(object):
 
 
         :param pagination: The pagination of this InlineResponse20029.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
         """
 
         self._pagination = pagination

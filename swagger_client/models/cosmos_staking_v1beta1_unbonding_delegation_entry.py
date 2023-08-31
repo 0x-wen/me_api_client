@@ -31,22 +31,28 @@ class CosmosStakingV1beta1UnbondingDelegationEntry(object):
         'creation_height': 'str',
         'completion_time': 'datetime',
         'initial_balance': 'str',
-        'balance': 'str'
+        'balance': 'str',
+        'unbonding_id': 'str',
+        'unbonding_on_hold_ref_count': 'str'
     }
 
     attribute_map = {
         'creation_height': 'creation_height',
         'completion_time': 'completion_time',
         'initial_balance': 'initial_balance',
-        'balance': 'balance'
+        'balance': 'balance',
+        'unbonding_id': 'unbonding_id',
+        'unbonding_on_hold_ref_count': 'unbonding_on_hold_ref_count'
     }
 
-    def __init__(self, creation_height=None, completion_time=None, initial_balance=None, balance=None):  # noqa: E501
+    def __init__(self, creation_height=None, completion_time=None, initial_balance=None, balance=None, unbonding_id=None, unbonding_on_hold_ref_count=None):  # noqa: E501
         """CosmosStakingV1beta1UnbondingDelegationEntry - a model defined in Swagger"""  # noqa: E501
         self._creation_height = None
         self._completion_time = None
         self._initial_balance = None
         self._balance = None
+        self._unbonding_id = None
+        self._unbonding_on_hold_ref_count = None
         self.discriminator = None
         if creation_height is not None:
             self.creation_height = creation_height
@@ -56,6 +62,10 @@ class CosmosStakingV1beta1UnbondingDelegationEntry(object):
             self.initial_balance = initial_balance
         if balance is not None:
             self.balance = balance
+        if unbonding_id is not None:
+            self.unbonding_id = unbonding_id
+        if unbonding_on_hold_ref_count is not None:
+            self.unbonding_on_hold_ref_count = unbonding_on_hold_ref_count
 
     @property
     def creation_height(self):
@@ -148,6 +158,48 @@ class CosmosStakingV1beta1UnbondingDelegationEntry(object):
         """
 
         self._balance = balance
+
+    @property
+    def unbonding_id(self):
+        """Gets the unbonding_id of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+
+
+        :return: The unbonding_id of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._unbonding_id
+
+    @unbonding_id.setter
+    def unbonding_id(self, unbonding_id):
+        """Sets the unbonding_id of this CosmosStakingV1beta1UnbondingDelegationEntry.
+
+
+        :param unbonding_id: The unbonding_id of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._unbonding_id = unbonding_id
+
+    @property
+    def unbonding_on_hold_ref_count(self):
+        """Gets the unbonding_on_hold_ref_count of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+
+
+        :return: The unbonding_on_hold_ref_count of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._unbonding_on_hold_ref_count
+
+    @unbonding_on_hold_ref_count.setter
+    def unbonding_on_hold_ref_count(self, unbonding_on_hold_ref_count):
+        """Sets the unbonding_on_hold_ref_count of this CosmosStakingV1beta1UnbondingDelegationEntry.
+
+
+        :param unbonding_on_hold_ref_count: The unbonding_on_hold_ref_count of this CosmosStakingV1beta1UnbondingDelegationEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._unbonding_on_hold_ref_count = unbonding_on_hold_ref_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""

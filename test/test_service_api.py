@@ -119,6 +119,34 @@ class TestServiceApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmos_tx_v1_beta1_tx_decode(self):
+        """Test case for cosmos_tx_v1_beta1_tx_decode
+
+        TxDecode decodes the transaction.  # noqa: E501
+        """
+        pass
+
+    def test_cosmos_tx_v1_beta1_tx_decode_amino(self):
+        """Test case for cosmos_tx_v1_beta1_tx_decode_amino
+
+        TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.  # noqa: E501
+        """
+        pass
+
+    def test_cosmos_tx_v1_beta1_tx_encode(self):
+        """Test case for cosmos_tx_v1_beta1_tx_encode
+
+        TxEncode encodes the transaction.  # noqa: E501
+        """
+        pass
+
+    def test_cosmos_tx_v1_beta1_tx_encode_amino(self):
+        """Test case for cosmos_tx_v1_beta1_tx_encode_amino
+
+        TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

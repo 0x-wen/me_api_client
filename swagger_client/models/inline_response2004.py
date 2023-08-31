@@ -28,40 +28,40 @@ class InlineResponse2004(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'address_bytes': 'str'
+        'address_string': 'str'
     }
 
     attribute_map = {
-        'address_bytes': 'address_bytes'
+        'address_string': 'address_string'
     }
 
-    def __init__(self, address_bytes=None):  # noqa: E501
+    def __init__(self, address_string=None):  # noqa: E501
         """InlineResponse2004 - a model defined in Swagger"""  # noqa: E501
-        self._address_bytes = None
+        self._address_string = None
         self.discriminator = None
-        if address_bytes is not None:
-            self.address_bytes = address_bytes
+        if address_string is not None:
+            self.address_string = address_string
 
     @property
-    def address_bytes(self):
-        """Gets the address_bytes of this InlineResponse2004.  # noqa: E501
+    def address_string(self):
+        """Gets the address_string of this InlineResponse2004.  # noqa: E501
 
 
-        :return: The address_bytes of this InlineResponse2004.  # noqa: E501
+        :return: The address_string of this InlineResponse2004.  # noqa: E501
         :rtype: str
         """
-        return self._address_bytes
+        return self._address_string
 
-    @address_bytes.setter
-    def address_bytes(self, address_bytes):
-        """Sets the address_bytes of this InlineResponse2004.
+    @address_string.setter
+    def address_string(self, address_string):
+        """Sets the address_string of this InlineResponse2004.
 
 
-        :param address_bytes: The address_bytes of this InlineResponse2004.  # noqa: E501
+        :param address_string: The address_string of this InlineResponse2004.  # noqa: E501
         :type: str
         """
 
-        self._address_bytes = address_bytes
+        self._address_string = address_string
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -28,42 +28,40 @@ class InlineResponse20083(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'module_versions': 'list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]'
+        'tx_response': 'CosmosTxV1beta1BroadcastTxResponseTxResponse'
     }
 
     attribute_map = {
-        'module_versions': 'module_versions'
+        'tx_response': 'tx_response'
     }
 
-    def __init__(self, module_versions=None):  # noqa: E501
+    def __init__(self, tx_response=None):  # noqa: E501
         """InlineResponse20083 - a model defined in Swagger"""  # noqa: E501
-        self._module_versions = None
+        self._tx_response = None
         self.discriminator = None
-        if module_versions is not None:
-            self.module_versions = module_versions
+        if tx_response is not None:
+            self.tx_response = tx_response
 
     @property
-    def module_versions(self):
-        """Gets the module_versions of this InlineResponse20083.  # noqa: E501
+    def tx_response(self):
+        """Gets the tx_response of this InlineResponse20083.  # noqa: E501
 
-        module_versions is a list of module names with their consensus versions.  # noqa: E501
 
-        :return: The module_versions of this InlineResponse20083.  # noqa: E501
-        :rtype: list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]
+        :return: The tx_response of this InlineResponse20083.  # noqa: E501
+        :rtype: CosmosTxV1beta1BroadcastTxResponseTxResponse
         """
-        return self._module_versions
+        return self._tx_response
 
-    @module_versions.setter
-    def module_versions(self, module_versions):
-        """Sets the module_versions of this InlineResponse20083.
+    @tx_response.setter
+    def tx_response(self, tx_response):
+        """Sets the tx_response of this InlineResponse20083.
 
-        module_versions is a list of module names with their consensus versions.  # noqa: E501
 
-        :param module_versions: The module_versions of this InlineResponse20083.  # noqa: E501
-        :type: list[CosmosUpgradeV1beta1QueryModuleVersionsResponseModuleVersions]
+        :param tx_response: The tx_response of this InlineResponse20083.  # noqa: E501
+        :type: CosmosTxV1beta1BroadcastTxResponseTxResponse
         """
 
-        self._module_versions = module_versions
+        self._tx_response = tx_response
 
     def to_dict(self):
         """Returns the model properties as a dict"""

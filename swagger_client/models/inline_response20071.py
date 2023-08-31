@@ -28,40 +28,40 @@ class InlineResponse20071(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'hist': 'CosmosStakingV1beta1QueryHistoricalInfoResponseHist'
+        'kyc': 'CosmosStakingV1beta1QueryAllKycResponseKyc'
     }
 
     attribute_map = {
-        'hist': 'hist'
+        'kyc': 'kyc'
     }
 
-    def __init__(self, hist=None):  # noqa: E501
+    def __init__(self, kyc=None):  # noqa: E501
         """InlineResponse20071 - a model defined in Swagger"""  # noqa: E501
-        self._hist = None
+        self._kyc = None
         self.discriminator = None
-        if hist is not None:
-            self.hist = hist
+        if kyc is not None:
+            self.kyc = kyc
 
     @property
-    def hist(self):
-        """Gets the hist of this InlineResponse20071.  # noqa: E501
+    def kyc(self):
+        """Gets the kyc of this InlineResponse20071.  # noqa: E501
 
 
-        :return: The hist of this InlineResponse20071.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryHistoricalInfoResponseHist
+        :return: The kyc of this InlineResponse20071.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryAllKycResponseKyc
         """
-        return self._hist
+        return self._kyc
 
-    @hist.setter
-    def hist(self, hist):
-        """Sets the hist of this InlineResponse20071.
+    @kyc.setter
+    def kyc(self, kyc):
+        """Sets the kyc of this InlineResponse20071.
 
 
-        :param hist: The hist of this InlineResponse20071.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryHistoricalInfoResponseHist
+        :param kyc: The kyc of this InlineResponse20071.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryAllKycResponseKyc
         """
 
-        self._hist = hist
+        self._kyc = kyc
 
     def to_dict(self):
         """Returns the model properties as a dict"""

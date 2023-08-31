@@ -28,92 +28,92 @@ class InlineResponse20025(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'block_height': 'str',
-        'validators': 'list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]',
-        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
+        'block_id': 'BlockID',
+        'block': 'DeprecatedPleaseUseSdkBlockInstead',
+        'sdk_block': 'SinceCosmossdk047'
     }
 
     attribute_map = {
-        'block_height': 'block_height',
-        'validators': 'validators',
-        'pagination': 'pagination'
+        'block_id': 'block_id',
+        'block': 'block',
+        'sdk_block': 'sdk_block'
     }
 
-    def __init__(self, block_height=None, validators=None, pagination=None):  # noqa: E501
+    def __init__(self, block_id=None, block=None, sdk_block=None):  # noqa: E501
         """InlineResponse20025 - a model defined in Swagger"""  # noqa: E501
-        self._block_height = None
-        self._validators = None
-        self._pagination = None
+        self._block_id = None
+        self._block = None
+        self._sdk_block = None
         self.discriminator = None
-        if block_height is not None:
-            self.block_height = block_height
-        if validators is not None:
-            self.validators = validators
-        if pagination is not None:
-            self.pagination = pagination
+        if block_id is not None:
+            self.block_id = block_id
+        if block is not None:
+            self.block = block
+        if sdk_block is not None:
+            self.sdk_block = sdk_block
 
     @property
-    def block_height(self):
-        """Gets the block_height of this InlineResponse20025.  # noqa: E501
+    def block_id(self):
+        """Gets the block_id of this InlineResponse20025.  # noqa: E501
 
 
-        :return: The block_height of this InlineResponse20025.  # noqa: E501
-        :rtype: str
+        :return: The block_id of this InlineResponse20025.  # noqa: E501
+        :rtype: BlockID
         """
-        return self._block_height
+        return self._block_id
 
-    @block_height.setter
-    def block_height(self, block_height):
-        """Sets the block_height of this InlineResponse20025.
+    @block_id.setter
+    def block_id(self, block_id):
+        """Sets the block_id of this InlineResponse20025.
 
 
-        :param block_height: The block_height of this InlineResponse20025.  # noqa: E501
-        :type: str
+        :param block_id: The block_id of this InlineResponse20025.  # noqa: E501
+        :type: BlockID
         """
 
-        self._block_height = block_height
+        self._block_id = block_id
 
     @property
-    def validators(self):
-        """Gets the validators of this InlineResponse20025.  # noqa: E501
+    def block(self):
+        """Gets the block of this InlineResponse20025.  # noqa: E501
 
 
-        :return: The validators of this InlineResponse20025.  # noqa: E501
-        :rtype: list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]
+        :return: The block of this InlineResponse20025.  # noqa: E501
+        :rtype: DeprecatedPleaseUseSdkBlockInstead
         """
-        return self._validators
+        return self._block
 
-    @validators.setter
-    def validators(self, validators):
-        """Sets the validators of this InlineResponse20025.
+    @block.setter
+    def block(self, block):
+        """Sets the block of this InlineResponse20025.
 
 
-        :param validators: The validators of this InlineResponse20025.  # noqa: E501
-        :type: list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]
+        :param block: The block of this InlineResponse20025.  # noqa: E501
+        :type: DeprecatedPleaseUseSdkBlockInstead
         """
 
-        self._validators = validators
+        self._block = block
 
     @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20025.  # noqa: E501
+    def sdk_block(self):
+        """Gets the sdk_block of this InlineResponse20025.  # noqa: E501
 
 
-        :return: The pagination of this InlineResponse20025.  # noqa: E501
-        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        :return: The sdk_block of this InlineResponse20025.  # noqa: E501
+        :rtype: SinceCosmossdk047
         """
-        return self._pagination
+        return self._sdk_block
 
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20025.
+    @sdk_block.setter
+    def sdk_block(self, sdk_block):
+        """Sets the sdk_block of this InlineResponse20025.
 
 
-        :param pagination: The pagination of this InlineResponse20025.  # noqa: E501
-        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        :param sdk_block: The sdk_block of this InlineResponse20025.  # noqa: E501
+        :type: SinceCosmossdk047
         """
 
-        self._pagination = pagination
+        self._sdk_block = sdk_block
 
     def to_dict(self):
         """Returns the model properties as a dict"""

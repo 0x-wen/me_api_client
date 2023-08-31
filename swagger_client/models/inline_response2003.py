@@ -28,40 +28,40 @@ class InlineResponse2003(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'address_string': 'str'
+        'bech32_prefix': 'str'
     }
 
     attribute_map = {
-        'address_string': 'address_string'
+        'bech32_prefix': 'bech32_prefix'
     }
 
-    def __init__(self, address_string=None):  # noqa: E501
+    def __init__(self, bech32_prefix=None):  # noqa: E501
         """InlineResponse2003 - a model defined in Swagger"""  # noqa: E501
-        self._address_string = None
+        self._bech32_prefix = None
         self.discriminator = None
-        if address_string is not None:
-            self.address_string = address_string
+        if bech32_prefix is not None:
+            self.bech32_prefix = bech32_prefix
 
     @property
-    def address_string(self):
-        """Gets the address_string of this InlineResponse2003.  # noqa: E501
+    def bech32_prefix(self):
+        """Gets the bech32_prefix of this InlineResponse2003.  # noqa: E501
 
 
-        :return: The address_string of this InlineResponse2003.  # noqa: E501
+        :return: The bech32_prefix of this InlineResponse2003.  # noqa: E501
         :rtype: str
         """
-        return self._address_string
+        return self._bech32_prefix
 
-    @address_string.setter
-    def address_string(self, address_string):
-        """Sets the address_string of this InlineResponse2003.
+    @bech32_prefix.setter
+    def bech32_prefix(self, bech32_prefix):
+        """Sets the bech32_prefix of this InlineResponse2003.
 
 
-        :param address_string: The address_string of this InlineResponse2003.  # noqa: E501
+        :param bech32_prefix: The bech32_prefix of this InlineResponse2003.  # noqa: E501
         :type: str
         """
 
-        self._address_string = address_string
+        self._bech32_prefix = bech32_prefix
 
     def to_dict(self):
         """Returns the model properties as a dict"""

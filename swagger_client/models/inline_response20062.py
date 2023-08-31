@@ -28,42 +28,40 @@ class InlineResponse20062(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'inflation': 'str'
+        'param': 'CosmosParamsV1beta1QueryParamsResponseParam'
     }
 
     attribute_map = {
-        'inflation': 'inflation'
+        'param': 'param'
     }
 
-    def __init__(self, inflation=None):  # noqa: E501
+    def __init__(self, param=None):  # noqa: E501
         """InlineResponse20062 - a model defined in Swagger"""  # noqa: E501
-        self._inflation = None
+        self._param = None
         self.discriminator = None
-        if inflation is not None:
-            self.inflation = inflation
+        if param is not None:
+            self.param = param
 
     @property
-    def inflation(self):
-        """Gets the inflation of this InlineResponse20062.  # noqa: E501
+    def param(self):
+        """Gets the param of this InlineResponse20062.  # noqa: E501
 
-        inflation is the current minting inflation value.  # noqa: E501
 
-        :return: The inflation of this InlineResponse20062.  # noqa: E501
-        :rtype: str
+        :return: The param of this InlineResponse20062.  # noqa: E501
+        :rtype: CosmosParamsV1beta1QueryParamsResponseParam
         """
-        return self._inflation
+        return self._param
 
-    @inflation.setter
-    def inflation(self, inflation):
-        """Sets the inflation of this InlineResponse20062.
+    @param.setter
+    def param(self, param):
+        """Sets the param of this InlineResponse20062.
 
-        inflation is the current minting inflation value.  # noqa: E501
 
-        :param inflation: The inflation of this InlineResponse20062.  # noqa: E501
-        :type: str
+        :param param: The param of this InlineResponse20062.  # noqa: E501
+        :type: CosmosParamsV1beta1QueryParamsResponseParam
         """
 
-        self._inflation = inflation
+        self._param = param
 
     def to_dict(self):
         """Returns the model properties as a dict"""

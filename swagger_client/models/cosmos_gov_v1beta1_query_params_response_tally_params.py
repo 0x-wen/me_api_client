@@ -56,7 +56,7 @@ class CosmosGovV1beta1QueryParamsResponseTallyParams(object):
     def quorum(self):
         """Gets the quorum of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
 
-        Minimum percentage of total stake needed to vote for a result to be  considered valid.  # noqa: E501
+        Minimum percentage of total stake needed to vote for a result to be considered valid.  # noqa: E501
 
         :return: The quorum of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
         :rtype: str
@@ -67,7 +67,7 @@ class CosmosGovV1beta1QueryParamsResponseTallyParams(object):
     def quorum(self, quorum):
         """Sets the quorum of this CosmosGovV1beta1QueryParamsResponseTallyParams.
 
-        Minimum percentage of total stake needed to vote for a result to be  considered valid.  # noqa: E501
+        Minimum percentage of total stake needed to vote for a result to be considered valid.  # noqa: E501
 
         :param quorum: The quorum of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
         :type: str
@@ -102,7 +102,7 @@ class CosmosGovV1beta1QueryParamsResponseTallyParams(object):
     def veto_threshold(self):
         """Gets the veto_threshold of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
 
-        Minimum value of Veto votes to Total votes ratio for proposal to be  vetoed. Default value: 1/3.  # noqa: E501
+        Minimum value of Veto votes to Total votes ratio for proposal to be vetoed. Default value: 1/3.  # noqa: E501
 
         :return: The veto_threshold of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
         :rtype: str
@@ -113,7 +113,7 @@ class CosmosGovV1beta1QueryParamsResponseTallyParams(object):
     def veto_threshold(self, veto_threshold):
         """Sets the veto_threshold of this CosmosGovV1beta1QueryParamsResponseTallyParams.
 
-        Minimum value of Veto votes to Total votes ratio for proposal to be  vetoed. Default value: 1/3.  # noqa: E501
+        Minimum value of Veto votes to Total votes ratio for proposal to be vetoed. Default value: 1/3.  # noqa: E501
 
         :param veto_threshold: The veto_threshold of this CosmosGovV1beta1QueryParamsResponseTallyParams.  # noqa: E501
         :type: str

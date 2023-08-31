@@ -28,7 +28,7 @@ class CosmosGovV1QueryProposalsResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposals': 'list[CosmosGovV1QueryProposalResponseProposal]',
+        'proposals': 'list[CosmosGovV1QueryProposalsResponseProposals]',
         'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
@@ -51,9 +51,10 @@ class CosmosGovV1QueryProposalsResponse(object):
     def proposals(self):
         """Gets the proposals of this CosmosGovV1QueryProposalsResponse.  # noqa: E501
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
         :return: The proposals of this CosmosGovV1QueryProposalsResponse.  # noqa: E501
-        :rtype: list[CosmosGovV1QueryProposalResponseProposal]
+        :rtype: list[CosmosGovV1QueryProposalsResponseProposals]
         """
         return self._proposals
 
@@ -61,9 +62,10 @@ class CosmosGovV1QueryProposalsResponse(object):
     def proposals(self, proposals):
         """Sets the proposals of this CosmosGovV1QueryProposalsResponse.
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
         :param proposals: The proposals of this CosmosGovV1QueryProposalsResponse.  # noqa: E501
-        :type: list[CosmosGovV1QueryProposalResponseProposal]
+        :type: list[CosmosGovV1QueryProposalsResponseProposals]
         """
 
         self._proposals = proposals

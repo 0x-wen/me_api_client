@@ -28,42 +28,40 @@ class InlineResponse20061(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'annual_provisions': 'str'
+        'params': 'CosmosMintV1beta1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'annual_provisions': 'annual_provisions'
+        'params': 'params'
     }
 
-    def __init__(self, annual_provisions=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20061 - a model defined in Swagger"""  # noqa: E501
-        self._annual_provisions = None
+        self._params = None
         self.discriminator = None
-        if annual_provisions is not None:
-            self.annual_provisions = annual_provisions
+        if params is not None:
+            self.params = params
 
     @property
-    def annual_provisions(self):
-        """Gets the annual_provisions of this InlineResponse20061.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20061.  # noqa: E501
 
-        annual_provisions is the current minting annual provisions value.  # noqa: E501
 
-        :return: The annual_provisions of this InlineResponse20061.  # noqa: E501
-        :rtype: str
+        :return: The params of this InlineResponse20061.  # noqa: E501
+        :rtype: CosmosMintV1beta1QueryParamsResponseParams
         """
-        return self._annual_provisions
+        return self._params
 
-    @annual_provisions.setter
-    def annual_provisions(self, annual_provisions):
-        """Sets the annual_provisions of this InlineResponse20061.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20061.
 
-        annual_provisions is the current minting annual provisions value.  # noqa: E501
 
-        :param annual_provisions: The annual_provisions of this InlineResponse20061.  # noqa: E501
-        :type: str
+        :param params: The params of this InlineResponse20061.  # noqa: E501
+        :type: CosmosMintV1beta1QueryParamsResponseParams
         """
 
-        self._annual_provisions = annual_provisions
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

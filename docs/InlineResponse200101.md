@@ -3,9 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**connections** | [**list[IbcCoreConnectionV1QueryConnectionsResponseConnections]**](IbcCoreConnectionV1QueryConnectionsResponseConnections.md) | list of stored connections of the chain. | [optional] 
+**client_states** | [**list[IbcCoreClientV1QueryClientStatesResponseClientStates]**](IbcCoreClientV1QueryClientStatesResponseClientStates.md) | list of stored ClientStates of the chain. | [optional] 
 **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] 
-**height** | [**QueryBlockHeight**](QueryBlockHeight.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

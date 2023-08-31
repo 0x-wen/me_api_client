@@ -28,40 +28,40 @@ class InlineResponse20044(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposal': 'CosmosGovV1beta1QueryProposalResponseProposal'
+        'tally': 'CosmosGovV1QueryTallyResultResponseTally'
     }
 
     attribute_map = {
-        'proposal': 'proposal'
+        'tally': 'tally'
     }
 
-    def __init__(self, proposal=None):  # noqa: E501
+    def __init__(self, tally=None):  # noqa: E501
         """InlineResponse20044 - a model defined in Swagger"""  # noqa: E501
-        self._proposal = None
+        self._tally = None
         self.discriminator = None
-        if proposal is not None:
-            self.proposal = proposal
+        if tally is not None:
+            self.tally = tally
 
     @property
-    def proposal(self):
-        """Gets the proposal of this InlineResponse20044.  # noqa: E501
+    def tally(self):
+        """Gets the tally of this InlineResponse20044.  # noqa: E501
 
 
-        :return: The proposal of this InlineResponse20044.  # noqa: E501
-        :rtype: CosmosGovV1beta1QueryProposalResponseProposal
+        :return: The tally of this InlineResponse20044.  # noqa: E501
+        :rtype: CosmosGovV1QueryTallyResultResponseTally
         """
-        return self._proposal
+        return self._tally
 
-    @proposal.setter
-    def proposal(self, proposal):
-        """Sets the proposal of this InlineResponse20044.
+    @tally.setter
+    def tally(self, tally):
+        """Sets the tally of this InlineResponse20044.
 
 
-        :param proposal: The proposal of this InlineResponse20044.  # noqa: E501
-        :type: CosmosGovV1beta1QueryProposalResponseProposal
+        :param tally: The tally of this InlineResponse20044.  # noqa: E501
+        :type: CosmosGovV1QueryTallyResultResponseTally
         """
 
-        self._proposal = proposal
+        self._tally = tally
 
     def to_dict(self):
         """Returns the model properties as a dict"""

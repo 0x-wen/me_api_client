@@ -3,16 +3,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**messages** | **list[dict(str, object)]** |  | [optional] 
-**status** | **str** | ProposalStatus enumerates the valid statuses of a proposal.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed. | [optional] [default to 'PROPOSAL_STATUS_UNSPECIFIED']
+**id** | **str** | id defines the unique id of the proposal. | [optional] 
+**messages** | **list[dict(str, object)]** | messages are the arbitrary messages to be executed if the proposal passes. | [optional] 
+**status** | **str** | status defines the proposal status. | [optional] [default to 'PROPOSAL_STATUS_UNSPECIFIED']
 **final_tally_result** | [**CosmosGovV1ProposalFinalTallyResult**](CosmosGovV1ProposalFinalTallyResult.md) |  | [optional] 
-**submit_time** | **datetime** |  | [optional] 
-**deposit_end_time** | **datetime** |  | [optional] 
-**total_deposit** | [**list[CosmosBankV1beta1InputCoins]**](CosmosBankV1beta1InputCoins.md) |  | [optional] 
-**voting_start_time** | **datetime** |  | [optional] 
-**voting_end_time** | **datetime** |  | [optional] 
+**submit_time** | **datetime** | submit_time is the time of proposal submission. | [optional] 
+**deposit_end_time** | **datetime** | deposit_end_time is the end time for deposition. | [optional] 
+**total_deposit** | [**list[CosmosBankV1beta1InputCoins]**](CosmosBankV1beta1InputCoins.md) | total_deposit is the total deposit on the proposal. | [optional] 
+**voting_start_time** | **datetime** | voting_start_time is the starting time to vote on a proposal. | [optional] 
+**voting_end_time** | **datetime** | voting_end_time is the end time of voting on a proposal. | [optional] 
 **metadata** | **str** | metadata is any arbitrary metadata attached to the proposal. | [optional] 
+**title** | **str** | Since: cosmos-sdk 0.47 | [optional] 
+**summary** | **str** | Since: cosmos-sdk 0.47 | [optional] 
+**proposer** | **str** | Since: cosmos-sdk 0.47 | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

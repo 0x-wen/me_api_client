@@ -28,40 +28,40 @@ class InlineResponse20075(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'pool': 'CosmosStakingV1beta1QueryPoolResponsePool'
+        'region': 'CosmosStakingV1beta1QueryAllRegionResponseRegion'
     }
 
     attribute_map = {
-        'pool': 'pool'
+        'region': 'region'
     }
 
-    def __init__(self, pool=None):  # noqa: E501
+    def __init__(self, region=None):  # noqa: E501
         """InlineResponse20075 - a model defined in Swagger"""  # noqa: E501
-        self._pool = None
+        self._region = None
         self.discriminator = None
-        if pool is not None:
-            self.pool = pool
+        if region is not None:
+            self.region = region
 
     @property
-    def pool(self):
-        """Gets the pool of this InlineResponse20075.  # noqa: E501
+    def region(self):
+        """Gets the region of this InlineResponse20075.  # noqa: E501
 
 
-        :return: The pool of this InlineResponse20075.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryPoolResponsePool
+        :return: The region of this InlineResponse20075.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryAllRegionResponseRegion
         """
-        return self._pool
+        return self._region
 
-    @pool.setter
-    def pool(self, pool):
-        """Sets the pool of this InlineResponse20075.
+    @region.setter
+    def region(self, region):
+        """Sets the region of this InlineResponse20075.
 
 
-        :param pool: The pool of this InlineResponse20075.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryPoolResponsePool
+        :param region: The region of this InlineResponse20075.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryAllRegionResponseRegion
         """
 
-        self._pool = pool
+        self._region = region
 
     def to_dict(self):
         """Returns the model properties as a dict"""

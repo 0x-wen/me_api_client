@@ -28,40 +28,40 @@ class InlineResponse20063(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'CosmosMintV1beta1QueryParamsResponseParams'
+        'subspaces': 'list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]'
     }
 
     attribute_map = {
-        'params': 'params'
+        'subspaces': 'subspaces'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, subspaces=None):  # noqa: E501
         """InlineResponse20063 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._subspaces = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if subspaces is not None:
+            self.subspaces = subspaces
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20063.  # noqa: E501
+    def subspaces(self):
+        """Gets the subspaces of this InlineResponse20063.  # noqa: E501
 
 
-        :return: The params of this InlineResponse20063.  # noqa: E501
-        :rtype: CosmosMintV1beta1QueryParamsResponseParams
+        :return: The subspaces of this InlineResponse20063.  # noqa: E501
+        :rtype: list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]
         """
-        return self._params
+        return self._subspaces
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20063.
+    @subspaces.setter
+    def subspaces(self, subspaces):
+        """Sets the subspaces of this InlineResponse20063.
 
 
-        :param params: The params of this InlineResponse20063.  # noqa: E501
-        :type: CosmosMintV1beta1QueryParamsResponseParams
+        :param subspaces: The subspaces of this InlineResponse20063.  # noqa: E501
+        :type: list[CosmosParamsV1beta1QuerySubspacesResponseSubspaces]
         """
 
-        self._params = params
+        self._subspaces = subspaces
 
     def to_dict(self):
         """Returns the model properties as a dict"""

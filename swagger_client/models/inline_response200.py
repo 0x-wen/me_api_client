@@ -28,66 +28,40 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'accounts': 'list[dict(str, object)]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'info': 'CosmosAuthV1beta1QueryAccountInfoResponseInfo'
     }
 
     attribute_map = {
-        'accounts': 'accounts',
-        'pagination': 'pagination'
+        'info': 'info'
     }
 
-    def __init__(self, accounts=None, pagination=None):  # noqa: E501
+    def __init__(self, info=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger"""  # noqa: E501
-        self._accounts = None
-        self._pagination = None
+        self._info = None
         self.discriminator = None
-        if accounts is not None:
-            self.accounts = accounts
-        if pagination is not None:
-            self.pagination = pagination
+        if info is not None:
+            self.info = info
 
     @property
-    def accounts(self):
-        """Gets the accounts of this InlineResponse200.  # noqa: E501
+    def info(self):
+        """Gets the info of this InlineResponse200.  # noqa: E501
 
 
-        :return: The accounts of this InlineResponse200.  # noqa: E501
-        :rtype: list[dict(str, object)]
+        :return: The info of this InlineResponse200.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountInfoResponseInfo
         """
-        return self._accounts
+        return self._info
 
-    @accounts.setter
-    def accounts(self, accounts):
-        """Sets the accounts of this InlineResponse200.
-
-
-        :param accounts: The accounts of this InlineResponse200.  # noqa: E501
-        :type: list[dict(str, object)]
-        """
-
-        self._accounts = accounts
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse200.  # noqa: E501
+    @info.setter
+    def info(self, info):
+        """Sets the info of this InlineResponse200.
 
 
-        :return: The pagination of this InlineResponse200.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse200.
-
-
-        :param pagination: The pagination of this InlineResponse200.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param info: The info of this InlineResponse200.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountInfoResponseInfo
         """
 
-        self._pagination = pagination
+        self._info = info
 
     def to_dict(self):
         """Returns the model properties as a dict"""

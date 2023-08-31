@@ -28,47 +28,45 @@ class InlineResponse20014(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'metadatas': 'list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]',
+        'denom_owners': 'list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]',
         'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'metadatas': 'metadatas',
+        'denom_owners': 'denom_owners',
         'pagination': 'pagination'
     }
 
-    def __init__(self, metadatas=None, pagination=None):  # noqa: E501
+    def __init__(self, denom_owners=None, pagination=None):  # noqa: E501
         """InlineResponse20014 - a model defined in Swagger"""  # noqa: E501
-        self._metadatas = None
+        self._denom_owners = None
         self._pagination = None
         self.discriminator = None
-        if metadatas is not None:
-            self.metadatas = metadatas
+        if denom_owners is not None:
+            self.denom_owners = denom_owners
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def metadatas(self):
-        """Gets the metadatas of this InlineResponse20014.  # noqa: E501
+    def denom_owners(self):
+        """Gets the denom_owners of this InlineResponse20014.  # noqa: E501
 
-        metadata provides the client information for all the registered tokens.  # noqa: E501
 
-        :return: The metadatas of this InlineResponse20014.  # noqa: E501
-        :rtype: list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]
+        :return: The denom_owners of this InlineResponse20014.  # noqa: E501
+        :rtype: list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]
         """
-        return self._metadatas
+        return self._denom_owners
 
-    @metadatas.setter
-    def metadatas(self, metadatas):
-        """Sets the metadatas of this InlineResponse20014.
+    @denom_owners.setter
+    def denom_owners(self, denom_owners):
+        """Sets the denom_owners of this InlineResponse20014.
 
-        metadata provides the client information for all the registered tokens.  # noqa: E501
 
-        :param metadatas: The metadatas of this InlineResponse20014.  # noqa: E501
-        :type: list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]
+        :param denom_owners: The denom_owners of this InlineResponse20014.  # noqa: E501
+        :type: list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]
         """
 
-        self._metadatas = metadatas
+        self._denom_owners = denom_owners
 
     @property
     def pagination(self):

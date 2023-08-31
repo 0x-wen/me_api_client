@@ -28,42 +28,40 @@ class InlineResponse20030(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'evidence': 'dict(str, object)'
+        'params': 'InlineResponse20030Params'
     }
 
     attribute_map = {
-        'evidence': 'evidence'
+        'params': 'params'
     }
 
-    def __init__(self, evidence=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20030 - a model defined in Swagger"""  # noqa: E501
-        self._evidence = None
+        self._params = None
         self.discriminator = None
-        if evidence is not None:
-            self.evidence = evidence
+        if params is not None:
+            self.params = params
 
     @property
-    def evidence(self):
-        """Gets the evidence of this InlineResponse20030.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20030.  # noqa: E501
 
-        evidence returns the requested evidence.  # noqa: E501
 
-        :return: The evidence of this InlineResponse20030.  # noqa: E501
-        :rtype: dict(str, object)
+        :return: The params of this InlineResponse20030.  # noqa: E501
+        :rtype: InlineResponse20030Params
         """
-        return self._evidence
+        return self._params
 
-    @evidence.setter
-    def evidence(self, evidence):
-        """Sets the evidence of this InlineResponse20030.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20030.
 
-        evidence returns the requested evidence.  # noqa: E501
 
-        :param evidence: The evidence of this InlineResponse20030.  # noqa: E501
-        :type: dict(str, object)
+        :param params: The params of this InlineResponse20030.  # noqa: E501
+        :type: InlineResponse20030Params
         """
 
-        self._evidence = evidence
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

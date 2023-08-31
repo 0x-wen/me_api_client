@@ -29,7 +29,7 @@ class CosmosSlashingV1beta1QuerySigningInfosResponse(object):
     """
     swagger_types = {
         'info': 'list[CosmosSlashingV1beta1QuerySigningInfosResponseInfo]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class CosmosSlashingV1beta1QuerySigningInfosResponse(object):
 
 
         :return: The pagination of this CosmosSlashingV1beta1QuerySigningInfosResponse.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class CosmosSlashingV1beta1QuerySigningInfosResponse(object):
 
 
         :param pagination: The pagination of this CosmosSlashingV1beta1QuerySigningInfosResponse.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

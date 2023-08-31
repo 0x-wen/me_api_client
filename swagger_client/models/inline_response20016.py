@@ -28,40 +28,40 @@ class InlineResponse20016(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'CosmosBankV1beta1QueryParamsResponseParams'
+        'metadata': 'CosmosBankV1beta1QueryDenomMetadataResponseMetadata'
     }
 
     attribute_map = {
-        'params': 'params'
+        'metadata': 'metadata'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, metadata=None):  # noqa: E501
         """InlineResponse20016 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._metadata = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if metadata is not None:
+            self.metadata = metadata
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20016.  # noqa: E501
+    def metadata(self):
+        """Gets the metadata of this InlineResponse20016.  # noqa: E501
 
 
-        :return: The params of this InlineResponse20016.  # noqa: E501
-        :rtype: CosmosBankV1beta1QueryParamsResponseParams
+        :return: The metadata of this InlineResponse20016.  # noqa: E501
+        :rtype: CosmosBankV1beta1QueryDenomMetadataResponseMetadata
         """
-        return self._params
+        return self._metadata
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20016.
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this InlineResponse20016.
 
 
-        :param params: The params of this InlineResponse20016.  # noqa: E501
-        :type: CosmosBankV1beta1QueryParamsResponseParams
+        :param metadata: The metadata of this InlineResponse20016.  # noqa: E501
+        :type: CosmosBankV1beta1QueryDenomMetadataResponseMetadata
         """
 
-        self._params = params
+        self._metadata = metadata
 
     def to_dict(self):
         """Returns the model properties as a dict"""

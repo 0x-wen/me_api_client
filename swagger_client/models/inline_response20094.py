@@ -28,92 +28,42 @@ class InlineResponse20094(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'channel': 'ChannelAssociatedWithTheRequestIdentifiers',
-        'proof': 'str',
-        'proof_height': 'HeightAtWhichTheProofWasRetrieved'
+        'hash': 'str'
     }
 
     attribute_map = {
-        'channel': 'channel',
-        'proof': 'proof',
-        'proof_height': 'proof_height'
+        'hash': 'hash'
     }
 
-    def __init__(self, channel=None, proof=None, proof_height=None):  # noqa: E501
+    def __init__(self, hash=None):  # noqa: E501
         """InlineResponse20094 - a model defined in Swagger"""  # noqa: E501
-        self._channel = None
-        self._proof = None
-        self._proof_height = None
+        self._hash = None
         self.discriminator = None
-        if channel is not None:
-            self.channel = channel
-        if proof is not None:
-            self.proof = proof
-        if proof_height is not None:
-            self.proof_height = proof_height
+        if hash is not None:
+            self.hash = hash
 
     @property
-    def channel(self):
-        """Gets the channel of this InlineResponse20094.  # noqa: E501
+    def hash(self):
+        """Gets the hash of this InlineResponse20094.  # noqa: E501
 
+        hash (in hex format) of the denomination trace information.  # noqa: E501
 
-        :return: The channel of this InlineResponse20094.  # noqa: E501
-        :rtype: ChannelAssociatedWithTheRequestIdentifiers
-        """
-        return self._channel
-
-    @channel.setter
-    def channel(self, channel):
-        """Sets the channel of this InlineResponse20094.
-
-
-        :param channel: The channel of this InlineResponse20094.  # noqa: E501
-        :type: ChannelAssociatedWithTheRequestIdentifiers
-        """
-
-        self._channel = channel
-
-    @property
-    def proof(self):
-        """Gets the proof of this InlineResponse20094.  # noqa: E501
-
-
-        :return: The proof of this InlineResponse20094.  # noqa: E501
+        :return: The hash of this InlineResponse20094.  # noqa: E501
         :rtype: str
         """
-        return self._proof
+        return self._hash
 
-    @proof.setter
-    def proof(self, proof):
-        """Sets the proof of this InlineResponse20094.
+    @hash.setter
+    def hash(self, hash):
+        """Sets the hash of this InlineResponse20094.
 
+        hash (in hex format) of the denomination trace information.  # noqa: E501
 
-        :param proof: The proof of this InlineResponse20094.  # noqa: E501
+        :param hash: The hash of this InlineResponse20094.  # noqa: E501
         :type: str
         """
 
-        self._proof = proof
-
-    @property
-    def proof_height(self):
-        """Gets the proof_height of this InlineResponse20094.  # noqa: E501
-
-
-        :return: The proof_height of this InlineResponse20094.  # noqa: E501
-        :rtype: HeightAtWhichTheProofWasRetrieved
-        """
-        return self._proof_height
-
-    @proof_height.setter
-    def proof_height(self, proof_height):
-        """Sets the proof_height of this InlineResponse20094.
-
-
-        :param proof_height: The proof_height of this InlineResponse20094.  # noqa: E501
-        :type: HeightAtWhichTheProofWasRetrieved
-        """
-
-        self._proof_height = proof_height
+        self._hash = hash
 
     def to_dict(self):
         """Returns the model properties as a dict"""

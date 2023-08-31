@@ -31,7 +31,7 @@ class TestBasicBlockInfo(unittest.TestCase):
     def testBasicBlockInfo(self):
         """Test BasicBlockInfo"""
         # FIXME: construct object with mandatory attributes with example values
-        model = swagger_client.models.basic_block_info.BasicBlockInfo()  # noqa: E501
+        # model = swagger_client.models.basic_block_info.BasicBlockInfo()  # noqa: E501
         pass
 
 

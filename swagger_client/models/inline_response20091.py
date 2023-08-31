@@ -28,40 +28,40 @@ class InlineResponse20091(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'denom_trace': 'IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace'
+        'params': 'IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'denom_trace': 'denom_trace'
+        'params': 'params'
     }
 
-    def __init__(self, denom_trace=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20091 - a model defined in Swagger"""  # noqa: E501
-        self._denom_trace = None
+        self._params = None
         self.discriminator = None
-        if denom_trace is not None:
-            self.denom_trace = denom_trace
+        if params is not None:
+            self.params = params
 
     @property
-    def denom_trace(self):
-        """Gets the denom_trace of this InlineResponse20091.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20091.  # noqa: E501
 
 
-        :return: The denom_trace of this InlineResponse20091.  # noqa: E501
-        :rtype: IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace
+        :return: The params of this InlineResponse20091.  # noqa: E501
+        :rtype: IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams
         """
-        return self._denom_trace
+        return self._params
 
-    @denom_trace.setter
-    def denom_trace(self, denom_trace):
-        """Sets the denom_trace of this InlineResponse20091.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20091.
 
 
-        :param denom_trace: The denom_trace of this InlineResponse20091.  # noqa: E501
-        :type: IbcApplicationsTransferV1QueryDenomTraceResponseDenomTrace
+        :param params: The params of this InlineResponse20091.  # noqa: E501
+        :type: IbcApplicationsInterchainAccountsControllerV1QueryParamsResponseParams
         """
 
-        self._denom_trace = denom_trace
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

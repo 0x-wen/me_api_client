@@ -28,66 +28,40 @@ class InlineResponse20043(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposals': 'list[CosmosGovV1beta1QueryProposalResponseProposal]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'deposit': 'CosmosGovV1QueryDepositResponseDeposit'
     }
 
     attribute_map = {
-        'proposals': 'proposals',
-        'pagination': 'pagination'
+        'deposit': 'deposit'
     }
 
-    def __init__(self, proposals=None, pagination=None):  # noqa: E501
+    def __init__(self, deposit=None):  # noqa: E501
         """InlineResponse20043 - a model defined in Swagger"""  # noqa: E501
-        self._proposals = None
-        self._pagination = None
+        self._deposit = None
         self.discriminator = None
-        if proposals is not None:
-            self.proposals = proposals
-        if pagination is not None:
-            self.pagination = pagination
+        if deposit is not None:
+            self.deposit = deposit
 
     @property
-    def proposals(self):
-        """Gets the proposals of this InlineResponse20043.  # noqa: E501
+    def deposit(self):
+        """Gets the deposit of this InlineResponse20043.  # noqa: E501
 
 
-        :return: The proposals of this InlineResponse20043.  # noqa: E501
-        :rtype: list[CosmosGovV1beta1QueryProposalResponseProposal]
+        :return: The deposit of this InlineResponse20043.  # noqa: E501
+        :rtype: CosmosGovV1QueryDepositResponseDeposit
         """
-        return self._proposals
+        return self._deposit
 
-    @proposals.setter
-    def proposals(self, proposals):
-        """Sets the proposals of this InlineResponse20043.
-
-
-        :param proposals: The proposals of this InlineResponse20043.  # noqa: E501
-        :type: list[CosmosGovV1beta1QueryProposalResponseProposal]
-        """
-
-        self._proposals = proposals
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20043.  # noqa: E501
+    @deposit.setter
+    def deposit(self, deposit):
+        """Sets the deposit of this InlineResponse20043.
 
 
-        :return: The pagination of this InlineResponse20043.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20043.
-
-
-        :param pagination: The pagination of this InlineResponse20043.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param deposit: The deposit of this InlineResponse20043.  # noqa: E501
+        :type: CosmosGovV1QueryDepositResponseDeposit
         """
 
-        self._pagination = pagination
+        self._deposit = deposit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

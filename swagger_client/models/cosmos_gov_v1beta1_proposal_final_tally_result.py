@@ -61,6 +61,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def yes(self):
         """Gets the yes of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
 
+        yes is the number of yes votes on a proposal.  # noqa: E501
 
         :return: The yes of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :rtype: str
@@ -71,6 +72,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def yes(self, yes):
         """Sets the yes of this CosmosGovV1beta1ProposalFinalTallyResult.
 
+        yes is the number of yes votes on a proposal.  # noqa: E501
 
         :param yes: The yes of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :type: str
@@ -82,6 +84,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def abstain(self):
         """Gets the abstain of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
 
+        abstain is the number of abstain votes on a proposal.  # noqa: E501
 
         :return: The abstain of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :rtype: str
@@ -92,6 +95,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def abstain(self, abstain):
         """Sets the abstain of this CosmosGovV1beta1ProposalFinalTallyResult.
 
+        abstain is the number of abstain votes on a proposal.  # noqa: E501
 
         :param abstain: The abstain of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :type: str
@@ -103,6 +107,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def no(self):
         """Gets the no of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
 
+        no is the number of no votes on a proposal.  # noqa: E501
 
         :return: The no of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :rtype: str
@@ -113,6 +118,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def no(self, no):
         """Sets the no of this CosmosGovV1beta1ProposalFinalTallyResult.
 
+        no is the number of no votes on a proposal.  # noqa: E501
 
         :param no: The no of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :type: str
@@ -124,6 +130,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def no_with_veto(self):
         """Gets the no_with_veto of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
 
+        no_with_veto is the number of no with veto votes on a proposal.  # noqa: E501
 
         :return: The no_with_veto of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :rtype: str
@@ -134,6 +141,7 @@ class CosmosGovV1beta1ProposalFinalTallyResult(object):
     def no_with_veto(self, no_with_veto):
         """Sets the no_with_veto of this CosmosGovV1beta1ProposalFinalTallyResult.
 
+        no_with_veto is the number of no with veto votes on a proposal.  # noqa: E501
 
         :param no_with_veto: The no_with_veto of this CosmosGovV1beta1ProposalFinalTallyResult.  # noqa: E501
         :type: str

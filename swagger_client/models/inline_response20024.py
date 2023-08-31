@@ -28,40 +28,92 @@ class InlineResponse20024(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'syncing': 'bool'
+        'block_id': 'BlockID',
+        'block': 'DeprecatedPleaseUseSdkBlockInstead',
+        'sdk_block': 'SinceCosmossdk047'
     }
 
     attribute_map = {
-        'syncing': 'syncing'
+        'block_id': 'block_id',
+        'block': 'block',
+        'sdk_block': 'sdk_block'
     }
 
-    def __init__(self, syncing=None):  # noqa: E501
+    def __init__(self, block_id=None, block=None, sdk_block=None):  # noqa: E501
         """InlineResponse20024 - a model defined in Swagger"""  # noqa: E501
-        self._syncing = None
+        self._block_id = None
+        self._block = None
+        self._sdk_block = None
         self.discriminator = None
-        if syncing is not None:
-            self.syncing = syncing
+        if block_id is not None:
+            self.block_id = block_id
+        if block is not None:
+            self.block = block
+        if sdk_block is not None:
+            self.sdk_block = sdk_block
 
     @property
-    def syncing(self):
-        """Gets the syncing of this InlineResponse20024.  # noqa: E501
+    def block_id(self):
+        """Gets the block_id of this InlineResponse20024.  # noqa: E501
 
 
-        :return: The syncing of this InlineResponse20024.  # noqa: E501
-        :rtype: bool
+        :return: The block_id of this InlineResponse20024.  # noqa: E501
+        :rtype: BlockID
         """
-        return self._syncing
+        return self._block_id
 
-    @syncing.setter
-    def syncing(self, syncing):
-        """Sets the syncing of this InlineResponse20024.
+    @block_id.setter
+    def block_id(self, block_id):
+        """Sets the block_id of this InlineResponse20024.
 
 
-        :param syncing: The syncing of this InlineResponse20024.  # noqa: E501
-        :type: bool
+        :param block_id: The block_id of this InlineResponse20024.  # noqa: E501
+        :type: BlockID
         """
 
-        self._syncing = syncing
+        self._block_id = block_id
+
+    @property
+    def block(self):
+        """Gets the block of this InlineResponse20024.  # noqa: E501
+
+
+        :return: The block of this InlineResponse20024.  # noqa: E501
+        :rtype: DeprecatedPleaseUseSdkBlockInstead
+        """
+        return self._block
+
+    @block.setter
+    def block(self, block):
+        """Sets the block of this InlineResponse20024.
+
+
+        :param block: The block of this InlineResponse20024.  # noqa: E501
+        :type: DeprecatedPleaseUseSdkBlockInstead
+        """
+
+        self._block = block
+
+    @property
+    def sdk_block(self):
+        """Gets the sdk_block of this InlineResponse20024.  # noqa: E501
+
+
+        :return: The sdk_block of this InlineResponse20024.  # noqa: E501
+        :rtype: SinceCosmossdk047
+        """
+        return self._sdk_block
+
+    @sdk_block.setter
+    def sdk_block(self, sdk_block):
+        """Sets the sdk_block of this InlineResponse20024.
+
+
+        :param sdk_block: The sdk_block of this InlineResponse20024.  # noqa: E501
+        :type: SinceCosmossdk047
+        """
+
+        self._sdk_block = sdk_block
 
     def to_dict(self):
         """Returns the model properties as a dict"""

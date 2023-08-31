@@ -28,7 +28,7 @@ class InlineResponse2009(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'grants': 'list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]',
+        'grants': 'list[CosmosAuthzV1beta1QueryGrantsResponseGrants]',
         'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
     }
 
@@ -51,10 +51,10 @@ class InlineResponse2009(object):
     def grants(self):
         """Gets the grants of this InlineResponse2009.  # noqa: E501
 
-        grants is a list of grants granted to the grantee.  # noqa: E501
+        authorizations is a list of grants granted for grantee by granter.  # noqa: E501
 
         :return: The grants of this InlineResponse2009.  # noqa: E501
-        :rtype: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]
+        :rtype: list[CosmosAuthzV1beta1QueryGrantsResponseGrants]
         """
         return self._grants
 
@@ -62,10 +62,10 @@ class InlineResponse2009(object):
     def grants(self, grants):
         """Sets the grants of this InlineResponse2009.
 
-        grants is a list of grants granted to the grantee.  # noqa: E501
+        authorizations is a list of grants granted for grantee by granter.  # noqa: E501
 
         :param grants: The grants of this InlineResponse2009.  # noqa: E501
-        :type: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]
+        :type: list[CosmosAuthzV1beta1QueryGrantsResponseGrants]
         """
 
         self._grants = grants

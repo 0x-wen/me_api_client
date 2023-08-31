@@ -28,40 +28,66 @@ class InlineResponse20074(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'CosmosStakingV1beta1QueryParamsResponseParams'
+        'region': 'list[CosmosStakingV1beta1QueryAllRegionResponseRegion]',
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
-        'params': 'params'
+        'region': 'region',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, region=None, pagination=None):  # noqa: E501
         """InlineResponse20074 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._region = None
+        self._pagination = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if region is not None:
+            self.region = region
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20074.  # noqa: E501
+    def region(self):
+        """Gets the region of this InlineResponse20074.  # noqa: E501
 
 
-        :return: The params of this InlineResponse20074.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryParamsResponseParams
+        :return: The region of this InlineResponse20074.  # noqa: E501
+        :rtype: list[CosmosStakingV1beta1QueryAllRegionResponseRegion]
         """
-        return self._params
+        return self._region
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20074.
+    @region.setter
+    def region(self, region):
+        """Sets the region of this InlineResponse20074.
 
 
-        :param params: The params of this InlineResponse20074.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryParamsResponseParams
+        :param region: The region of this InlineResponse20074.  # noqa: E501
+        :type: list[CosmosStakingV1beta1QueryAllRegionResponseRegion]
         """
 
-        self._params = params
+        self._region = region
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20074.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20074.  # noqa: E501
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20074.
+
+
+        :param pagination: The pagination of this InlineResponse20074.  # noqa: E501
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

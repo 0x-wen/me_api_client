@@ -28,66 +28,40 @@ class InlineResponse20013(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'denom_owners': 'list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'balance': 'CosmosBankV1beta1QueryBalanceResponseBalance'
     }
 
     attribute_map = {
-        'denom_owners': 'denom_owners',
-        'pagination': 'pagination'
+        'balance': 'balance'
     }
 
-    def __init__(self, denom_owners=None, pagination=None):  # noqa: E501
+    def __init__(self, balance=None):  # noqa: E501
         """InlineResponse20013 - a model defined in Swagger"""  # noqa: E501
-        self._denom_owners = None
-        self._pagination = None
+        self._balance = None
         self.discriminator = None
-        if denom_owners is not None:
-            self.denom_owners = denom_owners
-        if pagination is not None:
-            self.pagination = pagination
+        if balance is not None:
+            self.balance = balance
 
     @property
-    def denom_owners(self):
-        """Gets the denom_owners of this InlineResponse20013.  # noqa: E501
+    def balance(self):
+        """Gets the balance of this InlineResponse20013.  # noqa: E501
 
 
-        :return: The denom_owners of this InlineResponse20013.  # noqa: E501
-        :rtype: list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]
+        :return: The balance of this InlineResponse20013.  # noqa: E501
+        :rtype: CosmosBankV1beta1QueryBalanceResponseBalance
         """
-        return self._denom_owners
+        return self._balance
 
-    @denom_owners.setter
-    def denom_owners(self, denom_owners):
-        """Sets the denom_owners of this InlineResponse20013.
-
-
-        :param denom_owners: The denom_owners of this InlineResponse20013.  # noqa: E501
-        :type: list[CosmosBankV1beta1QueryDenomOwnersResponseDenomOwners]
-        """
-
-        self._denom_owners = denom_owners
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20013.  # noqa: E501
+    @balance.setter
+    def balance(self, balance):
+        """Sets the balance of this InlineResponse20013.
 
 
-        :return: The pagination of this InlineResponse20013.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20013.
-
-
-        :param pagination: The pagination of this InlineResponse20013.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param balance: The balance of this InlineResponse20013.  # noqa: E501
+        :type: CosmosBankV1beta1QueryBalanceResponseBalance
         """
 
-        self._pagination = pagination
+        self._balance = balance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

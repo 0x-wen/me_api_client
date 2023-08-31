@@ -28,68 +28,40 @@ class InlineResponse20049(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'members': 'list[CosmosGroupV1QueryGroupMembersResponseMembers]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'proposal': 'CosmosGovV1beta1QueryProposalResponseProposal'
     }
 
     attribute_map = {
-        'members': 'members',
-        'pagination': 'pagination'
+        'proposal': 'proposal'
     }
 
-    def __init__(self, members=None, pagination=None):  # noqa: E501
+    def __init__(self, proposal=None):  # noqa: E501
         """InlineResponse20049 - a model defined in Swagger"""  # noqa: E501
-        self._members = None
-        self._pagination = None
+        self._proposal = None
         self.discriminator = None
-        if members is not None:
-            self.members = members
-        if pagination is not None:
-            self.pagination = pagination
+        if proposal is not None:
+            self.proposal = proposal
 
     @property
-    def members(self):
-        """Gets the members of this InlineResponse20049.  # noqa: E501
+    def proposal(self):
+        """Gets the proposal of this InlineResponse20049.  # noqa: E501
 
-        members are the members of the group with given group_id.  # noqa: E501
 
-        :return: The members of this InlineResponse20049.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryGroupMembersResponseMembers]
+        :return: The proposal of this InlineResponse20049.  # noqa: E501
+        :rtype: CosmosGovV1beta1QueryProposalResponseProposal
         """
-        return self._members
+        return self._proposal
 
-    @members.setter
-    def members(self, members):
-        """Sets the members of this InlineResponse20049.
+    @proposal.setter
+    def proposal(self, proposal):
+        """Sets the proposal of this InlineResponse20049.
 
-        members are the members of the group with given group_id.  # noqa: E501
 
-        :param members: The members of this InlineResponse20049.  # noqa: E501
-        :type: list[CosmosGroupV1QueryGroupMembersResponseMembers]
+        :param proposal: The proposal of this InlineResponse20049.  # noqa: E501
+        :type: CosmosGovV1beta1QueryProposalResponseProposal
         """
 
-        self._members = members
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20049.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20049.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20049.
-
-
-        :param pagination: The pagination of this InlineResponse20049.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._proposal = proposal
 
     def to_dict(self):
         """Returns the model properties as a dict"""

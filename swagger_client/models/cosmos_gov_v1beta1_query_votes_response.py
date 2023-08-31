@@ -51,7 +51,7 @@ class CosmosGovV1beta1QueryVotesResponse(object):
     def votes(self):
         """Gets the votes of this CosmosGovV1beta1QueryVotesResponse.  # noqa: E501
 
-        votes defined the queried votes.  # noqa: E501
+        votes defines the queried votes.  # noqa: E501
 
         :return: The votes of this CosmosGovV1beta1QueryVotesResponse.  # noqa: E501
         :rtype: list[CosmosGovV1beta1QueryVotesResponseVotes]
@@ -62,7 +62,7 @@ class CosmosGovV1beta1QueryVotesResponse(object):
     def votes(self, votes):
         """Sets the votes of this CosmosGovV1beta1QueryVotesResponse.
 
-        votes defined the queried votes.  # noqa: E501
+        votes defines the queried votes.  # noqa: E501
 
         :param votes: The votes of this CosmosGovV1beta1QueryVotesResponse.  # noqa: E501
         :type: list[CosmosGovV1beta1QueryVotesResponseVotes]

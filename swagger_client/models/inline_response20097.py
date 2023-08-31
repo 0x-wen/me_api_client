@@ -28,40 +28,40 @@ class InlineResponse20097(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'status': 'str'
+        'amount': 'CosmosBankV1beta1InputCoins'
     }
 
     attribute_map = {
-        'status': 'status'
+        'amount': 'amount'
     }
 
-    def __init__(self, status=None):  # noqa: E501
+    def __init__(self, amount=None):  # noqa: E501
         """InlineResponse20097 - a model defined in Swagger"""  # noqa: E501
-        self._status = None
+        self._amount = None
         self.discriminator = None
-        if status is not None:
-            self.status = status
+        if amount is not None:
+            self.amount = amount
 
     @property
-    def status(self):
-        """Gets the status of this InlineResponse20097.  # noqa: E501
+    def amount(self):
+        """Gets the amount of this InlineResponse20097.  # noqa: E501
 
 
-        :return: The status of this InlineResponse20097.  # noqa: E501
-        :rtype: str
+        :return: The amount of this InlineResponse20097.  # noqa: E501
+        :rtype: CosmosBankV1beta1InputCoins
         """
-        return self._status
+        return self._amount
 
-    @status.setter
-    def status(self, status):
-        """Sets the status of this InlineResponse20097.
+    @amount.setter
+    def amount(self, amount):
+        """Sets the amount of this InlineResponse20097.
 
 
-        :param status: The status of this InlineResponse20097.  # noqa: E501
-        :type: str
+        :param amount: The amount of this InlineResponse20097.  # noqa: E501
+        :type: CosmosBankV1beta1InputCoins
         """
 
-        self._status = status
+        self._amount = amount
 
     def to_dict(self):
         """Returns the model properties as a dict"""

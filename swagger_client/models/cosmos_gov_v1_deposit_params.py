@@ -74,7 +74,7 @@ class CosmosGovV1DepositParams(object):
     def max_deposit_period(self):
         """Gets the max_deposit_period of this CosmosGovV1DepositParams.  # noqa: E501
 
-        Maximum period for Atom holders to deposit on a proposal. Initial value: 2  months.  # noqa: E501
+        Maximum period for Atom holders to deposit on a proposal. Initial value: 2 months.  # noqa: E501
 
         :return: The max_deposit_period of this CosmosGovV1DepositParams.  # noqa: E501
         :rtype: str
@@ -85,7 +85,7 @@ class CosmosGovV1DepositParams(object):
     def max_deposit_period(self, max_deposit_period):
         """Sets the max_deposit_period of this CosmosGovV1DepositParams.
 
-        Maximum period for Atom holders to deposit on a proposal. Initial value: 2  months.  # noqa: E501
+        Maximum period for Atom holders to deposit on a proposal. Initial value: 2 months.  # noqa: E501
 
         :param max_deposit_period: The max_deposit_period of this CosmosGovV1DepositParams.  # noqa: E501
         :type: str

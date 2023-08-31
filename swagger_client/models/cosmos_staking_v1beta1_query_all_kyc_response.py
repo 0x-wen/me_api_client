@@ -29,7 +29,7 @@ class CosmosStakingV1beta1QueryAllKycResponse(object):
     """
     swagger_types = {
         'kyc': 'list[CosmosStakingV1beta1QueryAllKycResponseKyc]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class CosmosStakingV1beta1QueryAllKycResponse(object):
 
 
         :return: The pagination of this CosmosStakingV1beta1QueryAllKycResponse.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class CosmosStakingV1beta1QueryAllKycResponse(object):
 
 
         :param pagination: The pagination of this CosmosStakingV1beta1QueryAllKycResponse.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

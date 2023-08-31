@@ -61,6 +61,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def proposal_id(self):
         """Gets the proposal_id of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :return: The proposal_id of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :rtype: str
@@ -71,6 +72,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def proposal_id(self, proposal_id):
         """Sets the proposal_id of this CosmosGovV1beta1QueryVoteResponseVote.
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :param proposal_id: The proposal_id of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :type: str
@@ -82,6 +84,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def voter(self):
         """Gets the voter of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
 
+        voter is the voter address of the proposal.  # noqa: E501
 
         :return: The voter of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :rtype: str
@@ -92,6 +95,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def voter(self, voter):
         """Sets the voter of this CosmosGovV1beta1QueryVoteResponseVote.
 
+        voter is the voter address of the proposal.  # noqa: E501
 
         :param voter: The voter of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :type: str
@@ -132,6 +136,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def options(self):
         """Gets the options of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
 
+        options is the weighted vote options.  Since: cosmos-sdk 0.43  # noqa: E501
 
         :return: The options of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :rtype: list[CosmosGovV1beta1QueryVoteResponseVoteOptions]
@@ -142,6 +147,7 @@ class CosmosGovV1beta1QueryVoteResponseVote(object):
     def options(self, options):
         """Sets the options of this CosmosGovV1beta1QueryVoteResponseVote.
 
+        options is the weighted vote options.  Since: cosmos-sdk 0.43  # noqa: E501
 
         :param options: The options of this CosmosGovV1beta1QueryVoteResponseVote.  # noqa: E501
         :type: list[CosmosGovV1beta1QueryVoteResponseVoteOptions]

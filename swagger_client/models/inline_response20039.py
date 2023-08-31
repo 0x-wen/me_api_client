@@ -28,40 +28,118 @@ class InlineResponse20039(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'tally': 'CosmosGovV1QueryTallyResultResponseTally'
+        'voting_params': 'CosmosGovV1QueryParamsResponseVotingParams',
+        'deposit_params': 'CosmosGovV1QueryParamsResponseDepositParams',
+        'tally_params': 'CosmosGovV1QueryParamsResponseTallyParams',
+        'params': 'CosmosGovV1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'tally': 'tally'
+        'voting_params': 'voting_params',
+        'deposit_params': 'deposit_params',
+        'tally_params': 'tally_params',
+        'params': 'params'
     }
 
-    def __init__(self, tally=None):  # noqa: E501
+    def __init__(self, voting_params=None, deposit_params=None, tally_params=None, params=None):  # noqa: E501
         """InlineResponse20039 - a model defined in Swagger"""  # noqa: E501
-        self._tally = None
+        self._voting_params = None
+        self._deposit_params = None
+        self._tally_params = None
+        self._params = None
         self.discriminator = None
-        if tally is not None:
-            self.tally = tally
+        if voting_params is not None:
+            self.voting_params = voting_params
+        if deposit_params is not None:
+            self.deposit_params = deposit_params
+        if tally_params is not None:
+            self.tally_params = tally_params
+        if params is not None:
+            self.params = params
 
     @property
-    def tally(self):
-        """Gets the tally of this InlineResponse20039.  # noqa: E501
+    def voting_params(self):
+        """Gets the voting_params of this InlineResponse20039.  # noqa: E501
 
 
-        :return: The tally of this InlineResponse20039.  # noqa: E501
-        :rtype: CosmosGovV1QueryTallyResultResponseTally
+        :return: The voting_params of this InlineResponse20039.  # noqa: E501
+        :rtype: CosmosGovV1QueryParamsResponseVotingParams
         """
-        return self._tally
+        return self._voting_params
 
-    @tally.setter
-    def tally(self, tally):
-        """Sets the tally of this InlineResponse20039.
+    @voting_params.setter
+    def voting_params(self, voting_params):
+        """Sets the voting_params of this InlineResponse20039.
 
 
-        :param tally: The tally of this InlineResponse20039.  # noqa: E501
-        :type: CosmosGovV1QueryTallyResultResponseTally
+        :param voting_params: The voting_params of this InlineResponse20039.  # noqa: E501
+        :type: CosmosGovV1QueryParamsResponseVotingParams
         """
 
-        self._tally = tally
+        self._voting_params = voting_params
+
+    @property
+    def deposit_params(self):
+        """Gets the deposit_params of this InlineResponse20039.  # noqa: E501
+
+
+        :return: The deposit_params of this InlineResponse20039.  # noqa: E501
+        :rtype: CosmosGovV1QueryParamsResponseDepositParams
+        """
+        return self._deposit_params
+
+    @deposit_params.setter
+    def deposit_params(self, deposit_params):
+        """Sets the deposit_params of this InlineResponse20039.
+
+
+        :param deposit_params: The deposit_params of this InlineResponse20039.  # noqa: E501
+        :type: CosmosGovV1QueryParamsResponseDepositParams
+        """
+
+        self._deposit_params = deposit_params
+
+    @property
+    def tally_params(self):
+        """Gets the tally_params of this InlineResponse20039.  # noqa: E501
+
+
+        :return: The tally_params of this InlineResponse20039.  # noqa: E501
+        :rtype: CosmosGovV1QueryParamsResponseTallyParams
+        """
+        return self._tally_params
+
+    @tally_params.setter
+    def tally_params(self, tally_params):
+        """Sets the tally_params of this InlineResponse20039.
+
+
+        :param tally_params: The tally_params of this InlineResponse20039.  # noqa: E501
+        :type: CosmosGovV1QueryParamsResponseTallyParams
+        """
+
+        self._tally_params = tally_params
+
+    @property
+    def params(self):
+        """Gets the params of this InlineResponse20039.  # noqa: E501
+
+
+        :return: The params of this InlineResponse20039.  # noqa: E501
+        :rtype: CosmosGovV1QueryParamsResponseParams
+        """
+        return self._params
+
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20039.
+
+
+        :param params: The params of this InlineResponse20039.  # noqa: E501
+        :type: CosmosGovV1QueryParamsResponseParams
+        """
+
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

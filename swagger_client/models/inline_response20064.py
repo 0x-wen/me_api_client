@@ -28,40 +28,40 @@ class InlineResponse20064(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'param': 'CosmosParamsV1beta1QueryParamsResponseParam'
+        'delegation_response': 'CosmosStakingV1beta1QueryDelegationResponseDelegationResponse'
     }
 
     attribute_map = {
-        'param': 'param'
+        'delegation_response': 'delegation_response'
     }
 
-    def __init__(self, param=None):  # noqa: E501
+    def __init__(self, delegation_response=None):  # noqa: E501
         """InlineResponse20064 - a model defined in Swagger"""  # noqa: E501
-        self._param = None
+        self._delegation_response = None
         self.discriminator = None
-        if param is not None:
-            self.param = param
+        if delegation_response is not None:
+            self.delegation_response = delegation_response
 
     @property
-    def param(self):
-        """Gets the param of this InlineResponse20064.  # noqa: E501
+    def delegation_response(self):
+        """Gets the delegation_response of this InlineResponse20064.  # noqa: E501
 
 
-        :return: The param of this InlineResponse20064.  # noqa: E501
-        :rtype: CosmosParamsV1beta1QueryParamsResponseParam
+        :return: The delegation_response of this InlineResponse20064.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryDelegationResponseDelegationResponse
         """
-        return self._param
+        return self._delegation_response
 
-    @param.setter
-    def param(self, param):
-        """Sets the param of this InlineResponse20064.
+    @delegation_response.setter
+    def delegation_response(self, delegation_response):
+        """Sets the delegation_response of this InlineResponse20064.
 
 
-        :param param: The param of this InlineResponse20064.  # noqa: E501
-        :type: CosmosParamsV1beta1QueryParamsResponseParam
+        :param delegation_response: The delegation_response of this InlineResponse20064.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryDelegationResponseDelegationResponse
         """
 
-        self._param = param
+        self._delegation_response = delegation_response
 
     def to_dict(self):
         """Returns the model properties as a dict"""

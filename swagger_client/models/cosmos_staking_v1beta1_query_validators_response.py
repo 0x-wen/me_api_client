@@ -29,7 +29,7 @@ class CosmosStakingV1beta1QueryValidatorsResponse(object):
     """
     swagger_types = {
         'validators': 'list[CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
@@ -76,7 +76,7 @@ class CosmosStakingV1beta1QueryValidatorsResponse(object):
 
 
         :return: The pagination of this CosmosStakingV1beta1QueryValidatorsResponse.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -86,7 +86,7 @@ class CosmosStakingV1beta1QueryValidatorsResponse(object):
 
 
         :param pagination: The pagination of this CosmosStakingV1beta1QueryValidatorsResponse.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

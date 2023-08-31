@@ -28,40 +28,68 @@ class InlineResponse20015(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'metadata': 'CosmosBankV1beta1QueryDenomMetadataResponseMetadata'
+        'metadatas': 'list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'metadata': 'metadata'
+        'metadatas': 'metadatas',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, metadata=None):  # noqa: E501
+    def __init__(self, metadatas=None, pagination=None):  # noqa: E501
         """InlineResponse20015 - a model defined in Swagger"""  # noqa: E501
-        self._metadata = None
+        self._metadatas = None
+        self._pagination = None
         self.discriminator = None
-        if metadata is not None:
-            self.metadata = metadata
+        if metadatas is not None:
+            self.metadatas = metadatas
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def metadata(self):
-        """Gets the metadata of this InlineResponse20015.  # noqa: E501
+    def metadatas(self):
+        """Gets the metadatas of this InlineResponse20015.  # noqa: E501
 
+        metadata provides the client information for all the registered tokens.  # noqa: E501
 
-        :return: The metadata of this InlineResponse20015.  # noqa: E501
-        :rtype: CosmosBankV1beta1QueryDenomMetadataResponseMetadata
+        :return: The metadatas of this InlineResponse20015.  # noqa: E501
+        :rtype: list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]
         """
-        return self._metadata
+        return self._metadatas
 
-    @metadata.setter
-    def metadata(self, metadata):
-        """Sets the metadata of this InlineResponse20015.
+    @metadatas.setter
+    def metadatas(self, metadatas):
+        """Sets the metadatas of this InlineResponse20015.
 
+        metadata provides the client information for all the registered tokens.  # noqa: E501
 
-        :param metadata: The metadata of this InlineResponse20015.  # noqa: E501
-        :type: CosmosBankV1beta1QueryDenomMetadataResponseMetadata
+        :param metadatas: The metadatas of this InlineResponse20015.  # noqa: E501
+        :type: list[CosmosBankV1beta1QueryDenomsMetadataResponseMetadatas]
         """
 
-        self._metadata = metadata
+        self._metadatas = metadatas
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20015.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20015.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20015.
+
+
+        :param pagination: The pagination of this InlineResponse20015.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

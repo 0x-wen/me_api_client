@@ -28,40 +28,68 @@ class InlineResponse20038(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'deposit': 'CosmosGovV1QueryDepositResponseDeposit'
+        'allowances': 'list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]',
+        'pagination': 'CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination'
     }
 
     attribute_map = {
-        'deposit': 'deposit'
+        'allowances': 'allowances',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, deposit=None):  # noqa: E501
+    def __init__(self, allowances=None, pagination=None):  # noqa: E501
         """InlineResponse20038 - a model defined in Swagger"""  # noqa: E501
-        self._deposit = None
+        self._allowances = None
+        self._pagination = None
         self.discriminator = None
-        if deposit is not None:
-            self.deposit = deposit
+        if allowances is not None:
+            self.allowances = allowances
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def deposit(self):
-        """Gets the deposit of this InlineResponse20038.  # noqa: E501
+    def allowances(self):
+        """Gets the allowances of this InlineResponse20038.  # noqa: E501
 
+        allowances that have been issued by the granter.  # noqa: E501
 
-        :return: The deposit of this InlineResponse20038.  # noqa: E501
-        :rtype: CosmosGovV1QueryDepositResponseDeposit
+        :return: The allowances of this InlineResponse20038.  # noqa: E501
+        :rtype: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
         """
-        return self._deposit
+        return self._allowances
 
-    @deposit.setter
-    def deposit(self, deposit):
-        """Sets the deposit of this InlineResponse20038.
+    @allowances.setter
+    def allowances(self, allowances):
+        """Sets the allowances of this InlineResponse20038.
 
+        allowances that have been issued by the granter.  # noqa: E501
 
-        :param deposit: The deposit of this InlineResponse20038.  # noqa: E501
-        :type: CosmosGovV1QueryDepositResponseDeposit
+        :param allowances: The allowances of this InlineResponse20038.  # noqa: E501
+        :type: list[GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext1]
         """
 
-        self._deposit = deposit
+        self._allowances = allowances
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20038.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20038.  # noqa: E501
+        :rtype: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20038.
+
+
+        :param pagination: The pagination of this InlineResponse20038.  # noqa: E501
+        :type: CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

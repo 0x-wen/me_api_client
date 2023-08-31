@@ -28,40 +28,40 @@ class InlineResponse200103(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'IbcCoreConnectionV1QueryConnectionParamsResponseParams'
+        'status': 'str'
     }
 
     attribute_map = {
-        'params': 'params'
+        'status': 'status'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, status=None):  # noqa: E501
         """InlineResponse200103 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._status = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if status is not None:
+            self.status = status
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse200103.  # noqa: E501
+    def status(self):
+        """Gets the status of this InlineResponse200103.  # noqa: E501
 
 
-        :return: The params of this InlineResponse200103.  # noqa: E501
-        :rtype: IbcCoreConnectionV1QueryConnectionParamsResponseParams
+        :return: The status of this InlineResponse200103.  # noqa: E501
+        :rtype: str
         """
-        return self._params
+        return self._status
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse200103.
+    @status.setter
+    def status(self, status):
+        """Sets the status of this InlineResponse200103.
 
 
-        :param params: The params of this InlineResponse200103.  # noqa: E501
-        :type: IbcCoreConnectionV1QueryConnectionParamsResponseParams
+        :param status: The status of this InlineResponse200103.  # noqa: E501
+        :type: str
         """
 
-        self._params = params
+        self._status = status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

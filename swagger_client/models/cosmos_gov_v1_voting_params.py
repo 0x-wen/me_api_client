@@ -46,7 +46,7 @@ class CosmosGovV1VotingParams(object):
     def voting_period(self):
         """Gets the voting_period of this CosmosGovV1VotingParams.  # noqa: E501
 
-        Length of the voting period.  # noqa: E501
+        Duration of the voting period.  # noqa: E501
 
         :return: The voting_period of this CosmosGovV1VotingParams.  # noqa: E501
         :rtype: str
@@ -57,7 +57,7 @@ class CosmosGovV1VotingParams(object):
     def voting_period(self, voting_period):
         """Sets the voting_period of this CosmosGovV1VotingParams.
 
-        Length of the voting period.  # noqa: E501
+        Duration of the voting period.  # noqa: E501
 
         :param voting_period: The voting_period of this CosmosGovV1VotingParams.  # noqa: E501
         :type: str

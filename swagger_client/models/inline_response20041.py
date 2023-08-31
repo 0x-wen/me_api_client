@@ -28,40 +28,40 @@ class InlineResponse20041(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'vote': 'CosmosGovV1QueryVoteResponseVote'
+        'proposal': 'CosmosGovV1QueryProposalResponseProposal'
     }
 
     attribute_map = {
-        'vote': 'vote'
+        'proposal': 'proposal'
     }
 
-    def __init__(self, vote=None):  # noqa: E501
+    def __init__(self, proposal=None):  # noqa: E501
         """InlineResponse20041 - a model defined in Swagger"""  # noqa: E501
-        self._vote = None
+        self._proposal = None
         self.discriminator = None
-        if vote is not None:
-            self.vote = vote
+        if proposal is not None:
+            self.proposal = proposal
 
     @property
-    def vote(self):
-        """Gets the vote of this InlineResponse20041.  # noqa: E501
+    def proposal(self):
+        """Gets the proposal of this InlineResponse20041.  # noqa: E501
 
 
-        :return: The vote of this InlineResponse20041.  # noqa: E501
-        :rtype: CosmosGovV1QueryVoteResponseVote
+        :return: The proposal of this InlineResponse20041.  # noqa: E501
+        :rtype: CosmosGovV1QueryProposalResponseProposal
         """
-        return self._vote
+        return self._proposal
 
-    @vote.setter
-    def vote(self, vote):
-        """Sets the vote of this InlineResponse20041.
+    @proposal.setter
+    def proposal(self, proposal):
+        """Sets the proposal of this InlineResponse20041.
 
 
-        :param vote: The vote of this InlineResponse20041.  # noqa: E501
-        :type: CosmosGovV1QueryVoteResponseVote
+        :param proposal: The proposal of this InlineResponse20041.  # noqa: E501
+        :type: CosmosGovV1QueryProposalResponseProposal
         """
 
-        self._vote = vote
+        self._proposal = proposal
 
     def to_dict(self):
         """Returns the model properties as a dict"""

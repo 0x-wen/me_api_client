@@ -29,7 +29,7 @@ class CosmosStakingV1beta1QueryValidatorDelegationsResponse(object):
     """
     swagger_types = {
         'delegation_responses': 'list[CosmosStakingV1beta1QueryValidatorDelegationsResponseDelegationResponses]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'pagination': 'CosmosSlashingV1beta1QuerySigningInfosResponsePagination'
     }
 
     attribute_map = {
@@ -74,7 +74,7 @@ class CosmosStakingV1beta1QueryValidatorDelegationsResponse(object):
 
 
         :return: The pagination of this CosmosStakingV1beta1QueryValidatorDelegationsResponse.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :rtype: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
         return self._pagination
 
@@ -84,7 +84,7 @@ class CosmosStakingV1beta1QueryValidatorDelegationsResponse(object):
 
 
         :param pagination: The pagination of this CosmosStakingV1beta1QueryValidatorDelegationsResponse.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :type: CosmosSlashingV1beta1QuerySigningInfosResponsePagination
         """
 
         self._pagination = pagination

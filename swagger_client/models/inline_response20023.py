@@ -28,66 +28,248 @@ class InlineResponse20023(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_node_info': 'InlineResponse20023DefaultNodeInfo',
-        'application_version': 'CosmosBaseTendermintV1beta1GetNodeInfoResponseApplicationVersion'
+        'code': 'int',
+        'log': 'str',
+        'info': 'str',
+        'index': 'str',
+        'key': 'str',
+        'value': 'str',
+        'proof_ops': 'CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps',
+        'height': 'str',
+        'codespace': 'str'
     }
 
     attribute_map = {
-        'default_node_info': 'default_node_info',
-        'application_version': 'application_version'
+        'code': 'code',
+        'log': 'log',
+        'info': 'info',
+        'index': 'index',
+        'key': 'key',
+        'value': 'value',
+        'proof_ops': 'proof_ops',
+        'height': 'height',
+        'codespace': 'codespace'
     }
 
-    def __init__(self, default_node_info=None, application_version=None):  # noqa: E501
+    def __init__(self, code=None, log=None, info=None, index=None, key=None, value=None, proof_ops=None, height=None, codespace=None):  # noqa: E501
         """InlineResponse20023 - a model defined in Swagger"""  # noqa: E501
-        self._default_node_info = None
-        self._application_version = None
+        self._code = None
+        self._log = None
+        self._info = None
+        self._index = None
+        self._key = None
+        self._value = None
+        self._proof_ops = None
+        self._height = None
+        self._codespace = None
         self.discriminator = None
-        if default_node_info is not None:
-            self.default_node_info = default_node_info
-        if application_version is not None:
-            self.application_version = application_version
+        if code is not None:
+            self.code = code
+        if log is not None:
+            self.log = log
+        if info is not None:
+            self.info = info
+        if index is not None:
+            self.index = index
+        if key is not None:
+            self.key = key
+        if value is not None:
+            self.value = value
+        if proof_ops is not None:
+            self.proof_ops = proof_ops
+        if height is not None:
+            self.height = height
+        if codespace is not None:
+            self.codespace = codespace
 
     @property
-    def default_node_info(self):
-        """Gets the default_node_info of this InlineResponse20023.  # noqa: E501
+    def code(self):
+        """Gets the code of this InlineResponse20023.  # noqa: E501
 
 
-        :return: The default_node_info of this InlineResponse20023.  # noqa: E501
-        :rtype: InlineResponse20023DefaultNodeInfo
+        :return: The code of this InlineResponse20023.  # noqa: E501
+        :rtype: int
         """
-        return self._default_node_info
+        return self._code
 
-    @default_node_info.setter
-    def default_node_info(self, default_node_info):
-        """Sets the default_node_info of this InlineResponse20023.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this InlineResponse20023.
 
 
-        :param default_node_info: The default_node_info of this InlineResponse20023.  # noqa: E501
-        :type: InlineResponse20023DefaultNodeInfo
+        :param code: The code of this InlineResponse20023.  # noqa: E501
+        :type: int
         """
 
-        self._default_node_info = default_node_info
+        self._code = code
 
     @property
-    def application_version(self):
-        """Gets the application_version of this InlineResponse20023.  # noqa: E501
+    def log(self):
+        """Gets the log of this InlineResponse20023.  # noqa: E501
 
 
-        :return: The application_version of this InlineResponse20023.  # noqa: E501
-        :rtype: CosmosBaseTendermintV1beta1GetNodeInfoResponseApplicationVersion
+        :return: The log of this InlineResponse20023.  # noqa: E501
+        :rtype: str
         """
-        return self._application_version
+        return self._log
 
-    @application_version.setter
-    def application_version(self, application_version):
-        """Sets the application_version of this InlineResponse20023.
+    @log.setter
+    def log(self, log):
+        """Sets the log of this InlineResponse20023.
 
 
-        :param application_version: The application_version of this InlineResponse20023.  # noqa: E501
-        :type: CosmosBaseTendermintV1beta1GetNodeInfoResponseApplicationVersion
+        :param log: The log of this InlineResponse20023.  # noqa: E501
+        :type: str
         """
 
-        self._application_version = application_version
+        self._log = log
+
+    @property
+    def info(self):
+        """Gets the info of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The info of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._info
+
+    @info.setter
+    def info(self, info):
+        """Sets the info of this InlineResponse20023.
+
+
+        :param info: The info of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._info = info
+
+    @property
+    def index(self):
+        """Gets the index of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The index of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._index
+
+    @index.setter
+    def index(self, index):
+        """Sets the index of this InlineResponse20023.
+
+
+        :param index: The index of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._index = index
+
+    @property
+    def key(self):
+        """Gets the key of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The key of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._key
+
+    @key.setter
+    def key(self, key):
+        """Sets the key of this InlineResponse20023.
+
+
+        :param key: The key of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._key = key
+
+    @property
+    def value(self):
+        """Gets the value of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The value of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._value
+
+    @value.setter
+    def value(self, value):
+        """Sets the value of this InlineResponse20023.
+
+
+        :param value: The value of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._value = value
+
+    @property
+    def proof_ops(self):
+        """Gets the proof_ops of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The proof_ops of this InlineResponse20023.  # noqa: E501
+        :rtype: CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps
+        """
+        return self._proof_ops
+
+    @proof_ops.setter
+    def proof_ops(self, proof_ops):
+        """Sets the proof_ops of this InlineResponse20023.
+
+
+        :param proof_ops: The proof_ops of this InlineResponse20023.  # noqa: E501
+        :type: CosmosBaseTendermintV1beta1ABCIQueryResponseProofOps
+        """
+
+        self._proof_ops = proof_ops
+
+    @property
+    def height(self):
+        """Gets the height of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The height of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._height
+
+    @height.setter
+    def height(self, height):
+        """Sets the height of this InlineResponse20023.
+
+
+        :param height: The height of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._height = height
+
+    @property
+    def codespace(self):
+        """Gets the codespace of this InlineResponse20023.  # noqa: E501
+
+
+        :return: The codespace of this InlineResponse20023.  # noqa: E501
+        :rtype: str
+        """
+        return self._codespace
+
+    @codespace.setter
+    def codespace(self, codespace):
+        """Sets the codespace of this InlineResponse20023.
+
+
+        :param codespace: The codespace of this InlineResponse20023.  # noqa: E501
+        :type: str
+        """
+
+        self._codespace = codespace
 
     def to_dict(self):
         """Returns the model properties as a dict"""

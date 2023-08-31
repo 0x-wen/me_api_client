@@ -28,68 +28,42 @@ class InlineResponse20059(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'votes': 'list[CosmosGroupV1QueryVotesByProposalResponseVotes]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'annual_provisions': 'str'
     }
 
     attribute_map = {
-        'votes': 'votes',
-        'pagination': 'pagination'
+        'annual_provisions': 'annual_provisions'
     }
 
-    def __init__(self, votes=None, pagination=None):  # noqa: E501
+    def __init__(self, annual_provisions=None):  # noqa: E501
         """InlineResponse20059 - a model defined in Swagger"""  # noqa: E501
-        self._votes = None
-        self._pagination = None
+        self._annual_provisions = None
         self.discriminator = None
-        if votes is not None:
-            self.votes = votes
-        if pagination is not None:
-            self.pagination = pagination
+        if annual_provisions is not None:
+            self.annual_provisions = annual_provisions
 
     @property
-    def votes(self):
-        """Gets the votes of this InlineResponse20059.  # noqa: E501
+    def annual_provisions(self):
+        """Gets the annual_provisions of this InlineResponse20059.  # noqa: E501
 
-        votes are the list of votes for given proposal_id.  # noqa: E501
+        annual_provisions is the current minting annual provisions value.  # noqa: E501
 
-        :return: The votes of this InlineResponse20059.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryVotesByProposalResponseVotes]
+        :return: The annual_provisions of this InlineResponse20059.  # noqa: E501
+        :rtype: str
         """
-        return self._votes
+        return self._annual_provisions
 
-    @votes.setter
-    def votes(self, votes):
-        """Sets the votes of this InlineResponse20059.
+    @annual_provisions.setter
+    def annual_provisions(self, annual_provisions):
+        """Sets the annual_provisions of this InlineResponse20059.
 
-        votes are the list of votes for given proposal_id.  # noqa: E501
+        annual_provisions is the current minting annual provisions value.  # noqa: E501
 
-        :param votes: The votes of this InlineResponse20059.  # noqa: E501
-        :type: list[CosmosGroupV1QueryVotesByProposalResponseVotes]
-        """
-
-        self._votes = votes
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20059.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20059.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20059.
-
-
-        :param pagination: The pagination of this InlineResponse20059.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param annual_provisions: The annual_provisions of this InlineResponse20059.  # noqa: E501
+        :type: str
         """
 
-        self._pagination = pagination
+        self._annual_provisions = annual_provisions
 
     def to_dict(self):
         """Returns the model properties as a dict"""

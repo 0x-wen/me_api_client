@@ -41,7 +41,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20019
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -61,7 +61,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20019
+        :return: InlineResponse20022
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -109,7 +109,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20019',  # noqa: E501
+            response_type='InlineResponse20022',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -131,7 +131,7 @@ class ServiceApi(object):
         :param str path:
         :param str height:
         :param bool prove:
-        :return: InlineResponse20020
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -156,7 +156,7 @@ class ServiceApi(object):
         :param str path:
         :param str height:
         :param bool prove:
-        :return: InlineResponse20020
+        :return: InlineResponse20023
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -212,7 +212,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20020',  # noqa: E501
+            response_type='InlineResponse20023',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -230,7 +230,7 @@ class ServiceApi(object):
 
         :param async_req bool
         :param str height: (required)
-        :return: InlineResponse20022
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -251,7 +251,7 @@ class ServiceApi(object):
 
         :param async_req bool
         :param str height: (required)
-        :return: InlineResponse20022
+        :return: InlineResponse20025
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -305,7 +305,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20022',  # noqa: E501
+            response_type='InlineResponse20025',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -322,7 +322,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20021
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -342,7 +342,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20021
+        :return: InlineResponse20024
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -390,7 +390,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20021',  # noqa: E501
+            response_type='InlineResponse20024',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -412,7 +412,7 @@ class ServiceApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20025
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -437,7 +437,7 @@ class ServiceApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20025
+        :return: InlineResponse20028
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -495,7 +495,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20025',  # noqa: E501
+            response_type='InlineResponse20028',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -512,7 +512,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20023
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -532,7 +532,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20023
+        :return: InlineResponse20026
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -580,7 +580,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20023',  # noqa: E501
+            response_type='InlineResponse20026',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -597,7 +597,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20024
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -617,7 +617,7 @@ class ServiceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: InlineResponse20024
+        :return: InlineResponse20027
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -665,7 +665,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20024',  # noqa: E501
+            response_type='InlineResponse20027',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -688,7 +688,7 @@ class ServiceApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20026
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -714,7 +714,7 @@ class ServiceApi(object):
         :param str pagination_limit: limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app.
         :param bool pagination_count_total: count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set.
         :param bool pagination_reverse: reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43
-        :return: InlineResponse20026
+        :return: InlineResponse20029
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -778,7 +778,7 @@ class ServiceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20026',  # noqa: E501
+            response_type='InlineResponse20029',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -797,7 +797,7 @@ class ServiceApi(object):
         :param async_req bool
         :param V1beta1TxsBody body: BroadcastTxRequest is the request type for the Service.BroadcastTxRequest
 RPC method. (required)
-        :return: InlineResponse20080
+        :return: InlineResponse20083
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -819,7 +819,7 @@ RPC method. (required)
         :param async_req bool
         :param V1beta1TxsBody body: BroadcastTxRequest is the request type for the Service.BroadcastTxRequest
 RPC method. (required)
-        :return: InlineResponse20080
+        :return: InlineResponse20083
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -877,7 +877,7 @@ RPC method. (required)
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse20080',  # noqa: E501
+            response_type='InlineResponse20083',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1226,7 +1226,7 @@ RPC method. (required)
         :param async_req bool
         :param CosmosTxV1beta1SimulateRequest body: SimulateRequest is the request type for the Service.Simulate
 RPC method. (required)
-        :return: InlineResponse20079
+        :return: InlineResponse20082
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1248,7 +1248,7 @@ RPC method. (required)
         :param async_req bool
         :param CosmosTxV1beta1SimulateRequest body: SimulateRequest is the request type for the Service.Simulate
 RPC method. (required)
-        :return: InlineResponse20079
+        :return: InlineResponse20082
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1306,7 +1306,427 @@ RPC method. (required)
             body=body_params,
             post_params=form_params,
             files=local_var_files,
+            response_type='InlineResponse20082',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_tx_v1_beta1_tx_decode(self, body, **kwargs):  # noqa: E501
+        """TxDecode decodes the transaction.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_decode(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param V1beta1DecodeBody body: TxDecodeRequest is the request type for the Service.TxDecode
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: CosmosTxV1beta1TxDecodeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_tx_v1_beta1_tx_decode_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_tx_v1_beta1_tx_decode_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_tx_v1_beta1_tx_decode_with_http_info(self, body, **kwargs):  # noqa: E501
+        """TxDecode decodes the transaction.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_decode_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param V1beta1DecodeBody body: TxDecodeRequest is the request type for the Service.TxDecode
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: CosmosTxV1beta1TxDecodeResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_tx_v1_beta1_tx_decode" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `cosmos_tx_v1_beta1_tx_decode`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/tx/v1beta1/decode', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CosmosTxV1beta1TxDecodeResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_tx_v1_beta1_tx_decode_amino(self, body, **kwargs):  # noqa: E501
+        """TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_decode_amino(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DecodeAminoBody body: TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20079
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_tx_v1_beta1_tx_decode_amino_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_tx_v1_beta1_tx_decode_amino_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_tx_v1_beta1_tx_decode_amino_with_http_info(self, body, **kwargs):  # noqa: E501
+        """TxDecodeAmino decodes an Amino transaction from encoded bytes to JSON.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_decode_amino_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param DecodeAminoBody body: TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20079
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_tx_v1_beta1_tx_decode_amino" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `cosmos_tx_v1_beta1_tx_decode_amino`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/tx/v1beta1/decode/amino', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
             response_type='InlineResponse20079',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_tx_v1_beta1_tx_encode(self, body, **kwargs):  # noqa: E501
+        """TxEncode encodes the transaction.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_encode(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CosmosTxV1beta1TxEncodeRequest body: TxEncodeRequest is the request type for the Service.TxEncode
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20080
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_tx_v1_beta1_tx_encode_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_tx_v1_beta1_tx_encode_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_tx_v1_beta1_tx_encode_with_http_info(self, body, **kwargs):  # noqa: E501
+        """TxEncode encodes the transaction.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_encode_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CosmosTxV1beta1TxEncodeRequest body: TxEncodeRequest is the request type for the Service.TxEncode
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20080
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_tx_v1_beta1_tx_encode" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `cosmos_tx_v1_beta1_tx_encode`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/tx/v1beta1/encode', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20080',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def cosmos_tx_v1_beta1_tx_encode_amino(self, body, **kwargs):  # noqa: E501
+        """TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_encode_amino(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EncodeAminoBody body: TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20081
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.cosmos_tx_v1_beta1_tx_encode_amino_with_http_info(body, **kwargs)  # noqa: E501
+        else:
+            (data) = self.cosmos_tx_v1_beta1_tx_encode_amino_with_http_info(body, **kwargs)  # noqa: E501
+            return data
+
+    def cosmos_tx_v1_beta1_tx_encode_amino_with_http_info(self, body, **kwargs):  # noqa: E501
+        """TxEncodeAmino encodes an Amino transaction from JSON to encoded bytes.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.cosmos_tx_v1_beta1_tx_encode_amino_with_http_info(body, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param EncodeAminoBody body: TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+RPC method.
+
+Since: cosmos-sdk 0.47 (required)
+        :return: InlineResponse20081
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method cosmos_tx_v1_beta1_tx_encode_amino" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `cosmos_tx_v1_beta1_tx_encode_amino`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/cosmos/tx/v1beta1/encode/amino', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20081',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

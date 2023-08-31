@@ -29,7 +29,7 @@ class TendermintTypesValidator(object):
     """
     swagger_types = {
         'address': 'str',
-        'pub_key': 'PublicKeyDefinesTheKeysAvailableForUseWithTendermintValidators',
+        'pub_key': 'PublicKeyDefinesTheKeysAvailableForUseWithValidators',
         'voting_power': 'str',
         'proposer_priority': 'str'
     }
@@ -84,7 +84,7 @@ class TendermintTypesValidator(object):
 
 
         :return: The pub_key of this TendermintTypesValidator.  # noqa: E501
-        :rtype: PublicKeyDefinesTheKeysAvailableForUseWithTendermintValidators
+        :rtype: PublicKeyDefinesTheKeysAvailableForUseWithValidators
         """
         return self._pub_key
 
@@ -94,7 +94,7 @@ class TendermintTypesValidator(object):
 
 
         :param pub_key: The pub_key of this TendermintTypesValidator.  # noqa: E501
-        :type: PublicKeyDefinesTheKeysAvailableForUseWithTendermintValidators
+        :type: PublicKeyDefinesTheKeysAvailableForUseWithValidators
         """
 
         self._pub_key = pub_key

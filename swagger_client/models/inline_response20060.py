@@ -28,68 +28,42 @@ class InlineResponse20060(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'votes': 'list[CosmosGroupV1QueryVotesByProposalResponseVotes]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'inflation': 'str'
     }
 
     attribute_map = {
-        'votes': 'votes',
-        'pagination': 'pagination'
+        'inflation': 'inflation'
     }
 
-    def __init__(self, votes=None, pagination=None):  # noqa: E501
+    def __init__(self, inflation=None):  # noqa: E501
         """InlineResponse20060 - a model defined in Swagger"""  # noqa: E501
-        self._votes = None
-        self._pagination = None
+        self._inflation = None
         self.discriminator = None
-        if votes is not None:
-            self.votes = votes
-        if pagination is not None:
-            self.pagination = pagination
+        if inflation is not None:
+            self.inflation = inflation
 
     @property
-    def votes(self):
-        """Gets the votes of this InlineResponse20060.  # noqa: E501
+    def inflation(self):
+        """Gets the inflation of this InlineResponse20060.  # noqa: E501
 
-        votes are the list of votes by given voter.  # noqa: E501
+        inflation is the current minting inflation value.  # noqa: E501
 
-        :return: The votes of this InlineResponse20060.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryVotesByProposalResponseVotes]
+        :return: The inflation of this InlineResponse20060.  # noqa: E501
+        :rtype: str
         """
-        return self._votes
+        return self._inflation
 
-    @votes.setter
-    def votes(self, votes):
-        """Sets the votes of this InlineResponse20060.
+    @inflation.setter
+    def inflation(self, inflation):
+        """Sets the inflation of this InlineResponse20060.
 
-        votes are the list of votes by given voter.  # noqa: E501
+        inflation is the current minting inflation value.  # noqa: E501
 
-        :param votes: The votes of this InlineResponse20060.  # noqa: E501
-        :type: list[CosmosGroupV1QueryVotesByProposalResponseVotes]
-        """
-
-        self._votes = votes
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20060.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20060.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20060.
-
-
-        :param pagination: The pagination of this InlineResponse20060.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param inflation: The inflation of this InlineResponse20060.  # noqa: E501
+        :type: str
         """
 
-        self._pagination = pagination
+        self._inflation = inflation
 
     def to_dict(self):
         """Returns the model properties as a dict"""

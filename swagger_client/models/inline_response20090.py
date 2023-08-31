@@ -28,68 +28,40 @@ class InlineResponse20090(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'denom_traces': 'list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'address': 'str'
     }
 
     attribute_map = {
-        'denom_traces': 'denom_traces',
-        'pagination': 'pagination'
+        'address': 'address'
     }
 
-    def __init__(self, denom_traces=None, pagination=None):  # noqa: E501
+    def __init__(self, address=None):  # noqa: E501
         """InlineResponse20090 - a model defined in Swagger"""  # noqa: E501
-        self._denom_traces = None
-        self._pagination = None
+        self._address = None
         self.discriminator = None
-        if denom_traces is not None:
-            self.denom_traces = denom_traces
-        if pagination is not None:
-            self.pagination = pagination
+        if address is not None:
+            self.address = address
 
     @property
-    def denom_traces(self):
-        """Gets the denom_traces of this InlineResponse20090.  # noqa: E501
+    def address(self):
+        """Gets the address of this InlineResponse20090.  # noqa: E501
 
-        denom_traces returns all denominations trace information.  # noqa: E501
 
-        :return: The denom_traces of this InlineResponse20090.  # noqa: E501
-        :rtype: list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]
+        :return: The address of this InlineResponse20090.  # noqa: E501
+        :rtype: str
         """
-        return self._denom_traces
+        return self._address
 
-    @denom_traces.setter
-    def denom_traces(self, denom_traces):
-        """Sets the denom_traces of this InlineResponse20090.
+    @address.setter
+    def address(self, address):
+        """Sets the address of this InlineResponse20090.
 
-        denom_traces returns all denominations trace information.  # noqa: E501
 
-        :param denom_traces: The denom_traces of this InlineResponse20090.  # noqa: E501
-        :type: list[IbcApplicationsTransferV1QueryDenomTracesResponseDenomTraces]
+        :param address: The address of this InlineResponse20090.  # noqa: E501
+        :type: str
         """
 
-        self._denom_traces = denom_traces
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20090.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20090.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20090.
-
-
-        :param pagination: The pagination of this InlineResponse20090.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._address = address
 
     def to_dict(self):
         """Returns the model properties as a dict"""

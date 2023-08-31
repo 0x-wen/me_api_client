@@ -42,10 +42,17 @@ class TestQueryApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmos_auth_v1_beta1_account_info(self):
+        """Test case for cosmos_auth_v1_beta1_account_info
+
+        AccountInfo queries account info which is common to all account types.  # noqa: E501
+        """
+        pass
+
     def test_cosmos_auth_v1_beta1_accounts(self):
         """Test case for cosmos_auth_v1_beta1_accounts
 
-        Accounts returns all the existing accounts  # noqa: E501
+        Accounts returns all the existing accounts.  # noqa: E501
         """
         pass
 
@@ -154,10 +161,24 @@ class TestQueryApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmos_bank_v1_beta1_send_enabled(self):
+        """Test case for cosmos_bank_v1_beta1_send_enabled
+
+        SendEnabled queries for SendEnabled entries.  # noqa: E501
+        """
+        pass
+
+    def test_cosmos_bank_v1_beta1_spendable_balance_by_denom(self):
+        """Test case for cosmos_bank_v1_beta1_spendable_balance_by_denom
+
+        SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.  # noqa: E501
+        """
+        pass
+
     def test_cosmos_bank_v1_beta1_spendable_balances(self):
         """Test case for cosmos_bank_v1_beta1_spendable_balances
 
-        SpendableBalances queries the spenable balance of all coins for a single account.  # noqa: E501
+        SpendableBalances queries the spendable balance of all coins for a single account.  # noqa: E501
         """
         pass
 
@@ -175,6 +196,13 @@ class TestQueryApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmos_consensus_v1_params(self):
+        """Test case for cosmos_consensus_v1_params
+
+        Params queries the parameters of x/consensus_param module.  # noqa: E501
+        """
+        pass
+
     def test_cosmos_distribution_v1_beta1_delegation_rewards(self):
         """Test case for cosmos_distribution_v1_beta1_delegation_rewards
 
@@ -186,6 +214,13 @@ class TestQueryApi(unittest.TestCase):
         """Test case for cosmos_distribution_v1_beta1_params
 
         Params queries params of the distribution module.  # noqa: E501
+        """
+        pass
+
+    def test_cosmos_distribution_v1_beta1_validator_distribution_info(self):
+        """Test case for cosmos_distribution_v1_beta1_validator_distribution_info
+
+        ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator  # noqa: E501
         """
         pass
 
@@ -346,28 +381,14 @@ class TestQueryApi(unittest.TestCase):
     def test_cosmos_group_v1_group_members(self):
         """Test case for cosmos_group_v1_group_members
 
-        GroupMembers queries members of a group  # noqa: E501
+        GroupMembers queries members of a group by group id.  # noqa: E501
         """
         pass
 
-    def test_cosmos_group_v1_group_policies_by_admin(self):
-        """Test case for cosmos_group_v1_group_policies_by_admin
+    def test_cosmos_group_v1_groups(self):
+        """Test case for cosmos_group_v1_groups
 
-        GroupsByAdmin queries group policies by admin address.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_group_policies_by_group(self):
-        """Test case for cosmos_group_v1_group_policies_by_group
-
-        GroupPoliciesByGroup queries group policies by group id.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_group_policy_info(self):
-        """Test case for cosmos_group_v1_group_policy_info
-
-        GroupPolicyInfo queries group policy info based on account address of group policy.  # noqa: E501
+        Groups queries all groups in state.  # noqa: E501
         """
         pass
 
@@ -382,48 +403,6 @@ class TestQueryApi(unittest.TestCase):
         """Test case for cosmos_group_v1_groups_by_member
 
         GroupsByMember queries groups by member address.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_proposal(self):
-        """Test case for cosmos_group_v1_proposal
-
-        Proposal queries a proposal based on proposal id.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_proposals_by_group_policy(self):
-        """Test case for cosmos_group_v1_proposals_by_group_policy
-
-        ProposalsByGroupPolicy queries proposals based on account address of group policy.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_tally_result(self):
-        """Test case for cosmos_group_v1_tally_result
-
-        TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the `final_tally_result` state stored in the proposal itself.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_vote_by_proposal_voter(self):
-        """Test case for cosmos_group_v1_vote_by_proposal_voter
-
-        VoteByProposalVoter queries a vote by proposal id and voter.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_votes_by_proposal(self):
-        """Test case for cosmos_group_v1_votes_by_proposal
-
-        VotesByProposal queries a vote by proposal.  # noqa: E501
-        """
-        pass
-
-    def test_cosmos_group_v1_votes_by_voter(self):
-        """Test case for cosmos_group_v1_votes_by_voter
-
-        VotesByVoter queries a vote by voter.  # noqa: E501
         """
         pass
 
@@ -627,6 +606,24 @@ class TestQueryApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmos_staking_v1_beta1_siid(self):
+        """Test case for cosmos_staking_v1_beta1_siid
+
+        """
+        pass
+
+    def test_cosmos_staking_v1_beta1_siid_all(self):
+        """Test case for cosmos_staking_v1_beta1_siid_all
+
+        """
+        pass
+
+    def test_cosmos_staking_v1_beta1_siid_by_account(self):
+        """Test case for cosmos_staking_v1_beta1_siid_by_account
+
+        """
+        pass
+
     def test_cosmos_staking_v1_beta1_unbonding_delegation(self):
         """Test case for cosmos_staking_v1_beta1_unbonding_delegation
 
@@ -690,6 +687,153 @@ class TestQueryApi(unittest.TestCase):
         """
         pass
 
+    def test_cosmwasm_wasm_v1_all_contract_state(self):
+        """Test case for cosmwasm_wasm_v1_all_contract_state
+
+        AllContractState gets all raw store data for a single contract  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_code(self):
+        """Test case for cosmwasm_wasm_v1_code
+
+        Code gets the binary code and metadata for a singe wasm code  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_codes(self):
+        """Test case for cosmwasm_wasm_v1_codes
+
+        Codes gets the metadata for all stored wasm codes  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_contract_history(self):
+        """Test case for cosmwasm_wasm_v1_contract_history
+
+        ContractHistory gets the contract code history  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_contract_info(self):
+        """Test case for cosmwasm_wasm_v1_contract_info
+
+        ContractInfo gets the contract meta data  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_contracts_by_code(self):
+        """Test case for cosmwasm_wasm_v1_contracts_by_code
+
+        ContractsByCode lists all smart contracts for a code id  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_contracts_by_creator(self):
+        """Test case for cosmwasm_wasm_v1_contracts_by_creator
+
+        ContractsByCreator gets the contracts by creator  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_params(self):
+        """Test case for cosmwasm_wasm_v1_params
+
+        Params gets the module params  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_pinned_codes(self):
+        """Test case for cosmwasm_wasm_v1_pinned_codes
+
+        PinnedCodes gets the pinned code ids  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_raw_contract_state(self):
+        """Test case for cosmwasm_wasm_v1_raw_contract_state
+
+        RawContractState gets single key from the raw store data of a contract  # noqa: E501
+        """
+        pass
+
+    def test_cosmwasm_wasm_v1_smart_contract_state(self):
+        """Test case for cosmwasm_wasm_v1_smart_contract_state
+
+        SmartContractState get smart query result from the contract  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_counterparty_payee(self):
+        """Test case for ibc_applications_fee_v1_counterparty_payee
+
+        CounterpartyPayee returns the registered counterparty payee for forward relaying  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_fee_enabled_channel(self):
+        """Test case for ibc_applications_fee_v1_fee_enabled_channel
+
+        FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_fee_enabled_channels(self):
+        """Test case for ibc_applications_fee_v1_fee_enabled_channels
+
+        FeeEnabledChannels returns a list of all fee enabled channels  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_incentivized_packet(self):
+        """Test case for ibc_applications_fee_v1_incentivized_packet
+
+        IncentivizedPacket returns all packet fees for a packet given its identifier  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_incentivized_packets(self):
+        """Test case for ibc_applications_fee_v1_incentivized_packets
+
+        IncentivizedPackets returns all incentivized packets and their associated fees  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_incentivized_packets_for_channel(self):
+        """Test case for ibc_applications_fee_v1_incentivized_packets_for_channel
+
+        Gets all incentivized packets for a specific channel  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_payee(self):
+        """Test case for ibc_applications_fee_v1_payee
+
+        Payee returns the registered payee address for a specific channel given the relayer address  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_total_ack_fees(self):
+        """Test case for ibc_applications_fee_v1_total_ack_fees
+
+        TotalAckFees returns the total acknowledgement fees for a packet given its identifier  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_total_recv_fees(self):
+        """Test case for ibc_applications_fee_v1_total_recv_fees
+
+        TotalRecvFees returns the total receive fees for a packet given its identifier  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_fee_v1_total_timeout_fees(self):
+        """Test case for ibc_applications_fee_v1_total_timeout_fees
+
+        TotalTimeoutFees returns the total timeout fees for a packet given its identifier  # noqa: E501
+        """
+        pass
+
     def test_ibc_applications_interchain_accounts_controller_v1_interchain_account(self):
         """Test case for ibc_applications_interchain_accounts_controller_v1_interchain_account
 
@@ -743,6 +887,13 @@ class TestQueryApi(unittest.TestCase):
         """Test case for ibc_applications_transfer_v1_params
 
         Params queries all parameters of the ibc-transfer module.  # noqa: E501
+        """
+        pass
+
+    def test_ibc_applications_transfer_v1_total_escrow_for_denom(self):
+        """Test case for ibc_applications_transfer_v1_total_escrow_for_denom
+
+        TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.  # noqa: E501
         """
         pass
 

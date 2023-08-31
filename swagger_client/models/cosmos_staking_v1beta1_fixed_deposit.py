@@ -33,7 +33,9 @@ class CosmosStakingV1beta1FixedDeposit(object):
         'principal': 'CosmosBankV1beta1InputCoins',
         'interest': 'CosmosBankV1beta1InputCoins',
         'start_time': 'datetime',
-        'end_time': 'datetime'
+        'end_time': 'datetime',
+        'term': 'str',
+        'rate': 'str'
     }
 
     attribute_map = {
@@ -42,10 +44,12 @@ class CosmosStakingV1beta1FixedDeposit(object):
         'principal': 'principal',
         'interest': 'interest',
         'start_time': 'start_time',
-        'end_time': 'end_time'
+        'end_time': 'end_time',
+        'term': 'term',
+        'rate': 'rate'
     }
 
-    def __init__(self, id=None, account=None, principal=None, interest=None, start_time=None, end_time=None):  # noqa: E501
+    def __init__(self, id=None, account=None, principal=None, interest=None, start_time=None, end_time=None, term='TERM_1_MONTHS', rate=None):  # noqa: E501
         """CosmosStakingV1beta1FixedDeposit - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._account = None
@@ -53,6 +57,8 @@ class CosmosStakingV1beta1FixedDeposit(object):
         self._interest = None
         self._start_time = None
         self._end_time = None
+        self._term = None
+        self._rate = None
         self.discriminator = None
         if id is not None:
             self.id = id
@@ -66,6 +72,10 @@ class CosmosStakingV1beta1FixedDeposit(object):
             self.start_time = start_time
         if end_time is not None:
             self.end_time = end_time
+        if term is not None:
+            self.term = term
+        if rate is not None:
+            self.rate = rate
 
     @property
     def id(self):
@@ -192,6 +202,54 @@ class CosmosStakingV1beta1FixedDeposit(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def term(self):
+        """Gets the term of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+
+
+        :return: The term of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+        :rtype: str
+        """
+        return self._term
+
+    @term.setter
+    def term(self, term):
+        """Sets the term of this CosmosStakingV1beta1FixedDeposit.
+
+
+        :param term: The term of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["TERM_1_MONTHS", "TERM_3_MONTHS", "TERM_6_MONTHS", "TERM_12_MONTHS", "TERM_24_MONTHS", "TERM_36_MONTHS", "TERM_48_MONTHS"]  # noqa: E501
+        if term not in allowed_values:
+            raise ValueError(
+                "Invalid value for `term` ({0}), must be one of {1}"  # noqa: E501
+                .format(term, allowed_values)
+            )
+
+        self._term = term
+
+    @property
+    def rate(self):
+        """Gets the rate of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+
+
+        :return: The rate of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+        :rtype: str
+        """
+        return self._rate
+
+    @rate.setter
+    def rate(self, rate):
+        """Sets the rate of this CosmosStakingV1beta1FixedDeposit.
+
+
+        :param rate: The rate of this CosmosStakingV1beta1FixedDeposit.  # noqa: E501
+        :type: str
+        """
+
+        self._rate = rate
 
     def to_dict(self):
         """Returns the model properties as a dict"""

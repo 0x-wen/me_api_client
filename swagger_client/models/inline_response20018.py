@@ -28,40 +28,66 @@ class InlineResponse20018(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'amount': 'CosmosBankV1beta1QuerySupplyOfResponseAmount'
+        'send_enabled': 'list[CosmosBankV1beta1ParamsSendEnabled]',
+        'pagination': 'CosmosBankV1beta1QuerySendEnabledResponsePagination'
     }
 
     attribute_map = {
-        'amount': 'amount'
+        'send_enabled': 'send_enabled',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, amount=None):  # noqa: E501
+    def __init__(self, send_enabled=None, pagination=None):  # noqa: E501
         """InlineResponse20018 - a model defined in Swagger"""  # noqa: E501
-        self._amount = None
+        self._send_enabled = None
+        self._pagination = None
         self.discriminator = None
-        if amount is not None:
-            self.amount = amount
+        if send_enabled is not None:
+            self.send_enabled = send_enabled
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def amount(self):
-        """Gets the amount of this InlineResponse20018.  # noqa: E501
+    def send_enabled(self):
+        """Gets the send_enabled of this InlineResponse20018.  # noqa: E501
 
 
-        :return: The amount of this InlineResponse20018.  # noqa: E501
-        :rtype: CosmosBankV1beta1QuerySupplyOfResponseAmount
+        :return: The send_enabled of this InlineResponse20018.  # noqa: E501
+        :rtype: list[CosmosBankV1beta1ParamsSendEnabled]
         """
-        return self._amount
+        return self._send_enabled
 
-    @amount.setter
-    def amount(self, amount):
-        """Sets the amount of this InlineResponse20018.
+    @send_enabled.setter
+    def send_enabled(self, send_enabled):
+        """Sets the send_enabled of this InlineResponse20018.
 
 
-        :param amount: The amount of this InlineResponse20018.  # noqa: E501
-        :type: CosmosBankV1beta1QuerySupplyOfResponseAmount
+        :param send_enabled: The send_enabled of this InlineResponse20018.  # noqa: E501
+        :type: list[CosmosBankV1beta1ParamsSendEnabled]
         """
 
-        self._amount = amount
+        self._send_enabled = send_enabled
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20018.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20018.  # noqa: E501
+        :rtype: CosmosBankV1beta1QuerySendEnabledResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20018.
+
+
+        :param pagination: The pagination of this InlineResponse20018.  # noqa: E501
+        :type: CosmosBankV1beta1QuerySendEnabledResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

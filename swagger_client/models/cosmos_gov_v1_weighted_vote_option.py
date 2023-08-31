@@ -51,7 +51,7 @@ class CosmosGovV1WeightedVoteOption(object):
     def option(self):
         """Gets the option of this CosmosGovV1WeightedVoteOption.  # noqa: E501
 
-        VoteOption enumerates the valid vote options for a given governance proposal.   - VOTE_OPTION_UNSPECIFIED: VOTE_OPTION_UNSPECIFIED defines a no-op vote option.  - VOTE_OPTION_YES: VOTE_OPTION_YES defines a yes vote option.  - VOTE_OPTION_ABSTAIN: VOTE_OPTION_ABSTAIN defines an abstain vote option.  - VOTE_OPTION_NO: VOTE_OPTION_NO defines a no vote option.  - VOTE_OPTION_NO_WITH_VETO: VOTE_OPTION_NO_WITH_VETO defines a no with veto vote option.  # noqa: E501
+        option defines the valid vote options, it must not contain duplicate vote options.  # noqa: E501
 
         :return: The option of this CosmosGovV1WeightedVoteOption.  # noqa: E501
         :rtype: str
@@ -62,7 +62,7 @@ class CosmosGovV1WeightedVoteOption(object):
     def option(self, option):
         """Sets the option of this CosmosGovV1WeightedVoteOption.
 
-        VoteOption enumerates the valid vote options for a given governance proposal.   - VOTE_OPTION_UNSPECIFIED: VOTE_OPTION_UNSPECIFIED defines a no-op vote option.  - VOTE_OPTION_YES: VOTE_OPTION_YES defines a yes vote option.  - VOTE_OPTION_ABSTAIN: VOTE_OPTION_ABSTAIN defines an abstain vote option.  - VOTE_OPTION_NO: VOTE_OPTION_NO defines a no vote option.  - VOTE_OPTION_NO_WITH_VETO: VOTE_OPTION_NO_WITH_VETO defines a no with veto vote option.  # noqa: E501
+        option defines the valid vote options, it must not contain duplicate vote options.  # noqa: E501
 
         :param option: The option of this CosmosGovV1WeightedVoteOption.  # noqa: E501
         :type: str
@@ -80,6 +80,7 @@ class CosmosGovV1WeightedVoteOption(object):
     def weight(self):
         """Gets the weight of this CosmosGovV1WeightedVoteOption.  # noqa: E501
 
+        weight is the vote weight associated with the vote option.  # noqa: E501
 
         :return: The weight of this CosmosGovV1WeightedVoteOption.  # noqa: E501
         :rtype: str
@@ -90,6 +91,7 @@ class CosmosGovV1WeightedVoteOption(object):
     def weight(self, weight):
         """Sets the weight of this CosmosGovV1WeightedVoteOption.
 
+        weight is the vote weight associated with the vote option.  # noqa: E501
 
         :param weight: The weight of this CosmosGovV1WeightedVoteOption.  # noqa: E501
         :type: str

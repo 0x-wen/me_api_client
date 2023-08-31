@@ -28,40 +28,40 @@ class InlineResponse20077(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'region': 'CosmosStakingV1beta1QueryAllRegionResponseRegion'
+        'siid_nft': 'CosmosStakingV1beta1QueryAllSiidResponseSiidNFT'
     }
 
     attribute_map = {
-        'region': 'region'
+        'siid_nft': 'siidNFT'
     }
 
-    def __init__(self, region=None):  # noqa: E501
+    def __init__(self, siid_nft=None):  # noqa: E501
         """InlineResponse20077 - a model defined in Swagger"""  # noqa: E501
-        self._region = None
+        self._siid_nft = None
         self.discriminator = None
-        if region is not None:
-            self.region = region
+        if siid_nft is not None:
+            self.siid_nft = siid_nft
 
     @property
-    def region(self):
-        """Gets the region of this InlineResponse20077.  # noqa: E501
+    def siid_nft(self):
+        """Gets the siid_nft of this InlineResponse20077.  # noqa: E501
 
 
-        :return: The region of this InlineResponse20077.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryAllRegionResponseRegion
+        :return: The siid_nft of this InlineResponse20077.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryAllSiidResponseSiidNFT
         """
-        return self._region
+        return self._siid_nft
 
-    @region.setter
-    def region(self, region):
-        """Sets the region of this InlineResponse20077.
+    @siid_nft.setter
+    def siid_nft(self, siid_nft):
+        """Sets the siid_nft of this InlineResponse20077.
 
 
-        :param region: The region of this InlineResponse20077.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryAllRegionResponseRegion
+        :param siid_nft: The siid_nft of this InlineResponse20077.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryAllSiidResponseSiidNFT
         """
 
-        self._region = region
+        self._siid_nft = siid_nft
 
     def to_dict(self):
         """Returns the model properties as a dict"""

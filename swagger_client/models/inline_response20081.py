@@ -28,42 +28,40 @@ class InlineResponse20081(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'height': 'str'
+        'amino_binary': 'str'
     }
 
     attribute_map = {
-        'height': 'height'
+        'amino_binary': 'amino_binary'
     }
 
-    def __init__(self, height=None):  # noqa: E501
+    def __init__(self, amino_binary=None):  # noqa: E501
         """InlineResponse20081 - a model defined in Swagger"""  # noqa: E501
-        self._height = None
+        self._amino_binary = None
         self.discriminator = None
-        if height is not None:
-            self.height = height
+        if amino_binary is not None:
+            self.amino_binary = amino_binary
 
     @property
-    def height(self):
-        """Gets the height of this InlineResponse20081.  # noqa: E501
+    def amino_binary(self):
+        """Gets the amino_binary of this InlineResponse20081.  # noqa: E501
 
-        height is the block height at which the plan was applied.  # noqa: E501
 
-        :return: The height of this InlineResponse20081.  # noqa: E501
+        :return: The amino_binary of this InlineResponse20081.  # noqa: E501
         :rtype: str
         """
-        return self._height
+        return self._amino_binary
 
-    @height.setter
-    def height(self, height):
-        """Sets the height of this InlineResponse20081.
+    @amino_binary.setter
+    def amino_binary(self, amino_binary):
+        """Sets the amino_binary of this InlineResponse20081.
 
-        height is the block height at which the plan was applied.  # noqa: E501
 
-        :param height: The height of this InlineResponse20081.  # noqa: E501
+        :param amino_binary: The amino_binary of this InlineResponse20081.  # noqa: E501
         :type: str
         """
 
-        self._height = height
+        self._amino_binary = amino_binary
 
     def to_dict(self):
         """Returns the model properties as a dict"""

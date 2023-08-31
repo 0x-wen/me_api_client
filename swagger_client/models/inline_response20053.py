@@ -28,68 +28,42 @@ class InlineResponse20053(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'groups': 'list[CosmosGroupV1QueryGroupsByAdminResponseGroups]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'group_id': 'str'
     }
 
     attribute_map = {
-        'groups': 'groups',
-        'pagination': 'pagination'
+        'group_id': 'group_id'
     }
 
-    def __init__(self, groups=None, pagination=None):  # noqa: E501
+    def __init__(self, group_id=None):  # noqa: E501
         """InlineResponse20053 - a model defined in Swagger"""  # noqa: E501
-        self._groups = None
-        self._pagination = None
+        self._group_id = None
         self.discriminator = None
-        if groups is not None:
-            self.groups = groups
-        if pagination is not None:
-            self.pagination = pagination
+        if group_id is not None:
+            self.group_id = group_id
 
     @property
-    def groups(self):
-        """Gets the groups of this InlineResponse20053.  # noqa: E501
+    def group_id(self):
+        """Gets the group_id of this InlineResponse20053.  # noqa: E501
 
-        groups are the groups info with the provided admin.  # noqa: E501
+        group_id is the unique ID of the newly created group.  # noqa: E501
 
-        :return: The groups of this InlineResponse20053.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
+        :return: The group_id of this InlineResponse20053.  # noqa: E501
+        :rtype: str
         """
-        return self._groups
+        return self._group_id
 
-    @groups.setter
-    def groups(self, groups):
-        """Sets the groups of this InlineResponse20053.
+    @group_id.setter
+    def group_id(self, group_id):
+        """Sets the group_id of this InlineResponse20053.
 
-        groups are the groups info with the provided admin.  # noqa: E501
+        group_id is the unique ID of the newly created group.  # noqa: E501
 
-        :param groups: The groups of this InlineResponse20053.  # noqa: E501
-        :type: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
-        """
-
-        self._groups = groups
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20053.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20053.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20053.
-
-
-        :param pagination: The pagination of this InlineResponse20053.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        :param group_id: The group_id of this InlineResponse20053.  # noqa: E501
+        :type: str
         """
 
-        self._pagination = pagination
+        self._group_id = group_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,7 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rewards** | [**list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]**](CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards.md) | rewards defines the rewards accrued by a delegation. | [optional] 
+**block_height** | **str** |  | [optional] 
+**validators** | [**list[CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators]**](CosmosBaseTendermintV1beta1GetLatestValidatorSetResponseValidators.md) |  | [optional] 
+**pagination** | [**CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination**](CosmosAuthzV1beta1QueryGranteeGrantsResponsePagination.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

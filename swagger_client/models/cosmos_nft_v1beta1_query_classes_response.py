@@ -28,8 +28,8 @@ class CosmosNftV1beta1QueryClassesResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'classes': 'list[CosmosNftV1beta1QueryClassResponseClass]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'classes': 'list[CosmosNftV1beta1QueryClassesResponseClasses]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
@@ -51,9 +51,10 @@ class CosmosNftV1beta1QueryClassesResponse(object):
     def classes(self):
         """Gets the classes of this CosmosNftV1beta1QueryClassesResponse.  # noqa: E501
 
+        class defines the class of the nft type.  # noqa: E501
 
         :return: The classes of this CosmosNftV1beta1QueryClassesResponse.  # noqa: E501
-        :rtype: list[CosmosNftV1beta1QueryClassResponseClass]
+        :rtype: list[CosmosNftV1beta1QueryClassesResponseClasses]
         """
         return self._classes
 
@@ -61,9 +62,10 @@ class CosmosNftV1beta1QueryClassesResponse(object):
     def classes(self, classes):
         """Sets the classes of this CosmosNftV1beta1QueryClassesResponse.
 
+        class defines the class of the nft type.  # noqa: E501
 
         :param classes: The classes of this CosmosNftV1beta1QueryClassesResponse.  # noqa: E501
-        :type: list[CosmosNftV1beta1QueryClassResponseClass]
+        :type: list[CosmosNftV1beta1QueryClassesResponseClasses]
         """
 
         self._classes = classes
@@ -74,7 +76,7 @@ class CosmosNftV1beta1QueryClassesResponse(object):
 
 
         :return: The pagination of this CosmosNftV1beta1QueryClassesResponse.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
         return self._pagination
 
@@ -84,7 +86,7 @@ class CosmosNftV1beta1QueryClassesResponse(object):
 
 
         :param pagination: The pagination of this CosmosNftV1beta1QueryClassesResponse.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
 
         self._pagination = pagination

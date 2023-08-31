@@ -28,24 +28,19 @@ class InlineResponse20067(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'fixed_deposit': 'list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]',
-        'pagination': 'CosmosNftV1beta1QueryClassesResponsePagination'
+        'fixed_deposit': 'list[CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit]'
     }
 
     attribute_map = {
-        'fixed_deposit': 'FixedDeposit',
-        'pagination': 'pagination'
+        'fixed_deposit': 'FixedDeposit'
     }
 
-    def __init__(self, fixed_deposit=None, pagination=None):  # noqa: E501
+    def __init__(self, fixed_deposit=None):  # noqa: E501
         """InlineResponse20067 - a model defined in Swagger"""  # noqa: E501
         self._fixed_deposit = None
-        self._pagination = None
         self.discriminator = None
         if fixed_deposit is not None:
             self.fixed_deposit = fixed_deposit
-        if pagination is not None:
-            self.pagination = pagination
 
     @property
     def fixed_deposit(self):
@@ -67,27 +62,6 @@ class InlineResponse20067(object):
         """
 
         self._fixed_deposit = fixed_deposit
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20067.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20067.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryClassesResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20067.
-
-
-        :param pagination: The pagination of this InlineResponse20067.  # noqa: E501
-        :type: CosmosNftV1beta1QueryClassesResponsePagination
-        """
-
-        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

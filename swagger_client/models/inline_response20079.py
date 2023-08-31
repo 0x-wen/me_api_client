@@ -28,66 +28,40 @@ class InlineResponse20079(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'gas_info': 'CosmosTxV1beta1SimulateResponseGasInfo',
-        'result': 'CosmosTxV1beta1SimulateResponseResult'
+        'amino_json': 'str'
     }
 
     attribute_map = {
-        'gas_info': 'gas_info',
-        'result': 'result'
+        'amino_json': 'amino_json'
     }
 
-    def __init__(self, gas_info=None, result=None):  # noqa: E501
+    def __init__(self, amino_json=None):  # noqa: E501
         """InlineResponse20079 - a model defined in Swagger"""  # noqa: E501
-        self._gas_info = None
-        self._result = None
+        self._amino_json = None
         self.discriminator = None
-        if gas_info is not None:
-            self.gas_info = gas_info
-        if result is not None:
-            self.result = result
+        if amino_json is not None:
+            self.amino_json = amino_json
 
     @property
-    def gas_info(self):
-        """Gets the gas_info of this InlineResponse20079.  # noqa: E501
+    def amino_json(self):
+        """Gets the amino_json of this InlineResponse20079.  # noqa: E501
 
 
-        :return: The gas_info of this InlineResponse20079.  # noqa: E501
-        :rtype: CosmosTxV1beta1SimulateResponseGasInfo
+        :return: The amino_json of this InlineResponse20079.  # noqa: E501
+        :rtype: str
         """
-        return self._gas_info
+        return self._amino_json
 
-    @gas_info.setter
-    def gas_info(self, gas_info):
-        """Sets the gas_info of this InlineResponse20079.
-
-
-        :param gas_info: The gas_info of this InlineResponse20079.  # noqa: E501
-        :type: CosmosTxV1beta1SimulateResponseGasInfo
-        """
-
-        self._gas_info = gas_info
-
-    @property
-    def result(self):
-        """Gets the result of this InlineResponse20079.  # noqa: E501
+    @amino_json.setter
+    def amino_json(self, amino_json):
+        """Sets the amino_json of this InlineResponse20079.
 
 
-        :return: The result of this InlineResponse20079.  # noqa: E501
-        :rtype: CosmosTxV1beta1SimulateResponseResult
-        """
-        return self._result
-
-    @result.setter
-    def result(self, result):
-        """Sets the result of this InlineResponse20079.
-
-
-        :param result: The result of this InlineResponse20079.  # noqa: E501
-        :type: CosmosTxV1beta1SimulateResponseResult
+        :param amino_json: The amino_json of this InlineResponse20079.  # noqa: E501
+        :type: str
         """
 
-        self._result = result
+        self._amino_json = amino_json
 
     def to_dict(self):
         """Returns the model properties as a dict"""

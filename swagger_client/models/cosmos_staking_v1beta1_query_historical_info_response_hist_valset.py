@@ -39,6 +39,8 @@ class CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset(object):
         'unbonding_time': 'datetime',
         'commission': 'CosmosStakingV1beta1HistoricalInfoCommission',
         'min_self_stake': 'str',
+        'unbonding_on_hold_ref_count': 'str',
+        'unbonding_ids': 'list[str]',
         'delegation_amount': 'str',
         'kyc_amount': 'str',
         'owner_address': 'str'
@@ -56,12 +58,14 @@ class CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset(object):
         'unbonding_time': 'unbonding_time',
         'commission': 'commission',
         'min_self_stake': 'min_self_stake',
+        'unbonding_on_hold_ref_count': 'unbonding_on_hold_ref_count',
+        'unbonding_ids': 'unbonding_ids',
         'delegation_amount': 'delegation_amount',
         'kyc_amount': 'kyc_amount',
         'owner_address': 'owner_address'
     }
 
-    def __init__(self, operator_address=None, consensus_pubkey=None, jailed=None, status='BOND_STATUS_UNSPECIFIED', tokens=None, staker_shares=None, description=None, unbonding_height=None, unbonding_time=None, commission=None, min_self_stake=None, delegation_amount=None, kyc_amount=None, owner_address=None):  # noqa: E501
+    def __init__(self, operator_address=None, consensus_pubkey=None, jailed=None, status='BOND_STATUS_UNSPECIFIED', tokens=None, staker_shares=None, description=None, unbonding_height=None, unbonding_time=None, commission=None, min_self_stake=None, unbonding_on_hold_ref_count=None, unbonding_ids=None, delegation_amount=None, kyc_amount=None, owner_address=None):  # noqa: E501
         """CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset - a model defined in Swagger"""  # noqa: E501
         self._operator_address = None
         self._consensus_pubkey = None
@@ -74,6 +78,8 @@ class CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset(object):
         self._unbonding_time = None
         self._commission = None
         self._min_self_stake = None
+        self._unbonding_on_hold_ref_count = None
+        self._unbonding_ids = None
         self._delegation_amount = None
         self._kyc_amount = None
         self._owner_address = None
@@ -100,6 +106,10 @@ class CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset(object):
             self.commission = commission
         if min_self_stake is not None:
             self.min_self_stake = min_self_stake
+        if unbonding_on_hold_ref_count is not None:
+            self.unbonding_on_hold_ref_count = unbonding_on_hold_ref_count
+        if unbonding_ids is not None:
+            self.unbonding_ids = unbonding_ids
         if delegation_amount is not None:
             self.delegation_amount = delegation_amount
         if kyc_amount is not None:
@@ -361,6 +371,48 @@ class CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset(object):
         """
 
         self._min_self_stake = min_self_stake
+
+    @property
+    def unbonding_on_hold_ref_count(self):
+        """Gets the unbonding_on_hold_ref_count of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+
+
+        :return: The unbonding_on_hold_ref_count of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+        :rtype: str
+        """
+        return self._unbonding_on_hold_ref_count
+
+    @unbonding_on_hold_ref_count.setter
+    def unbonding_on_hold_ref_count(self, unbonding_on_hold_ref_count):
+        """Sets the unbonding_on_hold_ref_count of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.
+
+
+        :param unbonding_on_hold_ref_count: The unbonding_on_hold_ref_count of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+        :type: str
+        """
+
+        self._unbonding_on_hold_ref_count = unbonding_on_hold_ref_count
+
+    @property
+    def unbonding_ids(self):
+        """Gets the unbonding_ids of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+
+
+        :return: The unbonding_ids of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._unbonding_ids
+
+    @unbonding_ids.setter
+    def unbonding_ids(self, unbonding_ids):
+        """Sets the unbonding_ids of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.
+
+
+        :param unbonding_ids: The unbonding_ids of this CosmosStakingV1beta1QueryHistoricalInfoResponseHistValset.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._unbonding_ids = unbonding_ids
 
     @property
     def delegation_amount(self):

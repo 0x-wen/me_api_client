@@ -86,6 +86,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def proposal_id(self):
         """Gets the proposal_id of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :return: The proposal_id of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: str
@@ -96,6 +97,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def proposal_id(self, proposal_id):
         """Sets the proposal_id of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        proposal_id defines the unique id of the proposal.  # noqa: E501
 
         :param proposal_id: The proposal_id of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: str
@@ -107,7 +109,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def content(self):
         """Gets the content of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
-        `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := anypb.New(foo)      if err != nil {        ...      }      ...      foo := &pb.Foo{}      if err := any.UnmarshalTo(foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }  # noqa: E501
+        content is the proposal's content.  # noqa: E501
 
         :return: The content of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: dict(str, object)
@@ -118,7 +120,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def content(self, content):
         """Sets the content of this CosmosGovV1beta1QueryProposalResponseProposal.
 
-        `Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.  Protobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.  Example 1: Pack and unpack a message in C++.      Foo foo = ...;     Any any;     any.PackFrom(foo);     ...     if (any.UnpackTo(&foo)) {       ...     }  Example 2: Pack and unpack a message in Java.      Foo foo = ...;     Any any = Any.pack(foo);     ...     if (any.is(Foo.class)) {       foo = any.unpack(Foo.class);     }   Example 3: Pack and unpack a message in Python.      foo = Foo(...)     any = Any()     any.Pack(foo)     ...     if any.Is(Foo.DESCRIPTOR):       any.Unpack(foo)       ...   Example 4: Pack and unpack a message in Go       foo := &pb.Foo{...}      any, err := anypb.New(foo)      if err != nil {        ...      }      ...      foo := &pb.Foo{}      if err := any.UnmarshalTo(foo); err != nil {        ...      }  The pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".   JSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:      package google.profile;     message Person {       string first_name = 1;       string last_name = 2;     }      {       \"@type\": \"type.googleapis.com/google.profile.Person\",       \"firstName\": <string>,       \"lastName\": <string>     }  If the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):      {       \"@type\": \"type.googleapis.com/google.protobuf.Duration\",       \"value\": \"1.212s\"     }  # noqa: E501
+        content is the proposal's content.  # noqa: E501
 
         :param content: The content of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: dict(str, object)
@@ -130,7 +132,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def status(self):
         """Gets the status of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
-        ProposalStatus enumerates the valid statuses of a proposal.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed.  # noqa: E501
+        status defines the proposal status.  # noqa: E501
 
         :return: The status of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: str
@@ -141,7 +143,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def status(self, status):
         """Sets the status of this CosmosGovV1beta1QueryProposalResponseProposal.
 
-        ProposalStatus enumerates the valid statuses of a proposal.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed.  # noqa: E501
+        status defines the proposal status.  # noqa: E501
 
         :param status: The status of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: str
@@ -180,6 +182,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def submit_time(self):
         """Gets the submit_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        submit_time is the time of proposal submission.  # noqa: E501
 
         :return: The submit_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: datetime
@@ -190,6 +193,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def submit_time(self, submit_time):
         """Sets the submit_time of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        submit_time is the time of proposal submission.  # noqa: E501
 
         :param submit_time: The submit_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: datetime
@@ -201,6 +205,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def deposit_end_time(self):
         """Gets the deposit_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        deposit_end_time is the end time for deposition.  # noqa: E501
 
         :return: The deposit_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: datetime
@@ -211,6 +216,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def deposit_end_time(self, deposit_end_time):
         """Sets the deposit_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        deposit_end_time is the end time for deposition.  # noqa: E501
 
         :param deposit_end_time: The deposit_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: datetime
@@ -222,6 +228,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def total_deposit(self):
         """Gets the total_deposit of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        total_deposit is the total deposit on the proposal.  # noqa: E501
 
         :return: The total_deposit of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: list[CosmosBankV1beta1InputCoins]
@@ -232,6 +239,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def total_deposit(self, total_deposit):
         """Sets the total_deposit of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        total_deposit is the total deposit on the proposal.  # noqa: E501
 
         :param total_deposit: The total_deposit of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: list[CosmosBankV1beta1InputCoins]
@@ -243,6 +251,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def voting_start_time(self):
         """Gets the voting_start_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        voting_start_time is the starting time to vote on a proposal.  # noqa: E501
 
         :return: The voting_start_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: datetime
@@ -253,6 +262,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def voting_start_time(self, voting_start_time):
         """Sets the voting_start_time of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        voting_start_time is the starting time to vote on a proposal.  # noqa: E501
 
         :param voting_start_time: The voting_start_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: datetime
@@ -264,6 +274,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def voting_end_time(self):
         """Gets the voting_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
 
+        voting_end_time is the end time of voting on a proposal.  # noqa: E501
 
         :return: The voting_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :rtype: datetime
@@ -274,6 +285,7 @@ class CosmosGovV1beta1QueryProposalResponseProposal(object):
     def voting_end_time(self, voting_end_time):
         """Sets the voting_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.
 
+        voting_end_time is the end time of voting on a proposal.  # noqa: E501
 
         :param voting_end_time: The voting_end_time of this CosmosGovV1beta1QueryProposalResponseProposal.  # noqa: E501
         :type: datetime

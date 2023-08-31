@@ -51,6 +51,7 @@ class CosmosGovV1QueryDepositsResponse(object):
     def deposits(self):
         """Gets the deposits of this CosmosGovV1QueryDepositsResponse.  # noqa: E501
 
+        deposits defines the requested deposits.  # noqa: E501
 
         :return: The deposits of this CosmosGovV1QueryDepositsResponse.  # noqa: E501
         :rtype: list[CosmosGovV1QueryDepositsResponseDeposits]
@@ -61,6 +62,7 @@ class CosmosGovV1QueryDepositsResponse(object):
     def deposits(self, deposits):
         """Sets the deposits of this CosmosGovV1QueryDepositsResponse.
 
+        deposits defines the requested deposits.  # noqa: E501
 
         :param deposits: The deposits of this CosmosGovV1QueryDepositsResponse.  # noqa: E501
         :type: list[CosmosGovV1QueryDepositsResponseDeposits]

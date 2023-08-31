@@ -51,6 +51,7 @@ class CosmosGovV1beta1QueryProposalsResponse(object):
     def proposals(self):
         """Gets the proposals of this CosmosGovV1beta1QueryProposalsResponse.  # noqa: E501
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
         :return: The proposals of this CosmosGovV1beta1QueryProposalsResponse.  # noqa: E501
         :rtype: list[CosmosGovV1beta1QueryProposalResponseProposal]
@@ -61,6 +62,7 @@ class CosmosGovV1beta1QueryProposalsResponse(object):
     def proposals(self, proposals):
         """Sets the proposals of this CosmosGovV1beta1QueryProposalsResponse.
 
+        proposals defines all the requested governance proposals.  # noqa: E501
 
         :param proposals: The proposals of this CosmosGovV1beta1QueryProposalsResponse.  # noqa: E501
         :type: list[CosmosGovV1beta1QueryProposalResponseProposal]

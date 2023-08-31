@@ -28,92 +28,68 @@ class InlineResponse20042(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'voting_params': 'CosmosGovV1QueryParamsResponseVotingParams',
-        'deposit_params': 'CosmosGovV1QueryParamsResponseDepositParams',
-        'tally_params': 'CosmosGovV1beta1QueryParamsResponseTallyParams'
+        'deposits': 'list[CosmosGovV1QueryDepositsResponseDeposits]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'voting_params': 'voting_params',
-        'deposit_params': 'deposit_params',
-        'tally_params': 'tally_params'
+        'deposits': 'deposits',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, voting_params=None, deposit_params=None, tally_params=None):  # noqa: E501
+    def __init__(self, deposits=None, pagination=None):  # noqa: E501
         """InlineResponse20042 - a model defined in Swagger"""  # noqa: E501
-        self._voting_params = None
-        self._deposit_params = None
-        self._tally_params = None
+        self._deposits = None
+        self._pagination = None
         self.discriminator = None
-        if voting_params is not None:
-            self.voting_params = voting_params
-        if deposit_params is not None:
-            self.deposit_params = deposit_params
-        if tally_params is not None:
-            self.tally_params = tally_params
+        if deposits is not None:
+            self.deposits = deposits
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def voting_params(self):
-        """Gets the voting_params of this InlineResponse20042.  # noqa: E501
+    def deposits(self):
+        """Gets the deposits of this InlineResponse20042.  # noqa: E501
 
+        deposits defines the requested deposits.  # noqa: E501
 
-        :return: The voting_params of this InlineResponse20042.  # noqa: E501
-        :rtype: CosmosGovV1QueryParamsResponseVotingParams
+        :return: The deposits of this InlineResponse20042.  # noqa: E501
+        :rtype: list[CosmosGovV1QueryDepositsResponseDeposits]
         """
-        return self._voting_params
+        return self._deposits
 
-    @voting_params.setter
-    def voting_params(self, voting_params):
-        """Sets the voting_params of this InlineResponse20042.
+    @deposits.setter
+    def deposits(self, deposits):
+        """Sets the deposits of this InlineResponse20042.
 
+        deposits defines the requested deposits.  # noqa: E501
 
-        :param voting_params: The voting_params of this InlineResponse20042.  # noqa: E501
-        :type: CosmosGovV1QueryParamsResponseVotingParams
+        :param deposits: The deposits of this InlineResponse20042.  # noqa: E501
+        :type: list[CosmosGovV1QueryDepositsResponseDeposits]
         """
 
-        self._voting_params = voting_params
+        self._deposits = deposits
 
     @property
-    def deposit_params(self):
-        """Gets the deposit_params of this InlineResponse20042.  # noqa: E501
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20042.  # noqa: E501
 
 
-        :return: The deposit_params of this InlineResponse20042.  # noqa: E501
-        :rtype: CosmosGovV1QueryParamsResponseDepositParams
+        :return: The pagination of this InlineResponse20042.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
-        return self._deposit_params
+        return self._pagination
 
-    @deposit_params.setter
-    def deposit_params(self, deposit_params):
-        """Sets the deposit_params of this InlineResponse20042.
-
-
-        :param deposit_params: The deposit_params of this InlineResponse20042.  # noqa: E501
-        :type: CosmosGovV1QueryParamsResponseDepositParams
-        """
-
-        self._deposit_params = deposit_params
-
-    @property
-    def tally_params(self):
-        """Gets the tally_params of this InlineResponse20042.  # noqa: E501
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20042.
 
 
-        :return: The tally_params of this InlineResponse20042.  # noqa: E501
-        :rtype: CosmosGovV1beta1QueryParamsResponseTallyParams
-        """
-        return self._tally_params
-
-    @tally_params.setter
-    def tally_params(self, tally_params):
-        """Sets the tally_params of this InlineResponse20042.
-
-
-        :param tally_params: The tally_params of this InlineResponse20042.  # noqa: E501
-        :type: CosmosGovV1beta1QueryParamsResponseTallyParams
+        :param pagination: The pagination of this InlineResponse20042.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
         """
 
-        self._tally_params = tally_params
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

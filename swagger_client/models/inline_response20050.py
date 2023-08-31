@@ -28,68 +28,40 @@ class InlineResponse20050(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'group_policies': 'list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'tally': 'CosmosGovV1beta1QueryTallyResultResponseTally'
     }
 
     attribute_map = {
-        'group_policies': 'group_policies',
-        'pagination': 'pagination'
+        'tally': 'tally'
     }
 
-    def __init__(self, group_policies=None, pagination=None):  # noqa: E501
+    def __init__(self, tally=None):  # noqa: E501
         """InlineResponse20050 - a model defined in Swagger"""  # noqa: E501
-        self._group_policies = None
-        self._pagination = None
+        self._tally = None
         self.discriminator = None
-        if group_policies is not None:
-            self.group_policies = group_policies
-        if pagination is not None:
-            self.pagination = pagination
+        if tally is not None:
+            self.tally = tally
 
     @property
-    def group_policies(self):
-        """Gets the group_policies of this InlineResponse20050.  # noqa: E501
+    def tally(self):
+        """Gets the tally of this InlineResponse20050.  # noqa: E501
 
-        group_policies are the group policies info with provided admin.  # noqa: E501
 
-        :return: The group_policies of this InlineResponse20050.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]
+        :return: The tally of this InlineResponse20050.  # noqa: E501
+        :rtype: CosmosGovV1beta1QueryTallyResultResponseTally
         """
-        return self._group_policies
+        return self._tally
 
-    @group_policies.setter
-    def group_policies(self, group_policies):
-        """Sets the group_policies of this InlineResponse20050.
+    @tally.setter
+    def tally(self, tally):
+        """Sets the tally of this InlineResponse20050.
 
-        group_policies are the group policies info with provided admin.  # noqa: E501
 
-        :param group_policies: The group_policies of this InlineResponse20050.  # noqa: E501
-        :type: list[CosmosGroupV1QueryGroupPoliciesByAdminResponseGroupPolicies]
+        :param tally: The tally of this InlineResponse20050.  # noqa: E501
+        :type: CosmosGovV1beta1QueryTallyResultResponseTally
         """
 
-        self._group_policies = group_policies
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20050.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20050.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20050.
-
-
-        :param pagination: The pagination of this InlineResponse20050.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._tally = tally
 
     def to_dict(self):
         """Returns the model properties as a dict"""

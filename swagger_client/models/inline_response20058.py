@@ -28,40 +28,68 @@ class InlineResponse20058(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'vote': 'CosmosGroupV1QueryVoteByProposalVoterResponseVote'
+        'groups': 'list[CosmosGroupV1QueryGroupsByAdminResponseGroups]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'vote': 'vote'
+        'groups': 'groups',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, vote=None):  # noqa: E501
+    def __init__(self, groups=None, pagination=None):  # noqa: E501
         """InlineResponse20058 - a model defined in Swagger"""  # noqa: E501
-        self._vote = None
+        self._groups = None
+        self._pagination = None
         self.discriminator = None
-        if vote is not None:
-            self.vote = vote
+        if groups is not None:
+            self.groups = groups
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def vote(self):
-        """Gets the vote of this InlineResponse20058.  # noqa: E501
+    def groups(self):
+        """Gets the groups of this InlineResponse20058.  # noqa: E501
 
+        groups are the groups info with the provided group member.  # noqa: E501
 
-        :return: The vote of this InlineResponse20058.  # noqa: E501
-        :rtype: CosmosGroupV1QueryVoteByProposalVoterResponseVote
+        :return: The groups of this InlineResponse20058.  # noqa: E501
+        :rtype: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
         """
-        return self._vote
+        return self._groups
 
-    @vote.setter
-    def vote(self, vote):
-        """Sets the vote of this InlineResponse20058.
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this InlineResponse20058.
 
+        groups are the groups info with the provided group member.  # noqa: E501
 
-        :param vote: The vote of this InlineResponse20058.  # noqa: E501
-        :type: CosmosGroupV1QueryVoteByProposalVoterResponseVote
+        :param groups: The groups of this InlineResponse20058.  # noqa: E501
+        :type: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
         """
 
-        self._vote = vote
+        self._groups = groups
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20058.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20058.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20058.
+
+
+        :param pagination: The pagination of this InlineResponse20058.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

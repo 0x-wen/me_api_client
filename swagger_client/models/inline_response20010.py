@@ -51,7 +51,7 @@ class InlineResponse20010(object):
     def grants(self):
         """Gets the grants of this InlineResponse20010.  # noqa: E501
 
-        grants is a list of grants granted by the granter.  # noqa: E501
+        grants is a list of grants granted to the grantee.  # noqa: E501
 
         :return: The grants of this InlineResponse20010.  # noqa: E501
         :rtype: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]
@@ -62,7 +62,7 @@ class InlineResponse20010(object):
     def grants(self, grants):
         """Sets the grants of this InlineResponse20010.
 
-        grants is a list of grants granted by the granter.  # noqa: E501
+        grants is a list of grants granted to the grantee.  # noqa: E501
 
         :param grants: The grants of this InlineResponse20010.  # noqa: E501
         :type: list[GrantAuthorizationExtendsAGrantWithBothTheAddressesOfTheGranteeAndGranterItIsUsedInGenesisProtoAndQueryProto]

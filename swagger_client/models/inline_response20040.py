@@ -28,47 +28,47 @@ class InlineResponse20040(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'votes': 'list[CosmosGovV1QueryVotesResponseVotes]',
+        'proposals': 'list[CosmosGovV1QueryProposalsResponseProposals]',
         'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'votes': 'votes',
+        'proposals': 'proposals',
         'pagination': 'pagination'
     }
 
-    def __init__(self, votes=None, pagination=None):  # noqa: E501
+    def __init__(self, proposals=None, pagination=None):  # noqa: E501
         """InlineResponse20040 - a model defined in Swagger"""  # noqa: E501
-        self._votes = None
+        self._proposals = None
         self._pagination = None
         self.discriminator = None
-        if votes is not None:
-            self.votes = votes
+        if proposals is not None:
+            self.proposals = proposals
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def votes(self):
-        """Gets the votes of this InlineResponse20040.  # noqa: E501
+    def proposals(self):
+        """Gets the proposals of this InlineResponse20040.  # noqa: E501
 
-        votes defined the queried votes.  # noqa: E501
+        proposals defines all the requested governance proposals.  # noqa: E501
 
-        :return: The votes of this InlineResponse20040.  # noqa: E501
-        :rtype: list[CosmosGovV1QueryVotesResponseVotes]
+        :return: The proposals of this InlineResponse20040.  # noqa: E501
+        :rtype: list[CosmosGovV1QueryProposalsResponseProposals]
         """
-        return self._votes
+        return self._proposals
 
-    @votes.setter
-    def votes(self, votes):
-        """Sets the votes of this InlineResponse20040.
+    @proposals.setter
+    def proposals(self, proposals):
+        """Sets the proposals of this InlineResponse20040.
 
-        votes defined the queried votes.  # noqa: E501
+        proposals defines all the requested governance proposals.  # noqa: E501
 
-        :param votes: The votes of this InlineResponse20040.  # noqa: E501
-        :type: list[CosmosGovV1QueryVotesResponseVotes]
+        :param proposals: The proposals of this InlineResponse20040.  # noqa: E501
+        :type: list[CosmosGovV1QueryProposalsResponseProposals]
         """
 
-        self._votes = votes
+        self._proposals = proposals
 
     @property
     def pagination(self):

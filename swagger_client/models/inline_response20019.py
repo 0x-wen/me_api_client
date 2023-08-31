@@ -28,40 +28,68 @@ class InlineResponse20019(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'minimum_gas_price': 'str'
+        'balances': 'list[CosmosBankV1beta1InputCoins]',
+        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'minimum_gas_price': 'minimum_gas_price'
+        'balances': 'balances',
+        'pagination': 'pagination'
     }
 
-    def __init__(self, minimum_gas_price=None):  # noqa: E501
+    def __init__(self, balances=None, pagination=None):  # noqa: E501
         """InlineResponse20019 - a model defined in Swagger"""  # noqa: E501
-        self._minimum_gas_price = None
+        self._balances = None
+        self._pagination = None
         self.discriminator = None
-        if minimum_gas_price is not None:
-            self.minimum_gas_price = minimum_gas_price
+        if balances is not None:
+            self.balances = balances
+        if pagination is not None:
+            self.pagination = pagination
 
     @property
-    def minimum_gas_price(self):
-        """Gets the minimum_gas_price of this InlineResponse20019.  # noqa: E501
+    def balances(self):
+        """Gets the balances of this InlineResponse20019.  # noqa: E501
 
+        balances is the spendable balances of all the coins.  # noqa: E501
 
-        :return: The minimum_gas_price of this InlineResponse20019.  # noqa: E501
-        :rtype: str
+        :return: The balances of this InlineResponse20019.  # noqa: E501
+        :rtype: list[CosmosBankV1beta1InputCoins]
         """
-        return self._minimum_gas_price
+        return self._balances
 
-    @minimum_gas_price.setter
-    def minimum_gas_price(self, minimum_gas_price):
-        """Sets the minimum_gas_price of this InlineResponse20019.
+    @balances.setter
+    def balances(self, balances):
+        """Sets the balances of this InlineResponse20019.
 
+        balances is the spendable balances of all the coins.  # noqa: E501
 
-        :param minimum_gas_price: The minimum_gas_price of this InlineResponse20019.  # noqa: E501
-        :type: str
+        :param balances: The balances of this InlineResponse20019.  # noqa: E501
+        :type: list[CosmosBankV1beta1InputCoins]
         """
 
-        self._minimum_gas_price = minimum_gas_price
+        self._balances = balances
+
+    @property
+    def pagination(self):
+        """Gets the pagination of this InlineResponse20019.  # noqa: E501
+
+
+        :return: The pagination of this InlineResponse20019.  # noqa: E501
+        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+        return self._pagination
+
+    @pagination.setter
+    def pagination(self, pagination):
+        """Sets the pagination of this InlineResponse20019.
+
+
+        :param pagination: The pagination of this InlineResponse20019.  # noqa: E501
+        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
+        """
+
+        self._pagination = pagination
 
     def to_dict(self):
         """Returns the model properties as a dict"""

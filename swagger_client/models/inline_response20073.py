@@ -28,40 +28,40 @@ class InlineResponse20073(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'kyc': 'CosmosStakingV1beta1QueryAllKycResponseKyc'
+        'pool': 'CosmosStakingV1beta1QueryPoolResponsePool'
     }
 
     attribute_map = {
-        'kyc': 'kyc'
+        'pool': 'pool'
     }
 
-    def __init__(self, kyc=None):  # noqa: E501
+    def __init__(self, pool=None):  # noqa: E501
         """InlineResponse20073 - a model defined in Swagger"""  # noqa: E501
-        self._kyc = None
+        self._pool = None
         self.discriminator = None
-        if kyc is not None:
-            self.kyc = kyc
+        if pool is not None:
+            self.pool = pool
 
     @property
-    def kyc(self):
-        """Gets the kyc of this InlineResponse20073.  # noqa: E501
+    def pool(self):
+        """Gets the pool of this InlineResponse20073.  # noqa: E501
 
 
-        :return: The kyc of this InlineResponse20073.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryAllKycResponseKyc
+        :return: The pool of this InlineResponse20073.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryPoolResponsePool
         """
-        return self._kyc
+        return self._pool
 
-    @kyc.setter
-    def kyc(self, kyc):
-        """Sets the kyc of this InlineResponse20073.
+    @pool.setter
+    def pool(self, pool):
+        """Sets the pool of this InlineResponse20073.
 
 
-        :param kyc: The kyc of this InlineResponse20073.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryAllKycResponseKyc
+        :param pool: The pool of this InlineResponse20073.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryPoolResponsePool
         """
 
-        self._kyc = kyc
+        self._pool = pool
 
     def to_dict(self):
         """Returns the model properties as a dict"""

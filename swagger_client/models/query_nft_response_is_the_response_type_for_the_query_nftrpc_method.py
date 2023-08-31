@@ -28,7 +28,7 @@ class QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'nft': 'CosmosNftV1beta1QueryNFTResponseNft'
+        'nft': 'OwnerIsTheOwnerAddressOfTheNft'
     }
 
     attribute_map = {
@@ -48,7 +48,7 @@ class QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod(object):
 
 
         :return: The nft of this QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod.  # noqa: E501
-        :rtype: CosmosNftV1beta1QueryNFTResponseNft
+        :rtype: OwnerIsTheOwnerAddressOfTheNft
         """
         return self._nft
 
@@ -58,7 +58,7 @@ class QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod(object):
 
 
         :param nft: The nft of this QueryNFTResponseIsTheResponseTypeForTheQueryNFTRPCMethod.  # noqa: E501
-        :type: CosmosNftV1beta1QueryNFTResponseNft
+        :type: OwnerIsTheOwnerAddressOfTheNft
         """
 
         self._nft = nft

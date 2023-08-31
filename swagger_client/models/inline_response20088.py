@@ -28,40 +28,40 @@ class InlineResponse20088(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'escrow_address': 'str'
+        'params': 'CosmwasmWasmV1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'escrow_address': 'escrow_address'
+        'params': 'params'
     }
 
-    def __init__(self, escrow_address=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20088 - a model defined in Swagger"""  # noqa: E501
-        self._escrow_address = None
+        self._params = None
         self.discriminator = None
-        if escrow_address is not None:
-            self.escrow_address = escrow_address
+        if params is not None:
+            self.params = params
 
     @property
-    def escrow_address(self):
-        """Gets the escrow_address of this InlineResponse20088.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20088.  # noqa: E501
 
 
-        :return: The escrow_address of this InlineResponse20088.  # noqa: E501
-        :rtype: str
+        :return: The params of this InlineResponse20088.  # noqa: E501
+        :rtype: CosmwasmWasmV1QueryParamsResponseParams
         """
-        return self._escrow_address
+        return self._params
 
-    @escrow_address.setter
-    def escrow_address(self, escrow_address):
-        """Sets the escrow_address of this InlineResponse20088.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20088.
 
 
-        :param escrow_address: The escrow_address of this InlineResponse20088.  # noqa: E501
-        :type: str
+        :param params: The params of this InlineResponse20088.  # noqa: E501
+        :type: CosmwasmWasmV1QueryParamsResponseParams
         """
 
-        self._escrow_address = escrow_address
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

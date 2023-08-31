@@ -6,7 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cosmos_auth_v1_beta1_account**](QueryApi.md#cosmos_auth_v1_beta1_account) | **GET** /cosmos/auth/v1beta1/accounts/{address} | Account returns account details based on address.
 [**cosmos_auth_v1_beta1_account_address_by_id**](QueryApi.md#cosmos_auth_v1_beta1_account_address_by_id) | **GET** /cosmos/auth/v1beta1/address_by_id/{id} | AccountAddressByID returns account address based on account number.
-[**cosmos_auth_v1_beta1_accounts**](QueryApi.md#cosmos_auth_v1_beta1_accounts) | **GET** /cosmos/auth/v1beta1/accounts | Accounts returns all the existing accounts
+[**cosmos_auth_v1_beta1_account_info**](QueryApi.md#cosmos_auth_v1_beta1_account_info) | **GET** /cosmos/auth/v1beta1/account_info/{address} | AccountInfo queries account info which is common to all account types.
+[**cosmos_auth_v1_beta1_accounts**](QueryApi.md#cosmos_auth_v1_beta1_accounts) | **GET** /cosmos/auth/v1beta1/accounts | Accounts returns all the existing accounts.
 [**cosmos_auth_v1_beta1_address_bytes_to_string**](QueryApi.md#cosmos_auth_v1_beta1_address_bytes_to_string) | **GET** /cosmos/auth/v1beta1/bech32/{address_bytes} | AddressBytesToString converts Account Address bytes to string
 [**cosmos_auth_v1_beta1_address_string_to_bytes**](QueryApi.md#cosmos_auth_v1_beta1_address_string_to_bytes) | **GET** /cosmos/auth/v1beta1/bech32/{address_string} | AddressStringToBytes converts Address string to bytes
 [**cosmos_auth_v1_beta1_bech32_prefix**](QueryApi.md#cosmos_auth_v1_beta1_bech32_prefix) | **GET** /cosmos/auth/v1beta1/bech32 | Bech32Prefix queries bech32Prefix
@@ -22,13 +23,17 @@ Method | HTTP request | Description
 [**cosmos_bank_v1_beta1_denom_owners**](QueryApi.md#cosmos_bank_v1_beta1_denom_owners) | **GET** /cosmos/bank/v1beta1/denom_owners/{denom} | DenomOwners queries for all account addresses that own a particular token denomination.
 [**cosmos_bank_v1_beta1_denoms_metadata**](QueryApi.md#cosmos_bank_v1_beta1_denoms_metadata) | **GET** /cosmos/bank/v1beta1/denoms_metadata | DenomsMetadata queries the client metadata for all registered coin denominations.
 [**cosmos_bank_v1_beta1_params**](QueryApi.md#cosmos_bank_v1_beta1_params) | **GET** /cosmos/bank/v1beta1/params | Params queries the parameters of x/bank module.
-[**cosmos_bank_v1_beta1_spendable_balances**](QueryApi.md#cosmos_bank_v1_beta1_spendable_balances) | **GET** /cosmos/bank/v1beta1/spendable_balances/{address} | SpendableBalances queries the spenable balance of all coins for a single account.
+[**cosmos_bank_v1_beta1_send_enabled**](QueryApi.md#cosmos_bank_v1_beta1_send_enabled) | **GET** /cosmos/bank/v1beta1/send_enabled | SendEnabled queries for SendEnabled entries.
+[**cosmos_bank_v1_beta1_spendable_balance_by_denom**](QueryApi.md#cosmos_bank_v1_beta1_spendable_balance_by_denom) | **GET** /cosmos/bank/v1beta1/spendable_balances/{address}/by_denom | SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.
+[**cosmos_bank_v1_beta1_spendable_balances**](QueryApi.md#cosmos_bank_v1_beta1_spendable_balances) | **GET** /cosmos/bank/v1beta1/spendable_balances/{address} | SpendableBalances queries the spendable balance of all coins for a single account.
 [**cosmos_bank_v1_beta1_supply_of**](QueryApi.md#cosmos_bank_v1_beta1_supply_of) | **GET** /cosmos/bank/v1beta1/supply/by_denom | SupplyOf queries the supply of a single coin.
 [**cosmos_bank_v1_beta1_total_supply**](QueryApi.md#cosmos_bank_v1_beta1_total_supply) | **GET** /cosmos/bank/v1beta1/supply | TotalSupply queries the total supply of all coins.
-[**cosmos_distribution_v1_beta1_delegation_rewards**](QueryApi.md#cosmos_distribution_v1_beta1_delegation_rewards) | **GET** /cosmos/distribution/v1beta1/rewards/{delegator_address} | DelegationRewards queries the total rewards accrued by a delegation.
+[**cosmos_consensus_v1_params**](QueryApi.md#cosmos_consensus_v1_params) | **GET** /cosmos/consensus/v1/params | Params queries the parameters of x/consensus_param module.
+[**cosmos_distribution_v1_beta1_delegation_rewards**](QueryApi.md#cosmos_distribution_v1_beta1_delegation_rewards) | **GET** /cosmos/distribution/v1beta1/delegators/{delegator_address}/rewards/{validator_address} | DelegationRewards queries the total rewards accrued by a delegation.
 [**cosmos_distribution_v1_beta1_params**](QueryApi.md#cosmos_distribution_v1_beta1_params) | **GET** /cosmos/distribution/v1beta1/params | Params queries params of the distribution module.
+[**cosmos_distribution_v1_beta1_validator_distribution_info**](QueryApi.md#cosmos_distribution_v1_beta1_validator_distribution_info) | **GET** /cosmos/distribution/v1beta1/validators/{validator_address} | ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator
 [**cosmos_evidence_v1_beta1_all_evidence**](QueryApi.md#cosmos_evidence_v1_beta1_all_evidence) | **GET** /cosmos/evidence/v1beta1/evidence | AllEvidence queries all evidence.
-[**cosmos_evidence_v1_beta1_evidence**](QueryApi.md#cosmos_evidence_v1_beta1_evidence) | **GET** /cosmos/evidence/v1beta1/evidence/{evidence_hash} | Evidence queries evidence based on evidence hash.
+[**cosmos_evidence_v1_beta1_evidence**](QueryApi.md#cosmos_evidence_v1_beta1_evidence) | **GET** /cosmos/evidence/v1beta1/evidence/{hash} | Evidence queries evidence based on evidence hash.
 [**cosmos_feegrant_v1_beta1_allowance**](QueryApi.md#cosmos_feegrant_v1_beta1_allowance) | **GET** /cosmos/feegrant/v1beta1/allowance/{granter}/{grantee} | Allowance returns fee granted to the grantee by the granter.
 [**cosmos_feegrant_v1_beta1_allowances**](QueryApi.md#cosmos_feegrant_v1_beta1_allowances) | **GET** /cosmos/feegrant/v1beta1/allowances/{grantee} | Allowances returns all the grants for address.
 [**cosmos_feegrant_v1_beta1_allowances_by_granter**](QueryApi.md#cosmos_feegrant_v1_beta1_allowances_by_granter) | **GET** /cosmos/feegrant/v1beta1/issued/{granter} | AllowancesByGranter returns all the grants given by an address
@@ -49,18 +54,10 @@ Method | HTTP request | Description
 [**cosmos_gov_v1_vote**](QueryApi.md#cosmos_gov_v1_vote) | **GET** /cosmos/gov/v1/proposals/{proposal_id}/votes/{voter} | Vote queries voted information based on proposalID, voterAddr.
 [**cosmos_gov_v1_votes**](QueryApi.md#cosmos_gov_v1_votes) | **GET** /cosmos/gov/v1/proposals/{proposal_id}/votes | Votes queries votes of a given proposal.
 [**cosmos_group_v1_group_info**](QueryApi.md#cosmos_group_v1_group_info) | **GET** /cosmos/group/v1/group_info/{group_id} | GroupInfo queries group info based on group id.
-[**cosmos_group_v1_group_members**](QueryApi.md#cosmos_group_v1_group_members) | **GET** /cosmos/group/v1/group_members/{group_id} | GroupMembers queries members of a group
-[**cosmos_group_v1_group_policies_by_admin**](QueryApi.md#cosmos_group_v1_group_policies_by_admin) | **GET** /cosmos/group/v1/group_policies_by_admin/{admin} | GroupsByAdmin queries group policies by admin address.
-[**cosmos_group_v1_group_policies_by_group**](QueryApi.md#cosmos_group_v1_group_policies_by_group) | **GET** /cosmos/group/v1/group_policies_by_group/{group_id} | GroupPoliciesByGroup queries group policies by group id.
-[**cosmos_group_v1_group_policy_info**](QueryApi.md#cosmos_group_v1_group_policy_info) | **GET** /cosmos/group/v1/group_policy_info/{address} | GroupPolicyInfo queries group policy info based on account address of group policy.
+[**cosmos_group_v1_group_members**](QueryApi.md#cosmos_group_v1_group_members) | **GET** /cosmos/group/v1/group_members/{group_id} | GroupMembers queries members of a group by group id.
+[**cosmos_group_v1_groups**](QueryApi.md#cosmos_group_v1_groups) | **GET** /cosmos/group/v1/groups | Groups queries all groups in state.
 [**cosmos_group_v1_groups_by_admin**](QueryApi.md#cosmos_group_v1_groups_by_admin) | **GET** /cosmos/group/v1/groups_by_admin/{admin} | GroupsByAdmin queries groups by admin address.
 [**cosmos_group_v1_groups_by_member**](QueryApi.md#cosmos_group_v1_groups_by_member) | **GET** /cosmos/group/v1/groups_by_member/{address} | GroupsByMember queries groups by member address.
-[**cosmos_group_v1_proposal**](QueryApi.md#cosmos_group_v1_proposal) | **GET** /cosmos/group/v1/proposal/{proposal_id} | Proposal queries a proposal based on proposal id.
-[**cosmos_group_v1_proposals_by_group_policy**](QueryApi.md#cosmos_group_v1_proposals_by_group_policy) | **GET** /cosmos/group/v1/proposals_by_group_policy/{address} | ProposalsByGroupPolicy queries proposals based on account address of group policy.
-[**cosmos_group_v1_tally_result**](QueryApi.md#cosmos_group_v1_tally_result) | **GET** /cosmos/group/v1/proposals/{proposal_id}/tally | TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the &#x60;final_tally_result&#x60; state stored in the proposal itself.
-[**cosmos_group_v1_vote_by_proposal_voter**](QueryApi.md#cosmos_group_v1_vote_by_proposal_voter) | **GET** /cosmos/group/v1/vote_by_proposal_voter/{proposal_id}/{voter} | VoteByProposalVoter queries a vote by proposal id and voter.
-[**cosmos_group_v1_votes_by_proposal**](QueryApi.md#cosmos_group_v1_votes_by_proposal) | **GET** /cosmos/group/v1/votes_by_proposal/{proposal_id} | VotesByProposal queries a vote by proposal.
-[**cosmos_group_v1_votes_by_voter**](QueryApi.md#cosmos_group_v1_votes_by_voter) | **GET** /cosmos/group/v1/votes_by_voter/{voter} | VotesByVoter queries a vote by voter.
 [**cosmos_mint_v1_beta1_annual_provisions**](QueryApi.md#cosmos_mint_v1_beta1_annual_provisions) | **GET** /cosmos/mint/v1beta1/annual_provisions | AnnualProvisions current minting annual provisions value.
 [**cosmos_mint_v1_beta1_inflation**](QueryApi.md#cosmos_mint_v1_beta1_inflation) | **GET** /cosmos/mint/v1beta1/inflation | Inflation returns the current minting inflation value.
 [**cosmos_mint_v1_beta1_params**](QueryApi.md#cosmos_mint_v1_beta1_params) | **GET** /cosmos/mint/v1beta1/params | Params returns the total set of minting parameters.
@@ -90,15 +87,39 @@ Method | HTTP request | Description
 [**cosmos_staking_v1_beta1_pool**](QueryApi.md#cosmos_staking_v1_beta1_pool) | **GET** /cosmos/staking/v1beta1/pool | Pool queries the pool info.
 [**cosmos_staking_v1_beta1_region**](QueryApi.md#cosmos_staking_v1_beta1_region) | **GET** /cosmos/staking/v1beta1/region/{regionId} | Queries a list of Region items.
 [**cosmos_staking_v1_beta1_region_all**](QueryApi.md#cosmos_staking_v1_beta1_region_all) | **GET** /cosmos/staking/v1beta1/region | 
+[**cosmos_staking_v1_beta1_siid**](QueryApi.md#cosmos_staking_v1_beta1_siid) | **GET** /cosmos/staking/v1beta1/siid/{siid} | 
+[**cosmos_staking_v1_beta1_siid_all**](QueryApi.md#cosmos_staking_v1_beta1_siid_all) | **GET** /cosmos/staking/v1beta1/siid | 
+[**cosmos_staking_v1_beta1_siid_by_account**](QueryApi.md#cosmos_staking_v1_beta1_siid_by_account) | **GET** /cosmos/staking/v1beta1/siid_by_account/{account} | 
 [**cosmos_staking_v1_beta1_unbonding_delegation**](QueryApi.md#cosmos_staking_v1_beta1_unbonding_delegation) | **GET** /cosmos/staking/v1beta1/unbonding_delegation/{delegator_addr} | UnbondingDelegation queries unbonding info for given validator delegator pair.
 [**cosmos_staking_v1_beta1_validator**](QueryApi.md#cosmos_staking_v1_beta1_validator) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr} | Validator queries validator info for given validator address.
-[**cosmos_staking_v1_beta1_validator_delegations**](QueryApi.md#cosmos_staking_v1_beta1_validator_delegations) | **GET** /cosmos/staking/v1beta1/delegations-to/{validator_addr} | ValidatorDelegations queries delegate info for given validator.
+[**cosmos_staking_v1_beta1_validator_delegations**](QueryApi.md#cosmos_staking_v1_beta1_validator_delegations) | **GET** /cosmos/staking/v1beta1/validators/{validator_addr}/delegations | ValidatorDelegations queries delegate info for given validator.
 [**cosmos_staking_v1_beta1_validators**](QueryApi.md#cosmos_staking_v1_beta1_validators) | **GET** /cosmos/staking/v1beta1/validators | Validators queries all validators that match the given status.
 [**cosmos_upgrade_v1_beta1_applied_plan**](QueryApi.md#cosmos_upgrade_v1_beta1_applied_plan) | **GET** /cosmos/upgrade/v1beta1/applied_plan/{name} | AppliedPlan queries a previously applied upgrade plan by its name.
 [**cosmos_upgrade_v1_beta1_authority**](QueryApi.md#cosmos_upgrade_v1_beta1_authority) | **GET** /cosmos/upgrade/v1beta1/authority | Returns the account with authority to conduct upgrades
 [**cosmos_upgrade_v1_beta1_current_plan**](QueryApi.md#cosmos_upgrade_v1_beta1_current_plan) | **GET** /cosmos/upgrade/v1beta1/current_plan | CurrentPlan queries the current upgrade plan.
 [**cosmos_upgrade_v1_beta1_module_versions**](QueryApi.md#cosmos_upgrade_v1_beta1_module_versions) | **GET** /cosmos/upgrade/v1beta1/module_versions | ModuleVersions queries the list of module versions from state.
 [**cosmos_upgrade_v1_beta1_upgraded_consensus_state**](QueryApi.md#cosmos_upgrade_v1_beta1_upgraded_consensus_state) | **GET** /cosmos/upgrade/v1beta1/upgraded_consensus_state/{last_height} | UpgradedConsensusState queries the consensus state that will serve as a trusted kernel for the next version of this chain. It will only be stored at the last height of this chain. UpgradedConsensusState RPC not supported with legacy querier This rpc is deprecated now that IBC has its own replacement (https://github.com/cosmos/ibc-go/blob/2c880a22e9f9cc75f62b527ca94aa75ce1106001/proto/ibc/core/client/v1/query.proto#L54)
+[**cosmwasm_wasm_v1_all_contract_state**](QueryApi.md#cosmwasm_wasm_v1_all_contract_state) | **GET** /cosmwasm/wasm/v1/contract/{address}/state | AllContractState gets all raw store data for a single contract
+[**cosmwasm_wasm_v1_code**](QueryApi.md#cosmwasm_wasm_v1_code) | **GET** /cosmwasm/wasm/v1/code/{code_id} | Code gets the binary code and metadata for a singe wasm code
+[**cosmwasm_wasm_v1_codes**](QueryApi.md#cosmwasm_wasm_v1_codes) | **GET** /cosmwasm/wasm/v1/code | Codes gets the metadata for all stored wasm codes
+[**cosmwasm_wasm_v1_contract_history**](QueryApi.md#cosmwasm_wasm_v1_contract_history) | **GET** /cosmwasm/wasm/v1/contract/{address}/history | ContractHistory gets the contract code history
+[**cosmwasm_wasm_v1_contract_info**](QueryApi.md#cosmwasm_wasm_v1_contract_info) | **GET** /cosmwasm/wasm/v1/contract/{address} | ContractInfo gets the contract meta data
+[**cosmwasm_wasm_v1_contracts_by_code**](QueryApi.md#cosmwasm_wasm_v1_contracts_by_code) | **GET** /cosmwasm/wasm/v1/code/{code_id}/contracts | ContractsByCode lists all smart contracts for a code id
+[**cosmwasm_wasm_v1_contracts_by_creator**](QueryApi.md#cosmwasm_wasm_v1_contracts_by_creator) | **GET** /cosmwasm/wasm/v1/contracts/creator/{creator_address} | ContractsByCreator gets the contracts by creator
+[**cosmwasm_wasm_v1_params**](QueryApi.md#cosmwasm_wasm_v1_params) | **GET** /cosmwasm/wasm/v1/codes/params | Params gets the module params
+[**cosmwasm_wasm_v1_pinned_codes**](QueryApi.md#cosmwasm_wasm_v1_pinned_codes) | **GET** /cosmwasm/wasm/v1/codes/pinned | PinnedCodes gets the pinned code ids
+[**cosmwasm_wasm_v1_raw_contract_state**](QueryApi.md#cosmwasm_wasm_v1_raw_contract_state) | **GET** /cosmwasm/wasm/v1/contract/{address}/raw/{query_data} | RawContractState gets single key from the raw store data of a contract
+[**cosmwasm_wasm_v1_smart_contract_state**](QueryApi.md#cosmwasm_wasm_v1_smart_contract_state) | **GET** /cosmwasm/wasm/v1/contract/{address}/smart/{query_data} | SmartContractState get smart query result from the contract
+[**ibc_applications_fee_v1_counterparty_payee**](QueryApi.md#ibc_applications_fee_v1_counterparty_payee) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/counterparty_payee | CounterpartyPayee returns the registered counterparty payee for forward relaying
+[**ibc_applications_fee_v1_fee_enabled_channel**](QueryApi.md#ibc_applications_fee_v1_fee_enabled_channel) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/fee_enabled | FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+[**ibc_applications_fee_v1_fee_enabled_channels**](QueryApi.md#ibc_applications_fee_v1_fee_enabled_channels) | **GET** /ibc/apps/fee/v1/fee_enabled | FeeEnabledChannels returns a list of all fee enabled channels
+[**ibc_applications_fee_v1_incentivized_packet**](QueryApi.md#ibc_applications_fee_v1_incentivized_packet) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/incentivized_packet | IncentivizedPacket returns all packet fees for a packet given its identifier
+[**ibc_applications_fee_v1_incentivized_packets**](QueryApi.md#ibc_applications_fee_v1_incentivized_packets) | **GET** /ibc/apps/fee/v1/incentivized_packets | IncentivizedPackets returns all incentivized packets and their associated fees
+[**ibc_applications_fee_v1_incentivized_packets_for_channel**](QueryApi.md#ibc_applications_fee_v1_incentivized_packets_for_channel) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/ports/{port_id}/incentivized_packets | Gets all incentivized packets for a specific channel
+[**ibc_applications_fee_v1_payee**](QueryApi.md#ibc_applications_fee_v1_payee) | **GET** /ibc/apps/fee/v1/channels/{channel_id}/relayers/{relayer}/payee | Payee returns the registered payee address for a specific channel given the relayer address
+[**ibc_applications_fee_v1_total_ack_fees**](QueryApi.md#ibc_applications_fee_v1_total_ack_fees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_ack_fees | TotalAckFees returns the total acknowledgement fees for a packet given its identifier
+[**ibc_applications_fee_v1_total_recv_fees**](QueryApi.md#ibc_applications_fee_v1_total_recv_fees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_recv_fees | TotalRecvFees returns the total receive fees for a packet given its identifier
+[**ibc_applications_fee_v1_total_timeout_fees**](QueryApi.md#ibc_applications_fee_v1_total_timeout_fees) | **GET** /ibc/apps/fee/v1/channels/{packet_id.channel_id}/ports/{packet_id.port_id}/sequences/{packet_id.sequence}/total_timeout_fees | TotalTimeoutFees returns the total timeout fees for a packet given its identifier
 [**ibc_applications_interchain_accounts_controller_v1_interchain_account**](QueryApi.md#ibc_applications_interchain_accounts_controller_v1_interchain_account) | **GET** /ibc/apps/interchain_accounts/controller/v1/owners/{owner}/connections/{connection_id} | InterchainAccount returns the interchain account address for a given owner address on a given connection
 [**ibc_applications_interchain_accounts_controller_v1_params**](QueryApi.md#ibc_applications_interchain_accounts_controller_v1_params) | **GET** /ibc/apps/interchain_accounts/controller/v1/params | Params queries all parameters of the ICA controller submodule.
 [**ibc_applications_interchain_accounts_host_v1_params**](QueryApi.md#ibc_applications_interchain_accounts_host_v1_params) | **GET** /ibc/apps/interchain_accounts/host/v1/params | Params queries all parameters of the ICA host submodule.
@@ -107,6 +128,7 @@ Method | HTTP request | Description
 [**ibc_applications_transfer_v1_denom_traces**](QueryApi.md#ibc_applications_transfer_v1_denom_traces) | **GET** /ibc/apps/transfer/v1/denom_traces | DenomTraces queries all denomination traces.
 [**ibc_applications_transfer_v1_escrow_address**](QueryApi.md#ibc_applications_transfer_v1_escrow_address) | **GET** /ibc/apps/transfer/v1/channels/{channel_id}/ports/{port_id}/escrow_address | EscrowAddress returns the escrow address for a particular port and channel id.
 [**ibc_applications_transfer_v1_params**](QueryApi.md#ibc_applications_transfer_v1_params) | **GET** /ibc/apps/transfer/v1/params | Params queries all parameters of the ibc-transfer module.
+[**ibc_applications_transfer_v1_total_escrow_for_denom**](QueryApi.md#ibc_applications_transfer_v1_total_escrow_for_denom) | **GET** /ibc/apps/transfer/v1/denoms/{denom}/total_escrow | TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
 [**ibc_core_channel_v1_channel**](QueryApi.md#ibc_core_channel_v1_channel) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id} | Channel queries an IBC Channel.
 [**ibc_core_channel_v1_channel_client_state**](QueryApi.md#ibc_core_channel_v1_channel_client_state) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/client_state | ChannelClientState queries for the client state for the channel associated with the provided channel identifiers.
 [**ibc_core_channel_v1_channel_consensus_state**](QueryApi.md#ibc_core_channel_v1_channel_consensus_state) | **GET** /ibc/core/channel/v1/channels/{channel_id}/ports/{port_id}/consensus_state/revision/{revision_number}/height/{revision_height} | ChannelConsensusState queries for the consensus state for the channel associated with the provided channel identifiers.
@@ -137,7 +159,7 @@ Method | HTTP request | Description
 [**ibc_core_connection_v1_connections**](QueryApi.md#ibc_core_connection_v1_connections) | **GET** /ibc/core/connection/v1/connections | Connections queries all the IBC connections of a chain.
 
 # **cosmos_auth_v1_beta1_account**
-> InlineResponse2001 cosmos_auth_v1_beta1_account(address)
+> InlineResponse2002 cosmos_auth_v1_beta1_account(address)
 
 Account returns account details based on address.
 
@@ -169,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -183,7 +205,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_account_address_by_id**
-> QueryAccountAddressByIDResponseIsTheResponseTypeForAccountAddressByIDRpcMethod cosmos_auth_v1_beta1_account_address_by_id(id)
+> QueryAccountAddressByIDResponseIsTheResponseTypeForAccountAddressByIDRpcMethod cosmos_auth_v1_beta1_account_address_by_id(id, account_id=account_id)
 
 AccountAddressByID returns account address based on account number.
 
@@ -199,11 +221,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-id = 'id_example' # str | id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query.
+id = 'id_example' # str | Deprecated, use account_id instead  id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query.
+account_id = 'account_id_example' # str | account_id is the account number of the address to be queried.  Since: cosmos-sdk 0.47 (optional)
 
 try:
     # AccountAddressByID returns account address based on account number.
-    api_response = api_instance.cosmos_auth_v1_beta1_account_address_by_id(id)
+    api_response = api_instance.cosmos_auth_v1_beta1_account_address_by_id(id, account_id=account_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->cosmos_auth_v1_beta1_account_address_by_id: %s\n" % e)
@@ -213,7 +236,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **str**| id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. | 
+ **id** | **str**| Deprecated, use account_id instead  id is the account number of the address to be queried. This field should have been an uint64 (like all account numbers), and will be updated to uint64 in a future version of the auth query. | 
+ **account_id** | **str**| account_id is the account number of the address to be queried.  Since: cosmos-sdk 0.47 | [optional] 
 
 ### Return type
 
@@ -230,12 +254,60 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **cosmos_auth_v1_beta1_account_info**
+> InlineResponse200 cosmos_auth_v1_beta1_account_info(address)
+
+AccountInfo queries account info which is common to all account types.
+
+Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the account address string.
+
+try:
+    # AccountInfo queries account info which is common to all account types.
+    api_response = api_instance.cosmos_auth_v1_beta1_account_info(address)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_auth_v1_beta1_account_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the account address string. | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **cosmos_auth_v1_beta1_accounts**
-> InlineResponse200 cosmos_auth_v1_beta1_accounts(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse2001 cosmos_auth_v1_beta1_accounts(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
-Accounts returns all the existing accounts
+Accounts returns all the existing accounts.
 
-Since: cosmos-sdk 0.43
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.43
 
 ### Example
 ```python
@@ -254,7 +326,7 @@ pagination_count_total = true # bool | count_total is set to true  to indicate t
 pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
 
 try:
-    # Accounts returns all the existing accounts
+    # Accounts returns all the existing accounts.
     api_response = api_instance.cosmos_auth_v1_beta1_accounts(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
     pprint(api_response)
 except ApiException as e:
@@ -273,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -287,7 +359,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_address_bytes_to_string**
-> InlineResponse2003 cosmos_auth_v1_beta1_address_bytes_to_string(address_bytes)
+> InlineResponse2004 cosmos_auth_v1_beta1_address_bytes_to_string(address_bytes)
 
 AddressBytesToString converts Account Address bytes to string
 
@@ -321,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -335,7 +407,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_address_string_to_bytes**
-> InlineResponse2004 cosmos_auth_v1_beta1_address_string_to_bytes(address_string)
+> InlineResponse2005 cosmos_auth_v1_beta1_address_string_to_bytes(address_string)
 
 AddressStringToBytes converts Address string to bytes
 
@@ -369,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -383,7 +455,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_bech32_prefix**
-> InlineResponse2002 cosmos_auth_v1_beta1_bech32_prefix()
+> InlineResponse2003 cosmos_auth_v1_beta1_bech32_prefix()
 
 Bech32Prefix queries bech32Prefix
 
@@ -413,7 +485,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -427,7 +499,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_module_account_by_name**
-> InlineResponse2006 cosmos_auth_v1_beta1_module_account_by_name(name)
+> InlineResponse2007 cosmos_auth_v1_beta1_module_account_by_name(name)
 
 ModuleAccountByName returns the module account info by module name
 
@@ -459,7 +531,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -473,7 +545,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_module_accounts**
-> InlineResponse2005 cosmos_auth_v1_beta1_module_accounts()
+> InlineResponse2006 cosmos_auth_v1_beta1_module_accounts()
 
 ModuleAccounts returns all the existing module accounts.
 
@@ -503,7 +575,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -517,7 +589,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_auth_v1_beta1_params**
-> InlineResponse2007 cosmos_auth_v1_beta1_params()
+> InlineResponse2008 cosmos_auth_v1_beta1_params()
 
 Params queries all parameters.
 
@@ -545,7 +617,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -559,7 +631,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_authz_v1_beta1_grantee_grants**
-> InlineResponse2009 cosmos_authz_v1_beta1_grantee_grants(grantee, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20010 cosmos_authz_v1_beta1_grantee_grants(grantee, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GranteeGrants returns a list of `GrantAuthorization` by grantee.
 
@@ -603,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -617,7 +689,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_authz_v1_beta1_granter_grants**
-> InlineResponse20010 cosmos_authz_v1_beta1_granter_grants(granter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20011 cosmos_authz_v1_beta1_granter_grants(granter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GranterGrants returns list of `GrantAuthorization`, granted by granter.
 
@@ -661,7 +733,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -675,7 +747,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_authz_v1_beta1_grants**
-> InlineResponse2008 cosmos_authz_v1_beta1_grants(granter=granter, grantee=grantee, msg_type_url=msg_type_url, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse2009 cosmos_authz_v1_beta1_grants(granter=granter, grantee=grantee, msg_type_url=msg_type_url, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Returns list of `Authorization`, granted to the grantee by the granter.
 
@@ -721,7 +793,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -735,9 +807,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_all_balances**
-> InlineResponse20011 cosmos_bank_v1_beta1_all_balances(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20012 cosmos_bank_v1_beta1_all_balances(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 AllBalances queries the balance of all coins for a single account.
+
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.
 
 ### Example
 ```python
@@ -777,7 +851,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -791,7 +865,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_balance**
-> InlineResponse20012 cosmos_bank_v1_beta1_balance(address, denom=denom)
+> InlineResponse20013 cosmos_bank_v1_beta1_balance(address, denom=denom)
 
 Balance queries the balance of a single coin for a single account.
 
@@ -825,7 +899,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -839,7 +913,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_denom_metadata**
-> InlineResponse20015 cosmos_bank_v1_beta1_denom_metadata(denom)
+> InlineResponse20016 cosmos_bank_v1_beta1_denom_metadata(denom)
 
 DenomsMetadata queries the client metadata of a given coin denomination.
 
@@ -871,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -885,11 +959,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_denom_owners**
-> InlineResponse20013 cosmos_bank_v1_beta1_denom_owners(denom, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20014 cosmos_bank_v1_beta1_denom_owners(denom, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 DenomOwners queries for all account addresses that own a particular token denomination.
 
-Since: cosmos-sdk 0.46
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46
 
 ### Example
 ```python
@@ -929,7 +1003,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -943,7 +1017,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_denoms_metadata**
-> InlineResponse20014 cosmos_bank_v1_beta1_denoms_metadata(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20015 cosmos_bank_v1_beta1_denoms_metadata(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 DenomsMetadata queries the client metadata for all registered coin denominations.
 
@@ -983,7 +1057,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -997,7 +1071,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_params**
-> InlineResponse20016 cosmos_bank_v1_beta1_params()
+> InlineResponse20017 cosmos_bank_v1_beta1_params()
 
 Params queries the parameters of x/bank module.
 
@@ -1025,7 +1099,115 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20017**](InlineResponse20017.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_bank_v1_beta1_send_enabled**
+> InlineResponse20018 cosmos_bank_v1_beta1_send_enabled(denoms=denoms, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+SendEnabled queries for SendEnabled entries.
+
+This query only returns denominations that have specific SendEnabled settings. Any denomination that does not have a specific setting will use the default params.default_send_enabled, and will not be returned by this query.  Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+denoms = ['denoms_example'] # list[str] | denoms is the specific denoms you want look up. Leave empty to get all entries. (optional)
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # SendEnabled queries for SendEnabled entries.
+    api_response = api_instance.cosmos_bank_v1_beta1_send_enabled(denoms=denoms, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_bank_v1_beta1_send_enabled: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **denoms** | [**list[str]**](str.md)| denoms is the specific denoms you want look up. Leave empty to get all entries. | [optional] 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**InlineResponse20018**](InlineResponse20018.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_bank_v1_beta1_spendable_balance_by_denom**
+> InlineResponse20020 cosmos_bank_v1_beta1_spendable_balance_by_denom(address, denom=denom)
+
+SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.
+
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.47
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address to query balances for.
+denom = 'denom_example' # str | denom is the coin denom to query balances for. (optional)
+
+try:
+    # SpendableBalanceByDenom queries the spendable balance of a single denom for a single account.
+    api_response = api_instance.cosmos_bank_v1_beta1_spendable_balance_by_denom(address, denom=denom)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_bank_v1_beta1_spendable_balance_by_denom: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address to query balances for. | 
+ **denom** | **str**| denom is the coin denom to query balances for. | [optional] 
+
+### Return type
+
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -1039,11 +1221,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_spendable_balances**
-> InlineResponse20017 cosmos_bank_v1_beta1_spendable_balances(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20019 cosmos_bank_v1_beta1_spendable_balances(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
-SpendableBalances queries the spenable balance of all coins for a single account.
+SpendableBalances queries the spendable balance of all coins for a single account.
 
-Since: cosmos-sdk 0.46
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.  Since: cosmos-sdk 0.46
 
 ### Example
 ```python
@@ -1063,7 +1245,7 @@ pagination_count_total = true # bool | count_total is set to true  to indicate t
 pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
 
 try:
-    # SpendableBalances queries the spenable balance of all coins for a single account.
+    # SpendableBalances queries the spendable balance of all coins for a single account.
     api_response = api_instance.cosmos_bank_v1_beta1_spendable_balances(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
     pprint(api_response)
 except ApiException as e:
@@ -1083,7 +1265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20019**](InlineResponse20019.md)
 
 ### Authorization
 
@@ -1097,9 +1279,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_bank_v1_beta1_supply_of**
-> InlineResponse20018 cosmos_bank_v1_beta1_supply_of(denom=denom)
+> InlineResponse20021 cosmos_bank_v1_beta1_supply_of(denom=denom)
 
 SupplyOf queries the supply of a single coin.
+
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.
 
 ### Example
 ```python
@@ -1129,7 +1313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -1146,6 +1330,8 @@ No authorization required
 > QueryTotalSupplyResponseIsTheResponseTypeForTheQueryTotalSupplyRPCmethod cosmos_bank_v1_beta1_total_supply(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 TotalSupply queries the total supply of all coins.
+
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.
 
 ### Example
 ```python
@@ -1196,8 +1382,50 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **cosmos_consensus_v1_params**
+> InlineResponse20030 cosmos_consensus_v1_params()
+
+Params queries the parameters of x/consensus_param module.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+
+try:
+    # Params queries the parameters of x/consensus_param module.
+    api_response = api_instance.cosmos_consensus_v1_params()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_consensus_v1_params: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse20030**](InlineResponse20030.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **cosmos_distribution_v1_beta1_delegation_rewards**
-> InlineResponse20028 cosmos_distribution_v1_beta1_delegation_rewards(delegator_address)
+> InlineResponse20031 cosmos_distribution_v1_beta1_delegation_rewards(delegator_address, validator_address)
 
 DelegationRewards queries the total rewards accrued by a delegation.
 
@@ -1211,11 +1439,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-delegator_address = 'delegator_address_example' # str | delegator_address defines the delegator address to query for.  validator_address defines the validator address to query for.   string validator_address = 2 [(cosmos_proto.scalar) = \"cosmos.AddressString\"];
+delegator_address = 'delegator_address_example' # str | delegator_address defines the delegator address to query for.
+validator_address = 'validator_address_example' # str | validator_address defines the validator address to query for.
 
 try:
     # DelegationRewards queries the total rewards accrued by a delegation.
-    api_response = api_instance.cosmos_distribution_v1_beta1_delegation_rewards(delegator_address)
+    api_response = api_instance.cosmos_distribution_v1_beta1_delegation_rewards(delegator_address, validator_address)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->cosmos_distribution_v1_beta1_delegation_rewards: %s\n" % e)
@@ -1225,11 +1454,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **delegator_address** | **str**| delegator_address defines the delegator address to query for.  validator_address defines the validator address to query for.   string validator_address &#x3D; 2 [(cosmos_proto.scalar) &#x3D; \&quot;cosmos.AddressString\&quot;]; | 
+ **delegator_address** | **str**| delegator_address defines the delegator address to query for. | 
+ **validator_address** | **str**| validator_address defines the validator address to query for. | 
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20031**](InlineResponse20031.md)
 
 ### Authorization
 
@@ -1243,7 +1473,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_distribution_v1_beta1_params**
-> InlineResponse20027 cosmos_distribution_v1_beta1_params()
+> InlineResponse20032 cosmos_distribution_v1_beta1_params()
 
 Params queries params of the distribution module.
 
@@ -1271,7 +1501,53 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20032**](InlineResponse20032.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_distribution_v1_beta1_validator_distribution_info**
+> InlineResponse20033 cosmos_distribution_v1_beta1_validator_distribution_info(validator_address)
+
+ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+validator_address = 'validator_address_example' # str | validator_address defines the validator address to query for.
+
+try:
+    # ValidatorDistributionInfo queries validator commission and self-delegation rewards for validator
+    api_response = api_instance.cosmos_distribution_v1_beta1_validator_distribution_info(validator_address)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_distribution_v1_beta1_validator_distribution_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **validator_address** | **str**| validator_address defines the validator address to query for. | 
+
+### Return type
+
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -1285,7 +1561,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_evidence_v1_beta1_all_evidence**
-> InlineResponse20029 cosmos_evidence_v1_beta1_all_evidence(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20034 cosmos_evidence_v1_beta1_all_evidence(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 AllEvidence queries all evidence.
 
@@ -1325,7 +1601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -1339,7 +1615,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_evidence_v1_beta1_evidence**
-> InlineResponse20030 cosmos_evidence_v1_beta1_evidence(evidence_hash)
+> InlineResponse20035 cosmos_evidence_v1_beta1_evidence(hash, evidence_hash=evidence_hash)
 
 Evidence queries evidence based on evidence hash.
 
@@ -1353,11 +1629,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-evidence_hash = 'B' # str | evidence_hash defines the hash of the requested evidence.
+hash = 'hash_example' # str | hash defines the evidence hash of the requested evidence.  Since: cosmos-sdk 0.47
+evidence_hash = 'B' # str | evidence_hash defines the hash of the requested evidence. Deprecated: Use hash, a HEX encoded string, instead. (optional)
 
 try:
     # Evidence queries evidence based on evidence hash.
-    api_response = api_instance.cosmos_evidence_v1_beta1_evidence(evidence_hash)
+    api_response = api_instance.cosmos_evidence_v1_beta1_evidence(hash, evidence_hash=evidence_hash)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling QueryApi->cosmos_evidence_v1_beta1_evidence: %s\n" % e)
@@ -1367,11 +1644,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **evidence_hash** | **str**| evidence_hash defines the hash of the requested evidence. | 
+ **hash** | **str**| hash defines the evidence hash of the requested evidence.  Since: cosmos-sdk 0.47 | 
+ **evidence_hash** | **str**| evidence_hash defines the hash of the requested evidence. Deprecated: Use hash, a HEX encoded string, instead. | [optional] 
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -1385,7 +1663,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_feegrant_v1_beta1_allowance**
-> InlineResponse20031 cosmos_feegrant_v1_beta1_allowance(granter, grantee)
+> InlineResponse20036 cosmos_feegrant_v1_beta1_allowance(granter, grantee)
 
 Allowance returns fee granted to the grantee by the granter.
 
@@ -1419,7 +1697,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20031**](InlineResponse20031.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -1433,7 +1711,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_feegrant_v1_beta1_allowances**
-> InlineResponse20032 cosmos_feegrant_v1_beta1_allowances(grantee, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20037 cosmos_feegrant_v1_beta1_allowances(grantee, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Allowances returns all the grants for address.
 
@@ -1475,7 +1753,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -1489,7 +1767,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_feegrant_v1_beta1_allowances_by_granter**
-> InlineResponse20033 cosmos_feegrant_v1_beta1_allowances_by_granter(granter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20038 cosmos_feegrant_v1_beta1_allowances_by_granter(granter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 AllowancesByGranter returns all the grants given by an address
 
@@ -1533,7 +1811,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -1547,7 +1825,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_deposit**
-> InlineResponse20038 cosmos_gov_v1_beta1_deposit(proposal_id, depositor)
+> InlineResponse20043 cosmos_gov_v1_beta1_deposit(proposal_id, depositor)
 
 Deposit queries single deposit information based proposalID, depositAddr.
 
@@ -1581,7 +1859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -1595,7 +1873,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_deposits**
-> InlineResponse20037 cosmos_gov_v1_beta1_deposits(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20042 cosmos_gov_v1_beta1_deposits(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Deposits queries all deposits of a single proposal.
 
@@ -1637,7 +1915,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -1651,7 +1929,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_params**
-> InlineResponse20042 cosmos_gov_v1_beta1_params(params_type)
+> InlineResponse20047 cosmos_gov_v1_beta1_params(params_type)
 
 Params queries all parameters of the gov module.
 
@@ -1683,7 +1961,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -1697,7 +1975,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_proposal**
-> InlineResponse20044 cosmos_gov_v1_beta1_proposal(proposal_id)
+> InlineResponse20049 cosmos_gov_v1_beta1_proposal(proposal_id)
 
 Proposal queries proposal details based on ProposalID.
 
@@ -1729,7 +2007,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -1743,7 +2021,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_proposals**
-> InlineResponse20043 cosmos_gov_v1_beta1_proposals(proposal_status=proposal_status, voter=voter, depositor=depositor, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20048 cosmos_gov_v1_beta1_proposals(proposal_status=proposal_status, voter=voter, depositor=depositor, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Proposals queries all proposals based on given status.
 
@@ -1789,7 +2067,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -1803,7 +2081,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_tally_result**
-> InlineResponse20045 cosmos_gov_v1_beta1_tally_result(proposal_id)
+> InlineResponse20050 cosmos_gov_v1_beta1_tally_result(proposal_id)
 
 TallyResult queries the tally of a proposal vote.
 
@@ -1835,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 
@@ -1849,7 +2127,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_vote**
-> InlineResponse20047 cosmos_gov_v1_beta1_vote(proposal_id, voter)
+> InlineResponse20052 cosmos_gov_v1_beta1_vote(proposal_id, voter)
 
 Vote queries voted information based on proposalID, voterAddr.
 
@@ -1883,7 +2161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -1897,7 +2175,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_beta1_votes**
-> InlineResponse20046 cosmos_gov_v1_beta1_votes(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20051 cosmos_gov_v1_beta1_votes(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Votes queries votes of a given proposal.
 
@@ -1939,7 +2217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -1953,7 +2231,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_deposit**
-> InlineResponse20038 cosmos_gov_v1_deposit(proposal_id, depositor)
+> InlineResponse20043 cosmos_gov_v1_deposit(proposal_id, depositor)
 
 Deposit queries single deposit information based proposalID, depositAddr.
 
@@ -1987,7 +2265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -2001,7 +2279,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_deposits**
-> InlineResponse20037 cosmos_gov_v1_deposits(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20042 cosmos_gov_v1_deposits(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Deposits queries all deposits of a single proposal.
 
@@ -2043,7 +2321,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -2057,7 +2335,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_params**
-> InlineResponse20034 cosmos_gov_v1_params(params_type)
+> InlineResponse20039 cosmos_gov_v1_params(params_type)
 
 Params queries all parameters of the gov module.
 
@@ -2089,7 +2367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -2103,7 +2381,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_proposal**
-> InlineResponse20036 cosmos_gov_v1_proposal(proposal_id)
+> InlineResponse20041 cosmos_gov_v1_proposal(proposal_id)
 
 Proposal queries proposal details based on ProposalID.
 
@@ -2135,7 +2413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -2149,7 +2427,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_proposals**
-> InlineResponse20035 cosmos_gov_v1_proposals(proposal_status=proposal_status, voter=voter, depositor=depositor, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20040 cosmos_gov_v1_proposals(proposal_status=proposal_status, voter=voter, depositor=depositor, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Proposals queries all proposals based on given status.
 
@@ -2195,7 +2473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -2209,7 +2487,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_tally_result**
-> InlineResponse20039 cosmos_gov_v1_tally_result(proposal_id)
+> InlineResponse20044 cosmos_gov_v1_tally_result(proposal_id)
 
 TallyResult queries the tally of a proposal vote.
 
@@ -2241,7 +2519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -2255,7 +2533,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_vote**
-> InlineResponse20041 cosmos_gov_v1_vote(proposal_id, voter)
+> InlineResponse20046 cosmos_gov_v1_vote(proposal_id, voter)
 
 Vote queries voted information based on proposalID, voterAddr.
 
@@ -2289,7 +2567,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -2303,7 +2581,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_gov_v1_votes**
-> InlineResponse20040 cosmos_gov_v1_votes(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20045 cosmos_gov_v1_votes(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Votes queries votes of a given proposal.
 
@@ -2345,7 +2623,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -2359,7 +2637,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_group_v1_group_info**
-> InlineResponse20048 cosmos_group_v1_group_info(group_id)
+> InlineResponse20054 cosmos_group_v1_group_info(group_id)
 
 GroupInfo queries group info based on group id.
 
@@ -2391,7 +2669,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -2405,9 +2683,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_group_v1_group_members**
-> InlineResponse20049 cosmos_group_v1_group_members(group_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20055 cosmos_group_v1_group_members(group_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
-GroupMembers queries members of a group
+GroupMembers queries members of a group by group id.
 
 ### Example
 ```python
@@ -2427,7 +2705,7 @@ pagination_count_total = true # bool | count_total is set to true  to indicate t
 pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
 
 try:
-    # GroupMembers queries members of a group
+    # GroupMembers queries members of a group by group id.
     api_response = api_instance.cosmos_group_v1_group_members(group_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
     pprint(api_response)
 except ApiException as e:
@@ -2447,7 +2725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -2460,10 +2738,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cosmos_group_v1_group_policies_by_admin**
-> InlineResponse20050 cosmos_group_v1_group_policies_by_admin(admin, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+# **cosmos_group_v1_groups**
+> InlineResponse20056 cosmos_group_v1_groups(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
-GroupsByAdmin queries group policies by admin address.
+Groups queries all groups in state.
+
+Since: cosmos-sdk 0.47.1
 
 ### Example
 ```python
@@ -2475,7 +2755,6 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-admin = 'admin_example' # str | admin is the admin address of the group policy.
 pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
 pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
 pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
@@ -2483,18 +2762,17 @@ pagination_count_total = true # bool | count_total is set to true  to indicate t
 pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
 
 try:
-    # GroupsByAdmin queries group policies by admin address.
-    api_response = api_instance.cosmos_group_v1_group_policies_by_admin(admin, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    # Groups queries all groups in state.
+    api_response = api_instance.cosmos_group_v1_groups(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_group_policies_by_admin: %s\n" % e)
+    print("Exception when calling QueryApi->cosmos_group_v1_groups: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **admin** | **str**| admin is the admin address of the group policy. | 
  **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
  **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
  **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
@@ -2503,109 +2781,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_group_policies_by_group**
-> InlineResponse20051 cosmos_group_v1_group_policies_by_group(group_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-
-GroupPoliciesByGroup queries group policies by group id.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-group_id = 'group_id_example' # str | group_id is the unique ID of the group policy's group.
-pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
-pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
-pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
-pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
-pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
-
-try:
-    # GroupPoliciesByGroup queries group policies by group id.
-    api_response = api_instance.cosmos_group_v1_group_policies_by_group(group_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_group_policies_by_group: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **str**| group_id is the unique ID of the group policy&#x27;s group. | 
- **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
-
-### Return type
-
-[**InlineResponse20051**](InlineResponse20051.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_group_policy_info**
-> InlineResponse20052 cosmos_group_v1_group_policy_info(address)
-
-GroupPolicyInfo queries group policy info based on account address of group policy.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-address = 'address_example' # str | address is the account address of the group policy.
-
-try:
-    # GroupPolicyInfo queries group policy info based on account address of group policy.
-    api_response = api_instance.cosmos_group_v1_group_policy_info(address)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_group_policy_info: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**| address is the account address of the group policy. | 
-
-### Return type
-
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20056**](InlineResponse20056.md)
 
 ### Authorization
 
@@ -2619,7 +2795,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_group_v1_groups_by_admin**
-> InlineResponse20053 cosmos_group_v1_groups_by_admin(admin, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20057 cosmos_group_v1_groups_by_admin(admin, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GroupsByAdmin queries groups by admin address.
 
@@ -2661,7 +2837,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20057**](InlineResponse20057.md)
 
 ### Authorization
 
@@ -2675,7 +2851,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_group_v1_groups_by_member**
-> InlineResponse20054 cosmos_group_v1_groups_by_member(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20058 cosmos_group_v1_groups_by_member(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 GroupsByMember queries groups by member address.
 
@@ -2717,202 +2893,6 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20054**](InlineResponse20054.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_proposal**
-> InlineResponse20055 cosmos_group_v1_proposal(proposal_id)
-
-Proposal queries a proposal based on proposal id.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-proposal_id = 'proposal_id_example' # str | proposal_id is the unique ID of a proposal.
-
-try:
-    # Proposal queries a proposal based on proposal id.
-    api_response = api_instance.cosmos_group_v1_proposal(proposal_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_proposal: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **proposal_id** | **str**| proposal_id is the unique ID of a proposal. | 
-
-### Return type
-
-[**InlineResponse20055**](InlineResponse20055.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_proposals_by_group_policy**
-> InlineResponse20057 cosmos_group_v1_proposals_by_group_policy(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-
-ProposalsByGroupPolicy queries proposals based on account address of group policy.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-address = 'address_example' # str | address is the account address of the group policy related to proposals.
-pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
-pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
-pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
-pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
-pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
-
-try:
-    # ProposalsByGroupPolicy queries proposals based on account address of group policy.
-    api_response = api_instance.cosmos_group_v1_proposals_by_group_policy(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_proposals_by_group_policy: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**| address is the account address of the group policy related to proposals. | 
- **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
-
-### Return type
-
-[**InlineResponse20057**](InlineResponse20057.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_tally_result**
-> InlineResponse20056 cosmos_group_v1_tally_result(proposal_id)
-
-TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the `final_tally_result` state stored in the proposal itself.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-proposal_id = 'proposal_id_example' # str | proposal_id is the unique id of a proposal.
-
-try:
-    # TallyResult returns the tally result of a proposal. If the proposal is still in voting period, then this query computes the current tally state, which might not be final. On the other hand, if the proposal is final, then it simply returns the `final_tally_result` state stored in the proposal itself.
-    api_response = api_instance.cosmos_group_v1_tally_result(proposal_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_tally_result: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **proposal_id** | **str**| proposal_id is the unique id of a proposal. | 
-
-### Return type
-
-[**InlineResponse20056**](InlineResponse20056.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_vote_by_proposal_voter**
-> InlineResponse20058 cosmos_group_v1_vote_by_proposal_voter(proposal_id, voter)
-
-VoteByProposalVoter queries a vote by proposal id and voter.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-proposal_id = 'proposal_id_example' # str | proposal_id is the unique ID of a proposal.
-voter = 'voter_example' # str | voter is a proposal voter account address.
-
-try:
-    # VoteByProposalVoter queries a vote by proposal id and voter.
-    api_response = api_instance.cosmos_group_v1_vote_by_proposal_voter(proposal_id, voter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_vote_by_proposal_voter: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **proposal_id** | **str**| proposal_id is the unique ID of a proposal. | 
- **voter** | **str**| voter is a proposal voter account address. | 
-
-### Return type
-
 [**InlineResponse20058**](InlineResponse20058.md)
 
 ### Authorization
@@ -2926,120 +2906,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cosmos_group_v1_votes_by_proposal**
-> InlineResponse20059 cosmos_group_v1_votes_by_proposal(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-
-VotesByProposal queries a vote by proposal.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-proposal_id = 'proposal_id_example' # str | proposal_id is the unique ID of a proposal.
-pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
-pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
-pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
-pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
-pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
-
-try:
-    # VotesByProposal queries a vote by proposal.
-    api_response = api_instance.cosmos_group_v1_votes_by_proposal(proposal_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_votes_by_proposal: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **proposal_id** | **str**| proposal_id is the unique ID of a proposal. | 
- **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
-
-### Return type
-
-[**InlineResponse20059**](InlineResponse20059.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cosmos_group_v1_votes_by_voter**
-> InlineResponse20060 cosmos_group_v1_votes_by_voter(voter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-
-VotesByVoter queries a vote by voter.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.QueryApi()
-voter = 'voter_example' # str | voter is a proposal voter account address.
-pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
-pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
-pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
-pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
-pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
-
-try:
-    # VotesByVoter queries a vote by voter.
-    api_response = api_instance.cosmos_group_v1_votes_by_voter(voter, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling QueryApi->cosmos_group_v1_votes_by_voter: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **voter** | **str**| voter is a proposal voter account address. | 
- **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
- **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
- **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
- **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
- **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
-
-### Return type
-
-[**InlineResponse20060**](InlineResponse20060.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **cosmos_mint_v1_beta1_annual_provisions**
-> InlineResponse20061 cosmos_mint_v1_beta1_annual_provisions()
+> InlineResponse20059 cosmos_mint_v1_beta1_annual_provisions()
 
 AnnualProvisions current minting annual provisions value.
 
@@ -3067,7 +2935,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20061**](InlineResponse20061.md)
+[**InlineResponse20059**](InlineResponse20059.md)
 
 ### Authorization
 
@@ -3081,7 +2949,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_mint_v1_beta1_inflation**
-> InlineResponse20062 cosmos_mint_v1_beta1_inflation()
+> InlineResponse20060 cosmos_mint_v1_beta1_inflation()
 
 Inflation returns the current minting inflation value.
 
@@ -3109,7 +2977,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20062**](InlineResponse20062.md)
+[**InlineResponse20060**](InlineResponse20060.md)
 
 ### Authorization
 
@@ -3123,7 +2991,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_mint_v1_beta1_params**
-> InlineResponse20063 cosmos_mint_v1_beta1_params()
+> InlineResponse20061 cosmos_mint_v1_beta1_params()
 
 Params returns the total set of minting parameters.
 
@@ -3151,7 +3019,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20063**](InlineResponse20063.md)
+[**InlineResponse20061**](InlineResponse20061.md)
 
 ### Authorization
 
@@ -3179,8 +3047,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-owner = 'owner_example' # str | 
-class_id = 'class_id_example' # str | 
+owner = 'owner_example' # str | owner is the owner address of the nft
+class_id = 'class_id_example' # str | class_id associated with the nft
 
 try:
     # Balance queries the number of NFTs of a given class owned by the owner, same as balanceOf in ERC721
@@ -3194,8 +3062,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **owner** | **str**|  | 
- **class_id** | **str**|  | 
+ **owner** | **str**| owner is the owner address of the nft | 
+ **class_id** | **str**| class_id associated with the nft | 
 
 ### Return type
 
@@ -3227,7 +3095,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-class_id = 'class_id_example' # str | 
+class_id = 'class_id_example' # str | class_id associated with the nft
 
 try:
     # Class queries an NFT class based on its id
@@ -3241,7 +3109,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_id** | **str**|  | 
+ **class_id** | **str**| class_id associated with the nft | 
 
 ### Return type
 
@@ -3327,8 +3195,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-class_id = 'class_id_example' # str | 
-id = 'id_example' # str | 
+class_id = 'class_id_example' # str | class_id associated with the nft
+id = 'id_example' # str | id is a unique identifier of the NFT
 
 try:
     # NFT queries an NFT based on its class and id.
@@ -3342,8 +3210,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_id** | **str**|  | 
- **id** | **str**|  | 
+ **class_id** | **str**| class_id associated with the nft | 
+ **id** | **str**| id is a unique identifier of the NFT | 
 
 ### Return type
 
@@ -3375,8 +3243,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-class_id = 'class_id_example' # str |  (optional)
-owner = 'owner_example' # str |  (optional)
+class_id = 'class_id_example' # str | class_id associated with the nft (optional)
+owner = 'owner_example' # str | owner is the owner address of the nft (optional)
 pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
 pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
 pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
@@ -3395,8 +3263,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_id** | **str**|  | [optional] 
- **owner** | **str**|  | [optional] 
+ **class_id** | **str**| class_id associated with the nft | [optional] 
+ **owner** | **str**| owner is the owner address of the nft | [optional] 
  **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
  **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
  **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
@@ -3433,8 +3301,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-class_id = 'class_id_example' # str | 
-id = 'id_example' # str | 
+class_id = 'class_id_example' # str | class_id associated with the nft
+id = 'id_example' # str | id is a unique identifier of the NFT
 
 try:
     # Owner queries the owner of the NFT based on its class and id, same as ownerOf in ERC721
@@ -3448,8 +3316,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_id** | **str**|  | 
- **id** | **str**|  | 
+ **class_id** | **str**| class_id associated with the nft | 
+ **id** | **str**| id is a unique identifier of the NFT | 
 
 ### Return type
 
@@ -3481,7 +3349,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.QueryApi()
-class_id = 'class_id_example' # str | 
+class_id = 'class_id_example' # str | class_id associated with the nft
 
 try:
     # Supply queries the number of NFTs from the given class, same as totalSupply of ERC721.
@@ -3495,7 +3363,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_id** | **str**|  | 
+ **class_id** | **str**| class_id associated with the nft | 
 
 ### Return type
 
@@ -3513,7 +3381,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_params_v1_beta1_params**
-> InlineResponse20064 cosmos_params_v1_beta1_params(subspace=subspace, key=key)
+> InlineResponse20062 cosmos_params_v1_beta1_params(subspace=subspace, key=key)
 
 Params queries a specific parameter of a module, given its subspace and key.
 
@@ -3547,7 +3415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20064**](InlineResponse20064.md)
+[**InlineResponse20062**](InlineResponse20062.md)
 
 ### Authorization
 
@@ -3561,7 +3429,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_params_v1_beta1_subspaces**
-> InlineResponse20065 cosmos_params_v1_beta1_subspaces()
+> InlineResponse20063 cosmos_params_v1_beta1_subspaces()
 
 Subspaces queries for all registered subspaces and all keys for a subspace.
 
@@ -3591,7 +3459,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20065**](InlineResponse20065.md)
+[**InlineResponse20063**](InlineResponse20063.md)
 
 ### Authorization
 
@@ -3747,7 +3615,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_delegation**
-> InlineResponse20066 cosmos_staking_v1_beta1_delegation(delegator_addr)
+> InlineResponse20064 cosmos_staking_v1_beta1_delegation(delegator_addr)
 
 Delegation queries delegate info for given validator delegator pair.
 
@@ -3779,7 +3647,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20066**](InlineResponse20066.md)
+[**InlineResponse20064**](InlineResponse20064.md)
 
 ### Authorization
 
@@ -3793,7 +3661,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_fixed_deposit**
-> InlineResponse20068 cosmos_staking_v1_beta1_fixed_deposit(id, address=address)
+> InlineResponse20066 cosmos_staking_v1_beta1_fixed_deposit(id, address=address)
 
 Queries a list of FixedDeposit items.
 
@@ -3827,7 +3695,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20068**](InlineResponse20068.md)
+[**InlineResponse20066**](InlineResponse20066.md)
 
 ### Authorization
 
@@ -3841,7 +3709,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_fixed_deposit_all**
-> InlineResponse20067 cosmos_staking_v1_beta1_fixed_deposit_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20065 cosmos_staking_v1_beta1_fixed_deposit_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 
 
@@ -3880,7 +3748,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20067**](InlineResponse20067.md)
+[**InlineResponse20065**](InlineResponse20065.md)
 
 ### Authorization
 
@@ -3894,7 +3762,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_fixed_deposit_by_acct**
-> InlineResponse20069 cosmos_staking_v1_beta1_fixed_deposit_by_acct(account, query_type)
+> InlineResponse20067 cosmos_staking_v1_beta1_fixed_deposit_by_acct(account, query_type)
 
 Queries a list of FixedDepositByAcct items.
 
@@ -3928,7 +3796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20067**](InlineResponse20067.md)
 
 ### Authorization
 
@@ -3942,7 +3810,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_fixed_deposit_by_region**
-> InlineResponse20069 cosmos_staking_v1_beta1_fixed_deposit_by_region(regionid, query_type=query_type)
+> InlineResponse20067 cosmos_staking_v1_beta1_fixed_deposit_by_region(regionid, query_type=query_type)
 
 Queries a list of FixedDepositByRegion items.
 
@@ -3976,7 +3844,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20069**](InlineResponse20069.md)
+[**InlineResponse20067**](InlineResponse20067.md)
 
 ### Authorization
 
@@ -3990,7 +3858,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_fixed_deposit_interest_rate**
-> InlineResponse20070 cosmos_staking_v1_beta1_fixed_deposit_interest_rate(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20068 cosmos_staking_v1_beta1_fixed_deposit_interest_rate(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Queries FixedDepositInterest Item.
 
@@ -4030,7 +3898,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20070**](InlineResponse20070.md)
+[**InlineResponse20068**](InlineResponse20068.md)
 
 ### Authorization
 
@@ -4044,7 +3912,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_historical_info**
-> InlineResponse20071 cosmos_staking_v1_beta1_historical_info(height)
+> InlineResponse20069 cosmos_staking_v1_beta1_historical_info(height)
 
 HistoricalInfo queries the historical info for given height.
 
@@ -4076,7 +3944,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20071**](InlineResponse20071.md)
+[**InlineResponse20069**](InlineResponse20069.md)
 
 ### Authorization
 
@@ -4090,7 +3958,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_kyc**
-> InlineResponse20073 cosmos_staking_v1_beta1_kyc(account)
+> InlineResponse20071 cosmos_staking_v1_beta1_kyc(account)
 
 Queries a list of Kyc items.
 
@@ -4122,7 +3990,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20073**](InlineResponse20073.md)
+[**InlineResponse20071**](InlineResponse20071.md)
 
 ### Authorization
 
@@ -4136,7 +4004,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_kyc_all**
-> InlineResponse20072 cosmos_staking_v1_beta1_kyc_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20070 cosmos_staking_v1_beta1_kyc_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 
 
@@ -4175,7 +4043,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20070**](InlineResponse20070.md)
 
 ### Authorization
 
@@ -4189,7 +4057,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_kyc_by_region**
-> InlineResponse20072 cosmos_staking_v1_beta1_kyc_by_region(region_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20070 cosmos_staking_v1_beta1_kyc_by_region(region_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Queries a list of KycByRegion items.
 
@@ -4231,7 +4099,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20072**](InlineResponse20072.md)
+[**InlineResponse20070**](InlineResponse20070.md)
 
 ### Authorization
 
@@ -4245,7 +4113,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_params**
-> InlineResponse20074 cosmos_staking_v1_beta1_params()
+> InlineResponse20072 cosmos_staking_v1_beta1_params()
 
 Parameters queries the staking parameters.
 
@@ -4273,7 +4141,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20074**](InlineResponse20074.md)
+[**InlineResponse20072**](InlineResponse20072.md)
 
 ### Authorization
 
@@ -4287,7 +4155,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_pool**
-> InlineResponse20075 cosmos_staking_v1_beta1_pool()
+> InlineResponse20073 cosmos_staking_v1_beta1_pool()
 
 Pool queries the pool info.
 
@@ -4315,7 +4183,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20075**](InlineResponse20075.md)
+[**InlineResponse20073**](InlineResponse20073.md)
 
 ### Authorization
 
@@ -4329,7 +4197,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_region**
-> InlineResponse20077 cosmos_staking_v1_beta1_region(region_id)
+> InlineResponse20075 cosmos_staking_v1_beta1_region(region_id)
 
 Queries a list of Region items.
 
@@ -4361,7 +4229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20077**](InlineResponse20077.md)
+[**InlineResponse20075**](InlineResponse20075.md)
 
 ### Authorization
 
@@ -4375,7 +4243,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_staking_v1_beta1_region_all**
-> InlineResponse20076 cosmos_staking_v1_beta1_region_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20074 cosmos_staking_v1_beta1_region_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 
 
@@ -4414,7 +4282,150 @@ Name | Type | Description  | Notes
 
 ### Return type
 
+[**InlineResponse20074**](InlineResponse20074.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_staking_v1_beta1_siid**
+> InlineResponse20077 cosmos_staking_v1_beta1_siid(siid)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+siid = 'siid_example' # str | 
+
+try:
+    api_response = api_instance.cosmos_staking_v1_beta1_siid(siid)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_staking_v1_beta1_siid: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **siid** | **str**|  | 
+
+### Return type
+
+[**InlineResponse20077**](InlineResponse20077.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_staking_v1_beta1_siid_all**
+> InlineResponse20076 cosmos_staking_v1_beta1_siid_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    api_response = api_instance.cosmos_staking_v1_beta1_siid_all(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_staking_v1_beta1_siid_all: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
 [**InlineResponse20076**](InlineResponse20076.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmos_staking_v1_beta1_siid_by_account**
+> InlineResponse20077 cosmos_staking_v1_beta1_siid_by_account(account)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+account = 'account_example' # str | 
+
+try:
+    api_response = api_instance.cosmos_staking_v1_beta1_siid_by_account(account)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmos_staking_v1_beta1_siid_by_account: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account** | **str**|  | 
+
+### Return type
+
+[**InlineResponse20077**](InlineResponse20077.md)
 
 ### Authorization
 
@@ -4524,6 +4535,8 @@ No authorization required
 
 ValidatorDelegations queries delegate info for given validator.
 
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.
+
 ### Example
 ```python
 from __future__ import print_function
@@ -4580,6 +4593,8 @@ No authorization required
 
 Validators queries all validators that match the given status.
 
+When called from another module, this query might consume a high amount of gas if the pagination field is incorrectly set.
+
 ### Example
 ```python
 from __future__ import print_function
@@ -4632,7 +4647,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_upgrade_v1_beta1_applied_plan**
-> InlineResponse20081 cosmos_upgrade_v1_beta1_applied_plan(name)
+> InlineResponse20084 cosmos_upgrade_v1_beta1_applied_plan(name)
 
 AppliedPlan queries a previously applied upgrade plan by its name.
 
@@ -4664,7 +4679,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20081**](InlineResponse20081.md)
+[**InlineResponse20084**](InlineResponse20084.md)
 
 ### Authorization
 
@@ -4722,7 +4737,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_upgrade_v1_beta1_current_plan**
-> InlineResponse20082 cosmos_upgrade_v1_beta1_current_plan()
+> InlineResponse20085 cosmos_upgrade_v1_beta1_current_plan()
 
 CurrentPlan queries the current upgrade plan.
 
@@ -4750,7 +4765,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20082**](InlineResponse20082.md)
+[**InlineResponse20085**](InlineResponse20085.md)
 
 ### Authorization
 
@@ -4764,7 +4779,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_upgrade_v1_beta1_module_versions**
-> InlineResponse20083 cosmos_upgrade_v1_beta1_module_versions(module_name=module_name)
+> InlineResponse20086 cosmos_upgrade_v1_beta1_module_versions(module_name=module_name)
 
 ModuleVersions queries the list of module versions from state.
 
@@ -4798,7 +4813,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20083**](InlineResponse20083.md)
+[**InlineResponse20086**](InlineResponse20086.md)
 
 ### Authorization
 
@@ -4812,7 +4827,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cosmos_upgrade_v1_beta1_upgraded_consensus_state**
-> InlineResponse20084 cosmos_upgrade_v1_beta1_upgraded_consensus_state(last_height)
+> InlineResponse20087 cosmos_upgrade_v1_beta1_upgraded_consensus_state(last_height)
 
 UpgradedConsensusState queries the consensus state that will serve as a trusted kernel for the next version of this chain. It will only be stored at the last height of this chain. UpgradedConsensusState RPC not supported with legacy querier This rpc is deprecated now that IBC has its own replacement (https://github.com/cosmos/ibc-go/blob/2c880a22e9f9cc75f62b527ca94aa75ce1106001/proto/ibc/core/client/v1/query.proto#L54)
 
@@ -4844,7 +4859,1087 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20084**](InlineResponse20084.md)
+[**InlineResponse20087**](InlineResponse20087.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_all_contract_state**
+> QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod cosmwasm_wasm_v1_all_contract_state(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+AllContractState gets all raw store data for a single contract
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address of the contract
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # AllContractState gets all raw store data for a single contract
+    api_response = api_instance.cosmwasm_wasm_v1_all_contract_state(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_all_contract_state: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address of the contract | 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod**](QueryAllContractStateResponseIsTheResponseTypeForTheQueryAllContractStateRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_code**
+> QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod cosmwasm_wasm_v1_code(code_id)
+
+Code gets the binary code and metadata for a singe wasm code
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+code_id = 'code_id_example' # str | grpc-gateway_out does not support Go style CodID
+
+try:
+    # Code gets the binary code and metadata for a singe wasm code
+    api_response = api_instance.cosmwasm_wasm_v1_code(code_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code_id** | **str**| grpc-gateway_out does not support Go style CodID | 
+
+### Return type
+
+[**QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod**](QueryCodeResponseIsTheResponseTypeForTheQueryCodeRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_codes**
+> QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod cosmwasm_wasm_v1_codes(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+Codes gets the metadata for all stored wasm codes
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # Codes gets the metadata for all stored wasm codes
+    api_response = api_instance.cosmwasm_wasm_v1_codes(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_codes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod**](QueryCodesResponseIsTheResponseTypeForTheQueryCodesRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_contract_history**
+> QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod cosmwasm_wasm_v1_contract_history(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+ContractHistory gets the contract code history
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address of the contract to query
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # ContractHistory gets the contract code history
+    api_response = api_instance.cosmwasm_wasm_v1_contract_history(address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_contract_history: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address of the contract to query | 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod**](QueryContractHistoryResponseIsTheResponseTypeForTheQueryContractHistoryRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_contract_info**
+> QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod cosmwasm_wasm_v1_contract_info(address)
+
+ContractInfo gets the contract meta data
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address of the contract to query
+
+try:
+    # ContractInfo gets the contract meta data
+    api_response = api_instance.cosmwasm_wasm_v1_contract_info(address)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_contract_info: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address of the contract to query | 
+
+### Return type
+
+[**QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod**](QueryContractInfoResponseIsTheResponseTypeForTheQueryContractInfoRPCmethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_contracts_by_code**
+> QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod cosmwasm_wasm_v1_contracts_by_code(code_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+ContractsByCode lists all smart contracts for a code id
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+code_id = 'code_id_example' # str | grpc-gateway_out does not support Go style CodID
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # ContractsByCode lists all smart contracts for a code id
+    api_response = api_instance.cosmwasm_wasm_v1_contracts_by_code(code_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_contracts_by_code: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code_id** | **str**| grpc-gateway_out does not support Go style CodID | 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod**](QueryContractsByCodeResponseIsTheResponseTypeForTheQueryContractsByCodeRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_contracts_by_creator**
+> InlineResponse20089 cosmwasm_wasm_v1_contracts_by_creator(creator_address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+ContractsByCreator gets the contracts by creator
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+creator_address = 'creator_address_example' # str | CreatorAddress is the address of contract creator
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # ContractsByCreator gets the contracts by creator
+    api_response = api_instance.cosmwasm_wasm_v1_contracts_by_creator(creator_address, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_contracts_by_creator: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **creator_address** | **str**| CreatorAddress is the address of contract creator | 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**InlineResponse20089**](InlineResponse20089.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_params**
+> InlineResponse20088 cosmwasm_wasm_v1_params()
+
+Params gets the module params
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+
+try:
+    # Params gets the module params
+    api_response = api_instance.cosmwasm_wasm_v1_params()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_params: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse20088**](InlineResponse20088.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_pinned_codes**
+> QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod cosmwasm_wasm_v1_pinned_codes(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+
+PinnedCodes gets the pinned code ids
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+
+try:
+    # PinnedCodes gets the pinned code ids
+    api_response = api_instance.cosmwasm_wasm_v1_pinned_codes(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_pinned_codes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+
+### Return type
+
+[**QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod**](QueryPinnedCodesResponseIsTheResponseTypeForTheQueryPinnedCodesRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_raw_contract_state**
+> QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod cosmwasm_wasm_v1_raw_contract_state(address, query_data)
+
+RawContractState gets single key from the raw store data of a contract
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address of the contract
+query_data = 'B' # str | 
+
+try:
+    # RawContractState gets single key from the raw store data of a contract
+    api_response = api_instance.cosmwasm_wasm_v1_raw_contract_state(address, query_data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_raw_contract_state: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address of the contract | 
+ **query_data** | **str**|  | 
+
+### Return type
+
+[**QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod**](QueryRawContractStateResponseIsTheResponseTypeForTheQueryRawContractStateRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cosmwasm_wasm_v1_smart_contract_state**
+> QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod cosmwasm_wasm_v1_smart_contract_state(address, query_data)
+
+SmartContractState get smart query result from the contract
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+address = 'address_example' # str | address is the address of the contract
+query_data = 'B' # str | QueryData contains the query data passed to the contract
+
+try:
+    # SmartContractState get smart query result from the contract
+    api_response = api_instance.cosmwasm_wasm_v1_smart_contract_state(address, query_data)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->cosmwasm_wasm_v1_smart_contract_state: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| address is the address of the contract | 
+ **query_data** | **str**| QueryData contains the query data passed to the contract | 
+
+### Return type
+
+[**QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod**](QuerySmartContractStateResponseIsTheResponseTypeForTheQuerySmartContractStateRPCMethod.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_counterparty_payee**
+> QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc ibc_applications_fee_v1_counterparty_payee(channel_id, relayer)
+
+CounterpartyPayee returns the registered counterparty payee for forward relaying
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+channel_id = 'channel_id_example' # str | unique channel identifier
+relayer = 'relayer_example' # str | the relayer address to which the counterparty is registered
+
+try:
+    # CounterpartyPayee returns the registered counterparty payee for forward relaying
+    api_response = api_instance.ibc_applications_fee_v1_counterparty_payee(channel_id, relayer)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_counterparty_payee: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_id** | **str**| unique channel identifier | 
+ **relayer** | **str**| the relayer address to which the counterparty is registered | 
+
+### Return type
+
+[**QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc**](QueryCounterpartyPayeeResponseDefinesTheResponseTypeForTheCounterpartyPayeeRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_fee_enabled_channel**
+> QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc ibc_applications_fee_v1_fee_enabled_channel(channel_id, port_id)
+
+FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+channel_id = 'channel_id_example' # str | unique channel identifier
+port_id = 'port_id_example' # str | unique port identifier
+
+try:
+    # FeeEnabledChannel returns true if the provided port and channel identifiers belong to a fee enabled channel
+    api_response = api_instance.ibc_applications_fee_v1_fee_enabled_channel(channel_id, port_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_fee_enabled_channel: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_id** | **str**| unique channel identifier | 
+ **port_id** | **str**| unique port identifier | 
+
+### Return type
+
+[**QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc**](QueryFeeEnabledChannelResponseDefinesTheResponseTypeForTheFeeEnabledChannelRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_fee_enabled_channels**
+> QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc ibc_applications_fee_v1_fee_enabled_channels(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+
+FeeEnabledChannels returns a list of all fee enabled channels
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+query_height = 'query_height_example' # str | block height at which to query (optional)
+
+try:
+    # FeeEnabledChannels returns a list of all fee enabled channels
+    api_response = api_instance.ibc_applications_fee_v1_fee_enabled_channels(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_fee_enabled_channels: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+ **query_height** | **str**| block height at which to query | [optional] 
+
+### Return type
+
+[**QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc**](QueryFeeEnabledChannelsResponseDefinesTheResponseTypeForTheFeeEnabledChannelsRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_incentivized_packet**
+> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc ibc_applications_fee_v1_incentivized_packet(packet_id_channel_id, packet_id_port_id, packet_id_sequence, query_height=query_height)
+
+IncentivizedPacket returns all packet fees for a packet given its identifier
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+packet_id_channel_id = 'packet_id_channel_id_example' # str | channel unique identifier
+packet_id_port_id = 'packet_id_port_id_example' # str | channel port identifier
+packet_id_sequence = 'packet_id_sequence_example' # str | packet sequence
+query_height = 'query_height_example' # str | block height at which to query (optional)
+
+try:
+    # IncentivizedPacket returns all packet fees for a packet given its identifier
+    api_response = api_instance.ibc_applications_fee_v1_incentivized_packet(packet_id_channel_id, packet_id_port_id, packet_id_sequence, query_height=query_height)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_incentivized_packet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **packet_id_channel_id** | **str**| channel unique identifier | 
+ **packet_id_port_id** | **str**| channel port identifier | 
+ **packet_id_sequence** | **str**| packet sequence | 
+ **query_height** | **str**| block height at which to query | [optional] 
+
+### Return type
+
+[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_incentivized_packets**
+> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc ibc_applications_fee_v1_incentivized_packets(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+
+IncentivizedPackets returns all incentivized packets and their associated fees
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+query_height = 'query_height_example' # str | block height at which to query (optional)
+
+try:
+    # IncentivizedPackets returns all incentivized packets and their associated fees
+    api_response = api_instance.ibc_applications_fee_v1_incentivized_packets(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_incentivized_packets: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+ **query_height** | **str**| block height at which to query | [optional] 
+
+### Return type
+
+[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_incentivized_packets_for_channel**
+> QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC ibc_applications_fee_v1_incentivized_packets_for_channel(channel_id, port_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+
+Gets all incentivized packets for a specific channel
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+channel_id = 'channel_id_example' # str | 
+port_id = 'port_id_example' # str | 
+pagination_key = 'B' # str | key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. (optional)
+pagination_offset = 'pagination_offset_example' # str | offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. (optional)
+pagination_limit = 'pagination_limit_example' # str | limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. (optional)
+pagination_count_total = true # bool | count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. (optional)
+pagination_reverse = true # bool | reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 (optional)
+query_height = 'query_height_example' # str | Height to query at (optional)
+
+try:
+    # Gets all incentivized packets for a specific channel
+    api_response = api_instance.ibc_applications_fee_v1_incentivized_packets_for_channel(channel_id, port_id, pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse, query_height=query_height)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_incentivized_packets_for_channel: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_id** | **str**|  | 
+ **port_id** | **str**|  | 
+ **pagination_key** | **str**| key is a value returned in PageResponse.next_key to begin querying the next page most efficiently. Only one of offset or key should be set. | [optional] 
+ **pagination_offset** | **str**| offset is a numeric offset that can be used when key is unavailable. It is less efficient than using key. Only one of offset or key should be set. | [optional] 
+ **pagination_limit** | **str**| limit is the total number of results to be returned in the result page. If left empty it will default to a value to be set by each app. | [optional] 
+ **pagination_count_total** | **bool**| count_total is set to true  to indicate that the result set should include a count of the total number of items available for pagination in UIs. count_total is only respected when offset is used. It is ignored when key is set. | [optional] 
+ **pagination_reverse** | **bool**| reverse is set to true if results are to be returned in the descending order.  Since: cosmos-sdk 0.43 | [optional] 
+ **query_height** | **str**| Height to query at | [optional] 
+
+### Return type
+
+[**QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC**](QueryIncentivizedPacketsResponseDefinesTheResponseTypeForTheIncentivizedPacketsRPC.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_payee**
+> QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc ibc_applications_fee_v1_payee(channel_id, relayer)
+
+Payee returns the registered payee address for a specific channel given the relayer address
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+channel_id = 'channel_id_example' # str | unique channel identifier
+relayer = 'relayer_example' # str | the relayer address to which the distribution address is registered
+
+try:
+    # Payee returns the registered payee address for a specific channel given the relayer address
+    api_response = api_instance.ibc_applications_fee_v1_payee(channel_id, relayer)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_payee: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **channel_id** | **str**| unique channel identifier | 
+ **relayer** | **str**| the relayer address to which the distribution address is registered | 
+
+### Return type
+
+[**QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc**](QueryPayeeResponseDefinesTheResponseTypeForThePayeeRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_total_ack_fees**
+> QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc ibc_applications_fee_v1_total_ack_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+
+TotalAckFees returns the total acknowledgement fees for a packet given its identifier
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+packet_id_channel_id = 'packet_id_channel_id_example' # str | channel unique identifier
+packet_id_port_id = 'packet_id_port_id_example' # str | channel port identifier
+packet_id_sequence = 'packet_id_sequence_example' # str | packet sequence
+
+try:
+    # TotalAckFees returns the total acknowledgement fees for a packet given its identifier
+    api_response = api_instance.ibc_applications_fee_v1_total_ack_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_total_ack_fees: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **packet_id_channel_id** | **str**| channel unique identifier | 
+ **packet_id_port_id** | **str**| channel port identifier | 
+ **packet_id_sequence** | **str**| packet sequence | 
+
+### Return type
+
+[**QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc**](QueryTotalAckFeesResponseDefinesTheResponseTypeForTheTotalAckFeesRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_total_recv_fees**
+> QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc ibc_applications_fee_v1_total_recv_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+
+TotalRecvFees returns the total receive fees for a packet given its identifier
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+packet_id_channel_id = 'packet_id_channel_id_example' # str | channel unique identifier
+packet_id_port_id = 'packet_id_port_id_example' # str | channel port identifier
+packet_id_sequence = 'packet_id_sequence_example' # str | packet sequence
+
+try:
+    # TotalRecvFees returns the total receive fees for a packet given its identifier
+    api_response = api_instance.ibc_applications_fee_v1_total_recv_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_total_recv_fees: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **packet_id_channel_id** | **str**| channel unique identifier | 
+ **packet_id_port_id** | **str**| channel port identifier | 
+ **packet_id_sequence** | **str**| packet sequence | 
+
+### Return type
+
+[**QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc**](QueryTotalRecvFeesResponseDefinesTheResponseTypeForTheTotalRecvFeesRpc.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_fee_v1_total_timeout_fees**
+> QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc ibc_applications_fee_v1_total_timeout_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+
+TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+packet_id_channel_id = 'packet_id_channel_id_example' # str | channel unique identifier
+packet_id_port_id = 'packet_id_port_id_example' # str | channel port identifier
+packet_id_sequence = 'packet_id_sequence_example' # str | packet sequence
+
+try:
+    # TotalTimeoutFees returns the total timeout fees for a packet given its identifier
+    api_response = api_instance.ibc_applications_fee_v1_total_timeout_fees(packet_id_channel_id, packet_id_port_id, packet_id_sequence)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_fee_v1_total_timeout_fees: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **packet_id_channel_id** | **str**| channel unique identifier | 
+ **packet_id_port_id** | **str**| channel port identifier | 
+ **packet_id_sequence** | **str**| packet sequence | 
+
+### Return type
+
+[**QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc**](QueryTotalTimeoutFeesResponseDefinesTheResponseTypeForTheTotalTimeoutFeesRpc.md)
 
 ### Authorization
 
@@ -4858,7 +5953,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_interchain_accounts_controller_v1_interchain_account**
-> InlineResponse20085 ibc_applications_interchain_accounts_controller_v1_interchain_account(owner, connection_id)
+> InlineResponse20090 ibc_applications_interchain_accounts_controller_v1_interchain_account(owner, connection_id)
 
 InterchainAccount returns the interchain account address for a given owner address on a given connection
 
@@ -4892,7 +5987,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20085**](InlineResponse20085.md)
+[**InlineResponse20090**](InlineResponse20090.md)
 
 ### Authorization
 
@@ -4906,7 +6001,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_interchain_accounts_controller_v1_params**
-> InlineResponse20086 ibc_applications_interchain_accounts_controller_v1_params()
+> InlineResponse20091 ibc_applications_interchain_accounts_controller_v1_params()
 
 Params queries all parameters of the ICA controller submodule.
 
@@ -4934,7 +6029,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20086**](InlineResponse20086.md)
+[**InlineResponse20091**](InlineResponse20091.md)
 
 ### Authorization
 
@@ -4948,7 +6043,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_interchain_accounts_host_v1_params**
-> InlineResponse20087 ibc_applications_interchain_accounts_host_v1_params()
+> InlineResponse20092 ibc_applications_interchain_accounts_host_v1_params()
 
 Params queries all parameters of the ICA host submodule.
 
@@ -4976,7 +6071,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20087**](InlineResponse20087.md)
+[**InlineResponse20092**](InlineResponse20092.md)
 
 ### Authorization
 
@@ -4990,7 +6085,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_transfer_v1_denom_hash**
-> InlineResponse20089 ibc_applications_transfer_v1_denom_hash(trace)
+> InlineResponse20094 ibc_applications_transfer_v1_denom_hash(trace)
 
 DenomHash queries a denomination hash information.
 
@@ -5022,7 +6117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20089**](InlineResponse20089.md)
+[**InlineResponse20094**](InlineResponse20094.md)
 
 ### Authorization
 
@@ -5036,7 +6131,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_transfer_v1_denom_trace**
-> InlineResponse20091 ibc_applications_transfer_v1_denom_trace(hash)
+> InlineResponse20096 ibc_applications_transfer_v1_denom_trace(hash)
 
 DenomTrace queries a denomination trace information.
 
@@ -5068,7 +6163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20091**](InlineResponse20091.md)
+[**InlineResponse20096**](InlineResponse20096.md)
 
 ### Authorization
 
@@ -5082,7 +6177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_transfer_v1_denom_traces**
-> InlineResponse20090 ibc_applications_transfer_v1_denom_traces(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20095 ibc_applications_transfer_v1_denom_traces(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 DenomTraces queries all denomination traces.
 
@@ -5122,7 +6217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20090**](InlineResponse20090.md)
+[**InlineResponse20095**](InlineResponse20095.md)
 
 ### Authorization
 
@@ -5136,7 +6231,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_transfer_v1_escrow_address**
-> InlineResponse20088 ibc_applications_transfer_v1_escrow_address(channel_id, port_id)
+> InlineResponse20093 ibc_applications_transfer_v1_escrow_address(channel_id, port_id)
 
 EscrowAddress returns the escrow address for a particular port and channel id.
 
@@ -5170,7 +6265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20088**](InlineResponse20088.md)
+[**InlineResponse20093**](InlineResponse20093.md)
 
 ### Authorization
 
@@ -5184,7 +6279,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_applications_transfer_v1_params**
-> InlineResponse20092 ibc_applications_transfer_v1_params()
+> InlineResponse20098 ibc_applications_transfer_v1_params()
 
 Params queries all parameters of the ibc-transfer module.
 
@@ -5212,7 +6307,53 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20092**](InlineResponse20092.md)
+[**InlineResponse20098**](InlineResponse20098.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ibc_applications_transfer_v1_total_escrow_for_denom**
+> InlineResponse20097 ibc_applications_transfer_v1_total_escrow_for_denom(denom)
+
+TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.QueryApi()
+denom = 'denom_example' # str | 
+
+try:
+    # TotalEscrowForDenom returns the total amount of tokens in escrow based on the denom.
+    api_response = api_instance.ibc_applications_transfer_v1_total_escrow_for_denom(denom)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling QueryApi->ibc_applications_transfer_v1_total_escrow_for_denom: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **denom** | **str**|  | 
+
+### Return type
+
+[**InlineResponse20097**](InlineResponse20097.md)
 
 ### Authorization
 
@@ -5226,7 +6367,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_channel_v1_channel**
-> InlineResponse20094 ibc_core_channel_v1_channel(channel_id, port_id)
+> InlineResponse200100 ibc_core_channel_v1_channel(channel_id, port_id)
 
 Channel queries an IBC Channel.
 
@@ -5260,7 +6401,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20094**](InlineResponse20094.md)
+[**InlineResponse200100**](InlineResponse200100.md)
 
 ### Authorization
 
@@ -5374,7 +6515,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_channel_v1_channels**
-> InlineResponse20093 ibc_core_channel_v1_channels(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse20099 ibc_core_channel_v1_channels(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Channels queries all the IBC channels of a chain.
 
@@ -5414,7 +6555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20093**](InlineResponse20093.md)
+[**InlineResponse20099**](InlineResponse20099.md)
 
 ### Authorization
 
@@ -5900,7 +7041,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_client_params**
-> InlineResponse20098 ibc_core_client_v1_client_params()
+> InlineResponse200104 ibc_core_client_v1_client_params()
 
 ClientParams queries all parameters of the ibc client submodule.
 
@@ -5928,7 +7069,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20098**](InlineResponse20098.md)
+[**InlineResponse200104**](InlineResponse200104.md)
 
 ### Authorization
 
@@ -5942,7 +7083,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_client_state**
-> InlineResponse20096 ibc_core_client_v1_client_state(client_id)
+> InlineResponse200102 ibc_core_client_v1_client_state(client_id)
 
 ClientState queries an IBC light client.
 
@@ -5974,7 +7115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20096**](InlineResponse20096.md)
+[**InlineResponse200102**](InlineResponse200102.md)
 
 ### Authorization
 
@@ -5988,7 +7129,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_client_states**
-> InlineResponse20095 ibc_core_client_v1_client_states(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse200101 ibc_core_client_v1_client_states(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 ClientStates queries all the IBC light clients of a chain.
 
@@ -6028,7 +7169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20095**](InlineResponse20095.md)
+[**InlineResponse200101**](InlineResponse200101.md)
 
 ### Authorization
 
@@ -6042,7 +7183,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_client_status**
-> InlineResponse20097 ibc_core_client_v1_client_status(client_id)
+> InlineResponse200103 ibc_core_client_v1_client_status(client_id)
 
 Status queries the status of an IBC client.
 
@@ -6074,7 +7215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20097**](InlineResponse20097.md)
+[**InlineResponse200103**](InlineResponse200103.md)
 
 ### Authorization
 
@@ -6252,7 +7393,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_upgraded_client_state**
-> InlineResponse20099 ibc_core_client_v1_upgraded_client_state()
+> InlineResponse200105 ibc_core_client_v1_upgraded_client_state()
 
 UpgradedClientState queries an Upgraded IBC light client.
 
@@ -6280,7 +7421,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20099**](InlineResponse20099.md)
+[**InlineResponse200105**](InlineResponse200105.md)
 
 ### Authorization
 
@@ -6294,7 +7435,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_client_v1_upgraded_consensus_state**
-> InlineResponse200100 ibc_core_client_v1_upgraded_consensus_state()
+> InlineResponse200106 ibc_core_client_v1_upgraded_consensus_state()
 
 UpgradedConsensusState queries an Upgraded IBC consensus state.
 
@@ -6322,7 +7463,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200100**](InlineResponse200100.md)
+[**InlineResponse200106**](InlineResponse200106.md)
 
 ### Authorization
 
@@ -6382,7 +7523,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_connection_v1_connection**
-> InlineResponse200102 ibc_core_connection_v1_connection(connection_id)
+> InlineResponse200108 ibc_core_connection_v1_connection(connection_id)
 
 Connection queries an IBC connection end.
 
@@ -6414,7 +7555,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200102**](InlineResponse200102.md)
+[**InlineResponse200108**](InlineResponse200108.md)
 
 ### Authorization
 
@@ -6524,7 +7665,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_connection_v1_connection_params**
-> InlineResponse200103 ibc_core_connection_v1_connection_params()
+> InlineResponse200109 ibc_core_connection_v1_connection_params()
 
 ConnectionParams queries all parameters of the ibc connection submodule.
 
@@ -6552,7 +7693,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse200103**](InlineResponse200103.md)
+[**InlineResponse200109**](InlineResponse200109.md)
 
 ### Authorization
 
@@ -6566,7 +7707,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ibc_core_connection_v1_connections**
-> InlineResponse200101 ibc_core_connection_v1_connections(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
+> InlineResponse200107 ibc_core_connection_v1_connections(pagination_key=pagination_key, pagination_offset=pagination_offset, pagination_limit=pagination_limit, pagination_count_total=pagination_count_total, pagination_reverse=pagination_reverse)
 
 Connections queries all the IBC connections of a chain.
 
@@ -6606,7 +7747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200101**](InlineResponse200101.md)
+[**InlineResponse200107**](InlineResponse200107.md)
 
 ### Authorization
 

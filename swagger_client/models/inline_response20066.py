@@ -28,40 +28,40 @@ class InlineResponse20066(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'delegation_response': 'CosmosStakingV1beta1QueryDelegationResponseDelegationResponse'
+        'fixed_deposit': 'CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit'
     }
 
     attribute_map = {
-        'delegation_response': 'delegation_response'
+        'fixed_deposit': 'FixedDeposit'
     }
 
-    def __init__(self, delegation_response=None):  # noqa: E501
+    def __init__(self, fixed_deposit=None):  # noqa: E501
         """InlineResponse20066 - a model defined in Swagger"""  # noqa: E501
-        self._delegation_response = None
+        self._fixed_deposit = None
         self.discriminator = None
-        if delegation_response is not None:
-            self.delegation_response = delegation_response
+        if fixed_deposit is not None:
+            self.fixed_deposit = fixed_deposit
 
     @property
-    def delegation_response(self):
-        """Gets the delegation_response of this InlineResponse20066.  # noqa: E501
+    def fixed_deposit(self):
+        """Gets the fixed_deposit of this InlineResponse20066.  # noqa: E501
 
 
-        :return: The delegation_response of this InlineResponse20066.  # noqa: E501
-        :rtype: CosmosStakingV1beta1QueryDelegationResponseDelegationResponse
+        :return: The fixed_deposit of this InlineResponse20066.  # noqa: E501
+        :rtype: CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit
         """
-        return self._delegation_response
+        return self._fixed_deposit
 
-    @delegation_response.setter
-    def delegation_response(self, delegation_response):
-        """Sets the delegation_response of this InlineResponse20066.
+    @fixed_deposit.setter
+    def fixed_deposit(self, fixed_deposit):
+        """Sets the fixed_deposit of this InlineResponse20066.
 
 
-        :param delegation_response: The delegation_response of this InlineResponse20066.  # noqa: E501
-        :type: CosmosStakingV1beta1QueryDelegationResponseDelegationResponse
+        :param fixed_deposit: The fixed_deposit of this InlineResponse20066.  # noqa: E501
+        :type: CosmosStakingV1beta1QueryAllFixedDepositResponseFixedDeposit
         """
 
-        self._delegation_response = delegation_response
+        self._fixed_deposit = fixed_deposit
 
     def to_dict(self):
         """Returns the model properties as a dict"""

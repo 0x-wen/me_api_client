@@ -28,47 +28,47 @@ class InlineResponse20057(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposals': 'list[CosmosGroupV1QueryProposalsByGroupPolicyResponseProposals]',
+        'groups': 'list[CosmosGroupV1QueryGroupsByAdminResponseGroups]',
         'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
     }
 
     attribute_map = {
-        'proposals': 'proposals',
+        'groups': 'groups',
         'pagination': 'pagination'
     }
 
-    def __init__(self, proposals=None, pagination=None):  # noqa: E501
+    def __init__(self, groups=None, pagination=None):  # noqa: E501
         """InlineResponse20057 - a model defined in Swagger"""  # noqa: E501
-        self._proposals = None
+        self._groups = None
         self._pagination = None
         self.discriminator = None
-        if proposals is not None:
-            self.proposals = proposals
+        if groups is not None:
+            self.groups = groups
         if pagination is not None:
             self.pagination = pagination
 
     @property
-    def proposals(self):
-        """Gets the proposals of this InlineResponse20057.  # noqa: E501
+    def groups(self):
+        """Gets the groups of this InlineResponse20057.  # noqa: E501
 
-        proposals are the proposals with given group policy.  # noqa: E501
+        groups are the groups info with the provided admin.  # noqa: E501
 
-        :return: The proposals of this InlineResponse20057.  # noqa: E501
-        :rtype: list[CosmosGroupV1QueryProposalsByGroupPolicyResponseProposals]
+        :return: The groups of this InlineResponse20057.  # noqa: E501
+        :rtype: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
         """
-        return self._proposals
+        return self._groups
 
-    @proposals.setter
-    def proposals(self, proposals):
-        """Sets the proposals of this InlineResponse20057.
+    @groups.setter
+    def groups(self, groups):
+        """Sets the groups of this InlineResponse20057.
 
-        proposals are the proposals with given group policy.  # noqa: E501
+        groups are the groups info with the provided admin.  # noqa: E501
 
-        :param proposals: The proposals of this InlineResponse20057.  # noqa: E501
-        :type: list[CosmosGroupV1QueryProposalsByGroupPolicyResponseProposals]
+        :param groups: The groups of this InlineResponse20057.  # noqa: E501
+        :type: list[CosmosGroupV1QueryGroupsByAdminResponseGroups]
         """
 
-        self._proposals = proposals
+        self._groups = groups
 
     @property
     def pagination(self):

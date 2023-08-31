@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allowance** | [**GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext**](GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext.md) |  | [optional] 
+**rewards** | [**list[CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards]**](CosmosDistributionV1beta1QueryDelegationRewardsResponseRewards.md) | rewards defines the rewards accrued by a delegation. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

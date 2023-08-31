@@ -31,22 +31,22 @@ class CosmosStakingV1beta1Kyc(object):
         'account': 'str',
         'creator': 'str',
         'region_id': 'str',
-        'nft_id': 'str'
+        'region_name': 'str'
     }
 
     attribute_map = {
         'account': 'account',
         'creator': 'creator',
         'region_id': 'regionId',
-        'nft_id': 'nft_id'
+        'region_name': 'regionName'
     }
 
-    def __init__(self, account=None, creator=None, region_id=None, nft_id=None):  # noqa: E501
+    def __init__(self, account=None, creator=None, region_id=None, region_name=None):  # noqa: E501
         """CosmosStakingV1beta1Kyc - a model defined in Swagger"""  # noqa: E501
         self._account = None
         self._creator = None
         self._region_id = None
-        self._nft_id = None
+        self._region_name = None
         self.discriminator = None
         if account is not None:
             self.account = account
@@ -54,8 +54,8 @@ class CosmosStakingV1beta1Kyc(object):
             self.creator = creator
         if region_id is not None:
             self.region_id = region_id
-        if nft_id is not None:
-            self.nft_id = nft_id
+        if region_name is not None:
+            self.region_name = region_name
 
     @property
     def account(self):
@@ -121,25 +121,25 @@ class CosmosStakingV1beta1Kyc(object):
         self._region_id = region_id
 
     @property
-    def nft_id(self):
-        """Gets the nft_id of this CosmosStakingV1beta1Kyc.  # noqa: E501
+    def region_name(self):
+        """Gets the region_name of this CosmosStakingV1beta1Kyc.  # noqa: E501
 
 
-        :return: The nft_id of this CosmosStakingV1beta1Kyc.  # noqa: E501
+        :return: The region_name of this CosmosStakingV1beta1Kyc.  # noqa: E501
         :rtype: str
         """
-        return self._nft_id
+        return self._region_name
 
-    @nft_id.setter
-    def nft_id(self, nft_id):
-        """Sets the nft_id of this CosmosStakingV1beta1Kyc.
+    @region_name.setter
+    def region_name(self, region_name):
+        """Sets the region_name of this CosmosStakingV1beta1Kyc.
 
 
-        :param nft_id: The nft_id of this CosmosStakingV1beta1Kyc.  # noqa: E501
+        :param region_name: The region_name of this CosmosStakingV1beta1Kyc.  # noqa: E501
         :type: str
         """
 
-        self._nft_id = nft_id
+        self._region_name = region_name
 
     def to_dict(self):
         """Returns the model properties as a dict"""

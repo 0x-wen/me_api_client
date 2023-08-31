@@ -28,68 +28,40 @@ class InlineResponse20017(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'balances': 'list[CosmosBankV1beta1InputCoins]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'params': 'CosmosBankV1beta1QueryParamsResponseParams'
     }
 
     attribute_map = {
-        'balances': 'balances',
-        'pagination': 'pagination'
+        'params': 'params'
     }
 
-    def __init__(self, balances=None, pagination=None):  # noqa: E501
+    def __init__(self, params=None):  # noqa: E501
         """InlineResponse20017 - a model defined in Swagger"""  # noqa: E501
-        self._balances = None
-        self._pagination = None
+        self._params = None
         self.discriminator = None
-        if balances is not None:
-            self.balances = balances
-        if pagination is not None:
-            self.pagination = pagination
+        if params is not None:
+            self.params = params
 
     @property
-    def balances(self):
-        """Gets the balances of this InlineResponse20017.  # noqa: E501
+    def params(self):
+        """Gets the params of this InlineResponse20017.  # noqa: E501
 
-        balances is the spendable balances of all the coins.  # noqa: E501
 
-        :return: The balances of this InlineResponse20017.  # noqa: E501
-        :rtype: list[CosmosBankV1beta1InputCoins]
+        :return: The params of this InlineResponse20017.  # noqa: E501
+        :rtype: CosmosBankV1beta1QueryParamsResponseParams
         """
-        return self._balances
+        return self._params
 
-    @balances.setter
-    def balances(self, balances):
-        """Sets the balances of this InlineResponse20017.
+    @params.setter
+    def params(self, params):
+        """Sets the params of this InlineResponse20017.
 
-        balances is the spendable balances of all the coins.  # noqa: E501
 
-        :param balances: The balances of this InlineResponse20017.  # noqa: E501
-        :type: list[CosmosBankV1beta1InputCoins]
+        :param params: The params of this InlineResponse20017.  # noqa: E501
+        :type: CosmosBankV1beta1QueryParamsResponseParams
         """
 
-        self._balances = balances
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20017.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20017.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20017.
-
-
-        :param pagination: The pagination of this InlineResponse20017.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._params = params
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -28,68 +28,40 @@ class InlineResponse20046(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'votes': 'list[CosmosGovV1beta1QueryVotesResponseVotes]',
-        'pagination': 'CosmosAuthV1beta1QueryAccountsResponsePagination'
+        'vote': 'CosmosGovV1QueryVoteResponseVote'
     }
 
     attribute_map = {
-        'votes': 'votes',
-        'pagination': 'pagination'
+        'vote': 'vote'
     }
 
-    def __init__(self, votes=None, pagination=None):  # noqa: E501
+    def __init__(self, vote=None):  # noqa: E501
         """InlineResponse20046 - a model defined in Swagger"""  # noqa: E501
-        self._votes = None
-        self._pagination = None
+        self._vote = None
         self.discriminator = None
-        if votes is not None:
-            self.votes = votes
-        if pagination is not None:
-            self.pagination = pagination
+        if vote is not None:
+            self.vote = vote
 
     @property
-    def votes(self):
-        """Gets the votes of this InlineResponse20046.  # noqa: E501
+    def vote(self):
+        """Gets the vote of this InlineResponse20046.  # noqa: E501
 
-        votes defined the queried votes.  # noqa: E501
 
-        :return: The votes of this InlineResponse20046.  # noqa: E501
-        :rtype: list[CosmosGovV1beta1QueryVotesResponseVotes]
+        :return: The vote of this InlineResponse20046.  # noqa: E501
+        :rtype: CosmosGovV1QueryVoteResponseVote
         """
-        return self._votes
+        return self._vote
 
-    @votes.setter
-    def votes(self, votes):
-        """Sets the votes of this InlineResponse20046.
+    @vote.setter
+    def vote(self, vote):
+        """Sets the vote of this InlineResponse20046.
 
-        votes defined the queried votes.  # noqa: E501
 
-        :param votes: The votes of this InlineResponse20046.  # noqa: E501
-        :type: list[CosmosGovV1beta1QueryVotesResponseVotes]
+        :param vote: The vote of this InlineResponse20046.  # noqa: E501
+        :type: CosmosGovV1QueryVoteResponseVote
         """
 
-        self._votes = votes
-
-    @property
-    def pagination(self):
-        """Gets the pagination of this InlineResponse20046.  # noqa: E501
-
-
-        :return: The pagination of this InlineResponse20046.  # noqa: E501
-        :rtype: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-        return self._pagination
-
-    @pagination.setter
-    def pagination(self, pagination):
-        """Sets the pagination of this InlineResponse20046.
-
-
-        :param pagination: The pagination of this InlineResponse20046.  # noqa: E501
-        :type: CosmosAuthV1beta1QueryAccountsResponsePagination
-        """
-
-        self._pagination = pagination
+        self._vote = vote
 
     def to_dict(self):
         """Returns the model properties as a dict"""

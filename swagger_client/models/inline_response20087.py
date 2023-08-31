@@ -28,40 +28,40 @@ class InlineResponse20087(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'IbcApplicationsInterchainAccountsHostV1QueryParamsResponseParams'
+        'upgraded_consensus_state': 'str'
     }
 
     attribute_map = {
-        'params': 'params'
+        'upgraded_consensus_state': 'upgraded_consensus_state'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, upgraded_consensus_state=None):  # noqa: E501
         """InlineResponse20087 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._upgraded_consensus_state = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if upgraded_consensus_state is not None:
+            self.upgraded_consensus_state = upgraded_consensus_state
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20087.  # noqa: E501
+    def upgraded_consensus_state(self):
+        """Gets the upgraded_consensus_state of this InlineResponse20087.  # noqa: E501
 
 
-        :return: The params of this InlineResponse20087.  # noqa: E501
-        :rtype: IbcApplicationsInterchainAccountsHostV1QueryParamsResponseParams
+        :return: The upgraded_consensus_state of this InlineResponse20087.  # noqa: E501
+        :rtype: str
         """
-        return self._params
+        return self._upgraded_consensus_state
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20087.
+    @upgraded_consensus_state.setter
+    def upgraded_consensus_state(self, upgraded_consensus_state):
+        """Sets the upgraded_consensus_state of this InlineResponse20087.
 
 
-        :param params: The params of this InlineResponse20087.  # noqa: E501
-        :type: IbcApplicationsInterchainAccountsHostV1QueryParamsResponseParams
+        :param upgraded_consensus_state: The upgraded_consensus_state of this InlineResponse20087.  # noqa: E501
+        :type: str
         """
 
-        self._params = params
+        self._upgraded_consensus_state = upgraded_consensus_state
 
     def to_dict(self):
         """Returns the model properties as a dict"""

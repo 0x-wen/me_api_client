@@ -28,40 +28,40 @@ class InlineResponse20036(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'proposal': 'CosmosGovV1QueryProposalResponseProposal'
+        'allowance': 'GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext'
     }
 
     attribute_map = {
-        'proposal': 'proposal'
+        'allowance': 'allowance'
     }
 
-    def __init__(self, proposal=None):  # noqa: E501
+    def __init__(self, allowance=None):  # noqa: E501
         """InlineResponse20036 - a model defined in Swagger"""  # noqa: E501
-        self._proposal = None
+        self._allowance = None
         self.discriminator = None
-        if proposal is not None:
-            self.proposal = proposal
+        if allowance is not None:
+            self.allowance = allowance
 
     @property
-    def proposal(self):
-        """Gets the proposal of this InlineResponse20036.  # noqa: E501
+    def allowance(self):
+        """Gets the allowance of this InlineResponse20036.  # noqa: E501
 
 
-        :return: The proposal of this InlineResponse20036.  # noqa: E501
-        :rtype: CosmosGovV1QueryProposalResponseProposal
+        :return: The allowance of this InlineResponse20036.  # noqa: E501
+        :rtype: GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext
         """
-        return self._proposal
+        return self._allowance
 
-    @proposal.setter
-    def proposal(self, proposal):
-        """Sets the proposal of this InlineResponse20036.
+    @allowance.setter
+    def allowance(self, allowance):
+        """Sets the allowance of this InlineResponse20036.
 
 
-        :param proposal: The proposal of this InlineResponse20036.  # noqa: E501
-        :type: CosmosGovV1QueryProposalResponseProposal
+        :param allowance: The allowance of this InlineResponse20036.  # noqa: E501
+        :type: GrantIsStoredInTheKVStoreToRecordAGrantWithFullContext
         """
 
-        self._proposal = proposal
+        self._allowance = allowance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

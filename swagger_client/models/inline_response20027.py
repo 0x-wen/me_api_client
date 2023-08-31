@@ -28,40 +28,40 @@ class InlineResponse20027(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'params': 'CosmosDistributionV1beta1QueryParamsResponseParams'
+        'syncing': 'bool'
     }
 
     attribute_map = {
-        'params': 'params'
+        'syncing': 'syncing'
     }
 
-    def __init__(self, params=None):  # noqa: E501
+    def __init__(self, syncing=None):  # noqa: E501
         """InlineResponse20027 - a model defined in Swagger"""  # noqa: E501
-        self._params = None
+        self._syncing = None
         self.discriminator = None
-        if params is not None:
-            self.params = params
+        if syncing is not None:
+            self.syncing = syncing
 
     @property
-    def params(self):
-        """Gets the params of this InlineResponse20027.  # noqa: E501
+    def syncing(self):
+        """Gets the syncing of this InlineResponse20027.  # noqa: E501
 
 
-        :return: The params of this InlineResponse20027.  # noqa: E501
-        :rtype: CosmosDistributionV1beta1QueryParamsResponseParams
+        :return: The syncing of this InlineResponse20027.  # noqa: E501
+        :rtype: bool
         """
-        return self._params
+        return self._syncing
 
-    @params.setter
-    def params(self, params):
-        """Sets the params of this InlineResponse20027.
+    @syncing.setter
+    def syncing(self, syncing):
+        """Sets the syncing of this InlineResponse20027.
 
 
-        :param params: The params of this InlineResponse20027.  # noqa: E501
-        :type: CosmosDistributionV1beta1QueryParamsResponseParams
+        :param syncing: The syncing of this InlineResponse20027.  # noqa: E501
+        :type: bool
         """
 
-        self._params = params
+        self._syncing = syncing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

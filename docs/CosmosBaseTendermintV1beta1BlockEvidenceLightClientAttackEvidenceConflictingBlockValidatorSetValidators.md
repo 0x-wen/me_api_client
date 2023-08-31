@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** |  | [optional] 
-**pub_key** | [**PublicKeyDefinesTheKeysAvailableForUseWithTendermintValidators**](PublicKeyDefinesTheKeysAvailableForUseWithTendermintValidators.md) |  | [optional] 
+**pub_key** | [**PublicKeyDefinesTheKeysAvailableForUseWithValidators**](PublicKeyDefinesTheKeysAvailableForUseWithValidators.md) |  | [optional] 
 **voting_power** | **str** |  | [optional] 
 **proposer_priority** | **str** |  | [optional] 
 

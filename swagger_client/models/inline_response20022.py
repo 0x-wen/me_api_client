@@ -28,92 +28,40 @@ class InlineResponse20022(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'block_id': 'BlockID',
-        'block': 'DeprecatedPleaseUseSdkBlockInstead',
-        'sdk_block': 'SinceCosmossdk047'
+        'minimum_gas_price': 'str'
     }
 
     attribute_map = {
-        'block_id': 'block_id',
-        'block': 'block',
-        'sdk_block': 'sdk_block'
+        'minimum_gas_price': 'minimum_gas_price'
     }
 
-    def __init__(self, block_id=None, block=None, sdk_block=None):  # noqa: E501
+    def __init__(self, minimum_gas_price=None):  # noqa: E501
         """InlineResponse20022 - a model defined in Swagger"""  # noqa: E501
-        self._block_id = None
-        self._block = None
-        self._sdk_block = None
+        self._minimum_gas_price = None
         self.discriminator = None
-        if block_id is not None:
-            self.block_id = block_id
-        if block is not None:
-            self.block = block
-        if sdk_block is not None:
-            self.sdk_block = sdk_block
+        if minimum_gas_price is not None:
+            self.minimum_gas_price = minimum_gas_price
 
     @property
-    def block_id(self):
-        """Gets the block_id of this InlineResponse20022.  # noqa: E501
+    def minimum_gas_price(self):
+        """Gets the minimum_gas_price of this InlineResponse20022.  # noqa: E501
 
 
-        :return: The block_id of this InlineResponse20022.  # noqa: E501
-        :rtype: BlockID
+        :return: The minimum_gas_price of this InlineResponse20022.  # noqa: E501
+        :rtype: str
         """
-        return self._block_id
+        return self._minimum_gas_price
 
-    @block_id.setter
-    def block_id(self, block_id):
-        """Sets the block_id of this InlineResponse20022.
-
-
-        :param block_id: The block_id of this InlineResponse20022.  # noqa: E501
-        :type: BlockID
-        """
-
-        self._block_id = block_id
-
-    @property
-    def block(self):
-        """Gets the block of this InlineResponse20022.  # noqa: E501
+    @minimum_gas_price.setter
+    def minimum_gas_price(self, minimum_gas_price):
+        """Sets the minimum_gas_price of this InlineResponse20022.
 
 
-        :return: The block of this InlineResponse20022.  # noqa: E501
-        :rtype: DeprecatedPleaseUseSdkBlockInstead
-        """
-        return self._block
-
-    @block.setter
-    def block(self, block):
-        """Sets the block of this InlineResponse20022.
-
-
-        :param block: The block of this InlineResponse20022.  # noqa: E501
-        :type: DeprecatedPleaseUseSdkBlockInstead
+        :param minimum_gas_price: The minimum_gas_price of this InlineResponse20022.  # noqa: E501
+        :type: str
         """
 
-        self._block = block
-
-    @property
-    def sdk_block(self):
-        """Gets the sdk_block of this InlineResponse20022.  # noqa: E501
-
-
-        :return: The sdk_block of this InlineResponse20022.  # noqa: E501
-        :rtype: SinceCosmossdk047
-        """
-        return self._sdk_block
-
-    @sdk_block.setter
-    def sdk_block(self, sdk_block):
-        """Sets the sdk_block of this InlineResponse20022.
-
-
-        :param sdk_block: The sdk_block of this InlineResponse20022.  # noqa: E501
-        :type: SinceCosmossdk047
-        """
-
-        self._sdk_block = sdk_block
+        self._minimum_gas_price = minimum_gas_price
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -37,7 +37,10 @@ class CosmosGovV1Proposal(object):
         'total_deposit': 'list[CosmosBankV1beta1InputCoins]',
         'voting_start_time': 'datetime',
         'voting_end_time': 'datetime',
-        'metadata': 'str'
+        'metadata': 'str',
+        'title': 'str',
+        'summary': 'str',
+        'proposer': 'str'
     }
 
     attribute_map = {
@@ -50,10 +53,13 @@ class CosmosGovV1Proposal(object):
         'total_deposit': 'total_deposit',
         'voting_start_time': 'voting_start_time',
         'voting_end_time': 'voting_end_time',
-        'metadata': 'metadata'
+        'metadata': 'metadata',
+        'title': 'title',
+        'summary': 'summary',
+        'proposer': 'proposer'
     }
 
-    def __init__(self, id=None, messages=None, status='PROPOSAL_STATUS_UNSPECIFIED', final_tally_result=None, submit_time=None, deposit_end_time=None, total_deposit=None, voting_start_time=None, voting_end_time=None, metadata=None):  # noqa: E501
+    def __init__(self, id=None, messages=None, status='PROPOSAL_STATUS_UNSPECIFIED', final_tally_result=None, submit_time=None, deposit_end_time=None, total_deposit=None, voting_start_time=None, voting_end_time=None, metadata=None, title=None, summary=None, proposer=None):  # noqa: E501
         """CosmosGovV1Proposal - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._messages = None
@@ -65,6 +71,9 @@ class CosmosGovV1Proposal(object):
         self._voting_start_time = None
         self._voting_end_time = None
         self._metadata = None
+        self._title = None
+        self._summary = None
+        self._proposer = None
         self.discriminator = None
         if id is not None:
             self.id = id
@@ -86,11 +95,18 @@ class CosmosGovV1Proposal(object):
             self.voting_end_time = voting_end_time
         if metadata is not None:
             self.metadata = metadata
+        if title is not None:
+            self.title = title
+        if summary is not None:
+            self.summary = summary
+        if proposer is not None:
+            self.proposer = proposer
 
     @property
     def id(self):
         """Gets the id of this CosmosGovV1Proposal.  # noqa: E501
 
+        id defines the unique id of the proposal.  # noqa: E501
 
         :return: The id of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: str
@@ -101,6 +117,7 @@ class CosmosGovV1Proposal(object):
     def id(self, id):
         """Sets the id of this CosmosGovV1Proposal.
 
+        id defines the unique id of the proposal.  # noqa: E501
 
         :param id: The id of this CosmosGovV1Proposal.  # noqa: E501
         :type: str
@@ -112,6 +129,7 @@ class CosmosGovV1Proposal(object):
     def messages(self):
         """Gets the messages of this CosmosGovV1Proposal.  # noqa: E501
 
+        messages are the arbitrary messages to be executed if the proposal passes.  # noqa: E501
 
         :return: The messages of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: list[dict(str, object)]
@@ -122,6 +140,7 @@ class CosmosGovV1Proposal(object):
     def messages(self, messages):
         """Sets the messages of this CosmosGovV1Proposal.
 
+        messages are the arbitrary messages to be executed if the proposal passes.  # noqa: E501
 
         :param messages: The messages of this CosmosGovV1Proposal.  # noqa: E501
         :type: list[dict(str, object)]
@@ -133,7 +152,7 @@ class CosmosGovV1Proposal(object):
     def status(self):
         """Gets the status of this CosmosGovV1Proposal.  # noqa: E501
 
-        ProposalStatus enumerates the valid statuses of a proposal.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed.  # noqa: E501
+        status defines the proposal status.  # noqa: E501
 
         :return: The status of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: str
@@ -144,7 +163,7 @@ class CosmosGovV1Proposal(object):
     def status(self, status):
         """Sets the status of this CosmosGovV1Proposal.
 
-        ProposalStatus enumerates the valid statuses of a proposal.   - PROPOSAL_STATUS_UNSPECIFIED: PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.  - PROPOSAL_STATUS_DEPOSIT_PERIOD: PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit period.  - PROPOSAL_STATUS_VOTING_PERIOD: PROPOSAL_STATUS_VOTING_PERIOD defines a proposal status during the voting period.  - PROPOSAL_STATUS_PASSED: PROPOSAL_STATUS_PASSED defines a proposal status of a proposal that has passed.  - PROPOSAL_STATUS_REJECTED: PROPOSAL_STATUS_REJECTED defines a proposal status of a proposal that has been rejected.  - PROPOSAL_STATUS_FAILED: PROPOSAL_STATUS_FAILED defines a proposal status of a proposal that has failed.  # noqa: E501
+        status defines the proposal status.  # noqa: E501
 
         :param status: The status of this CosmosGovV1Proposal.  # noqa: E501
         :type: str
@@ -183,6 +202,7 @@ class CosmosGovV1Proposal(object):
     def submit_time(self):
         """Gets the submit_time of this CosmosGovV1Proposal.  # noqa: E501
 
+        submit_time is the time of proposal submission.  # noqa: E501
 
         :return: The submit_time of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: datetime
@@ -193,6 +213,7 @@ class CosmosGovV1Proposal(object):
     def submit_time(self, submit_time):
         """Sets the submit_time of this CosmosGovV1Proposal.
 
+        submit_time is the time of proposal submission.  # noqa: E501
 
         :param submit_time: The submit_time of this CosmosGovV1Proposal.  # noqa: E501
         :type: datetime
@@ -204,6 +225,7 @@ class CosmosGovV1Proposal(object):
     def deposit_end_time(self):
         """Gets the deposit_end_time of this CosmosGovV1Proposal.  # noqa: E501
 
+        deposit_end_time is the end time for deposition.  # noqa: E501
 
         :return: The deposit_end_time of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: datetime
@@ -214,6 +236,7 @@ class CosmosGovV1Proposal(object):
     def deposit_end_time(self, deposit_end_time):
         """Sets the deposit_end_time of this CosmosGovV1Proposal.
 
+        deposit_end_time is the end time for deposition.  # noqa: E501
 
         :param deposit_end_time: The deposit_end_time of this CosmosGovV1Proposal.  # noqa: E501
         :type: datetime
@@ -225,6 +248,7 @@ class CosmosGovV1Proposal(object):
     def total_deposit(self):
         """Gets the total_deposit of this CosmosGovV1Proposal.  # noqa: E501
 
+        total_deposit is the total deposit on the proposal.  # noqa: E501
 
         :return: The total_deposit of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: list[CosmosBankV1beta1InputCoins]
@@ -235,6 +259,7 @@ class CosmosGovV1Proposal(object):
     def total_deposit(self, total_deposit):
         """Sets the total_deposit of this CosmosGovV1Proposal.
 
+        total_deposit is the total deposit on the proposal.  # noqa: E501
 
         :param total_deposit: The total_deposit of this CosmosGovV1Proposal.  # noqa: E501
         :type: list[CosmosBankV1beta1InputCoins]
@@ -246,6 +271,7 @@ class CosmosGovV1Proposal(object):
     def voting_start_time(self):
         """Gets the voting_start_time of this CosmosGovV1Proposal.  # noqa: E501
 
+        voting_start_time is the starting time to vote on a proposal.  # noqa: E501
 
         :return: The voting_start_time of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: datetime
@@ -256,6 +282,7 @@ class CosmosGovV1Proposal(object):
     def voting_start_time(self, voting_start_time):
         """Sets the voting_start_time of this CosmosGovV1Proposal.
 
+        voting_start_time is the starting time to vote on a proposal.  # noqa: E501
 
         :param voting_start_time: The voting_start_time of this CosmosGovV1Proposal.  # noqa: E501
         :type: datetime
@@ -267,6 +294,7 @@ class CosmosGovV1Proposal(object):
     def voting_end_time(self):
         """Gets the voting_end_time of this CosmosGovV1Proposal.  # noqa: E501
 
+        voting_end_time is the end time of voting on a proposal.  # noqa: E501
 
         :return: The voting_end_time of this CosmosGovV1Proposal.  # noqa: E501
         :rtype: datetime
@@ -277,6 +305,7 @@ class CosmosGovV1Proposal(object):
     def voting_end_time(self, voting_end_time):
         """Sets the voting_end_time of this CosmosGovV1Proposal.
 
+        voting_end_time is the end time of voting on a proposal.  # noqa: E501
 
         :param voting_end_time: The voting_end_time of this CosmosGovV1Proposal.  # noqa: E501
         :type: datetime
@@ -306,6 +335,75 @@ class CosmosGovV1Proposal(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def title(self):
+        """Gets the title of this CosmosGovV1Proposal.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :return: The title of this CosmosGovV1Proposal.  # noqa: E501
+        :rtype: str
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this CosmosGovV1Proposal.
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :param title: The title of this CosmosGovV1Proposal.  # noqa: E501
+        :type: str
+        """
+
+        self._title = title
+
+    @property
+    def summary(self):
+        """Gets the summary of this CosmosGovV1Proposal.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :return: The summary of this CosmosGovV1Proposal.  # noqa: E501
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """Sets the summary of this CosmosGovV1Proposal.
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :param summary: The summary of this CosmosGovV1Proposal.  # noqa: E501
+        :type: str
+        """
+
+        self._summary = summary
+
+    @property
+    def proposer(self):
+        """Gets the proposer of this CosmosGovV1Proposal.  # noqa: E501
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :return: The proposer of this CosmosGovV1Proposal.  # noqa: E501
+        :rtype: str
+        """
+        return self._proposer
+
+    @proposer.setter
+    def proposer(self, proposer):
+        """Sets the proposer of this CosmosGovV1Proposal.
+
+        Since: cosmos-sdk 0.47  # noqa: E501
+
+        :param proposer: The proposer of this CosmosGovV1Proposal.  # noqa: E501
+        :type: str
+        """
+
+        self._proposer = proposer
 
     def to_dict(self):
         """Returns the model properties as a dict"""
